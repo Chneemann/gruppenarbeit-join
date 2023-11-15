@@ -1,0 +1,15 @@
+body{
+    margin: auto 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.logo{
+    width:19vw;
+    height:auto;
+}
+.logo-up-left{
+    width:7vw;;
+    height:auto
+}
