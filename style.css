@@ -4,7 +4,7 @@
 }
 @font-face {
     font-family: 'Figtree';
-    src: url('/fonts/Figtree/static/Figree-Bold.ttf');
+    src: url('./fonts/Figtree/static/Figtree-Bold.ttf');
 }
 body{
     font-family: 'Figtree';
@@ -17,4 +17,11 @@ body{
 .logo{
     width:19vw;
     height:auto;
+}
+.logo:hover{
+    cursor: pointer;
+}
+.move-up{ transition: 1s;
+    scale: 0.5;
+    transform: translate(-450%,-200%) ;
 }
