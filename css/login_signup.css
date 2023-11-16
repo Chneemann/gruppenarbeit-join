@@ -9,6 +9,16 @@
 body {
   margin: 0;
   background-color: var(--very-light-gray);
+  font-family: "Figtree", sans-serif;
+}
+
+h1 {
+  color: var(--black);
+  text-align: center;
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 120%;
+  margin-bottom: 12px;
 }
 
 .logo {
@@ -72,8 +82,8 @@ body {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  width: 45.28vw;
-  height: 48.14vh;
+  width: 45.28%;
+  height: 48.14%;
   background: var(--white);
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
