@@ -1,6 +1,14 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --dark-blue: #2a3647;
+  --very-light-gray: #f6f7f8;
+  --light-blue: #28abe2;
+}
+
 body {
-  margin: auto;
-  background-color: #f6f7f8;
+  margin: 0;
+  background-color: var(--very-light-gray);
 }
 
 .logo {
@@ -36,8 +44,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2a3647;
-  color: #fff;
+  background-color: var(--dark-blue);
+  color: var(--white);
   width: 91px;
   height: 49px;
   border-radius: 8px;
@@ -47,9 +55,26 @@ body {
 }
 
 .not-a-join-user button:hover {
-  background-color: #28abe2;
+  background-color: var(--light-blue);
 }
 
 .not-a-join-user button:active {
-  background-color: #000;
+  background-color: var(--black);
+}
+
+/*------------- CONTENT -------------*/
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 45.28vw;
+  height: 48.14vh;
+  background: var(--white);
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
 }
