@@ -2,6 +2,7 @@
   --black: #000;
   --white: #fff;
   --dark-blue: #2a3647;
+  --light-gray: #d1d1d1;
   --very-light-gray: #f6f7f8;
   --light-blue: #28abe2;
 }
@@ -74,7 +75,7 @@ h1 {
 
 /*------------- CONTENT -------------*/
 
-.content {
+.login-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,4 +88,27 @@ h1 {
   background: var(--white);
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
+}
+
+.login-content img {
+  margin-bottom: 32px;
+}
+
+.login-input-fields {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+}
+
+.login-input-fields input {
+  color: var(--light-gray);
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  margin-bottom: 32px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  padding: 12px 21px;
 }
