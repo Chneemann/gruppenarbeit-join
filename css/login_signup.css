@@ -90,6 +90,10 @@ h1 {
   border-radius: 30px;
 }
 
+.login-content h1 {
+  margin-top: 4.7%;
+}
+
 .login-content img {
   margin-bottom: 32px;
 }
@@ -141,4 +145,46 @@ h1 {
 .login-check-button label {
   cursor: pointer;
   margin-left: 6px;
+}
+
+.login-buttons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+.login-btn {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--dark-blue);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.login-btn:hover {
+  background-color: var(--light-blue);
+}
+
+.login-btn-guest {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  font-size: 21px;
+  font-weight: 700;
+  border: 1px solid var(--dark-blue);
+  background: var(--white);
+}
+
+.login-btn-guest:hover {
+  color: var(--light-blue);
+  border: 1px solid var(--light-blue);
 }
