@@ -111,4 +111,16 @@ h1 {
   border-radius: 10px;
   border: 1px solid var(--light-gray);
   padding: 12px 21px;
+  background-position-x: calc(100% - 21px);
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+}
+
+.input-icon-mail {
+  background-image: url("/assets/img/mail.svg");
+}
+
+.input-icon-lock {
+  background-image: url("/assets/img/lock.svg");
 }
