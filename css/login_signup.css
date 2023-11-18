@@ -301,8 +301,15 @@ h1 {
   padding: 48px 88px;
 }
 
-.signup-content img {
+.signup-content img:nth-child(2) {
   margin-bottom: 32px;
+}
+
+.signup-content img:nth-child(3) {
+  cursor: pointer;
+  position: absolute;
+  left: calc(24px + 48px);
+  left: calc(8px + 88px);
 }
 
 .input-icon-name {
