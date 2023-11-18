@@ -25,18 +25,16 @@ h1 {
 
 .logo {
   position: absolute;
-  left: 77px;
-  top: 80px;
+  left: 57px;
+  top: 60px;
   height: 100px;
   width: 122px;
 }
 
 .not-a-join-user {
-  width: 279px;
-  height: 49px;
   position: absolute;
   top: 67px;
-  right: 122px;
+  right: 8.5%;
   display: inline-flex;
   align-items: center;
 }
@@ -245,6 +243,7 @@ footer div:hover {
   }
 
   .login-buttons {
+    margin-top: 0;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
