@@ -15,14 +15,6 @@ body {
   width: 1440px;
 }
 
-h1 {
-  color: var(--black);
-  text-align: center;
-  font-size: 61px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
 .logo {
   position: absolute;
   left: 57px;
@@ -32,6 +24,14 @@ h1 {
 }
 
 /*------------- LOG IN PAGE -------------*/
+
+h1 {
+  color: var(--black);
+  text-align: center;
+  font-size: 61px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
 
 .not-a-join-user {
   position: absolute;
@@ -78,7 +78,7 @@ h1 {
   display: none;
 }
 
-/*------------- CONTENT -------------*/
+/*------------- LOG IN PAGE - CONTENT -------------*/
 
 .login-content {
   display: flex;
@@ -200,95 +200,6 @@ h1 {
   border: 1px solid var(--light-blue);
 }
 
-/*------------- FOOTER -------------*/
-
-footer {
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  margin-bottom: 48px;
-}
-
-footer div {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--gray);
-  padding: 8px;
-  cursor: pointer;
-  width: 110px;
-  height: 19px;
-}
-
-footer div:hover {
-  color: var(--light-blue);
-  font-weight: 600;
-}
-
-/*------------- MOBILE -------------*/
-
-@media (max-width: 700px) {
-  .logo {
-    position: absolute;
-    left: 38px;
-    top: 37px;
-    height: 64px;
-    width: 78px;
-  }
-
-  .login-content {
-    width: 396px;
-    height: 451px;
-    padding: 32px 0;
-  }
-
-  .login-input-fields {
-    width: 80%;
-  }
-
-  .login-buttons {
-    margin-top: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-  }
-
-  .login-btn {
-    margin-bottom: 21px;
-  }
-
-  .not-a-join-user {
-    top: unset;
-    right: unset;
-    bottom: 99px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  footer {
-    margin-bottom: 22px;
-  }
-}
-
-/*------------- MEDIA -------------*/
-
-@media (max-width: 400px) {
-  .login-content {
-    width: 296px;
-  }
-
-  .login-input-fields {
-    width: 70%;
-  }
-
-  .login-check-button {
-    padding: 0;
-  }
-}
-
 /*------------- SIGNUP PAGE -------------*/
 
 h1 {
@@ -299,7 +210,7 @@ h1 {
   margin: 0 0 16px 0;
 }
 
-/*------------- CONTENT -------------*/
+/*------------- SIGNUP PAGE - CONTENT -------------*/
 
 .signup-content {
   display: flex;
@@ -409,9 +320,75 @@ h1 {
   background-color: var(--light-blue);
 }
 
+/*------------- FOOTER -------------*/
+
+footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+footer div {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray);
+  padding: 8px;
+  cursor: pointer;
+  width: 110px;
+  height: 19px;
+}
+
+footer div:hover {
+  color: var(--light-blue);
+  font-weight: 600;
+}
+
 /*------------- MOBILE -------------*/
 
 @media (max-width: 700px) {
+  .logo {
+    left: 38px;
+    top: 37px;
+    height: 64px;
+    width: 78px;
+  }
+
+  .login-content {
+    width: 396px;
+    height: 451px;
+    padding: 32px 0;
+  }
+
+  .login-input-fields,
+  .signup-input-fields {
+    width: 80%;
+  }
+
+  .login-buttons {
+    margin-top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .login-btn,
+  .signup-btn {
+    margin-bottom: 21px;
+  }
+
+  .not-a-join-user {
+    top: unset;
+    right: unset;
+    bottom: 99px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   .signup-content {
     width: 396px;
     height: 531px;
@@ -423,29 +400,29 @@ h1 {
     left: 24px;
   }
 
-  .signup-input-fields {
-    width: 80%;
-  }
-
-  .signup-btn {
-    margin-bottom: 21px;
+  footer {
+    margin-bottom: 22px;
   }
 }
 
 /*------------- MEDIA -------------*/
 
 @media (max-width: 400px) {
+  .login-content,
   .signup-content {
     width: 296px;
-    height: 531px;
-    padding: 32px 0;
+  }
+
+  .login-input-fields,
+  .signup-input-fields {
+    width: 70%;
+  }
+
+  .login-check-button {
+    padding: 0;
   }
 
   .signup-content img:nth-child(3) {
     top: 102px;
-  }
-
-  .signup-input-fields {
-    width: 70%;
   }
 }

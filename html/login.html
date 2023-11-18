@@ -22,9 +22,15 @@
         <h1>Log in</h1>
         <img src="/assets/img/blue-line.svg" alt="" />
         <div class="login-input-fields">
-          <input type="text" placeholder="Email" class="input-icon-mail" />
+          <input
+            type="text"
+            id="login-email"
+            placeholder="Email"
+            class="input-icon-mail"
+          />
           <input
             type="password"
+            id="login-password"
             placeholder="Password"
             class="input-icon-lock"
           />
@@ -50,17 +56,33 @@
           alt=""
         />
         <div class="signup-input-fields">
-          <input type="text" placeholder="Name" class="input-icon-name" />
-          <input type="text" placeholder="Email" class="input-icon-mail" />
           <input
-            type="password"
-            placeholder="Password"
-            class="input-icon-lock"
+            type="text"
+            id="signup-username"
+            placeholder="Name"
+            class="input-icon-name"
+            required
+          />
+          <input
+            type="text"
+            id="signup-email"
+            placeholder="Email"
+            class="input-icon-mail"
+            required
           />
           <input
             type="password"
+            id="signup-password"
+            placeholder="Password"
+            class="input-icon-lock"
+            required
+          />
+          <input
+            type="password"
+            id="signup-confirm-password"
             placeholder="Confirm Password"
             class="input-icon-lock"
+            required
           />
         </div>
         <div class="signup-check-button">
