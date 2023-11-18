@@ -91,10 +91,6 @@ h1 {
   background-color: var(--black);
 }
 
-.d-none {
-  display: none;
-}
-
 /*------------- LOG IN PAGE - CONTENT -------------*/
 
 .login-content {
@@ -445,4 +441,10 @@ h1 {
   .signup-content img:nth-child(3) {
     top: 102px;
   }
+}
+
+/*------------- GLOBAL -------------*/
+
+.d-none {
+  display: none;
 }
