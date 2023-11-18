@@ -4,8 +4,6 @@ function moveLogoToTopLeft() {
   }, "2000");
   setTimeout(() => {
     loadLoginPage();
-    document.getElementById("logo-loading").classList.add("d-none");
-    document.getElementById("footer").classList.remove("d-none");
   }, "4000");
 }
 
@@ -17,4 +15,6 @@ function loadSignupPage() {
 function loadLoginPage() {
   document.getElementById("signup-page").classList.add("d-none");
   document.getElementById("login-page").classList.remove("d-none");
+  document.getElementById("logo-loading").classList.add("d-none");
+  document.getElementById("footer").classList.remove("d-none");
 }

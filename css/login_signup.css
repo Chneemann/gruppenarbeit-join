@@ -339,7 +339,7 @@ h1 {
 
 /*------------- FOOTER -------------*/
 
-#footer {
+.footer {
   display: flex;
   justify-content: center;
   position: fixed;
@@ -349,7 +349,7 @@ h1 {
   margin-bottom: 48px;
 }
 
-#footer div {
+.footer a {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
@@ -358,9 +358,10 @@ h1 {
   cursor: pointer;
   width: 110px;
   height: 19px;
+  text-decoration: none;
 }
 
-#footer div:hover {
+.footer a:hover {
   color: var(--light-blue);
   font-weight: 600;
 }
