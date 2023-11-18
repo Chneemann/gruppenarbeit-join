@@ -378,3 +378,21 @@ h1 {
 .signup-btn:hover {
   background-color: var(--light-blue);
 }
+
+/*------------- MOBILE -------------*/
+
+@media (max-width: 700px) {
+  .signup-content {
+    width: 396px;
+    height: 531px;
+    padding: 32px 0;
+  }
+
+  .signup-input-fields {
+    width: 80%;
+  }
+
+  .signup-btn {
+    margin-bottom: 21px;
+  }
+}
