@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/img/Join Logo.png">
+    <link rel="stylesheet" href="./css/login_signup.css" />
+    <link
+      rel="stylesheet"
+      href="./fonts/Figtree/Figtree-VariableFont_wght.ttf"
+    />
     <script src="./script.js"></script>
+    <script src="./js/login_signup.js"></script>
   </head>
-  <body>
-    
+  <body onload="includeHTML(), moveLogoToTopLeft()">
+    <div w3-include-html="./html/login.html"></div>
   </body>
 </html>

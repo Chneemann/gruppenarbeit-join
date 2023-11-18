@@ -1,107 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join Login</title>
-    <link rel="stylesheet" href="/css/login_signup.css" />
-    <link
-      rel="stylesheet"
-      href="/fonts/Figtree/Figtree-VariableFont_wght.ttf"
+<div id="logo-loading">
+  <img class="logo-loading" src="/assets/img/logo.svg" alt="" />
+</div>
+<div id="login-page" class="d-none">
+  <img class="logo" src="/assets/img/logo.svg" alt="" />
+  <div class="not-a-join-user">
+    <p>Not a Join user?</p>
+    <button onclick="loadSignupPage()">Sign up</button>
+  </div>
+  <div class="login-content">
+    <h1>Log in</h1>
+    <img src="/assets/img/blue-line.svg" alt="" />
+    <div class="login-input-fields">
+      <input
+        type="text"
+        id="login-email"
+        placeholder="Email"
+        class="input-icon-mail"
+      />
+      <input
+        type="password"
+        id="login-password"
+        placeholder="Password"
+        class="input-icon-lock"
+      />
+    </div>
+    <div class="login-check-button">
+      <input type="checkbox" id="login-check-box" />
+      <label for="login-check-box">Remember me</label>
+    </div>
+    <div class="login-buttons">
+      <button class="login-btn" type="submit">Log in</button>
+      <button class="login-btn-guest" type="submit">Guest Log in</button>
+    </div>
+  </div>
+</div>
+<div id="signup-page" class="d-none">
+  <img class="logo" src="/assets/img/logo.svg" alt="" />
+  <div class="signup-content">
+    <h1>Sign up</h1>
+    <img src="/assets/img/blue-line.svg" alt="" />
+    <img
+      onclick="loadLoginPage()"
+      src="/assets/img/arrow-left-line.svg"
+      alt=""
     />
-    <script src="/js/login_signup.js"></script>
-  </head>
-  <body onload="moveLogoToTopLeft()">
-    <div id="logo-loading">
-      <img class="logo-loading" src="../assets/img/logo.svg" alt="" />
+    <div class="signup-input-fields">
+      <input
+        type="text"
+        id="signup-username"
+        placeholder="Name"
+        class="input-icon-name"
+        required
+      />
+      <input
+        type="text"
+        id="signup-email"
+        placeholder="Email"
+        class="input-icon-mail"
+        required
+      />
+      <input
+        type="password"
+        id="signup-password"
+        placeholder="Password"
+        class="input-icon-lock"
+        required
+      />
+      <input
+        type="password"
+        id="signup-confirm-password"
+        placeholder="Confirm Password"
+        class="input-icon-lock"
+        required
+      />
     </div>
-    <div id="login-page" class="d-none">
-      <img class="logo" src="/assets/img/logo.svg" alt="" />
-      <div class="not-a-join-user">
-        <p>Not a Join user?</p>
-        <button onclick="loadSignupPage()">Sign up</button>
-      </div>
-      <div class="login-content">
-        <h1>Log in</h1>
-        <img src="/assets/img/blue-line.svg" alt="" />
-        <div class="login-input-fields">
-          <input
-            type="text"
-            id="login-email"
-            placeholder="Email"
-            class="input-icon-mail"
-          />
-          <input
-            type="password"
-            id="login-password"
-            placeholder="Password"
-            class="input-icon-lock"
-          />
-        </div>
-        <div class="login-check-button">
-          <input type="checkbox" id="login-check-box" />
-          <label for="login-check-box">Remember me</label>
-        </div>
-        <div class="login-buttons">
-          <button class="login-btn" type="submit">Log in</button>
-          <button class="login-btn-guest" type="submit">Guest Log in</button>
-        </div>
-      </div>
+    <div class="signup-check-button">
+      <input type="checkbox" id="signup-check-box" />
+      <label for="signup-check-box"
+        >I accept the <a href="#">Privacy Policy</a></label
+      >
     </div>
-    <div id="signup-page" class="d-none">
-      <img class="logo" src="/assets/img/logo.svg" alt="" />
-      <div class="signup-content">
-        <h1>Sign up</h1>
-        <img src="/assets/img/blue-line.svg" alt="" />
-        <img
-          onclick="loadLoginPage()"
-          src="/assets/img/arrow-left-line.svg"
-          alt=""
-        />
-        <div class="signup-input-fields">
-          <input
-            type="text"
-            id="signup-username"
-            placeholder="Name"
-            class="input-icon-name"
-            required
-          />
-          <input
-            type="text"
-            id="signup-email"
-            placeholder="Email"
-            class="input-icon-mail"
-            required
-          />
-          <input
-            type="password"
-            id="signup-password"
-            placeholder="Password"
-            class="input-icon-lock"
-            required
-          />
-          <input
-            type="password"
-            id="signup-confirm-password"
-            placeholder="Confirm Password"
-            class="input-icon-lock"
-            required
-          />
-        </div>
-        <div class="signup-check-button">
-          <input type="checkbox" id="signup-check-box" />
-          <label for="signup-check-box"
-            >I accept the <a href="#">Privacy Policy</a></label
-          >
-        </div>
-        <div class="signup-buttons">
-          <button class="signup-btn" type="submit">Sign up</button>
-        </div>
-      </div>
+    <div class="signup-buttons">
+      <button class="signup-btn" type="submit">Sign up</button>
     </div>
-    <footer class="d-none">
-      <div>Privacy Policy</div>
-      <div>Legal notice</div>
-    </footer>
-  </body>
-</html>
+  </div>
+</div>
+<footer class="d-none">
+  <div>Privacy Policy</div>
+  <div>Legal notice</div>
+</footer>
