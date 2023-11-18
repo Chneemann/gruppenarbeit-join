@@ -8,11 +8,10 @@
   --light-blue: #28abe2;
 }
 
-body {
+.login-signup-page {
   margin: 0;
   background-color: var(--very-light-gray);
   font-family: "Figtree", sans-serif;
-  width: 1440px;
 }
 
 .logo {
@@ -340,16 +339,17 @@ h1 {
 
 /*------------- FOOTER -------------*/
 
-footer {
+#footer {
   display: flex;
   justify-content: center;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   margin-bottom: 48px;
 }
 
-footer div {
+#footer div {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
@@ -360,7 +360,7 @@ footer div {
   height: 19px;
 }
 
-footer div:hover {
+#footer div:hover {
   color: var(--light-blue);
   font-weight: 600;
 }
@@ -401,6 +401,7 @@ footer div:hover {
   .not-a-join-user {
     top: unset;
     right: unset;
+    left: 0;
     bottom: 99px;
     display: flex;
     justify-content: center;

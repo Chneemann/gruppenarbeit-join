@@ -5,6 +5,7 @@ function moveLogoToTopLeft() {
   setTimeout(() => {
     loadLoginPage();
     document.getElementById("logo-loading").classList.add("d-none");
+    document.getElementById("footer").classList.remove("d-none");
   }, "4000");
 }
 
