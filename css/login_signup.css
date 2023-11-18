@@ -308,8 +308,8 @@ h1 {
 .signup-content img:nth-child(3) {
   cursor: pointer;
   position: absolute;
-  left: calc(24px + 48px);
-  right: calc(8px + 88px);
+  top: calc(8px + 48px);
+  left: calc(24px + 88px);
   height: 34px;
   width: 34px;
 }
@@ -353,7 +353,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 32px;
+  margin: 8px 0 32px 0;
 }
 
 .signup-check-button input {
@@ -400,6 +400,11 @@ h1 {
     width: 396px;
     height: 531px;
     padding: 32px 0;
+  }
+
+  .signup-content img:nth-child(3) {
+    top: calc(8px + 32px);
+    left: 24px;
   }
 
   .signup-input-fields {
