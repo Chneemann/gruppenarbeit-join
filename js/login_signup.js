@@ -1,10 +1,10 @@
 function moveLogoToTopLeft() {
   setTimeout(() => {
-    document.querySelector(".logo-banner").classList.add("move-to-top-left");
+    document.querySelector(".logo-loading").classList.add("move-to-top-left");
   }, "2000");
   setTimeout(() => {
     loadLoginPage();
-    document.getElementById("logo-banner").classList.add("d-none");
+    document.getElementById("logo-loading").classList.add("d-none");
   }, "4000");
 }
 

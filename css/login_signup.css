@@ -23,7 +23,7 @@ body {
   width: 122px;
 }
 
-.logo-banner {
+.logo-loading {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,7 +32,7 @@ body {
   width: 274px;
 }
 
-.logo-banner.move-to-top-left {
+.logo-loading.move-to-top-left {
   left: 57px;
   top: 60px;
   height: 100px;
