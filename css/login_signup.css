@@ -24,10 +24,9 @@ h1 {
 }
 
 .logo {
-  padding: 80px 0 0 77px;
-}
-
-.logo img {
+  position: absolute;
+  left: 77px;
+  top: 80px;
   height: 100px;
   width: 122px;
 }
@@ -75,6 +74,10 @@ h1 {
   background-color: var(--black);
 }
 
+.d-none {
+  display: none;
+}
+
 /*------------- CONTENT -------------*/
 
 .login-content {
@@ -102,14 +105,17 @@ h1 {
 }
 
 .login-input-fields {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 }
 
 .login-input-fields input {
   color: var(--light-gray);
   font-size: 20px;
   font-weight: 400;
-  width: 90%;
+  width: 100%;
   margin-bottom: 32px;
   border-radius: 10px;
   border: 1px solid var(--light-gray);
@@ -198,13 +204,13 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  margin-bottom: 48px;
 }
 
 footer div {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
-  margin-bottom: 48px;
   color: var(--gray);
   padding: 8px;
   cursor: pointer;
@@ -215,4 +221,49 @@ footer div {
 footer div:hover {
   color: var(--light-blue);
   font-weight: 600;
+}
+
+/*------------- MOBILE -------------*/
+
+@media (max-width: 700px) {
+  .logo {
+    position: absolute;
+    left: 38px;
+    top: 37px;
+    height: 64px;
+    width: 78px;
+  }
+
+  .login-content {
+    width: 396px;
+    height: 451px;
+    padding: 32px 0;
+  }
+
+  .login-input-fields {
+    width: 80%;
+  }
+
+  .login-buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .login-btn {
+    margin-bottom: 21px;
+  }
+
+  .not-a-join-user {
+    top: unset;
+    right: unset;
+    bottom: 99px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  footer {
+    margin-bottom: 22px;
+  }
 }
