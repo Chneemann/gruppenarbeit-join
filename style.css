@@ -1,27 +1,15 @@
 :root {
   --black: #000;
   --white: #fff;
+  --dark-blue: #2a3647;
+  --gray: #a8a8a8;
+  --light-gray: #d1d1d1;
+  --very-light-gray: #f6f7f8;
+  --light-blue: #28abe2;
 }
-@font-face {
-    font-family: 'Figtree';
-    src: url('./fonts/Figtree/static/Figtree-Bold.ttf');
-}
-body{
-    font-family: 'Figtree';
-    margin: auto 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-}
-.logo{
-    width:19vw;
-    height:auto;
-}
-.logo:hover{
-    cursor: pointer;
-}
-.move-up{ transition: 1s;
-    scale: 0.5;
-    transform: translate(-450%,-200%) ;
+
+body {
+  font-family: "Figtree", sans-serif;
+  margin: auto 0;
+  height: 100vh;
 }

@@ -1,8 +1,3 @@
-function moveLogo() {
-  console.log("test");
-  let logo = document.getElementById("logo").classList.add("move-up");
-}
-
 // HTML Include
 
 async function includeHTML() {

@@ -1,17 +1,6 @@
-:root {
-  --black: #000;
-  --white: #fff;
-  --dark-blue: #2a3647;
-  --gray: #a8a8a8;
-  --light-gray: #d1d1d1;
-  --very-light-gray: #f6f7f8;
-  --light-blue: #28abe2;
-}
-
 .login-signup-page {
   margin: 0;
   background-color: var(--very-light-gray);
-  font-family: "Figtree", sans-serif;
 }
 
 .logo {
