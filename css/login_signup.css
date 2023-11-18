@@ -331,7 +331,7 @@ h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .footer a {
@@ -406,7 +406,7 @@ h1 {
   }
 
   footer {
-    margin-bottom: 22px;
+    margin-bottom: 22px !important;
   }
 }
 
@@ -430,10 +430,4 @@ h1 {
   .signup-content img:nth-child(3) {
     top: 102px;
   }
-}
-
-/*------------- GLOBAL -------------*/
-
-.d-none {
-  display: none;
 }
