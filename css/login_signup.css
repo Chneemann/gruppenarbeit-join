@@ -309,7 +309,14 @@ h1 {
   cursor: pointer;
   position: absolute;
   left: calc(24px + 48px);
-  left: calc(8px + 88px);
+  right: calc(8px + 88px);
+  height: 34px;
+  width: 34px;
+}
+
+.signup-content img:hover:nth-child(3) {
+  background-color: var(--very-light-gray);
+  border-radius: 16px;
 }
 
 .input-icon-name {
