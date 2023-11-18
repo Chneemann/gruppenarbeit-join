@@ -23,6 +23,24 @@ body {
   width: 122px;
 }
 
+.logo-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 334px;
+  width: 274px;
+}
+
+.logo-banner.move-to-top-left {
+  left: 57px;
+  top: 60px;
+  height: 100px;
+  width: 122px;
+  transition: 2s;
+  transform: translate(0%, 0%);
+}
+
 /*------------- LOG IN PAGE -------------*/
 
 h1 {
