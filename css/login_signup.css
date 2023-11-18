@@ -11,6 +11,7 @@ body {
   margin: 0;
   background-color: var(--very-light-gray);
   font-family: "Figtree", sans-serif;
+  width: 1440px;
 }
 
 h1 {
@@ -18,25 +19,24 @@ h1 {
   text-align: center;
   font-size: 61px;
   font-weight: 700;
-  line-height: 120%;
   margin-bottom: 12px;
 }
 
 .logo {
-  padding: 5.56% 0 0 5.35%;
+  padding: 80px 0 0 77px;
 }
 
 .logo img {
-  height: 6.95%;
-  width: 8.47%;
+  height: 100px;
+  width: 122px;
 }
 
 .not-a-join-user {
   width: 279px;
   height: 49px;
   position: absolute;
-  top: 4.65%;
-  right: 6.7%;
+  top: 67px;
+  right: 122px;
   display: inline-flex;
   align-items: center;
 }
@@ -63,6 +63,7 @@ h1 {
   font-weight: 700;
   font-size: 16px;
   border: 0px;
+  cursor: pointer;
 }
 
 .not-a-join-user button:hover {
@@ -83,15 +84,16 @@ h1 {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  width: 45.28%;
-  height: 48.14%;
+  width: 422px;
+  height: 397px;
   background: var(--white);
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
+  padding: 48px 115px;
 }
 
 .login-content h1 {
-  margin-top: 4.7%;
+  margin-top: 0;
 }
 
 .login-content img {
@@ -99,17 +101,14 @@ h1 {
 }
 
 .login-input-fields {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 50%;
+  width: 100%;
 }
 
 .login-input-fields input {
   color: var(--light-gray);
   font-size: 20px;
   font-weight: 400;
-  width: 100%;
+  width: 90%;
   margin-bottom: 32px;
   border-radius: 10px;
   border: 1px solid var(--light-gray);
@@ -133,7 +132,8 @@ h1 {
   justify-content: center;
   align-items: center;
   align-self: stretch;
-  margin-right: 20%;
+  padding-right: 40%;
+  margin-bottom: 32px;
 }
 
 .login-check-button input {
@@ -151,7 +151,6 @@ h1 {
   margin-top: 12px;
   display: flex;
   justify-content: space-evenly;
-  width: 70%;
 }
 
 .login-btn {
@@ -164,6 +163,7 @@ h1 {
   cursor: pointer;
   font-size: 21px;
   font-weight: 700;
+  margin-right: 32px;
 }
 
 .login-btn:hover {
