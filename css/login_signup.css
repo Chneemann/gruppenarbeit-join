@@ -2,6 +2,7 @@
   --black: #000;
   --white: #fff;
   --dark-blue: #2a3647;
+  --gray: #a8a8a8;
   --light-gray: #d1d1d1;
   --very-light-gray: #f6f7f8;
   --light-blue: #28abe2;
@@ -187,4 +188,31 @@ h1 {
 .login-btn-guest:hover {
   color: var(--light-blue);
   border: 1px solid var(--light-blue);
+}
+
+/*------------- FOOTER -------------*/
+
+footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer div {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 48px;
+  color: var(--gray);
+  padding: 8px;
+  cursor: pointer;
+  width: 110px;
+  height: 19px;
+}
+
+footer div:hover {
+  color: var(--light-blue);
+  font-weight: 600;
 }
