@@ -273,6 +273,22 @@ footer div:hover {
   }
 }
 
+/*------------- MEDIA -------------*/
+
+@media (max-width: 400px) {
+  .login-content {
+    width: 296px;
+  }
+
+  .login-input-fields {
+    width: 70%;
+  }
+
+  .login-check-button {
+    padding: 0;
+  }
+}
+
 /*------------- SIGNUP PAGE -------------*/
 
 h1 {
@@ -413,5 +429,23 @@ h1 {
 
   .signup-btn {
     margin-bottom: 21px;
+  }
+}
+
+/*------------- MEDIA -------------*/
+
+@media (max-width: 400px) {
+  .signup-content {
+    width: 296px;
+    height: 531px;
+    padding: 32px 0;
+  }
+
+  .signup-content img:nth-child(3) {
+    top: 102px;
+  }
+
+  .signup-input-fields {
+    width: 70%;
   }
 }
