@@ -54,9 +54,36 @@
           <div class="add-task-prio">
             <p>Prio</p>
             <div class="add-task-prio-fields">
-              <button class="add-task-prio-field icon-urgent">Urgent</button>
-              <button class="add-task-prio-field icon-medium">Medium</button>
-              <button class="add-task-prio-field icon-low">Low</button>
+              <button
+                id="icon-urgent"
+                class="add-task-prio-field icon-urgent"
+                onclick="addPrioStatus('icon-urgent')"
+              >
+                <div id="icon-urgent-inline" class="add-task-prio-button">
+                  <span>Urgent</span>
+                  <img src="../assets/img/urgent.svg" alt="" />
+                </div>
+              </button>
+              <button
+                id="icon-medium"
+                class="add-task-prio-field"
+                onclick="addPrioStatus('icon-medium')"
+              >
+                <div id="icon-medium-inline" class="add-task-prio-button">
+                  <span>Medium</span>
+                  <img src="../assets/img/medium.svg" alt="" />
+                </div>
+              </button>
+              <button
+                id="icon-low"
+                class="add-task-prio-field icon-low"
+                onclick="addPrioStatus('icon-low')"
+              >
+                <div id="icon-low-inline" class="add-task-prio-button">
+                  <span>Low</span>
+                  <img src="../assets/img/low.svg" alt="" />
+                </div>
+              </button>
             </div>
           </div>
           <div class="add-task-category">
@@ -96,18 +123,16 @@
                   class="add-task-icon"
                 />
               </div>
-              <img
+              <!-- <img
                 src="../assets/img/edit.svg"
                 alt="edit"
-                id="add-task-icon-edit"
-                class="d-none"
+                class="add-task-icon"
               />
               <img
                 src="../assets/img/delete.svg"
                 alt="delete"
-                id="add-task-icon-delete"
-                class="d-none"
-              />
+                class="add-task-icon"
+              /> -->
             </div>
           </div>
         </div>
