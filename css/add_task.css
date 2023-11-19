@@ -20,7 +20,7 @@ h1 {
 
 .add-task-formular {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   font-size: 20px;
   font-weight: 400;
 }
@@ -68,8 +68,47 @@ h1 {
   padding: 12px 16px;
 }
 
-.add-task-middle {
+.add-task-line {
   width: 1px;
   height: 424px;
   background-color: var(--light-gray);
+  margin: 0 48px;
+}
+
+.add-task-prio-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-task-prio-field {
+  background-color: var(--white);
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+  width: 136px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  padding: 10px 16px;
+  background-position-x: calc(100% - 16px);
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  cursor: pointer;
+}
+
+.add-task-prio-field:hover {
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.icon-urgent {
+  background-image: url("../assets/img/urgent.svg");
+}
+
+.icon-medium {
+  background-image: url("../assets/img/medium.svg");
+}
+
+.icon-low {
+  background-image: url("../assets/img/low.svg");
 }
