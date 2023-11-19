@@ -52,16 +52,16 @@ body {
     width: 560px;
     height: 562px;
     top: 335px;
-    left: 328px;
+    left: 560px;
     gap: 28px;
-    
+
     display: flex;
-    position: relative;
+    /*position: relative;*/
     flex-direction: column;
 }
 
 .frame_up {
-    
+
     width: 560px;
     height: 168px;
     gap: 32px;
@@ -69,14 +69,14 @@ body {
 }
 
 .urgent {
-    
+
     width: 560px;
     height: 168px;
 
 }
 
 .frame_down {
-    
+
     width: 560px;
     height: 170px;
     top: 392px;
@@ -85,52 +85,84 @@ body {
 }
 
 
-.btn_frames{
+.btn_frames {
     display: flex;
     width: 945px;
-    height: 562px;
+    height: 100vh;
+    position: fixed;
+    top: 370px;
 }
-.welcome{
+
+.welcome {
     position: relative;
-    
+
     height: 136px;
     top: 547.5px;
     left: 968px;
     gap: 3px;
-    
+
 }
-.frame_pencil{
+
+.frame_pencil {
     width: 264px;
     height: 168px;
     display: flex;
+    position: relative;
+    left: 296px;
+    gap: 18px;
 }
 
-.ellipse{
+.frame_rectangle {
+    width: 264px;
+    height: 168px;
+    display: flex;
+    position: relative;
+    left: 370px;
+
+    gap: 18px;
+
+}
+
+.ellipse {
     width: 69px;
     height: 69px;
-    position: absolute;
+    /*position: absolute;*/
     top: 49.5px;
-    right: 128.5px;
+    left: 128.5px;
 }
 
-.pencil{
+.pencil {
     width: 24.37px;
     height: 24.33px;
     position: absolute;
-    top: 71.17px;
-    right: 148.5px;
+    top: 21.17px;
+    left: 21.5px;
 }
 
-.btn_pencil{
+.rectangle {
+    width: 29.94px;
+    height: 22.13px;
+    position: absolute;
+    top: 21.17px;
+    left: 21.5px;
+
+
+}
+
+.btn_pencil {
     position: relative;
+
 }
 
-.tasks{
+.tasks {
     display: flex;
     flex-direction: column;
+    width: 63px;
+    height: 101px;
+
 }
 
-.txt_number{
+.txt_number {
     width: 50px;
     height: 77px;
     font-size: 64px;
@@ -140,8 +172,8 @@ body {
     text-align: center;
 }
 
-.txt_todo{
-    width: 50px;
+.txt_todo {
+    width: 63px;
     height: 24px;
     font-size: 20px;
     font-weight: 400;
