@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Task</title>
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="/css/add_task.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/add_task.css" />
+    <script src="../js/add_task.js"></script>
   </head>
   <body>
     <div class="add-task-page">
@@ -70,9 +71,43 @@
               type="text"
               id="add-task-subtask"
               placeholder="Add new subtask"
+              onclick="addSubtask()"
             />
-            <div id="add-task-button">
-              <img src="../assets/img/add.svg" alt="" />
+            <div id="add-task-icons">
+              <div id="add-task-icon-add">
+                <img
+                  src="../assets/img/add.svg"
+                  alt="add"
+                  onclick="addSubtask()"
+                  class="add-task-icon"
+                />
+              </div>
+              <div id="add-task-icon-close-check" class="d-none">
+                <img
+                  src="../assets/img/close.svg"
+                  alt="close"
+                  onclick="closeSubtask()"
+                  class="add-task-icon"
+                />
+                <span class="add-task-line small"></span>
+                <img
+                  src="../assets/img/check-black.png"
+                  alt="check"
+                  class="add-task-icon"
+                />
+              </div>
+              <img
+                src="../assets/img/edit.svg"
+                alt="edit"
+                id="add-task-icon-edit"
+                class="d-none"
+              />
+              <img
+                src="../assets/img/delete.svg"
+                alt="delete"
+                id="add-task-icon-delete"
+                class="d-none"
+              />
             </div>
           </div>
         </div>
