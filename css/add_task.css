@@ -103,6 +103,7 @@ h1 {
 }
 
 .add-task-prio-field-clicked {
+  cursor: unset;
   color: var(--white);
   border: 0;
 }

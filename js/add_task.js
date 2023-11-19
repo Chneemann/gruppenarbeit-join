@@ -29,10 +29,6 @@ function addPrioStatus(clicked) {
   document
     .getElementById("icon-urgent-inline")
     .classList.remove("max-brightness");
-
-  document.getElementById(`${clicked}-inline`).classList.add("max-brightness");
-  document.getElementById(clicked).classList.add("add-task-prio-field-clicked");
-
   if (clicked == "icon-urgent") {
     document.getElementById(clicked).classList.add("bgcolor-red");
   } else if (clicked == "icon-medium") {
@@ -40,4 +36,6 @@ function addPrioStatus(clicked) {
   } else if (clicked == "icon-low") {
     document.getElementById(clicked).classList.add("bgcolor-green");
   }
+  document.getElementById(`${clicked}-inline`).classList.add("max-brightness");
+  document.getElementById(clicked).classList.add("add-task-prio-field-clicked");
 }
