@@ -2,13 +2,14 @@
 body {
   margin: 0;
   background-color: var(--very-light-gray);
-  padding: 110px 136px 71px 96px;
+  padding: 110px 0 0 96px;
 }
 
 h1 {
   color: var(--black);
   font-size: 61px;
   font-weight: 700;
+  margin-top: 0;
   margin-bottom: 48px;
 }
 
@@ -160,4 +161,15 @@ h1 {
 
 .bgcolor-green {
   background-color: var(--green);
+}
+
+/*------------- MEDIA -------------*/
+
+@media (max-width: 1100px) {
+  .add-task-formular {
+    display: block;
+  }
+  .add-task-middle {
+    display: none;
+  }
 }
