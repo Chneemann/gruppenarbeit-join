@@ -11,3 +11,60 @@ h1 {
   font-weight: 700;
   margin-bottom: 48px;
 }
+
+/*------------- FORMULAR CONTENT -------------*/
+
+.red-dot {
+  color: var(--light-red);
+}
+
+.add-task-formular {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.add-task-left {
+  width: 30%;
+}
+
+.add-task-formular input {
+  color: var(--light-gray);
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  padding: 12px 21px;
+}
+
+.add-task-formular textarea {
+  color: var(--light-gray);
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  height: 84px;
+  margin-bottom: 32px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  padding: 18px 16px;
+}
+
+.add-task-formular select {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  padding: 12px 21px;
+}
+
+.add-task-middle {
+  width: 1px;
+  height: 424px;
+  background-color: var(--light-gray);
+}
