@@ -84,37 +84,32 @@ h1 {
   justify-content: space-between;
 }
 
+.add-task-prio-button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
 .add-task-prio-field {
   background-color: var(--white);
-  text-align: center;
   font-size: 20px;
   font-weight: 400;
   width: 136px;
   margin-bottom: 16px;
   border-radius: 10px;
   border: 1px solid var(--light-gray);
-  padding: 10px 48px 10px 16px;
-  background-position-x: calc(100% - 16px);
-  background-position-y: center;
-  background-repeat: no-repeat;
-  background-size: 24px;
+  padding: 10px 16px;
   cursor: pointer;
+}
+
+.add-task-prio-field-clicked {
+  cursor: unset;
+  color: var(--white);
+  border: 0;
 }
 
 .add-task-prio-field:hover {
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
-}
-
-.icon-urgent {
-  background-image: url("../assets/img/urgent.svg");
-}
-
-.icon-medium {
-  background-image: url("../assets/img/medium.svg");
-}
-
-.icon-low {
-  background-image: url("../assets/img/low.svg");
 }
 
 #add-task-subtask {
@@ -149,4 +144,20 @@ h1 {
 
 .flex {
   display: flex;
+}
+
+.max-brightness {
+  filter: brightness(100);
+}
+
+.bgcolor-red {
+  background-color: var(--red);
+}
+
+.bgcolor-orange {
+  background-color: var(--orange);
+}
+
+.bgcolor-green {
+  background-color: var(--green);
 }
