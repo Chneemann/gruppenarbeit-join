@@ -1,0 +1,13 @@
+/* .add-task-page */
+body {
+  margin: 0;
+  background-color: var(--very-light-gray);
+  padding: 110px 136px 71px 96px;
+}
+
+h1 {
+  color: var(--black);
+  font-size: 61px;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
