@@ -1,6 +1,7 @@
 /* .add-task-page */
 body {
   margin: 0;
+  height: 100%;
   background-color: var(--very-light-gray);
   padding: 110px 0 0 96px;
 }
@@ -113,6 +114,10 @@ h1 {
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
+#add-task-icons {
+  height: 0;
+}
+
 #add-task-subtask {
   cursor: pointer;
 }
@@ -135,6 +140,66 @@ h1 {
   background-color: var(--very-light-gray);
   border-radius: 16px;
   cursor: pointer;
+}
+
+/*------------- FOOTER -------------*/
+
+.add-task-required {
+  position: absolute;
+  top: 910px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.add-task-buttons {
+  display: flex;
+  padding: 130px 0 32px 680px;
+}
+
+.add-task-btn-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-task-btn-inside span {
+  margin-right: 4px;
+}
+
+.add-task-btn-clear {
+  height: 56px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid var(--dark-blue);
+  background: var(--white);
+}
+
+.add-task-btn-clear:hover {
+  color: var(--light-blue);
+  border: 1px solid var(--light-blue);
+}
+
+.add-task-btn-create {
+  height: 56px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--dark-blue);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 16px;
+}
+
+.add-task-btn-create:hover {
+  background-color: var(--light-blue);
 }
 
 /*------------- GLOBAL -------------*/
@@ -171,5 +236,11 @@ h1 {
   }
   .add-task-middle {
     display: none;
+  }
+  .add-task-required {
+    padding-top: 32px;
+  }
+  .add-task-buttons {
+    padding: 32px 0 32px 144px;
   }
 }
