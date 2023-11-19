@@ -113,10 +113,16 @@ h1 {
   background-image: url("../assets/img/low.svg");
 }
 
-.icon-add {
-  background-image: url("../assets/img/add.svg");
-  background-position-x: calc(100% - 16px);
-  background-position-y: center;
-  background-repeat: no-repeat;
-  background-size: 24px;
+#add-task-button {
+  position: relative;
+  top: -52px;
+  left: 400px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+#add-task-button:hover {
+  background-color: var(--very-light-gray);
+  border-radius: 16px;
 }
