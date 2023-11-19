@@ -1,184 +1,190 @@
 body {
-    margin: 0;
-    background-color: var(--very-light-gray);
-    font-family: "Figtree", sans-serif;
-    overflow: hidden;
-    padding-left: 96px;
-    padding-top: 110px;
+  margin: 0;
+  background-color: var(--very-light-gray);
+  font-family: "Figtree", sans-serif;
+  overflow: hidden;
+  padding-left: 96px;
+  padding-top: 110px;
 }
 
 .bg_container {
-    display: flex;
+  display: flex;
 }
-    
 
 .header {
-    top: 206px;
-    right: 328px;
-    display: flex;
-    
-    align-items: center;
-    width: 100%;
+  top: 206px;
+  right: 328px;
+  display: flex;
+
+  align-items: center;
+  width: 100%;
 }
 
 .title {
-
-    font-size: 61px;
-    font-weight: 700;
-    line-height: 73px;
-    letter-spacing: 0em;
-    text-align: left;
-    width: 295px;
-    height: 73px;
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 73px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 295px;
+  height: 73px;
 }
 
 .metrics_title {
-    font-family: Inter;
-    font-size: 27px;
-    font-weight: 400;
-    line-height: 32px;
-    letter-spacing: 0em;
-    text-align: left;
-    width: 337px;
-    height: 32px;
-    padding-left: 24px;
+  font-family: Inter;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 337px;
+  height: 32px;
+  padding-left: 24px;
 }
 
 .first_frame {
-    width: 560px;
-    height: 562px;
-    top: 335px;
-    left: 560px;
-    gap: 28px;
+  width: 560px;
+  height: 562px;
+  top: 335px;
+  left: 560px;
+  gap: 28px;
 
-    display: flex;
-    /*position: relative;*/
-    flex-direction: column;
+  display: flex;
+  /*position: relative;*/
+  flex-direction: column;
 }
 
 .frame_up {
-    width: 560px;
-    height: 168px;
-    gap: 32px;
-    display: flex;
+  width: 560px;
+  height: 168px;
+  gap: 32px;
+  display: flex;
 }
 
 .urgent {
-    width: 560px;
-    height: 168px;
+  width: 560px;
+  height: 168px;
 }
 
 .frame_down {
-    width: 560px;
-    height: 170px;
-    top: 392px;
-    padding: 1px, 0px, 1px, 0px;
-    gap: 32px;
+  width: 560px;
+  height: 170px;
+  top: 392px;
+  padding: 1px, 0px, 1px, 0px;
+  gap: 32px;
 }
 
-
 .btn_frames {
-    display: flex;
-    width: 945px;
-    height: 100vh;
-    position: fixed;
-    top: 370px;
+  display: flex;
+  width: 945px;
+  height: 100vh;
+  position: fixed;
+  top: 370px;
 }
 
 .welcome {
-    position: relative;
-    height: 136px;
-    top: 547.5px;
-    left: 968px;
-    gap: 3px;
+  position: relative;
+  height: 136px;
+  top: 547.5px;
+  left: 968px;
+  gap: 3px;
 }
 
 .frame_pencil {
-    width: 264px;
-    height: 168px;
-    display: flex;
-    position: relative;
-    left: 296px;
-    gap: 18px;
+  width: 264px;
+  height: 168px;
+  display: flex;
+  position: relative;
+  left: 296px;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
 }
 
 .frame_rectangle {
-    width: 264px;
-    height: 168px;
-    display: flex;
-    position: relative;
-    left: 370px;
-    gap: 18px;
+  width: 264px;
+  height: 168px;
+  display: flex;
+  position: relative;
+  left: 370px;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
 }
 
 .ellipse {
-    width: 69px;
-    height: 69px;
-    /*position: absolute;*/
-    top: 49.5px;
-    left: 128.5px;
+  width: 69px;
+  height: 69px;
+  /*position: absolute;*/
+  top: 49.5px;
+  left: 128.5px;
 }
 
-
-
 .pencil {
-    width: 24.37px;
-    height: 24.33px;
-    position: absolute;
-    top: 21.17px;
-    left: 21.5px;
+  width: 24.37px;
+  height: 24.33px;
+  position: absolute;
+  top: 21.17px;
+  left: 21.5px;
 }
 
 .rectangle {
-    width: 29.94px;
-    height: 22.13px;
-    position: absolute;
-    top: 21.17px;
-    left: 21.5px;
+  width: 29.94px;
+  height: 22.13px;
+  position: absolute;
+  top: 21.17px;
+  left: 21.5px;
 }
 
 .btn_pencil {
-    position: relative;
+  position: relative;
 }
 
 .tasks {
-    display: flex;
-    flex-direction: column;
-    width: 63px;
-    height: 101px;
+  display: flex;
+  flex-direction: column;
+  width: 63px;
+  height: 101px;
 }
 
 .txt_number {
-    width: 50px;
-    height: 77px;
-    font-size: 64px;
-    font-weight: 600;
-    line-height: 77px;
-    letter-spacing: 0em;
-    text-align: center;
+  width: 50px;
+  height: 77px;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 77px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
 .txt_todo {
-    width: 63px;
-    height: 24px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
+  width: 63px;
+  height: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
 }
-.peak_up{
-    width: 34.19px;
-    height: 15.17px;
-    position: absolute;
-    top: 9.95px;
-    left: 17px; 
+.peak_up {
+  width: 34.19px;
+  height: 15.17px;
+  position: absolute;
+  top: 21px;
+  left: 17px;
 }
 
-.peak_down{
-    width: 34.19px;
-    height: 15.17px;
-    position: absolute;
-    top: 0;
-    left: 17px;   
+.peak_down {
+  width: 34.19px;
+  height: 15.17px;
+  position: absolute;
+  top: 30px;
+  left: 17px;
+}
+
+.gray_bar {
+  height: 102.02px;
+  border: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
