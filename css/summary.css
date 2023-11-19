@@ -2,21 +2,27 @@ body {
     margin: 0;
     background-color: #F6F7F8;
     font-family: "Figtree", sans-serif;
+    overflow: hidden;
 }
 
 .bg_container {
     display: flex;
     width: 100%;
     height: 100vh;
+    position: fixed;
+    top: 100px;
+    left: 200px;
+
 }
 
 .header {
     position: fixed;
     top: 206px;
-    left: 328px;
+    right: 328px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .title {
@@ -48,28 +54,29 @@ body {
     top: 335px;
     left: 328px;
     gap: 28px;
-    border: 1px solid blue;
+    
     display: flex;
-    position: fixed;
+    position: relative;
     flex-direction: column;
 }
 
 .frame_up {
-    border: 1px solid red;
+    
     width: 560px;
     height: 168px;
     gap: 32px;
+    display: flex;
 }
 
 .urgent {
-    border: 1px solid orange;
+    
     width: 560px;
     height: 168px;
 
 }
 
 .frame_down {
-    border: 1px solid orange;
+    
     width: 560px;
     height: 170px;
     top: 392px;
@@ -80,20 +87,22 @@ body {
 
 .btn_frames{
     display: flex;
+    width: 945px;
+    height: 562px;
 }
 .welcome{
-    position: absolute;
+    position: relative;
     
     height: 136px;
     top: 547.5px;
     left: 968px;
     gap: 3px;
-    border: 1px solid yellowgreen;
+    
 }
 .frame_pencil{
     width: 264px;
     height: 168px;
-    
+    display: flex;
 }
 
 .ellipse{
@@ -114,4 +123,29 @@ body {
 
 .btn_pencil{
     position: relative;
+}
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+}
+
+.txt_number{
+    width: 50px;
+    height: 77px;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 77px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.txt_todo{
+    width: 50px;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
 }
