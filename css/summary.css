@@ -7,7 +7,7 @@ body {
 
 .bg_container {
     display: flex;
-    width: 100%;
+    width: 84vw;
     height: 100vh;
     position: fixed;
     top: 100px;
@@ -131,6 +131,8 @@ body {
     left: 128.5px;
 }
 
+
+
 .pencil {
     width: 24.37px;
     height: 24.33px;
@@ -180,4 +182,19 @@ body {
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
+}
+.peak_up{
+    width: 34.19px;
+    height: 15.17px;
+    top: 9.95px;
+    left: -0px
+    
+}
+
+.peak_down{
+    width: 34.19px;
+    height: 15.17px;
+    top: 0;
+    left: -0px;
+    
 }
