@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #F6F7F8;
+    background-color: var(--very-light-gray);
     font-family: "Figtree", sans-serif;
     overflow: hidden;
     padding-left: 96px;
@@ -13,11 +13,10 @@ body {
     
 
 .header {
-    
     top: 206px;
     right: 328px;
     display: flex;
-    justify-content: center;
+    
     align-items: center;
     width: 100%;
 }
