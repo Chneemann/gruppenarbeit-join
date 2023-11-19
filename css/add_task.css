@@ -183,6 +183,8 @@ h1 {
 .add-task-btn-clear:hover {
   color: var(--light-blue);
   border: 1px solid var(--light-blue);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  fill: var(--light-blue);
 }
 
 .add-task-btn-create {
@@ -200,6 +202,7 @@ h1 {
 
 .add-task-btn-create:hover {
   background-color: var(--light-blue);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 /*------------- GLOBAL -------------*/
