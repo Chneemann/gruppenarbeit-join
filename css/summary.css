@@ -2,21 +2,23 @@ body {
     margin: 0;
     background-color: #F6F7F8;
     font-family: "Figtree", sans-serif;
+    overflow: hidden;
 }
 
 .bg_container {
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 }
 
 .header {
-    position: fixed;
-    top: 206px;
+    position: relative;
+    bottom: 206px;
     left: 328px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .title {
