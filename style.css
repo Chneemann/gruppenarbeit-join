@@ -51,4 +51,5 @@ body {
   border: 2px solid var(--black);
   border-radius: 25px;
   color: var(--light-blue);
+  cursor: pointer;
 }
