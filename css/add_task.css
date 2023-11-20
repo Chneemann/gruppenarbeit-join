@@ -84,6 +84,7 @@ h1 {
 .add-task-prio-fields {
   display: flex;
   justify-content: space-between;
+  width: 440px;
 }
 
 .add-task-prio-button {
@@ -248,5 +249,48 @@ h1 {
   }
   .add-task-buttons {
     padding: 64px 0 32px 144px;
+  }
+}
+
+@media (max-width: 575px) {
+  .add-task-formular {
+    font-size: 16px;
+  }
+
+  .add-task-formular input {
+    font-size: 16px;
+    width: 298px;
+  }
+
+  .add-task-formular textarea {
+    font-size: 16px;
+    width: 308px;
+  }
+
+  .add-task-formular select,
+  .add-task-prio-fields {
+    font-size: 16px;
+    width: 340px;
+  }
+
+  .add-task-prio-field {
+    font-size: 16px;
+    width: 106px;
+  }
+
+  .add-task-required {
+    top: 1070px;
+  }
+
+  #add-task-icon-add {
+    left: 300px;
+  }
+
+  #add-task-icon-close-check {
+    left: 255px;
+  }
+
+  .add-task-buttons {
+    padding-left: 42px;
   }
 }
