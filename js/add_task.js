@@ -12,6 +12,42 @@ function closeSubtask() {
   document.getElementById("add-task-icon-close-check").classList.remove("flex");
 }
 
+function confirmSubtask() {
+  let newSubtask = document.getElementById("add-task-subtask").value;
+  document.getElementById("add-task-subtask-addet").innerHTML = /*html*/ `
+    <div class="add-task-subtask-addet">
+      <li>${newSubtask}</li>
+      <div class="add-task-icons-addet">
+        <img
+          src="../assets/img/edit.svg"
+          alt="edit"
+          class="add-task-icon-addet"
+        />
+        <div class="add-task-subtask-line"></div>
+        <img
+          src="../assets/img/delete.svg"
+          alt="delete"
+          class="add-task-icon-addet"
+          onclick="deleteSubtask()"
+        />
+      </div>
+    </div>`;
+}
+
+function deleteSubtask() {
+  document.getElementById("add-task-subtask-addet").innerHTML = "";
+}
+
+function changeInputTextColor(input) {
+  var inputElement = document.getElementById(input);
+
+  if (inputElement.value.trim() !== "") {
+    inputElement.style.color = "var(--black)";
+  } else {
+    inputElement.style.color = "";
+  }
+}
+
 function addPrioStatus(clicked) {
   document
     .getElementById("icon-low")

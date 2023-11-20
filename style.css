@@ -5,7 +5,8 @@
   --gray: #a8a8a8;
   --light-gray: #d1d1d1;
   --very-light-gray: #f6f7f8;
-  --light-blue: #28abe2;
+  --very-light-gray2: #e7e7e7;
+  --light-blue: #29abe2;
   --light-red: #ff8190;
   --red: #ff3d00;
   --orange: #ffa800;
@@ -16,4 +17,40 @@ body {
   font-family: "Figtree", sans-serif;
   margin: auto 0;
   height: 100vh;
+}
+
+/*------------- MOBILE HEADER -------------*/
+
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: var(--white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.mobile-header-logo {
+  position: absolute;
+  left: 16px;
+  top: 20.5px;
+  height: 39px;
+  width: 32px;
+}
+
+.mobile-header-userimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  height: 40px;
+  width: 40px;
+  border: 2px solid var(--black);
+  border-radius: 25px;
+  color: var(--light-blue);
+  cursor: pointer;
 }
