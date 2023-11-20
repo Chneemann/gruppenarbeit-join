@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-color: var(--very-light-gray);
-  font-family: "Figtree", sans-serif;
+
   overflow: hidden;
   padding-left: 96px;
   padding-top: 110px;
@@ -68,26 +68,45 @@ body {
 
 .frame_down {
   width: 560px;
-  height: 170px;
-  top: 392px;
-  padding: 1px, 0px, 1px, 0px;
+  height: 269px;
+  display: flex;
   gap: 32px;
 }
 
 .btn_frames {
   display: flex;
   width: 945px;
-  height: 100vh;
+  
   position: fixed;
   top: 370px;
 }
 
-.welcome {
+.welcome_box {
   position: relative;
   height: 136px;
-  top: 547.5px;
-  left: 968px;
+  top: 203.5px;
+  left: 519px;
   gap: 3px;
+  width: 365px;
+}
+
+.welcome {
+  font-family: Inter;
+  font-size: 47px;
+  font-weight: 500;
+  line-height: 56px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.welcome_txt {
+  font-family: Inter;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 77px;
+  letter-spacing: 0em;
+  text-align: left;
+  color:  var(--light-blue);
 }
 
 .frame_pencil {
@@ -145,6 +164,7 @@ body {
   flex-direction: column;
   width: 63px;
   height: 101px;
+  padding-right: 36px;
 }
 
 .txt_number {
@@ -187,4 +207,39 @@ body {
   border: 2px;
   padding-left: 12px;
   padding-right: 12px;
+}
+
+.date {
+  font-family: Inter;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.deadline {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.urgent_txt {
+  display: flex;
+  flex-direction: column;
+  width: 178px;
+  height: 89px;
+  padding-left: 36px;
+}
+
+.new_tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 168px;
+  height: 168px;
 }

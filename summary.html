@@ -1,75 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/summary.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="fonts/Figtree/Figtree-VariableFont_wght.ttf">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/summary.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fonts/Figtree/Figtree-VariableFont_wght.ttf" />
     <title>summary</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <container class="bg_container">
-    <div class="header"><!--Frame 40-->
+      <div class="header">
+        <!--Frame 40-->
         <div class="title">Join 360</div>
-        <img src="assets/img/summary/Vector 5.svg" alt="blue bar">
+        <img src="assets/img/summary/Vector 5.svg" alt="blue bar" />
         <div class="metrics_title">Key Metrics at a Glance</div>
-    </div>
-    <div class="btn_frames">
+      </div>
+      <div class="btn_frames">
         <!--Frame 71-->
         <div class="first_frame">
-                    <div class="frame_up"><!--Frame 65-->
-                        <div class="frame_pencil">
-                            <div class="btn_pencil">
-                                <img class="ellipse" src="assets/img/summary/Ellipse 4.svg" alt="circle">
-                                <img class="pencil" src="assets/img/summary/edit.svg" alt="pencil">      
-                            </div>
-                            <div class="tasks">
-                                <div class="txt_number">1</div>
-                                <div class="txt_todo">To-do</div>
-                            </div>
-                        </div>
-                        <div class="frame_rectangle">
-                            <div class="btn_pencil">
-                                <img class="ellipse" src="assets/img/summary/Ellipse 4.svg" alt="circle">
-                                <img class="rectangle" src="assets/img/summary/retangle.svg" alt="">      
-                            </div>
-                            <div class="tasks">
-                                <div class="txt_number">1</div>
-                                <div class="txt_todo">Done</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="urgent"></div>
-                    <div class="frame_pencil">
-                        <div class="btn_pencil">
-                            <img class="ellipse" src="assets/img/summary/Red_Ellipse.svg" alt="circle">
-                            <img class="peak_up" src="assets/img/summary/peak.svg" alt=""> 
-                            <img class="peak_down" src="assets/img/summary/peak.svg" alt="">       
-                        </div>
-                        <div class="tasks">
-                            <div class="txt_number">1</div>
-                            <div class="txt_todo">Urgent</div>
-                        </div>
-                        <img class="gray_bar" src="assets/img/summary/gray_bar.svg" alt="">
-                    </div>
-                    
-                    <div class="urgent_txt">
-                        <span>October 22, 2022</span>
-                       <span>Upcoming deadline</span>
-                    </div>
-                    <div class="frame_down"></div>
+          <div class="frame_up">
+            <!--Frame 65-->
+            <div class="frame_pencil">
+              <div class="btn_pencil">
+                <img
+                  class="ellipse"
+                  src="assets/img/summary/Ellipse 4.svg"
+                  alt="circle"
+                />
+                <img
+                  class="pencil"
+                  src="assets/img/summary/edit.svg"
+                  alt="pencil"
+                />
+              </div>
+              <div class="tasks">
+                <div class="txt_number">1</div>
+                <div class="txt_todo">To-do</div>
+              </div>
+            </div>
+            <div class="frame_rectangle">
+              <div class="btn_pencil">
+                <img
+                  class="ellipse"
+                  src="assets/img/summary/Ellipse 4.svg"
+                  alt="circle"
+                />
+                <img
+                  class="rectangle"
+                  src="assets/img/summary/retangle.svg"
+                  alt=""
+                />
+              </div>
+              <div class="tasks">
+                <div class="txt_number">1</div>
+                <div class="txt_todo">Done</div>
+              </div>
+            </div>
+          </div>
+          <div class="urgent">
+            <div class="frame_pencil">
+              <div class="btn_pencil">
+                <img
+                  class="ellipse"
+                  src="assets/img/summary/Red_Ellipse.svg"
+                  alt="circle"
+                />
+                <img class="peak_up" src="assets/img/summary/peak.svg" alt="" />
+                <img
+                  class="peak_down"
+                  src="assets/img/summary/peak.svg"
+                  alt=""
+                />
+              </div>
+              <div class="tasks">
+                <div class="txt_number">1</div>
+                <div class="txt_todo">Urgent</div>
+              </div>
+              <img
+                class="gray_bar"
+                src="assets/img/summary/gray_bar.svg"
+                alt=""
+              />
+              <div class="urgent_txt">
+                <span class="date">October 22, 2022</span>
+                <span class="deadline">Upcoming deadline</span>
+              </div>
+            </div>
+          </div>
+          <div class="frame_down">
+            <div class="new_tasks">
+              <div class="txt_number">5</div>
+              <div class="txt_todo">Tasks in board</div>
+            </div>
+            <div class="new_tasks">
+              <div class="txt_number">2</div>
+              <div class="txt_todo">Tasks in progress</div>
+            </div>
+            <div class="new_tasks">
+              <div class="txt_number">2</div>
+              <div class="txt_todo">Awaiting feedback</div>
+            </div>
+          </div>
         </div>
         <!--Frame 69-->
-        <div class="welcome">Good Morning
-            <div>Sofia Müller</div>
+        <div class="welcome_box">
+          <span class="welcome">Good Morning,</span>
+          <span class="welcome_txt">Sofia Müller</span>
         </div>
-        <div>
-            
-        </div>
-    </div>
+      </div>
     </container>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
