@@ -243,7 +243,10 @@ h1 {
   .add-task-required {
     padding-top: 32px;
   }
+  .add-task-required {
+    top: 1180px;
+  }
   .add-task-buttons {
-    padding: 32px 0 32px 144px;
+    padding: 64px 0 32px 144px;
   }
 }
