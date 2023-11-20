@@ -6,9 +6,14 @@
     <title>Add Task</title>
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css/add_task.css" />
+    <script src="../script.js"></script>
     <script src="../js/add_task.js"></script>
   </head>
-  <body>
+  <body onload="includeHTML()">
+    <div
+      w3-include-html="../html/mobile_header.html"
+      class="mobile-header-include"
+    ></div>
     <div class="add-task-page">
       <h1>Add Task</h1>
       <div class="add-task-formular">
