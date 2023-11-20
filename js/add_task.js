@@ -34,7 +34,19 @@ function confirmSubtask() {
     </div>`;
 }
 
-function deleteSubtask() {}
+function deleteSubtask() {
+  document.getElementById("add-task-subtask-addet").innerHTML = "";
+}
+
+function changeInputTextColor(input) {
+  var inputElement = document.getElementById(input);
+
+  if (inputElement.value.trim() !== "") {
+    inputElement.style.color = "var(--black)";
+  } else {
+    inputElement.style.color = "";
+  }
+}
 
 function addPrioStatus(clicked) {
   document

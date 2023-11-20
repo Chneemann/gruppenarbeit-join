@@ -154,7 +154,6 @@ h1 {
   font-size: 16px;
   padding: 4px 12px;
   border-radius: 20px;
-  cursor: pointer;
 }
 
 .add-task-subtask-addet:hover {
@@ -171,6 +170,7 @@ h1 {
 .add-task-icons-addet {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 /*------------- FOOTER -------------*/
