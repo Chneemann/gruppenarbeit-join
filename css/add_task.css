@@ -114,6 +114,10 @@ h1 {
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
+.add-task-subtask {
+  padding-bottom: 12px;
+}
+
 #add-task-icons {
   height: 0;
 }
@@ -140,6 +144,33 @@ h1 {
   background-color: var(--very-light-gray);
   border-radius: 16px;
   cursor: pointer;
+}
+
+.add-task-subtask-addet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 418px;
+  font-size: 16px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.add-task-subtask-addet:hover {
+  background-color: var(--very-light-gray2);
+}
+
+.add-task-subtask-line {
+  height: 22px;
+  width: 1px;
+  background-color: var(--gray);
+  margin: 0 6px;
+}
+
+.add-task-icons-addet {
+  display: flex;
+  align-items: center;
 }
 
 /*------------- FOOTER -------------*/
@@ -320,7 +351,11 @@ h1 {
   }
 
   .add-task-left {
-    margin-top: 128px;
+    padding-top: 128px;
+  }
+
+  .add-task-right {
+    padding-bottom: 88px;
   }
 
   .add-task-page {
@@ -369,7 +404,7 @@ h1 {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 370px) {
   .add-task-prio-fields span {
     display: none;
   }
@@ -389,5 +424,9 @@ h1 {
 
   .add-task-prio-field {
     width: 86px;
+  }
+
+  #add-task-icon-add {
+    left: 250px;
   }
 }
