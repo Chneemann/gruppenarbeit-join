@@ -36,9 +36,12 @@ h1 {
 }
 
 .board-btn-add-task {
-  height: 48px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 32px;
   width: 165px;
-  padding: 8px 16px;
+  padding: 8px 8px 8px 16px;
   border-radius: 10px;
   border: 0;
   background: var(--dark-blue);
@@ -61,6 +64,21 @@ h1 {
   border-radius: 10px;
   border: 1px solid var(--gray);
   background: var(--white);
+  background-image: url("../assets/img/search.svg");
+  background-position-x: calc(100% - 10px);
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+}
+
+.board-line {
+  position: absolute;
+  top: 124px;
+  right: 215px;
+  height: 18px;
+  width: 1px;
+  background-color: var(--gray);
+  margin: 0 6px;
 }
 
 /*------------- BOARD CONTENT -------------*/
