@@ -18,6 +18,7 @@ h1 {
 .board-header {
   display: flex;
   justify-content: space-between;
+  width: 1080px;
 }
 
 .board-search {
@@ -82,3 +83,33 @@ h1 {
 }
 
 /*------------- BOARD CONTENT -------------*/
+
+.board-content {
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+  margin-top: 48px;
+}
+
+.board-content span {
+  color: var(--blue-gray);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.board-content-headline {
+  display: flex;
+  justify-content: space-between;
+  width: 246px;
+}
+
+.board-content-headline img {
+  border-radius: 8px;
+  border: 2px solid var(--dark-blue);
+}
+
+.board-content-headline img:hover {
+  cursor: pointer;
+  border-color: var(--light-blue);
+}
+/*------------- MEDIA -------------*/
