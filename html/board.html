@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/board.css" />
+    <script src="../script.js"></script>
+  </head>
+  <body>
+    <div class="board-page">
+      <div class="board-header">
+        <h1>Board</h1>
+        <div class="board-search">
+          <div>
+            <input type="text" placeholder="Find Task" />
+            <span class="board-line"></span>
+          </div>
+          <button class="board-btn-add-task" type="submit">
+            <div class="board-btn-inside">
+              <span>Add Task</span>
+              <img src="../assets/img/add_white.svg" alt="ckeck" />
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="board-content">
+        <div id="board-content-headline">
+          <div class="board-content-headline">
+            <span>To do</span><img src="../assets/img/add.svg" alt="" />
+          </div>
+          <div class="board-content-headline">
+            <span>In progress</span><img src="../assets/img/add.svg" alt="" />
+          </div>
+          <div class="board-content-headline">
+            <span>Await feedback</span
+            ><img src="../assets/img/add.svg" alt="" />
+          </div>
+          <div class="board-content-headline">
+            <span>Done</span><img src="../assets/img/add.svg" alt="" />
+          </div>
+        </div>
+        <div id="board-content-tasks">
+          <div id="board-content-task-todo" class="board-content-tasks">
+            <span class="board-empty-task">No tasks To do</span>
+          </div>
+          <div
+            id="board-content-task-inprogress"
+            class="board-content-tasks"
+          ></div>
+          <div
+            id="board-content-task-awaitfeedback"
+            class="board-content-tasks"
+          ></div>
+          <div id="board-content-task-done" class="board-content-tasks"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

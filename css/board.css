@@ -1,0 +1,138 @@
+/* body */
+.board-page {
+  margin: 0;
+  background-color: var(--very-light-gray);
+  padding: 97.5px 0 0 64px;
+  height: 100%;
+}
+
+/*------------- BOARD HEADER -------------*/
+
+h1 {
+  color: var(--black);
+  font-size: 61px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+}
+
+.board-search {
+  display: flex;
+  align-items: center;
+}
+
+.board-btn-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-btn-inside span {
+  margin-right: 4px;
+}
+
+.board-btn-add-task {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 32px;
+  width: 165px;
+  padding: 8px 8px 8px 16px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--dark-blue);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 21px;
+  font-weight: 700;
+  margin-left: 16px;
+}
+
+.board-btn-add-task:hover {
+  background-color: var(--light-blue);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.board-search input {
+  width: 312px;
+  padding: 8px 16px;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--gray);
+  background: var(--white);
+  background-image: url("../assets/img/search.svg");
+  background-position-x: calc(100% - 10px);
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+}
+
+.board-line {
+  position: absolute;
+  top: 124px;
+  right: 215px;
+  height: 18px;
+  width: 1px;
+  background-color: var(--gray);
+  margin: 0 6px;
+}
+
+/*------------- BOARD CONTENT (HEADLINE) -------------*/
+
+#board-content-headline {
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+  margin-top: 48px;
+}
+
+.board-content-headline {
+  display: flex;
+  justify-content: space-between;
+  width: 246px;
+  padding-bottom: 15.5px;
+}
+
+.board-content-headline span {
+  color: var(--blue-gray);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.board-content-headline img {
+  border-radius: 8px;
+  border: 2px solid var(--dark-blue);
+}
+
+.board-content-headline img:hover {
+  cursor: pointer;
+  border-color: var(--light-blue);
+}
+
+/*------------- BOARD CONTENT (TASKS) -------------*/
+
+.board-content-tasks {
+  width: 246px;
+}
+
+.board-empty-task {
+  display: flex;
+  height: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px dashed var(--gray);
+  background: var(--very-light-gray2);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray);
+}
+
+/*------------- MEDIA -------------*/
