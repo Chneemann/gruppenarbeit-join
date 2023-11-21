@@ -82,25 +82,26 @@ h1 {
   margin: 0 6px;
 }
 
-/*------------- BOARD CONTENT -------------*/
+/*------------- BOARD CONTENT (HEADLINE) -------------*/
 
-.board-content {
+#board-content-headline {
   display: flex;
   justify-content: space-between;
   width: 1080px;
   margin-top: 48px;
 }
 
-.board-content span {
-  color: var(--blue-gray);
-  font-size: 20px;
-  font-weight: 700;
-}
-
 .board-content-headline {
   display: flex;
   justify-content: space-between;
   width: 246px;
+  padding-bottom: 15.5px;
+}
+
+.board-content-headline span {
+  color: var(--blue-gray);
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .board-content-headline img {
@@ -112,4 +113,26 @@ h1 {
   cursor: pointer;
   border-color: var(--light-blue);
 }
+
+/*------------- BOARD CONTENT (TASKS) -------------*/
+
+.board-content-tasks {
+  width: 246px;
+}
+
+.board-empty-task {
+  display: flex;
+  height: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px dashed var(--gray);
+  background: var(--very-light-gray2);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray);
+}
+
 /*------------- MEDIA -------------*/
