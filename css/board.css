@@ -1,0 +1,19 @@
+/* body */
+.board-page {
+  margin: 0;
+  background-color: var(--very-light-gray);
+  padding: 97.5px 0 0 64px;
+  height: 100%;
+}
+
+/*------------- BOARD HEADER -------------*/
+
+h1 {
+  color: var(--black);
+  font-size: 61px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+
+/*------------- BOARD CONTENT -------------*/
