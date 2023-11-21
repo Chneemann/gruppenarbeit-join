@@ -1,21 +1,17 @@
 body {
   margin: 0;
   background-color: var(--very-light-gray);
-
   overflow: hidden;
   padding-left: 96px;
   padding-top: 110px;
 }
 
 .bg_container {
-  display: flex;
+  height: 90%;
 }
 
 .header {
-  top: 206px;
-  right: 328px;
   display: flex;
-
   align-items: center;
   width: 100%;
 }
@@ -43,22 +39,18 @@ body {
 }
 
 .first_frame {
-  width: 560px;
-  height: 562px;
-  top: 335px;
-  left: 560px;
   gap: 28px;
-
+  align-items: center;
   display: flex;
-  /*position: relative;*/
   flex-direction: column;
+  max-width: 560px;
 }
 
 .frame_up {
-  width: 560px;
-  height: 168px;
   gap: 32px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .urgent {
@@ -67,27 +59,23 @@ body {
 }
 
 .frame_down {
-  width: 560px;
-  height: 269px;
+  align-items: center;
+  justify-content: space-between;
   display: flex;
   gap: 32px;
 }
 
 .btn_frames {
   display: flex;
-  width: 945px;
-  
-  position: fixed;
-  top: 370px;
+  align-items: center;
+  padding: 64px;
+  margin-bottom: 48px;
 }
 
 .welcome_box {
-  position: relative;
-  height: 136px;
-  top: 203.5px;
-  left: 519px;
-  gap: 3px;
-  width: 365px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 320px;
 }
 
 .welcome {
@@ -106,35 +94,28 @@ body {
   line-height: 77px;
   letter-spacing: 0em;
   text-align: left;
-  color:  var(--light-blue);
+  color: var(--light-blue);
 }
 
 .frame_pencil {
-  width: 264px;
-  height: 168px;
   display: flex;
-  position: relative;
-  left: 296px;
   gap: 18px;
   justify-content: center;
   align-items: center;
+  padding: 38px 19px 38px 19px;
 }
 
 .frame_rectangle {
-  width: 264px;
-  height: 168px;
   display: flex;
-  position: relative;
-  left: 370px;
   gap: 18px;
   justify-content: center;
   align-items: center;
+  padding: 38px 19px 38px 19px;
 }
 
 .ellipse {
   width: 69px;
   height: 69px;
-  /*position: absolute;*/
   top: 49.5px;
   left: 128.5px;
 }
