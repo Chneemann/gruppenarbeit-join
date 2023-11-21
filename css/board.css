@@ -160,7 +160,6 @@ h1 {
   padding: 4px 16px;
   border-radius: 8px;
   color: var(--white);
-  background-color: var(--blue);
 }
 
 .board-card-headline {
@@ -223,7 +222,7 @@ h1 {
   width: 100%;
 }
 
-.board-card-footer-badges {
+#board-card-footer-badge {
   display: flex;
 }
 
@@ -240,7 +239,8 @@ h1 {
   font-weight: 400;
 }
 
-.board-card-footer-badged {
+.blue {
+  background-color: var(--blue);
 }
 
 .orange {
