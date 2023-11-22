@@ -275,6 +275,24 @@ h1 {
   height: 32px;
 }
 
+/*------------- GLOBAL -------------*/
+
+.mobile-header-include {
+  display: none;
+}
+
+/*------------- MOBILE -------------*/
+
+@media (max-width: 475px) {
+  .mobile-header-include {
+    display: block;
+  }
+
+  .board-page {
+    padding: 128px 16px 0 16px;
+  }
+}
+
 /*------------- MEDIA -------------*/
 
 @media (max-width: 1190px) {
@@ -309,16 +327,15 @@ h1 {
   }
 
   .board-header {
-    width: 100%;
+    width: 245px;
   }
 
   .board-line {
-    top: 8px;
     right: 35px;
   }
 
   .board-search input {
-    width: 100%;
+    width: 212px;
   }
 
   .board-btn-add-task {
@@ -335,6 +352,9 @@ h1 {
   }
 
   .board-btn-add-task {
+    position: absolute;
+    top: -62px;
+    right: 0;
     display: block;
     width: 40px;
     height: 40px;
