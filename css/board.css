@@ -91,14 +91,13 @@ h1 {
   padding-right: 32px;
 }
 
-.board-content-column:nth-child(4) {
-  padding-right: 0;
+.board-content-column:first-child {
+  padding-left: 0;
 }
-
 /*------------- BOARD CONTENT (HEADLINE) -------------*/
 
 .board-content {
-  max-width: 1080px;
+  max-width: calc(1080px + 32px);
 }
 
 #board-content-headline {
@@ -135,6 +134,7 @@ h1 {
 
 .board-content-tasks {
   width: 246px;
+  margin: 15.5px 0;
 }
 
 .board-empty-task {
@@ -277,20 +277,69 @@ h1 {
 
 /*------------- MEDIA -------------*/
 
-@media (max-width: 1158px) {
+@media (max-width: 1190px) {
   .board-header {
-    width: 805px;
+    width: 800px;
   }
 }
 
 @media (max-width: 912px) {
   .board-header {
     flex-direction: column;
-    width: 655px;
+    width: 525px;
   }
 
   .board-line {
     top: 8px;
-    right: 345px;
+    right: 220px;
+  }
+
+  .board-search {
+    margin-top: 15.5px;
+  }
+
+  .board-search input {
+    width: 307px;
+  }
+}
+
+@media (max-width: 634px) {
+  .board-page h1 {
+    font-size: 47px;
+  }
+
+  .board-header {
+    width: 100%;
+  }
+
+  .board-line {
+    top: 8px;
+    right: 35px;
+  }
+
+  .board-search input {
+    width: 100%;
+  }
+
+  .board-btn-add-task {
+    display: none;
+  }
+
+  .board-content-column {
+    padding-left: 0;
+    padding-right: 32px;
+  }
+
+  .board-btn-add-task span {
+    display: none;
+  }
+
+  .board-btn-add-task {
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 10px;
+    background: var(--dark-blue);
   }
 }
