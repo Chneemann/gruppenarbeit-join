@@ -83,29 +83,33 @@ h1 {
   margin: 0 6px;
 }
 
+/*------------- BOARD CONTENT -------------*/
+
+.board-content-column {
+  display: flex;
+  flex-direction: column;
+}
+
 /*------------- BOARD CONTENT (HEADLINE) -------------*/
 
 .board-content {
-  width: 1080px;
+  max-width: 1080px;
 }
 
 #board-content-headline {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   margin-top: 48px;
+  flex-wrap: wrap;
 }
 
 .board-content-headline {
   display: flex;
   justify-content: space-between;
-  width: 246px;
+  min-width: 246px;
   padding-right: 26px;
   padding-bottom: 15.5px;
-}
-
-.board-content-headline:nth-child(4) {
-  padding-right: 0;
 }
 
 .board-content-headline span {
@@ -128,17 +132,14 @@ h1 {
 
 #board-content-tasks {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .board-content-tasks {
   width: 246px;
   padding-right: 26px;
-}
-
-.board-content-tasks:nth-child(4) {
-  padding-right: 0;
 }
 
 .board-empty-task {
@@ -282,4 +283,7 @@ h1 {
 /*------------- MEDIA -------------*/
 
 @media (max-width: 1170px) {
+  .board-header {
+    width: 750px;
+  }
 }
