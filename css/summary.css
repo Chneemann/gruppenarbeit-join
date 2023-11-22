@@ -1,8 +1,7 @@
 @font-face {
   font-family: Inter;
-  src: url('../fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
+  src: url("../fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
 }
-
 
 body {
   margin: 0;
@@ -10,7 +9,7 @@ body {
   overflow: hidden;
   padding-left: 96px;
   padding-top: 110px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .bg_container {
@@ -54,7 +53,7 @@ body {
 }
 
 .frame_up {
-  gap: 32px;
+  gap: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,18 +108,50 @@ body {
 
 .frame_pencil {
   display: flex;
-  gap: 18px;
+  gap: 40px;
   justify-content: center;
   align-items: center;
   padding: 38px 19px 38px 19px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  color: black;
+}
+
+.frame_pencil:hover {
+  cursor: pointer;
+  filter: invert(1);
 }
 
 .frame_rectangle {
   display: flex;
-  gap: 18px;
+  gap: 40px;
   justify-content: center;
   align-items: center;
   padding: 38px 19px 38px 19px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.frame_rectangle:hover {
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.frame_urgent{
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  padding: 38px 19px 38px 19px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  color: black;
+}
+
+.frame_urgent:hover {
+  cursor: pointer;
+  filter: invert(1);
 }
 
 .ellipse {
@@ -225,7 +256,7 @@ body {
   width: 178px;
   height: 89px;
   padding-left: 36px;
-  gap:13px;
+  gap: 13px;
   justify-content: center;
 }
 
@@ -236,4 +267,16 @@ body {
   flex-direction: column;
   width: 168px;
   height: 168px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  color: black;
+}
+
+.new_tasks:hover {
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.desk_hidden{
+  display: none;
 }
