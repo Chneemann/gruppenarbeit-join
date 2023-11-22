@@ -142,6 +142,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 246px;
   height: 48px;
   border-radius: 10px;
   border: 1px dashed var(--gray);
@@ -158,6 +159,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 214px;
   padding: 16px;
   border-radius: 24px;
   background-color: var(--white);
@@ -281,18 +283,6 @@ h1 {
   display: none;
 }
 
-/*------------- MOBILE -------------*/
-
-@media (max-width: 475px) {
-  .mobile-header-include {
-    display: block;
-  }
-
-  .board-page {
-    padding: 128px 16px 0 16px;
-  }
-}
-
 /*------------- MEDIA -------------*/
 
 @media (max-width: 1190px) {
@@ -361,5 +351,40 @@ h1 {
     padding: 3px;
     border-radius: 10px;
     background: var(--dark-blue);
+  }
+}
+
+/*------------- MOBILE -------------*/
+
+@media (max-width: 475px) {
+  .mobile-header-include {
+    display: block;
+  }
+
+  .board-header {
+    min-width: 246px;
+    width: 100%;
+  }
+
+  .board-page {
+    padding: 128px 16px 0 16px;
+  }
+
+  .board-search {
+    display: block;
+    width: 100%;
+  }
+
+  .board-search input {
+    width: calc(100% - 34px);
+  }
+
+  .board-content-column,
+  .board-content-tasks {
+    width: 100%;
+  }
+
+  .board-content-column {
+    padding-right: 0;
   }
 }
