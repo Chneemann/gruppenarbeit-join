@@ -4,7 +4,7 @@ body {
   overflow: hidden;
   padding-left: 96px;
   padding-top: 110px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
 }
 
 .bg_container {
