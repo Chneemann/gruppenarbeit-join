@@ -88,6 +88,11 @@ h1 {
 .board-content-column {
   display: flex;
   flex-direction: column;
+  padding-right: 32px;
+}
+
+.board-content-column:nth-child(4) {
+  padding-right: 0;
 }
 
 /*------------- BOARD CONTENT (HEADLINE) -------------*/
@@ -99,17 +104,15 @@ h1 {
 #board-content-headline {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   width: 100%;
   margin-top: 48px;
-  flex-wrap: wrap;
 }
 
 .board-content-headline {
   display: flex;
   justify-content: space-between;
   min-width: 246px;
-  padding-right: 26px;
-  padding-bottom: 15.5px;
 }
 
 .board-content-headline span {
@@ -130,16 +133,8 @@ h1 {
 
 /*------------- BOARD CONTENT (TASKS) -------------*/
 
-#board-content-tasks {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
 .board-content-tasks {
   width: 246px;
-  padding-right: 26px;
 }
 
 .board-empty-task {
@@ -282,8 +277,20 @@ h1 {
 
 /*------------- MEDIA -------------*/
 
-@media (max-width: 1170px) {
+@media (max-width: 1158px) {
   .board-header {
-    width: 750px;
+    width: 805px;
+  }
+}
+
+@media (max-width: 912px) {
+  .board-header {
+    flex-direction: column;
+    width: 655px;
+  }
+
+  .board-line {
+    top: 8px;
+    right: 345px;
   }
 }
