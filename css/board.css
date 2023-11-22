@@ -279,6 +279,15 @@ h1 {
 
 /*------------- TASK OVERLAY -------------*/
 
+.task-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 525px;
+  padding: 48px 40px;
+  background-color: var(--white);
+}
+
 /*------------- GLOBAL -------------*/
 
 .mobile-header-include {
