@@ -312,29 +312,39 @@ h1 {
 }
 
 @media (max-width: 634px) {
-  .board-page h1 {
-    font-size: 47px;
+  .board-header {
+    min-width: 246px;
+    width: 100%;
   }
 
-  .board-header {
-    width: 245px;
+  .board-page {
+    padding-right: 64px;
+  }
+
+  .board-search {
+    display: block;
+    width: 100%;
+  }
+
+  .board-search input {
+    width: calc(100% - 34px);
+  }
+
+  .board-content-column,
+  .board-content-tasks {
+    width: 100%;
+  }
+
+  .board-content-column {
+    padding-right: 0;
   }
 
   .board-line {
     right: 35px;
   }
 
-  .board-search input {
-    width: 212px;
-  }
-
   .board-btn-add-task {
     display: none;
-  }
-
-  .board-content-column {
-    padding-left: 0;
-    padding-right: 32px;
   }
 
   .board-btn-add-task span {
@@ -357,34 +367,15 @@ h1 {
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
+  .board-page h1 {
+    font-size: 47px;
+  }
+
   .mobile-header-include {
     display: block;
   }
 
-  .board-header {
-    min-width: 246px;
-    width: 100%;
-  }
-
   .board-page {
     padding: 128px 16px 0 16px;
-  }
-
-  .board-search {
-    display: block;
-    width: 100%;
-  }
-
-  .board-search input {
-    width: calc(100% - 34px);
-  }
-
-  .board-content-column,
-  .board-content-tasks {
-    width: 100%;
-  }
-
-  .board-content-column {
-    padding-right: 0;
   }
 }
