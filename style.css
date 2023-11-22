@@ -7,11 +7,16 @@
   --light-gray: #d1d1d1;
   --very-light-gray: #f6f7f8;
   --very-light-gray2: #e7e7e7;
+  --very-light-gray3: #f4f4f4;
   --light-blue: #29abe2;
+  --medium-blue: #4589ff;
   --light-red: #ff8190;
   --red: #ff3d00;
   --orange: #ffa800;
   --green: #7ae229;
+  --blue: #0038ff;
+  --türkis: #1fd7c1;
+  --lila: #462f8a;
 }
 
 body {
