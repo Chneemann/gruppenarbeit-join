@@ -260,11 +260,11 @@ h1 {
   background-color: var(--orange);
 }
 
-.türkis {
+.turquoise {
   background-color: var(--türkis);
 }
 
-.lila {
+.purple {
   background-color: var(--lila);
 }
 
@@ -282,10 +282,82 @@ h1 {
 .task-overlay {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 525px;
+  max-width: 525px;
   padding: 48px 40px;
   background-color: var(--white);
+}
+
+.task-overlay-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+#task-overlay-category {
+  padding: 4px 24px;
+  border-radius: 8px;
+  color: var(--white);
+}
+
+.task-overlay-headline h2 {
+  font-size: 61px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.task-overlay-content {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#task-overlay-description {
+  margin-bottom: 24px;
+}
+
+.task-overlay-date,
+.task-overlay-prio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.task-overlay-date p,
+.task-overlay-prio p {
+  width: 90px;
+  margin: 0;
+  padding: 0 25px 0 0;
+}
+
+#task-overlay-prio {
+  display: flex;
+  align-items: center;
+}
+
+#task-overlay-prio img {
+  padding-left: 10px;
+}
+
+.task-overlay-assigned-person {
+  display: flex;
+  padding: 7px 16px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 10px;
+}
+
+.task-overlay-person {
+  display: flex;
+  align-items: center;
+}
+
+.task-overlay-person p {
+  margin: 0;
+  padding-left: 16px;
+  font-family: Open Sans;
+  font-size: 19px;
+  font-weight: 400;
 }
 
 /*------------- GLOBAL -------------*/
