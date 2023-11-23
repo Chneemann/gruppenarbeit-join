@@ -405,7 +405,8 @@ h1 {
 }
 
 .task-overlay-footer a:hover {
-  color: var(--light-blue);
+  filter: invert(60%) sepia(58%) saturate(1629%) hue-rotate(165deg)
+    brightness(92%) contrast(92%);
 }
 
 .task-overlay-footer img {
