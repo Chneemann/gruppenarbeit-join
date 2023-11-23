@@ -286,6 +286,7 @@ h1 {
   max-width: 525px;
   padding: 48px 40px;
   background-color: var(--white);
+  border-radius: 30px;
 }
 
 .task-overlay-header {
@@ -319,7 +320,7 @@ h1 {
 .task-overlay-headline h2 {
   font-size: 61px;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin: 0 0 24px 0;
 }
 
 .task-overlay-content {
@@ -408,7 +409,6 @@ h1 {
 /*------------- DIALOG -------------*/
 
 .dialog-bg {
-  background-color: rgba(0, 0, 0, 0.2);
   z-index: 999;
   position: fixed;
   left: 0;
@@ -418,6 +418,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.1s ease-in-out;
 }
 
 .dialog {
@@ -427,7 +428,14 @@ h1 {
   border: 1px solid lightgray;
   border-radius: 10px;
   padding: 24px;
-  transition: 1000ms;
+}
+
+.dialog-show {
+  transform: translateX(0);
+}
+
+.dialog-hide {
+  transform: translateX(100%);
 }
 
 /*------------- GLOBAL -------------*/
