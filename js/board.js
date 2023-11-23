@@ -4,13 +4,7 @@ async function openCart() {
   await sleep(10);
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");
-  overlay.addEventListener(
-    "transitionend",
-    function () {
-      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-    },
-    { once: true }
-  );
+  changeBackground(overlay);
 }
 
 async function closeCart() {
@@ -24,4 +18,14 @@ async function closeCart() {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function changeBackground(overlay) {
+  overlay.addEventListener(
+    "transitionend",
+    function () {
+      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+    },
+    { once: true }
+  );
 }
