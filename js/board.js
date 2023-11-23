@@ -1,9 +1,19 @@
 function openCart() {
-  document.getElementById("task-overlay-cart").classList.add("dialog-show");
-  document.getElementById("task-overlay-cart").classList.remove("dialog-hide");
+  var overlay = document.getElementById("task-overlay-cart");
+  overlay.classList.add("dialog-show");
+  overlay.classList.remove("dialog-hide");
+  overlay.addEventListener(
+    "transitionend",
+    function () {
+      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+    },
+    { once: true }
+  );
 }
 
 function closeCart() {
-  document.getElementById("task-overlay-cart").classList.add("dialog-hide");
-  document.getElementById("task-overlay-cart").classList.remove("dialog-show");
+  var overlay = document.getElementById("task-overlay-cart");
+  overlay.classList.add("dialog-hide");
+  overlay.classList.remove("dialog-show");
+  overlay.style.backgroundColor = "";
 }
