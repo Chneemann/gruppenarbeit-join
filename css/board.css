@@ -284,11 +284,14 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 525px;
+  height: auto;
+  max-height: 90%;
   padding: 48px 40px;
   background-color: var(--white);
   border-radius: 30px;
   padding: 24px;
   margin: 24px;
+  overflow: auto;
 }
 
 .task-overlay-header {
