@@ -291,7 +291,6 @@ h1 {
   border-radius: 30px;
   padding: 24px;
   margin: 24px;
-  overflow: auto;
 }
 
 .task-overlay-header {
@@ -453,6 +452,7 @@ h1 {
 }
 
 .text-wrap-overflow {
+  overflow: auto;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
