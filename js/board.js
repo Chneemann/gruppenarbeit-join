@@ -1,5 +1,7 @@
-function openCart() {
+async function openCart() {
   var overlay = document.getElementById("task-overlay-cart");
+  overlay.classList.remove("d-none");
+  await sleep(10);
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");
   overlay.addEventListener(
@@ -11,9 +13,15 @@ function openCart() {
   );
 }
 
-function closeCart() {
+async function closeCart() {
   var overlay = document.getElementById("task-overlay-cart");
   overlay.classList.add("dialog-hide");
   overlay.classList.remove("dialog-show");
   overlay.style.backgroundColor = "";
+  await sleep(100);
+  overlay.classList.add("d-none");
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
