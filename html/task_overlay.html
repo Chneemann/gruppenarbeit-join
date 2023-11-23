@@ -1,15 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Overlay</title>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../css/board.css" />
-    <script src="../script.js"></script>
-  </head>
-  <body>
-    <div class="task-overlay"></div>
-    <div class="board-card-category blue">User Story</div>
-  </body>
-</html>
+<div class="task-overlay text-wrap-overflow" onclick="event.stopPropagation()">
+  <div class="task-overlay-header">
+    <div id="task-overlay-category" class="blue">User Story</div>
+    <div class="task-overlay-img-close" onclick="closeCart()">
+      <img src="../assets/img/close.svg" alt="" />
+    </div>
+  </div>
+  <div class="task-overlay-headline">
+    <h2 id="task-overlay-headline">Kochwelt Page & Recipe Recommender</h2>
+  </div>
+  <div class="task-overlay-content">
+    <div id="task-overlay-description">
+      Build start page with recipe recommendation...
+    </div>
+    <div class="task-overlay-date">
+      <p>Due date:</p>
+      <span id="task-overlay-date">10/05/2023</span>
+    </div>
+    <div class="task-overlay-prio">
+      <p>Priority:</p>
+      <span id="task-overlay-prio"
+        >Medium <img src="../assets/img/medium.svg" alt="medium"
+      /></span>
+    </div>
+    <div>
+      Assigned To:
+      <div class="task-overlay-assigned-person">
+        <div class="task-overlay-person">
+          <span class="board-card-footer-badged orange">EM</span>
+          <p>Emmanuel Mauer</p>
+        </div>
+        <div class="task-overlay-person">
+          <span class="board-card-footer-badged purple">MB</span>
+          <p>Marcel Bauer</p>
+        </div>
+        <div class="task-overlay-person">
+          <span class="board-card-footer-badged blue">AM</span>
+          <p>Anton Mayer</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      Subtasks
+      <div class="task-overlay-subtasks">
+        <div class="task-overlay-subtask">
+          <input type="checkbox" name="" id="" />
+          <p>Implement Recipe Recommendation</p>
+        </div>
+        <div class="task-overlay-subtask">
+          <input type="checkbox" name="" id="" />
+          <p>Start Page Layout</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="task-overlay-footer">
+    <a href="#"
+      ><img class="circle" src="../assets/img/delete.svg" alt="delete" /><span
+        >Delete</span
+      ></a
+    >
+    <img src="../assets/img/line.svg" alt="line" />
+    <a href="#"
+      ><img class="circle" src="../assets/img/edit.svg" alt="edit" /><span
+        >Edit</span
+      ></a
+    >
+  </div>
+</div>
