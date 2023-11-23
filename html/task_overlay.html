@@ -9,10 +9,12 @@
     <script src="../script.js"></script>
   </head>
   <body>
-    <div class="task-overlay">
+    <div class="task-overlay text-wrap-overflow">
       <div class="task-overlay-header">
         <div id="task-overlay-category" class="blue">User Story</div>
-        <div><img src="../assets/img/close.svg" alt="" /></div>
+        <div class="task-overlay-img-close" onclick="taskOverlayClose()">
+          <img src="../assets/img/close.svg" alt="" />
+        </div>
       </div>
       <div class="task-overlay-headline">
         <h2 id="task-overlay-headline">Kochwelt Page & Recipe Recommender</h2>

@@ -290,7 +290,23 @@ h1 {
 .task-overlay-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 24px;
+}
+
+.task-overlay-img-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.task-overlay-img-close:hover {
+  background-color: var(--very-light-gray);
+  border-radius: 12px;
 }
 
 #task-overlay-category {
@@ -339,17 +355,14 @@ h1 {
 }
 
 .task-overlay-assigned-person {
-  display: flex;
-  padding: 7px 16px;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-  border-radius: 10px;
 }
 
 .task-overlay-person {
   display: flex;
+  padding: 7px 16px;
   align-items: center;
+  align-self: stretch;
+  border-radius: 10px;
 }
 
 .task-overlay-person p {
@@ -364,6 +377,12 @@ h1 {
 
 .mobile-header-include {
   display: none;
+}
+
+.text-wrap-overflow {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 /*------------- MEDIA -------------*/
