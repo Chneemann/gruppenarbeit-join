@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css/board.css" />
     <script src="../script.js"></script>
+    <script src="../js/board.js"></script>
   </head>
   <body onload="includeHTML()">
     <div
       w3-include-html="../html/mobile_header.html"
       class="mobile-header-include"
+    ></div>
+    <div
+      w3-include-html="../html/task_overlay.html"
+      id="task-overlay-cart"
+      class="dialog-bg d-none"
+      onclick="closeCart(event)"
     ></div>
     <div class="board-page">
       <div class="board-header">
@@ -45,7 +52,7 @@
               <span>In progress</span><img src="../assets/img/add.svg" alt="" />
             </div>
             <div id="board-content-task-inprogress" class="board-content-tasks">
-              <div class="board-cart">
+              <div class="board-cart" onclick="openCart()">
                 <div class="board-card-category blue">User Story</div>
                 <div class="board-card-headline">
                   Kochwelt Page & Recipe Recommender
