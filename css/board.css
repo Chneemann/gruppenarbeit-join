@@ -355,9 +355,11 @@ h1 {
 }
 
 .task-overlay-assigned-person {
+  margin-bottom: 24px;
 }
 
-.task-overlay-person {
+.task-overlay-person,
+.task-overlay-subtask {
   display: flex;
   padding: 7px 16px;
   align-items: center;
@@ -371,6 +373,34 @@ h1 {
   font-family: Open Sans;
   font-size: 19px;
   font-weight: 400;
+}
+
+.task-overlay-subtask p {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.task-overlay-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-overlay-footer a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--black);
+  padding-right: 8px;
+}
+
+.task-overlay-footer a:hover {
+  color: var(--light-blue);
+}
+
+.task-overlay-footer img {
+  padding-right: 8px;
 }
 
 /*------------- GLOBAL -------------*/
