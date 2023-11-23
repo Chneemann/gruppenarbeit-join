@@ -283,10 +283,12 @@ h1 {
 .task-overlay {
   display: flex;
   flex-direction: column;
-  max-width: 525px;
+  width: 525px;
   padding: 48px 40px;
   background-color: var(--white);
   border-radius: 30px;
+  padding: 24px;
+  margin: 24px;
 }
 
 .task-overlay-header {
@@ -318,6 +320,7 @@ h1 {
 }
 
 .task-overlay-headline h2 {
+  width: 100%;
   font-size: 61px;
   font-weight: 700;
   margin: 0 0 24px 0;
@@ -429,11 +432,10 @@ h1 {
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 24px;
 }
 
 .dialog-show {
-  transform: translateX(0);
+  transform: translateX(0%);
 }
 
 .dialog-hide {
@@ -550,5 +552,28 @@ h1 {
 
   .board-page {
     padding: 128px 16px 0 16px;
+  }
+
+  .task-overlay {
+    width: 396px;
+    padding: 32px 24px;
+  }
+
+  .task-overlay-headline h2 {
+    font-size: 36px;
+    margin: 0 0 16px 0;
+  }
+
+  .task-overlay-content {
+    font-size: 16px;
+  }
+
+  .task-overlay-date,
+  .task-overlay-prio,
+  .task-overlay-header,
+  .task-overlay-assigned-person,
+  .task-overlay-subtasks,
+  #task-overlay-description {
+    margin-bottom: 16px;
   }
 }
