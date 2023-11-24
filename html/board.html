@@ -20,6 +20,12 @@
       class="dialog-bg d-none"
       onclick="closeCart(event)"
     ></div>
+    <div
+      w3-include-html="../html/add_task.html"
+      id="add-task-dialog"
+      class="dialog-bg"
+      onclick="closeAddTask()(event)"
+    ></div>
     <div class="board-page">
       <div class="board-header">
         <h1>Board</h1>
@@ -28,7 +34,11 @@
             <input type="text" placeholder="Find Task" />
             <span class="board-line"></span>
           </div>
-          <button class="board-btn-add-task" type="submit">
+          <button
+            class="board-btn-add-task"
+            type="submit"
+            onclick="openAddTask()"
+          >
             <div class="board-btn-inside">
               <span>Add Task</span>
               <img src="../assets/img/add_white.svg" alt="check" />
