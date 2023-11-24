@@ -3,6 +3,8 @@
 async function openAddTask() {
   var overlay = document.getElementById("add-task-dialog");
   overlay.classList.remove("d-none");
+  document.getElementById("add-task-page").style.margin = "24px";
+  document.getElementById("add-task-page").style.padding = "64px 74px";
   await sleep(10);
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");
