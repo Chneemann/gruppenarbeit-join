@@ -432,11 +432,9 @@ h1 {
 }
 
 .dialog {
-  height: 50vh;
-  width: 50vw;
   background-color: white;
   border: 1px solid lightgray;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .dialog-show {
