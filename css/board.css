@@ -417,7 +417,7 @@ h1 {
 /*------------- DIALOG -------------*/
 
 .dialog-bg {
-  z-index: 999;
+  z-index: 899;
   position: fixed;
   left: 0;
   right: 0;
@@ -546,6 +546,10 @@ h1 {
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
+  .board-page {
+    display: none;
+  }
+
   .board-page h1 {
     font-size: 47px;
   }

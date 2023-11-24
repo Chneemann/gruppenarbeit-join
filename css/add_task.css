@@ -358,11 +358,11 @@
     padding-bottom: 88px;
   }
 
-  .add-task-page {
+  #add-task-page {
     padding: 80px 0 0 0;
   }
 
-  .add-task-page h1 {
+  #add-task-page h1 {
     position: fixed;
     font-size: 47px;
     width: 100%;
