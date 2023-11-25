@@ -3,6 +3,7 @@
   margin: 0;
   background-color: var(--very-light-gray);
   padding: 110px 0 0 96px;
+  height: 100%;
 }
 
 #add-task-page h1 {
@@ -270,6 +271,10 @@
 /*------------- MEDIA -------------*/
 
 @media (max-width: 1170px) {
+  .dialog {
+    min-width: 400px;
+    margin-left: 48px;
+  }
   .add-task-formular {
     display: block;
   }
@@ -342,6 +347,8 @@
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
+  .add-task-formular {
+  }
   .mobile-header-include {
     display: block;
   }
