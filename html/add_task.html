@@ -6,11 +6,25 @@
     <title>Add Task</title>
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css/add_task.css" />
+    <script src="../script.js"></script>
     <script src="../js/add_task.js"></script>
   </head>
-  <body>
-    <div class="add-task-page">
-      <h1>Add Task</h1>
+  <body onload="includeHTML()">
+    <div
+      w3-include-html="../html/mobile_header.html"
+      class="mobile-header-include"
+    ></div>
+    <div id="add-task-page" class="dialog" onclick="event.stopPropagation()">
+      <div class="add-task-header">
+        <h1>Add Task</h1>
+        <div
+          id="add-task-img-close"
+          class="add-task-img-close d-none"
+          onclick="closeAddTask()"
+        >
+          <img src="../assets/img/close.svg" alt="" />
+        </div>
+      </div>
       <div class="add-task-formular">
         <div class="add-task-left">
           <div class="add-task-title">
@@ -19,6 +33,7 @@
               type="text"
               id="add-task-titel"
               placeholder="Enter a title"
+              oninput="changeInputTextColor('add-task-titel')"
               required
             />
           </div>
@@ -27,14 +42,16 @@
             <textarea
               id="add-task-description"
               placeholder="Enter a Description"
+              oninput="changeInputTextColor('add-task-description')"
             ></textarea>
           </div>
           <div class="add-task-assignet">
             <p>Assignet to</p>
             <select id="add-task-assignet" required>
-              <option value="" disabled selected>
-                Select contacts to assign
-              </option>
+              <option value="" selected>Select contacts to assign</option>
+              <option value="">Placeholder 1</option>
+              <option value="">Placeholder 2</option>
+              <option value="">Placeholder 3</option>
             </select>
           </div>
         </div>
@@ -47,7 +64,7 @@
             <input
               type="date"
               id="add-task-date"
-              placeholder="Enter a title"
+              oninput="changeInputTextColor('add-task-date')"
               required
             />
           </div>
@@ -89,7 +106,10 @@
           <div class="add-task-category">
             <p>Category</p>
             <select id="add-task-category" required>
-              <option value="" disabled selected>Select task category</option>
+              <option value="" selected>Select task category</option>
+              <option value="">Placeholder 1</option>
+              <option value="">Placeholder 2</option>
+              <option value="">Placeholder 3</option>
             </select>
           </div>
           <div class="add-task-subtask">
@@ -120,20 +140,33 @@
                 <img
                   src="../assets/img/check-black.png"
                   alt="check"
+                  onclick="confirmSubtask()"
                   class="add-task-icon"
                 />
               </div>
-              <!-- <img
-                src="../assets/img/edit.svg"
-                alt="edit"
-                class="add-task-icon"
-              />
-              <img
-                src="../assets/img/delete.svg"
-                alt="delete"
-                class="add-task-icon"
-              /> -->
             </div>
+            <div id="add-task-subtask-addet"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="add-task-footer">
+          <div class="add-task-required">
+            <span class="red-dot">*</span>This field is required
+          </div>
+          <div class="add-task-buttons">
+            <button class="add-task-btn-clear" type="submit">
+              <div class="add-task-btn-inside">
+                <span>Clear</span>
+                <img src="../assets/img/close.svg" alt="close" />
+              </div>
+            </button>
+            <button class="add-task-btn-create" type="submit">
+              <div class="add-task-btn-inside">
+                <span>Create Task</span>
+                <img src="../assets/img/check.svg" alt="ckeck" />
+              </div>
+            </button>
           </div>
         </div>
       </div>

@@ -1,21 +1,23 @@
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
+}
+
 body {
   margin: 0;
   background-color: var(--very-light-gray);
-  font-family: "Figtree", sans-serif;
   overflow: hidden;
   padding-left: 96px;
   padding-top: 110px;
+  font-family: "Inter", sans-serif !important;
 }
 
 .bg_container {
-  display: flex;
+  height: 90%;
 }
 
 .header {
-  top: 206px;
-  right: 328px;
   display: flex;
-
   align-items: center;
   width: 100%;
 }
@@ -31,7 +33,6 @@ body {
 }
 
 .metrics_title {
-  font-family: Inter;
   font-size: 27px;
   font-weight: 400;
   line-height: 32px;
@@ -43,79 +44,118 @@ body {
 }
 
 .first_frame {
-  width: 560px;
-  height: 562px;
-  top: 335px;
-  left: 560px;
   gap: 28px;
-
+  align-items: center;
   display: flex;
-  /*position: relative;*/
   flex-direction: column;
+  max-width: 560px;
 }
 
 .frame_up {
-  width: 560px;
-  height: 168px;
-  gap: 32px;
+  gap: 50px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .urgent {
   width: 560px;
   height: 168px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .frame_down {
-  width: 560px;
-  height: 170px;
-  top: 392px;
-  padding: 1px, 0px, 1px, 0px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
   gap: 32px;
 }
 
 .btn_frames {
   display: flex;
-  width: 945px;
-  height: 100vh;
-  position: fixed;
-  top: 370px;
+  align-items: center;
+  padding: 64px;
+  margin-bottom: 48px;
+}
+
+.welcome_box {
+  display: flex;
+  flex-direction: column;
+  padding-left: 200px;
 }
 
 .welcome {
-  position: relative;
-  height: 136px;
-  top: 547.5px;
-  left: 968px;
-  gap: 3px;
+  font-family: Inter;
+  font-size: 47px;
+  font-weight: 500;
+  line-height: 56px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.welcome_txt {
+  font-family: Inter;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 77px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--light-blue);
 }
 
 .frame_pencil {
-  width: 264px;
-  height: 168px;
   display: flex;
-  position: relative;
-  left: 296px;
-  gap: 18px;
+  gap: 40px;
   justify-content: center;
   align-items: center;
+  padding: 38px 19px 38px 19px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  color: black;
+}
+
+.frame_pencil:hover {
+  cursor: pointer;
+  filter: invert(1);
 }
 
 .frame_rectangle {
-  width: 264px;
-  height: 168px;
   display: flex;
-  position: relative;
-  left: 370px;
-  gap: 18px;
+  gap: 40px;
   justify-content: center;
   align-items: center;
+  padding: 38px 19px 38px 19px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.frame_rectangle:hover {
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.frame_urgent{
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  padding: 38px 19px 38px 19px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  color: black;
+}
+
+.frame_urgent:hover {
+  cursor: pointer;
+  filter: invert(1);
 }
 
 .ellipse {
   width: 69px;
   height: 69px;
-  /*position: absolute;*/
   top: 49.5px;
   left: 128.5px;
 }
@@ -145,6 +185,8 @@ body {
   flex-direction: column;
   width: 63px;
   height: 101px;
+  padding-right: 36px;
+  align-items: center;
 }
 
 .txt_number {
@@ -158,13 +200,13 @@ body {
 }
 
 .txt_todo {
-  width: 63px;
+  width: 77px;
   height: 24px;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
 }
 .peak_up {
   width: 34.19px;
@@ -187,4 +229,54 @@ body {
   border: 2px;
   padding-left: 12px;
   padding-right: 12px;
+}
+
+.date {
+  font-family: Inter;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 206px;
+}
+
+.deadline {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.urgent_txt {
+  display: flex;
+  flex-direction: column;
+  width: 178px;
+  height: 89px;
+  padding-left: 36px;
+  gap: 13px;
+  justify-content: center;
+}
+
+.new_tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 168px;
+  height: 168px;
+  border: 1px solid #dbdbdb;
+  border-radius: 30px;
+  color: black;
+}
+
+.new_tasks:hover {
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.desk_hidden{
+  display: none;
 }

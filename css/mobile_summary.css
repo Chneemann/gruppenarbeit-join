@@ -1,0 +1,175 @@
+@media (max-width: 1024px) {
+  body {
+    padding-left: 0px;
+    padding-top: 0px;
+  }
+  .bg_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .header {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    flex-direction: column;
+    padding-left: 24px;
+    align-items: flex-start;
+  }
+
+  .mobile_lost {
+    display: none;
+  }
+
+  .metrics_title {
+    padding-left: 0px;
+  }
+
+  .mobile_visible {
+    display: flex;
+    padding-top: 12px;
+  }
+}
+@media (max-width: 650px) {
+  .header {
+    padding-left: 60px;
+  }
+
+  .btn_frames {
+    margin-bottom: 0px;
+  }
+
+  .frame_up {
+    gap: 10px;
+  }
+
+  .frame_down {
+    gap: 10px;
+  }
+
+  .frame_pencil {
+    gap: 24px;
+  }
+}
+@media (max-width: 560px) {
+  .btn_frames {
+    padding: 0px;
+    padding-left: 40px;
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 475px) {
+  .frame_pencil {
+    gap: 12px;
+    padding: 26px 19px 26px 19px;
+  }
+  .frame_rectangle {
+    gap: 24px;
+    padding: 26px 19px 26px 19px;
+  }
+  .frame_urgent {
+    padding: 18px;
+    gap: 12px;
+  }
+  .frame_down {
+    padding-left: 24px;
+  }
+  .new_tasks {
+    width: 140px;
+  }
+}
+@media (min-width: 320px) {
+  .btn_frames {
+    padding: 0px;
+    padding-left: 0px;
+    padding-top: 40px;
+  }
+  .frame_urgent {
+    padding: 8px;
+    gap: 8px;
+  }
+  .frame_down {
+    padding-left: 0px;
+  }
+  .title {
+    font-size: 41px;
+  }
+  .metrics_title {
+    font-size: 18px;
+  }
+  .ellipse {
+    width: 40px;
+    height: 40px;
+  }
+  .pencil {
+    width: 17.36px;
+    height: 12.83px;
+    top: 14.17px;
+    left: 14.5px;
+  }
+  .txt_number {
+    font-size: 40px;
+    width: 30px;
+    height: 56px;
+  }
+  .tasks {
+    padding-right: 0px;
+    width: 50px;
+  }
+  .frame_pencil {
+    padding: 10px;
+  }
+  .rectangle {
+    width: 17.36px;
+    height: 12.83px;
+    top: 14.17px;
+    left: 14.5px;
+  }
+  .frame_rectangle {
+    gap: 12px;
+    padding: 10px;
+  }
+  .urgent_txt {
+    padding: 0px;
+  }
+  .date {
+    font-size: 16px;
+  }
+  .deadline {
+    font-size: 14px;
+  }
+  .txt_todo {
+    font-size: 14px;
+  }
+  .gray_bar {
+    height: 68px;
+  }
+  .peak_up {
+    width: 22.79px;
+    height: 10.11px;
+    top: 14px;
+    left: 10px;
+  }
+  .peak_down {
+    width: 22.79px;
+    height: 10.11px;
+    top: 18px;
+    left: 10px;
+  }
+  .urgent_txt {
+    width: 150px;
+  }
+  .new_tasks{
+    width: 100px;
+    height: 120px;
+    justify-content: stretch;
+  }
+  .first_frame {
+    gap: 18px;
+  }
+}
