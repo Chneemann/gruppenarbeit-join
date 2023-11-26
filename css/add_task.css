@@ -302,8 +302,8 @@ body {
 }
 
 @media (max-width: 690px) {
-  #add-task-page {
-    max-width: 260px;
+  .dialog {
+    padding: 64px 74px !important;
   }
 
   .add-task-formular {
@@ -348,12 +348,19 @@ body {
   }
 }
 
+@media (max-width: 550px) {
+  .dialog {
+    padding: 64px 34px !important;
+  }
+}
+
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
   #add-task-page {
     max-height: 100%;
   }
+
   .mobile-header-include {
     display: block;
   }
