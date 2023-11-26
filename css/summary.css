@@ -59,7 +59,7 @@ body {
 }
 
 .urgent {
-  width: 560px;
+  width: 500px;
   height: 168px;
   display: flex;
   align-items: center;
@@ -78,6 +78,7 @@ body {
   align-items: center;
   padding: 64px;
   margin-bottom: 48px;
+  width: 80%;
 }
 
 .welcome_box {
