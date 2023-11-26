@@ -2,8 +2,8 @@
 
 async function openAddTask() {
   var overlay = document.getElementById("add-task-dialog");
+  document.getElementById("add-task-img-close").classList.remove("d-none");
   overlay.classList.remove("d-none");
-
   await sleep(10);
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");

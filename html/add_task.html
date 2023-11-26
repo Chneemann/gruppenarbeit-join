@@ -15,7 +15,16 @@
       class="mobile-header-include"
     ></div>
     <div id="add-task-page" class="dialog" onclick="event.stopPropagation()">
-      <h1>Add Task</h1>
+      <div class="add-task-header">
+        <h1>Add Task</h1>
+        <div
+          id="add-task-img-close"
+          class="add-task-img-close d-none"
+          onclick="closeAddTask()"
+        >
+          <img src="../assets/img/close.svg" alt="" />
+        </div>
+      </div>
       <div class="add-task-formular">
         <div class="add-task-left">
           <div class="add-task-title">

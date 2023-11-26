@@ -6,7 +6,7 @@ body {
   margin: 0;
   background-color: var(--very-light-gray);
   padding: 110px 0 0 96px;
-  max-width: 1116px;
+  max-width: 977px;
   max-height: 850px;
 }
 
@@ -19,6 +19,30 @@ body {
 }
 
 /*------------- FORMULAR CONTENT -------------*/
+
+.add-task-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-task-img-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.add-task-img-close img {
+  width: 24px;
+  height: 24px;
+}
+
+.add-task-img-close:hover {
+  background-color: var(--light-gray);
+  border-radius: 16px;
+}
 
 .red-dot {
   color: var(--light-red);
@@ -180,16 +204,20 @@ body {
 
 /*------------- FOOTER -------------*/
 
-.add-task-required {
-  position: absolute;
-  top: 910px;
-  font-size: 20px;
-  font-weight: 400;
+.add-task-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 977px;
+  padding-top: 125px;
 }
 
 .add-task-buttons {
   display: flex;
-  padding: 130px 0 0 680px;
+}
+
+.add-task-required {
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .add-task-btn-inside {
@@ -275,6 +303,10 @@ body {
 /*------------- MEDIA -------------*/
 
 @media (max-width: 1210px) {
+  .add-task-footer {
+    padding-top: 24px;
+  }
+
   .add-task-formular {
     display: block;
   }
@@ -289,15 +321,11 @@ body {
   }
 
   .add-task-required {
-    padding-top: 32px;
-  }
-
-  .add-task-required {
     top: 1180px;
   }
 
-  .add-task-buttons {
-    padding: 64px 0 0 144px;
+  .add-task-footer {
+    width: 440px;
   }
 }
 
@@ -346,6 +374,15 @@ body {
   .add-task-buttons {
     padding-left: 42px;
   }
+
+  .add-task-footer {
+    flex-direction: column;
+    width: 340px;
+  }
+
+  .add-task-required {
+    padding-bottom: 24px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -359,6 +396,7 @@ body {
 @media (max-width: 475px) {
   #add-task-page {
     max-height: 100%;
+    padding: 0;
   }
 
   .mobile-header-include {
@@ -377,18 +415,17 @@ body {
     padding-bottom: 88px;
   }
 
-  #add-task-page {
-    padding: 0;
-  }
-
-  #add-task-page h1 {
+  .add-task-header {
     position: fixed;
-    font-size: 47px;
-    width: 100%;
+    width: 90%;
     background-color: var(--very-light-gray);
     padding: 128px 0 0 16px;
     margin: 0;
     box-shadow: 0px 2px 4px 0px var(--very-light-gray);
+  }
+
+  #add-task-page h1 {
+    font-size: 47px;
   }
 
   .add-task-left,
@@ -409,10 +446,11 @@ body {
   }
 
   .add-task-footer {
-    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     position: fixed;
+    width: 90%;
     bottom: 0;
     left: 0;
     right: 0;
