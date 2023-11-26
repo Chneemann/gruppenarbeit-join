@@ -1,6 +1,4 @@
-body{
- 
-}
+
 h1{
     margin-block-start: 0em;
     margin-block-end: 0em;
@@ -77,6 +75,7 @@ top:96px;
     top: 200px;
     height: 100%;
     width: 28%;
+    font-size: 20px;
 }
 .first-letter{
     display: flex;
@@ -86,5 +85,23 @@ top:96px;
     border-bottom: 1px solid #ccc;
 }
 .card{
-    font-size: 10px;
+    font-size: 20px;
+}
+.badge{
+    width: 42px;
+    border-radius: calc(0.5*42px);
+    height: 42px;
+    color: white;
+    font-size: smaller;
+}
+
+.badge span{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single-contact{
+    display: flex;
+    flex-direction: row;
 }

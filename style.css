@@ -36,6 +36,21 @@ button{
   font-family: "Figtree", sans-serif;
 }
 
+.badge{
+  width: 42px;
+  border-radius: calc(0.5*42px);
+  height: 42px;
+  color: white;
+  font-size: smaller;
+}
+
+.badge span{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .mobile-header {
   position: fixed;
   top: 0;

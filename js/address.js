@@ -18,6 +18,7 @@ function firstLetter(i){
     <div class='first-letter' id='first-letter-${firstLetter}'>
     ${firstLetter}</div>
     ` 
+    return firstLetter;
 
 }
 function renderContacts(){
@@ -26,10 +27,13 @@ function renderContacts(){
         let contact =contacts[i];
         console.log(JSON.stringify(contact['name']));
         document.getElementById("contact-list").innerHTML+= /*html*/`
+        <div class="single-contact">
+        <div class='badge' style="background-color:${contact['color']}"} ><span>${firstLetter(i)}</span></div>
         <div class='card'>
            <span>${contact['name']}</span>   <br>
             <a href=""> ${contact['email']}</a> <br>
     </div>
+</div>
        `;
         
        
