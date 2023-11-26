@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Task</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/add_task.css" />
+    <script src="../script.js"></script>
+    <script src="../js/add_task.js"></script>
+  </head>
+  <body onload="includeHTML()">
+    <div
+      w3-include-html="../html/mobile_header.html"
+      class="mobile-header-include"
+    ></div>
+    <div id="edit-task-page" class="dialog" onclick="event.stopPropagation()">
+      <div class="add-task-header right">
+        <div
+          id="add-task-img-close"
+          class="add-task-img-close"
+          onclick="closeAddTask()"
+        >
+          <img src="../assets/img/close.svg" alt="" />
+        </div>
+      </div>
+      <div class="add-task-formular">
+        <div class="add-task-left">
+          <div class="add-task-title">
+            <p>Title<span class="red-dot">*</span></p>
+            <input
+              type="text"
+              id="add-task-titel"
+              placeholder="Enter a title"
+              oninput="changeInputTextColor('add-task-titel')"
+              required
+            />
+          </div>
+          <div class="add-task-description">
+            <p>Description</p>
+            <textarea
+              id="add-task-description"
+              placeholder="Enter a Description"
+              oninput="changeInputTextColor('add-task-description')"
+            ></textarea>
+          </div>
+        </div>
+        <div class="add-task-middle">
+          <div class="add-task-line"></div>
+        </div>
+        <div class="add-task-right">
+          <div class="add-task-date">
+            <p>Due date<span class="red-dot">*</span></p>
+            <input
+              type="date"
+              id="add-task-date"
+              oninput="changeInputTextColor('add-task-date')"
+              required
+            />
+          </div>
+          <div class="add-task-prio">
+            <p>Prio</p>
+            <div class="add-task-prio-fields">
+              <button
+                id="icon-urgent"
+                class="add-task-prio-field icon-urgent"
+                onclick="addPrioStatus('icon-urgent')"
+              >
+                <div id="icon-urgent-inline" class="add-task-prio-button">
+                  <span>Urgent</span>
+                  <img src="../assets/img/urgent.svg" alt="" />
+                </div>
+              </button>
+              <button
+                id="icon-medium"
+                class="add-task-prio-field"
+                onclick="addPrioStatus('icon-medium')"
+              >
+                <div id="icon-medium-inline" class="add-task-prio-button">
+                  <span>Medium</span>
+                  <img src="../assets/img/medium.svg" alt="" />
+                </div>
+              </button>
+              <button
+                id="icon-low"
+                class="add-task-prio-field icon-low"
+                onclick="addPrioStatus('icon-low')"
+              >
+                <div id="icon-low-inline" class="add-task-prio-button">
+                  <span>Low</span>
+                  <img src="../assets/img/low.svg" alt="" />
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="add-task-assignet">
+            <p>Assignet to</p>
+            <select id="add-task-assignet" required>
+              <option value="" selected>Select contacts to assign</option>
+              <option value="">Placeholder 1</option>
+              <option value="">Placeholder 2</option>
+              <option value="">Placeholder 3</option>
+            </select>
+          </div>
+          <div class="add-task-subtask">
+            <p>Subtask</p>
+            <input
+              type="text"
+              id="add-task-subtask"
+              placeholder="Add new subtask"
+              onclick="addSubtask()"
+            />
+            <div id="add-task-icons">
+              <div id="add-task-icon-add">
+                <img
+                  src="../assets/img/add.svg"
+                  alt="add"
+                  onclick="addSubtask()"
+                  class="add-task-icon"
+                />
+              </div>
+              <div id="add-task-icon-close-check" class="d-none">
+                <img
+                  src="../assets/img/close.svg"
+                  alt="close"
+                  onclick="closeSubtask()"
+                  class="add-task-icon"
+                />
+                <span class="add-task-line small"></span>
+                <img
+                  src="../assets/img/check-black.png"
+                  alt="check"
+                  onclick="confirmSubtask()"
+                  class="add-task-icon"
+                />
+              </div>
+            </div>
+            <div id="add-task-subtask-addet"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="add-task-footer">
+          <div class="add-task-required">
+            <span class="red-dot">*</span>This field is required
+          </div>
+          <div class="add-task-buttons">
+            <button class="add-task-btn-clear" type="submit">
+              <div class="add-task-btn-inside">
+                <span>Clear</span>
+                <img src="../assets/img/close.svg" alt="close" />
+              </div>
+            </button>
+            <button class="add-task-btn-create" type="submit">
+              <div class="add-task-btn-inside">
+                <span>Create Task</span>
+                <img src="../assets/img/check.svg" alt="ckeck" />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

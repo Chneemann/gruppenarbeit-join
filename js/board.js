@@ -21,6 +21,25 @@ async function closeAddTask() {
   overlay.classList.add("d-none");
 }
 
+function editTask() {
+  loadW3Include("../html/edit_task.html");
+}
+
+function deleteTask() {
+  //TODO
+}
+
+function loadW3Include(path) {
+  fetch(path)
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("task-overlay-cart").innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error loading:", error);
+    });
+}
+
 // CART
 
 async function openCart() {
@@ -39,6 +58,12 @@ async function closeCart() {
   overlay.style.backgroundColor = "";
   await sleep(100);
   overlay.classList.add("d-none");
+}
+
+function deleteCart() {
+  alert("Do you really want to delete this task?");
+  closeCart();
+  deleteTask();
 }
 
 // GLOBAL
