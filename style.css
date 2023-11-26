@@ -10,10 +10,20 @@
   --red: #ff3d00;
   --orange: #ffa800;
   --green: #7ae229;
+  --side-bar: #B2B3B6
 }
 
 body {
   font-family: "Figtree", sans-serif;
   margin: auto 0;
   height: 100vh;
+}
+h1 {
+  color: var(--black);
+  font-size: 61px;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+button{
+  font-family: "Figtree", sans-serif;
 }

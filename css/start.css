@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.logo{
+    background-image: url('../assets/img/Join-dark.png');
+    width: 100px;
+    height: 121.97px;
+   
+    border: 5px solid blue;
+}
+
+@media (orientation: portrait){
+    body{
+      background-color:#2A3647;
+    }
+    .logo{
+        background-image: url('../assets/img/Join logo light.png');
+      width: 100px;
+      height: 121.97px;
+    }
+}
