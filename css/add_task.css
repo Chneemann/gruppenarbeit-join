@@ -1,8 +1,13 @@
-/* body */
+body {
+  background-color: var(--very-light-gray);
+}
+
 #add-task-page {
   margin: 0;
   background-color: var(--very-light-gray);
   padding: 110px 0 0 96px;
+  max-width: 1116px;
+  max-height: 850px;
 }
 
 #add-task-page h1 {
@@ -184,7 +189,7 @@
 
 .add-task-buttons {
   display: flex;
-  padding: 130px 0 32px 680px;
+  padding: 130px 0 0 680px;
 }
 
 .add-task-btn-inside {
@@ -269,7 +274,7 @@
 
 /*------------- MEDIA -------------*/
 
-@media (max-width: 1170px) {
+@media (max-width: 1210px) {
   .add-task-formular {
     display: block;
   }
@@ -292,11 +297,15 @@
   }
 
   .add-task-buttons {
-    padding: 64px 0 32px 144px;
+    padding: 64px 0 0 144px;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 690px) {
+  #add-task-page {
+    max-width: 260px;
+  }
+
   .add-task-formular {
     font-size: 16px;
   }
@@ -342,6 +351,9 @@
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
+  #add-task-page {
+    max-height: 100%;
+  }
   .mobile-header-include {
     display: block;
   }
@@ -367,7 +379,7 @@
     font-size: 47px;
     width: 100%;
     background-color: var(--very-light-gray);
-    padding: 128px 0 40px 16px;
+    padding: 128px 0 0 16px;
     margin: 0;
     box-shadow: 0px 2px 4px 0px var(--very-light-gray);
   }
