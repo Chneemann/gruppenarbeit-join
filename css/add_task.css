@@ -9,6 +9,12 @@ body {
   max-height: 850px;
 }
 
+#edit-task-page {
+  padding: 24px !important;
+  max-width: 977px;
+  max-height: 850px;
+}
+
 #add-task-page h1 {
   color: var(--black);
   font-size: 61px;
@@ -271,6 +277,10 @@ body {
 
 /*------------- GLOBAL -------------*/
 
+.right {
+  justify-content: right;
+}
+
 .d-none {
   display: none;
 }
@@ -393,7 +403,8 @@ body {
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
-  #add-task-page {
+  #add-task-page,
+  #edit-task-page {
     max-height: 100%;
     padding: 0;
   }
