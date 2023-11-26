@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adressbuch</title>
@@ -9,48 +10,54 @@
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.png">
     <script src="../js/address.js"></script>
-  </head>
-  <body>
-     
-   
+</head>
+
+<body onload="renderContacts()">
+
+
     <div class="left-frame">
-        <img class="logo-up-left"   src="../assets/img/Join logo light.png" alt="">
-       
-       
-       <div class="nav-links">
-       <img onclick="" src="../assets/img/Summary.png">
-       <img src="../assets/img/Add Task.png">
-       <img src="../assets/img/Board.png">
-       <img src="../assets/img/Contacts.png">
-       </div>
-       
-       <div class="reference">
-           <div><a href="">Privacy Policy</a></div>
-           <div>  <a href="">Legal Notice</a></div>
-           <div> <a href="">log out</a></div>
-         
-          
-       </div>
-           </div>
-           <div class="upper-frame">
-            <span>Kanban Project Management Tool</span>  
-          </div>
+        <img class="logo-up-left" src="../assets/img/Join logo light.png" alt="">
+
+
+        <div class="nav-links">
+            <img onclick="" src="../assets/img/Summary.png">
+            <img src="../assets/img/Add Task.png">
+            <img src="../assets/img/Board.png">
+            <img src="../assets/img/Contacts.png">
+        </div>
+
+        <div class="reference">
+            <div><a href="">Privacy Policy</a></div>
+            <div> <a href="">Legal Notice</a></div>
+            <div> <a href="">log out</a></div>
+
+
+        </div>
+    </div>
+    <div class="upper-frame">
+        <span>Kanban Project Management Tool</span>
+    </div>
 
 
     <div class="inner-frame">
-    <div id="scrollbar">
-        <button onclick="addContact()"><div><span>Add new contact</span> <img src="../assets/img/person_add.png" alt=""></div></button>
-        <div class="contacts-initial-letter">
-        </div>
-    </div>
-    <div id="view-contact">
-
-        <div class="contact-header">
-        <h1>Contacts</h1>
-        <div class="separator"></div>
-        <span>Better with a Team</span>
+        <div id="scrollbar">
+            <button onclick="addContact()">
+                <div><span>Add new contact</span> <img src="../assets/img/person_add.png" alt=""></div>
+            </button>
+            <div class="contact-list" id="contact-list">
+                
+                <div id="card"></div>
+            </div>
         </div>
 
+        <div id="view-contact">
+
+            <div class="contact-header">
+                <h1>Contacts</h1>
+                <div class="separator"></div>
+                <span>Better with a Team</span>
+            </div>
+
+        </div>
     </div>
-  </div>
 </body>
