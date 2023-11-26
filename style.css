@@ -14,13 +14,10 @@
   --red: #ff3d00;
   --orange: #ffa800;
   --green: #7ae229;
-<<<<<<< HEAD
   --side-bar: #B2B3B6
-=======
   --blue: #0038ff;
   --türkis: #1fd7c1;
   --lila: #462f8a;
->>>>>>> ac0529eee9e6bfe645d5fad6dcee358e75d7fc4a
 }
 
 body {
@@ -28,7 +25,7 @@ body {
   margin: auto 0;
   height: 100vh;
 }
-<<<<<<< HEAD
+
 h1 {
   color: var(--black);
   font-size: 61px;
@@ -38,9 +35,6 @@ h1 {
 button{
   font-family: "Figtree", sans-serif;
 }
-=======
-
-/*------------- MOBILE HEADER -------------*/
 
 .mobile-header {
   position: fixed;
@@ -91,4 +85,3 @@ button{
   border-radius: 10px;
   border: 3px solid var(--white);
 }
->>>>>>> ac0529eee9e6bfe645d5fad6dcee358e75d7fc4a
