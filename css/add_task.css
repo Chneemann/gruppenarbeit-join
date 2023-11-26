@@ -1,10 +1,9 @@
 body {
+  margin: 0;
   background-color: var(--very-light-gray);
 }
 
 #add-task-page {
-  margin: 0;
-  background-color: var(--very-light-gray);
   padding: 110px 0 0 96px;
   max-width: 977px;
   max-height: 850px;
@@ -40,7 +39,7 @@ body {
 }
 
 .add-task-img-close:hover {
-  background-color: var(--light-gray);
+  background-color: var(--very-light-gray);
   border-radius: 16px;
 }
 
@@ -418,10 +417,9 @@ body {
   .add-task-header {
     position: fixed;
     width: 90%;
-    background-color: var(--very-light-gray);
-    padding: 128px 0 0 16px;
+    padding: 108px 0 0 16px;
     margin: 0;
-    box-shadow: 0px 2px 4px 0px var(--very-light-gray);
+    box-shadow: 0px 2px 4px 0px var(--white);
   }
 
   #add-task-page h1 {
