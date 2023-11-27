@@ -43,7 +43,9 @@ function loadW3Include(path) {
 // CART
 
 async function openCart() {
+  loadW3Include("../html/task_overlay.html");
   var overlay = document.getElementById("task-overlay-cart");
+  document.getElementById("board-page").style.overflow = "hidden";
   overlay.classList.remove("d-none");
   await sleep(10);
   overlay.classList.add("dialog-show");

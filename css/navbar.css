@@ -4,7 +4,7 @@
 }
 body{
     font-family: 'Figtree';
-    height: 100vh; !important;
+    height: 100vh !important;
     width: 100vw;
     font-size:3vw;
     margin: 0;
@@ -15,7 +15,7 @@ body{
     width: 232px;
     /* width: 16.1vw; */
     height: 1024px;
-    background-color: #2A3647;
+    background-color: var(--dark-blue);
     left:0;
     display: flex;
     flex-direction: column;
@@ -27,20 +27,22 @@ body{
 }
 .upper-frame{
     display: flex;
-
     position: fixed;
     top:0;
-    left: 16.1vw;
+    left: 348px;
     height: 96px;
     /* height:  9.3vh; */
     width: 100%;
-    box-shadow: -2px 0 6px 0 rgb(0,0,0,0.2);
+    box-shadow: 6px 0 2px rgb(0,0,0,0.2);
 }
+
+
 .upper-frame span{
 align-self: center;
 font-size: 20px;
 /* font-size: 2.2vh; */
 }
+
 
 .logo-up-left{
     width: 100.03px;
@@ -72,7 +74,7 @@ font-size: 20px;
 }
 
 a{
-    font-size: 1vw;
+    font-size: 16px;
     text-decoration: none;
     color: #B2B3B6;
 }
