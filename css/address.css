@@ -89,7 +89,23 @@ top:96px;
     font-size: 20px;
     
 }
+#add-contact{
+    border-radius: 30px;
+    width: 1212px;
+    height: 592px;
+    position: fixed;
+    left:42px;
+}
 
+
+.add-contact-left{
+width: 467px; /*hug?*/
+height: 594px;
+padding: 66px 48px 66px 48px;
+gap: 12px;
+background-color: var(--dark-blue);
+color:white;
+}
 .single-contact{
     display: flex;
     flex-direction: row;
