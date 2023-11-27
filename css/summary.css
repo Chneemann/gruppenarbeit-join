@@ -162,7 +162,6 @@ body {
   height: 69px;
   top: 49.5px;
   left: 128.5px;
-  fill: var(--dark-blue);
 }
 
 .pencil {
@@ -171,15 +170,10 @@ body {
   position: absolute;
   top: 21.17px;
   left: 21.5px;
-  color: white;
 }
 
-.frame_pencil:hover .ellipse {
-  fill: white;
-}
-
-.frame_pencil:hover .pencil {
-  fill: var(--dark-blue);
+.frame_pencil:hover .change_color {
+  display: flex;
 }
 
 .rectangle {
@@ -294,5 +288,9 @@ body {
 }
 
 .desk_hidden {
+  display: none;
+}
+
+.d-none{
   display: none;
 }
