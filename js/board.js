@@ -44,6 +44,8 @@ function loadW3Include(path) {
 
 async function openCart() {
   var overlay = document.getElementById("task-overlay-cart");
+  document.getElementById("board-page").style.overflow = "hidden";
+  console.log("estsf");
   overlay.classList.remove("d-none");
   await sleep(10);
   overlay.classList.add("dialog-show");

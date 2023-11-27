@@ -14,11 +14,11 @@
   --red: #ff3d00;
   --orange: #ffa800;
   --green: #7ae229;
-  --silver: #B2B3B6
+  --silver: #b2b3b6;
   --blue: #0038ff;
   --türkis: #1fd7c1;
   --lila: #462f8a;
-  --cerulian-blue:#007CEE /*Email-Adresse*/
+  --cerulian-blue: #007cee; /*Email-Adresse*/
 }
 
 body {
@@ -33,19 +33,19 @@ h1 {
   font-weight: 700;
   margin-bottom: 48px;
 }
-button{
+button {
   font-family: "Figtree", sans-serif;
 }
 
-.badge{
+.badge {
   width: 42px;
-  border-radius: calc(0.5*42px);
+  border-radius: calc(0.5 * 42px);
   height: 42px;
   color: white;
   font-size: smaller;
 }
 
-.badge span{
+.badge span {
   margin-top: 10px;
   display: flex;
   justify-content: center;
