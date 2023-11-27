@@ -1,7 +1,6 @@
 // TASK
 
 async function openAddTask() {
-  loadW3Include("../html/add_task.html");
   var overlay = document.getElementById("add-task-dialog");
   document.getElementById("add-task-img-close").classList.remove("d-none");
   document.getElementById("add-task-page").style.backgroundColor =
