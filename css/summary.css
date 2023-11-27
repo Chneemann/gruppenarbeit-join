@@ -111,15 +111,17 @@ body {
   gap: 40px;
   justify-content: center;
   align-items: center;
-  padding: 38px 19px 38px 19px;
+  padding: 38px 19px;
   border: 1px solid #dbdbdb;
   border-radius: 30px;
   color: black;
+  background-color: white;
+  cursor: pointer;
 }
 
 .frame_pencil:hover {
-  cursor: pointer;
-  filter: invert(1);
+  background-color: var(--dark-blue);
+  color: white;
 }
 
 .frame_rectangle {
@@ -134,11 +136,11 @@ body {
 }
 
 .frame_rectangle:hover {
-  cursor: pointer;
-  filter: invert(1);
+  background-color: var(--dark-blue);
+  color: white;
 }
 
-.frame_urgent{
+.frame_urgent {
   display: flex;
   gap: 32px;
   justify-content: center;
@@ -147,11 +149,12 @@ body {
   border: 1px solid #dbdbdb;
   border-radius: 30px;
   color: black;
+  cursor: pointer;
 }
 
 .frame_urgent:hover {
-  cursor: pointer;
-  filter: invert(1);
+  background-color: var(--dark-blue);
+  color: white;
 }
 
 .ellipse {
@@ -159,6 +162,7 @@ body {
   height: 69px;
   top: 49.5px;
   left: 128.5px;
+  fill: var(--dark-blue);
 }
 
 .pencil {
@@ -167,6 +171,15 @@ body {
   position: absolute;
   top: 21.17px;
   left: 21.5px;
+  color: white;
+}
+
+.frame_pencil:hover .ellipse {
+  fill: white;
+}
+
+.frame_pencil:hover .pencil {
+  fill: var(--dark-blue);
 }
 
 .rectangle {
@@ -271,13 +284,15 @@ body {
   border: 1px solid #dbdbdb;
   border-radius: 30px;
   color: black;
+  cursor: pointer;
+  background-color: white;
 }
 
 .new_tasks:hover {
-  cursor: pointer;
-  filter: invert(1);
+  background-color: var(--dark-blue);
+  color: white;
 }
 
-.desk_hidden{
+.desk_hidden {
   display: none;
 }
