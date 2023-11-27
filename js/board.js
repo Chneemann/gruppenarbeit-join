@@ -1,6 +1,7 @@
 // TASK
 
 async function openAddTask() {
+  loadW3Include("../html/add_task.html");
   var overlay = document.getElementById("add-task-dialog");
   document.getElementById("add-task-img-close").classList.remove("d-none");
   document.getElementById("add-task-page").style.backgroundColor =
@@ -43,9 +44,9 @@ function loadW3Include(path) {
 // CART
 
 async function openCart() {
+  loadW3Include("../html/task_overlay.html");
   var overlay = document.getElementById("task-overlay-cart");
   document.getElementById("board-page").style.overflow = "hidden";
-  console.log("estsf");
   overlay.classList.remove("d-none");
   await sleep(10);
   overlay.classList.add("dialog-show");

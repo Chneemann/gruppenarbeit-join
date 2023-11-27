@@ -6,14 +6,11 @@
   height: 100%;
 }
 
-/*------------- BOARD HEADER -------------*/
-
-h1 {
-  color: var(--black);
-  font-size: 61px;
-  font-weight: 700;
+.board-page h1 {
   margin: 0;
 }
+
+/*------------- BOARD HEADER -------------*/
 
 .board-header {
   display: flex;
@@ -76,7 +73,7 @@ h1 {
 
 .board-line {
   position: absolute;
-  top: 26px;
+  top: 8px;
   right: 215px;
   height: 18px;
   width: 1px;
@@ -478,6 +475,7 @@ h1 {
 @media (max-width: 912px) {
   .board-header {
     flex-direction: column;
+    align-items: start;
     width: 525px;
   }
 
