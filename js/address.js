@@ -15,7 +15,13 @@ let contacts =[
     'color': '#218766',
     }
 ]
+function addContact(){
+document.getElementById("add-contact-overlay").style.display = "block";
 
+}
+function closeAddContact(){
+   document.getElementById("add-contact-overlay").style.display = "block";
+}
 
 function firstLetter(i){ //FUNKTION FÜR REGISTER
     
@@ -38,6 +44,8 @@ for (let index = 0; index < allNames.length; index++) {
 }
 return initials.join("") //Methode entfernt das Komma
 }
+
+
 function renderContacts(){
     for (let i = 0; i < contacts.length; i++) {
         firstLetter(i);
