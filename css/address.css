@@ -80,7 +80,7 @@ top:96px;
 .first-letter{
     display: flex;
     height: fit-content;
-    width: 100%;
+    width: 280px;
     padding: 17px 36px 17px 36px;
     border-bottom: 1px solid #ccc;
 }
@@ -92,38 +92,77 @@ top:96px;
 
 
 #add-contact-overlay{
-    /* display: none; */
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.20);
+    width: 100%;
+    height: 100vh;
+    z-index: 8;
+    align-items: center;
+    justify-content: center;
 }
 #add-contact{
+    z-index:9;
+    background-color: white;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding-right: 32px;
+
     border-radius: 30px;
     width: 1212px;
-    height: 594px;
-    
-    left:42px;
-    background-color: rgba(255, 0, 212, 0.247);
+    height: 592px;
 }
 
+#card-closeup{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
 
-
-.add-contact-left{
+.add-contact-left{filter: brightness(1.2);
 width: 371px; /*hug?*/
 height: 462px;
 padding: 66px 48px 66px 48px;
 gap: 12px;
 border-radius: 30px 0 0 30px;
-background-color: rgb(156, 226, 43);
-/* background-color: var(--dark-blue); */
+background-color: var(--dark-blue);
 color:white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.add-contact-left img{
+    width: 55.6px;
+    height: auto;
+}
+
+
+#overlay-header{
+    color: white !important;
 }
 .big-badge{
   width: 120px;
-    height: 120px;   
+    height: 120px; 
+  border-radius: 60px;
 }
+.big-badge span {
+   height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 .add-contact-form{
     text-align: end;
+    justify-self: end;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
 }
 .add-contact-form img{
     height: 24px;
@@ -142,30 +181,41 @@ color:white;
     border: 1px solid var(--light-gray);
     border-radius: 10px;
     padding: 13px 21px 13px 21px;
+    font-size: 20px;
 }
 #email{
     background-image: url('../assets/img/mail.svg');
-    background-position: 357px 10px; 
+    background-position: 380px 10px; 
     background-repeat: no-repeat;
 }
 #name{
         background-image: url('../assets/img/person.svg');
-        background-position: 357px 10px; 
+        background-position: 380px 10px; 
         background-repeat: no-repeat;
 }
 #phone{
     background-image: url('../assets/img/call.png');
-    background-position: 357px 10px; 
+    background-position: 380px 12px; 
     background-repeat: no-repeat;
 }
 
 .send-buttons{
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    gap: 24px;
+    width: 100%;
+    min-width: 364px;
+    min-height: 57px;
+    padding-bottom: 120px;
+    
 }
 
 
 .add-contact-btn-clear {
+    display: flex;
+    align-items: center;
     height: 56px;
     padding: 0 16px;
     border-radius: 10px;
@@ -187,6 +237,8 @@ color:white;
   }
   
   .add-contact-btn-create {
+    display: flex;
+    align-items: center;
     height: 56px;
     width: 214px;
     padding: 0 16px;

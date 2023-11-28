@@ -260,11 +260,11 @@
 }
 
 .turquoise {
-  background-color: var(--türkis);
+  background-color: var(--turquoise);
 }
 
 .purple {
-  background-color: var(--lila);
+  background-color: var(--purple);
 }
 
 .board-card-footer-priority {
@@ -283,7 +283,7 @@
   flex-direction: column;
   width: 525px;
   height: auto;
-  max-height: 90%;
+  max-height: 90vh;
   padding: 48px 40px;
   background-color: var(--white);
   border-radius: 30px;
@@ -415,7 +415,7 @@
 /*------------- DIALOG -------------*/
 
 .dialog-bg {
-  z-index: 899;
+  z-index: 399;
   position: fixed;
   left: 0;
   right: 0;
@@ -435,7 +435,6 @@
   border-radius: 30px;
   overflow: auto;
   overflow-x: hidden;
-  height: 100%;
   padding: 110px 96px !important;
 }
 
@@ -462,6 +461,22 @@
 
 .d-none {
   display: none;
+}
+
+.max-z-index {
+  z-index: 999;
+}
+
+.mobile-navbar-include {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: var(--dark-blue);
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.1);
+  z-index: 499;
 }
 
 /*------------- MEDIA -------------*/
@@ -550,8 +565,7 @@
 
 @media (max-width: 475px) {
   .dialog {
-    height: 130%;
-    min-width: 100%;
+    width: 100%;
   }
 
   .board-page h1 {
@@ -568,6 +582,7 @@
 
   .task-overlay {
     width: 396px;
+    max-height: 90vh;
     padding: 32px 24px;
   }
 
