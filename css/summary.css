@@ -59,8 +59,6 @@ body {
 }
 
 .urgent {
-  width: 500px;
-  height: 168px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +66,6 @@ body {
 
 .frame_down {
   align-items: center;
-  justify-content: space-between;
   display: flex;
   gap: 32px;
 }
@@ -78,7 +75,7 @@ body {
   align-items: center;
   padding: 64px;
   margin-bottom: 48px;
-  width: 80%;
+  width: 90%;
 }
 
 .welcome_box {
@@ -112,10 +109,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 38px 19px;
-  border: 1px solid #dbdbdb;
   border-radius: 30px;
   color: black;
-  background-color: white;
   cursor: pointer;
 }
 
@@ -129,8 +124,7 @@ body {
   gap: 40px;
   justify-content: center;
   align-items: center;
-  padding: 38px 19px 38px 19px;
-  border: 1px solid #dbdbdb;
+  padding: 38px 19px;
   border-radius: 30px;
   cursor: pointer;
 }
@@ -145,8 +139,7 @@ body {
   gap: 32px;
   justify-content: center;
   align-items: center;
-  padding: 38px 19px 38px 19px;
-  border: 1px solid #dbdbdb;
+  padding: 38px 19px;
   border-radius: 30px;
   color: black;
   cursor: pointer;
@@ -164,6 +157,12 @@ body {
   left: 128.5px;
 }
 
+.circle{
+  width: 69px;
+  height: 69px;
+  position: absolute;
+}
+
 .pencil {
   width: 24.37px;
   height: 24.33px;
@@ -172,8 +171,36 @@ body {
   left: 21.5px;
 }
 
+.pencil_blue{
+  width: 24.37px;
+  height: 24.33px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .frame_pencil:hover .change_color {
   display: flex;
+}
+
+.frame_pencil:hover .pencil_blue{
+  display: flex;
+}
+
+.frame_pencil:hover .hidden_pencil{
+  display: none;
+}
+
+.frame_rectangle:hover .change_color{
+  display: flex;
+}
+
+.frame_rectangle:hover .pencil_blue{
+  display: flex;
+}
+
+.frame_rectangle:hover .hidden_pencil{
+  display: none;
 }
 
 .rectangle {
@@ -198,8 +225,6 @@ body {
 }
 
 .txt_number {
-  width: 50px;
-  height: 77px;
   font-size: 64px;
   font-weight: 600;
   line-height: 77px;
@@ -209,7 +234,6 @@ body {
 
 .txt_todo {
   width: 77px;
-  height: 24px;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
@@ -263,7 +287,6 @@ body {
   flex-direction: column;
   width: 178px;
   height: 89px;
-  padding-left: 36px;
   gap: 13px;
   justify-content: center;
 }
@@ -275,11 +298,9 @@ body {
   flex-direction: column;
   width: 168px;
   height: 168px;
-  border: 1px solid #dbdbdb;
   border-radius: 30px;
   color: black;
   cursor: pointer;
-  background-color: white;
 }
 
 .new_tasks:hover {
