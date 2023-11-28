@@ -454,6 +454,48 @@ body {
   cursor: pointer;
 }
 
+/*------------- ADD TASK - FOOTER -------------*/
+
+.edit-task-footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 977px;
+  padding-top: 44px;
+}
+
+.edit-task-buttons {
+  display: flex;
+}
+
+.edit-task-btn-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-task-btn-inside span {
+  margin-right: 4px;
+}
+
+.edit-task-btn {
+  height: 56px;
+  width: 90px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--dark-blue);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 16px;
+}
+
+.edit-task-btn:hover {
+  background-color: var(--light-blue);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
 /*------------- GLOBAL -------------*/
 
 .right {
