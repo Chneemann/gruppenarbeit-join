@@ -435,7 +435,6 @@
   border-radius: 30px;
   overflow: auto;
   overflow-x: hidden;
-  height: 100%;
   padding: 110px 96px !important;
 }
 
@@ -554,7 +553,6 @@
 
 @media (max-width: 475px) {
   .dialog {
-    height: 100%;
     width: 100%;
   }
 

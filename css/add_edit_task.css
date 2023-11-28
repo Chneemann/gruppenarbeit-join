@@ -2,8 +2,7 @@
 
 #add-task-page {
   padding: 110px 0 0 96px;
-  max-width: 977px;
-  max-height: 825px;
+  max-height: 70vh;
 }
 
 #add-task-page h1 {
@@ -271,8 +270,8 @@
 
 #edit-task-page {
   padding: 24px !important;
-  max-width: 977px;
-  max-height: 670px;
+  max-height: 90vh;
+  margin: 24px;
 }
 
 /*------------- EDIT TASK - FORMULAR CONTENT -------------*/
@@ -566,8 +565,7 @@
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
-  #add-task-page,
-  #edit-task-page {
+  #add-task-page {
     max-height: 100%;
     padding: 0 !important;
   }
@@ -580,7 +578,7 @@
     display: none;
   }
 
-  .add-task-left {
+  .spacer {
     padding-top: 190px;
   }
 
@@ -622,14 +620,21 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    width: 90%;
+    width: 100%;
     bottom: 0;
     left: 0;
     right: 0;
     height: 88px;
-    background-color: var(--very-light-gray);
-    box-shadow: 0px -2px 4px 0px var(--very-light-gray);
-    padding: 0 16px;
+    background-color: var(--white);
+    box-shadow: 0px -2px 4px 0px var(--white);
+  }
+
+  .add-task-required {
+    padding-left: 16px;
+  }
+
+  .add-task-buttons {
+    padding-right: 16px;
   }
 }
 
