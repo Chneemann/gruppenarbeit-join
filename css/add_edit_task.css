@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  background-color: var(--very-light-gray);
-}
-
 /*------------- ADD TASK -------------*/
 
 #add-task-page,
@@ -17,7 +12,7 @@ body {
   font-size: 61px;
   font-weight: 700;
   margin-top: 0;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 /*------------- ADD TASK - FORMULAR CONTENT -------------*/
@@ -25,6 +20,7 @@ body {
 .add-task-header {
   display: flex;
   justify-content: space-between;
+  background-color: var(--white);
 }
 
 .add-task-img-close {
@@ -574,7 +570,7 @@ body {
   #add-task-page,
   #edit-task-page {
     max-height: 100%;
-    padding: 0;
+    padding: 0 !important;
   }
 
   .mobile-header-include {
@@ -586,7 +582,7 @@ body {
   }
 
   .add-task-left {
-    padding-top: 210px;
+    padding-top: 190px;
   }
 
   .add-task-right {
