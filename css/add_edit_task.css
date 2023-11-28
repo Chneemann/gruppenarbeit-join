@@ -8,7 +8,7 @@ body {
 #add-task-page {
   padding: 110px 0 0 96px;
   max-width: 977px;
-  max-height: 850px;
+  max-height: 825px;
 }
 
 #add-task-page h1 {
@@ -276,7 +276,7 @@ body {
 #edit-task-page {
   padding: 24px !important;
   max-width: 977px;
-  max-height: 850px;
+  max-height: 670px;
 }
 
 /*------------- EDIT TASK - FORMULAR CONTENT -------------*/
@@ -337,7 +337,7 @@ body {
   font-weight: 400;
   width: 408px;
   height: 84px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   border-radius: 10px;
   border: 1px solid var(--light-gray);
   padding: 18px 16px;
@@ -500,6 +500,10 @@ body {
 
 .right {
   justify-content: right;
+}
+
+.right-margin {
+  margin-right: 12px;
 }
 
 .d-none {
