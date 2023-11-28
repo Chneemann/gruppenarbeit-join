@@ -1,7 +1,6 @@
 /*------------- ADD TASK -------------*/
 
-#add-task-page,
-#edit-task-page {
+#add-task-page {
   padding: 110px 0 0 96px;
   max-width: 977px;
   max-height: 825px;

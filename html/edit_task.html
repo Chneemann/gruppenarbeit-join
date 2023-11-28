@@ -1,169 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Task</title>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../css/add_edit_task.css" />
-    <script src="../script.js"></script>
-    <script src="../js/add_edit_task.js"></script>
-  </head>
-  <body onload="includeHTML()">
+<div id="edit-task-page" class="dialog" onclick="event.stopPropagation()">
+  <div class="edit-task-header right">
     <div
-      w3-include-html="../html/mobile_header.html"
-      class="mobile-header-include"
-    ></div>
-    <div id="edit-task-page" class="dialog" onclick="event.stopPropagation()">
-      <div class="edit-task-header right">
-        <div
-          id="edit-task-img-close"
-          class="edit-task-img-close"
-          onclick="closeCart()"
-        >
-          <img src="../assets/img/close.svg" alt="" />
-        </div>
+      id="edit-task-img-close"
+      class="edit-task-img-close"
+      onclick="closeCart()"
+    >
+      <img src="../assets/img/close.svg" alt="" />
+    </div>
+  </div>
+  <div class="add-task-formular">
+    <div class="add-task-left">
+      <div class="edit-task-title">
+        <p>Title<span class="red-dot">*</span></p>
+        <input
+          type="text"
+          id="edit-task-titel"
+          placeholder="Enter a title"
+          oninput="changeInputTextColor('edit-task-titel')"
+          required
+        />
       </div>
-      <div class="add-task-formular">
-        <div class="add-task-left">
-          <div class="edit-task-title">
-            <p>Title<span class="red-dot">*</span></p>
-            <input
-              type="text"
-              id="edit-task-titel"
-              placeholder="Enter a title"
-              oninput="changeInputTextColor('edit-task-titel')"
-              required
-            />
-          </div>
-          <div class="edit-task-description">
-            <p>Description</p>
-            <textarea
-              id="edit-task-description"
-              placeholder="Enter a Description"
-              oninput="changeInputTextColor('edit-task-description')"
-            ></textarea>
-          </div>
-          <div class="edit-task-date">
-            <p>Due date<span class="red-dot">*</span></p>
-            <input
-              type="date"
-              id="edit-task-date"
-              oninput="changeInputTextColor('edit-task-date')"
-              required
-            />
-          </div>
-        </div>
-        <div class="add-task-middle">
-          <div class="add-task-line"></div>
-        </div>
-        <div class="add-task-right">
-          <div class="edit-task-prio">
-            <p>Prio</p>
-            <div class="edit-task-prio-fields">
-              <button
-                id="icon-urgent"
-                class="edit-task-prio-field icon-urgent"
-                onclick="addPrioStatus('icon-urgent')"
-              >
-                <div id="icon-urgent-inline" class="edit-task-prio-button">
-                  <span>Urgent</span>
-                  <img src="../assets/img/urgent.svg" alt="" />
-                </div>
-              </button>
-              <button
-                id="icon-medium"
-                class="edit-task-prio-field"
-                onclick="addPrioStatus('icon-medium')"
-              >
-                <div id="icon-medium-inline" class="edit-task-prio-button">
-                  <span>Medium</span>
-                  <img src="../assets/img/medium.svg" alt="" />
-                </div>
-              </button>
-              <button
-                id="icon-low"
-                class="edit-task-prio-field icon-low"
-                onclick="addPrioStatus('icon-low')"
-              >
-                <div id="icon-low-inline" class="edit-task-prio-button">
-                  <span>Low</span>
-                  <img src="../assets/img/low.svg" alt="" />
-                </div>
-              </button>
-            </div>
-          </div>
-          <div class="edit-task-assignet">
-            <p>Assignet to</p>
-            <select id="edit-task-assignet" required>
-              <option value="" selected>Select contacts to assign</option>
-              <option value="">Placeholder 1</option>
-              <option value="">Placeholder 2</option>
-              <option value="">Placeholder 3</option>
-            </select>
-            <div class="board-card-footer">
-              <div id="board-card-footer-badge">
-                <span class="board-card-footer-badged right-margin orange"
-                  >AM</span
-                >
-                <span class="board-card-footer-badged right-margin turquoise"
-                  >EM</span
-                >
-                <span class="board-card-footer-badged right-margin purple"
-                  >MB</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="edit-task-subtask">
-            <p>Subtask</p>
-            <input
-              type="text"
-              id="edit-task-subtask"
-              placeholder="Add new subtask"
-              onclick="addSubtask()"
-            />
-            <div id="edit-task-icons">
-              <div id="edit-task-icon-add">
-                <img
-                  src="../assets/img/add.svg"
-                  alt="add"
-                  onclick="addSubtask()"
-                  class="edit-task-icon"
-                />
-              </div>
-              <div id="edit-task-icon-close-check" class="d-none">
-                <img
-                  src="../assets/img/close.svg"
-                  alt="close"
-                  onclick="closeSubtask()"
-                  class="edit-task-icon"
-                />
-                <span class="edit-task-line small"></span>
-                <img
-                  src="../assets/img/check-black.png"
-                  alt="check"
-                  onclick="confirmSubtask()"
-                  class="edit-task-icon"
-                />
-              </div>
-            </div>
-            <div id="edit-task-subtask-addet"></div>
-          </div>
-        </div>
+      <div class="edit-task-description">
+        <p>Description</p>
+        <textarea
+          id="edit-task-description"
+          placeholder="Enter a Description"
+          oninput="changeInputTextColor('edit-task-description')"
+        ></textarea>
       </div>
-      <div>
-        <div class="edit-task-footer">
-          <div class="edit-task-buttons">
-            <button class="edit-task-btn" type="submit">
-              <div class="edit-task-btn-inside">
-                <span>Ok</span>
-                <img src="../assets/img/check.svg" alt="ckeck" />
-              </div>
-            </button>
-          </div>
-        </div>
+      <div class="edit-task-date">
+        <p>Due date<span class="red-dot">*</span></p>
+        <input
+          type="date"
+          id="edit-task-date"
+          oninput="changeInputTextColor('edit-task-date')"
+          required
+        />
       </div>
     </div>
-  </body>
-</html>
+    <div class="add-task-middle">
+      <div class="add-task-line"></div>
+    </div>
+    <div class="add-task-right">
+      <div class="edit-task-prio">
+        <p>Prio</p>
+        <div class="add-task-prio-fields">
+          <button
+            id="icon-urgent"
+            class="add-task-prio-field icon-urgent"
+            onclick="addPrioStatus('icon-urgent')"
+          >
+            <div id="icon-urgent-inline" class="edit-task-prio-button">
+              <span>Urgent</span>
+              <img src="../assets/img/urgent.svg" alt="" />
+            </div>
+          </button>
+          <button
+            id="icon-medium"
+            class="add-task-prio-field"
+            onclick="addPrioStatus('icon-medium')"
+          >
+            <div id="icon-medium-inline" class="edit-task-prio-button">
+              <span>Medium</span>
+              <img src="../assets/img/medium.svg" alt="" />
+            </div>
+          </button>
+          <button
+            id="icon-low"
+            class="add-task-prio-field icon-low"
+            onclick="addPrioStatus('icon-low')"
+          >
+            <div id="icon-low-inline" class="edit-task-prio-button">
+              <span>Low</span>
+              <img src="../assets/img/low.svg" alt="" />
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="edit-task-assignet">
+        <p>Assignet to</p>
+        <select id="edit-task-assignet" required>
+          <option value="" selected>Select contacts to assign</option>
+          <option value="">Placeholder 1</option>
+          <option value="">Placeholder 2</option>
+          <option value="">Placeholder 3</option>
+        </select>
+        <div class="board-card-footer">
+          <div id="board-card-footer-badge">
+            <span class="board-card-footer-badged right-margin orange">AM</span>
+            <span class="board-card-footer-badged right-margin turquoise"
+              >EM</span
+            >
+            <span class="board-card-footer-badged right-margin purple">MB</span>
+          </div>
+        </div>
+      </div>
+      <div class="edit-task-subtask">
+        <p>Subtask</p>
+        <input
+          type="text"
+          id="edit-task-subtask"
+          placeholder="Add new subtask"
+          onclick="addSubtask()"
+        />
+        <div id="edit-task-icons">
+          <div id="edit-task-icon-add">
+            <img
+              src="../assets/img/add.svg"
+              alt="add"
+              onclick="addSubtask()"
+              class="edit-task-icon"
+            />
+          </div>
+          <div id="edit-task-icon-close-check" class="d-none">
+            <img
+              src="../assets/img/close.svg"
+              alt="close"
+              onclick="closeSubtask()"
+              class="edit-task-icon"
+            />
+            <span class="edit-task-line small"></span>
+            <img
+              src="../assets/img/check-black.png"
+              alt="check"
+              onclick="confirmSubtask()"
+              class="edit-task-icon"
+            />
+          </div>
+        </div>
+        <div id="edit-task-subtask-addet"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="edit-task-footer">
+      <div class="edit-task-buttons">
+        <button class="edit-task-btn" type="submit">
+          <div class="edit-task-btn-inside">
+            <span>Ok</span>
+            <img src="../assets/img/check.svg" alt="ckeck" />
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
