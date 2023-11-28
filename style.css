@@ -46,12 +46,15 @@ button {
 }
 
 .badge span {
-  margin-top: 10px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+input{
+  font-family: "Figtree", sans-serif;
+}
 .mobile-header {
   position: fixed;
   top: 0;

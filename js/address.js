@@ -16,11 +16,11 @@ let contacts =[
     }
 ]
 function addContact(){
-document.getElementById("add-contact-overlay").style.display = "block";
+document.getElementById("add-contact-overlay").style.display = "flex";
 
 }
 function closeAddContact(){
-   document.getElementById("add-contact-overlay").style.display = "block";
+   document.getElementById("add-contact-overlay").style.display = "none";
 }
 
 function firstLetter(i){ //FUNKTION FÜR REGISTER
@@ -36,7 +36,7 @@ function firstLetter(i){ //FUNKTION FÜR REGISTER
 
 function getInitials(i){// FUNKTION FÜR BADGES
 const allNames =contacts[i].name.split(' ');
-console.log(allNames);
+
 let initials =[];
 for (let index = 0; index < allNames.length; index++) {
     
@@ -50,9 +50,9 @@ function renderContacts(){
     for (let i = 0; i < contacts.length; i++) {
         firstLetter(i);
         let contact =contacts[i];
-        console.log(JSON.stringify(contact['name']));
+       
         document.getElementById("contact-list").innerHTML+= /*html*/`
-        <div class="single-contact">
+        <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'> <!-- /*id notwendig? */ -->
         <div class='badge' style="background-color:${contact['color']}"} ><span>${getInitials(i)}</span></div>
         <div class='card'>
            <span>${contact['name']}</span>   <br>
@@ -60,8 +60,21 @@ function renderContacts(){
     </div>
 </div>
        `;
-        
-       
-        
     }
+}
+
+function viewCard(i){
+    
+    document.getElementById('card-closeup').innerHTML= /*html*/ 
+    `
+    <div class='card-closeup-header'>
+    <div class='big-badge' style='background-color:${contacts[i]['color']}'} ><span>${getInitials(i)}</span></div>
+    <div class='card'>
+           <span>${contacts[i]['name']}</span>   <br>
+            <a href=""> ${contacts[i]['email']}</a> <br>
+    </div>
+     </div>
+    
+    `
+console.log('test view card', i);
 }

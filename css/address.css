@@ -80,7 +80,7 @@ top:96px;
 .first-letter{
     display: flex;
     height: fit-content;
-    width: 100%;
+    width: 280px;
     padding: 17px 36px 17px 36px;
     border-bottom: 1px solid #ccc;
 }
@@ -92,26 +92,37 @@ top:96px;
 
 
 #add-contact-overlay{
-    /* display: none; */
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.20);
+    width: 100%;
+    height: 100vh;
+    z-index: 8;
+    align-items: center;
+    justify-content: center;
 }
 #add-contact{
+    z-index:9;
+    background-color: white;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding-right: 32px;
-    position: fixed;
-    top: 137px;
+
     border-radius: 30px;
     width: 1212px;
-    height: 594px;
-    
-    left:42px;
+    height: 592px;
 }
 
+#card-closeup{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
 
-
-.add-contact-left{
+.add-contact-left{filter: brightness(1.2);
 width: 371px; /*hug?*/
 height: 462px;
 padding: 66px 48px 66px 48px;
@@ -119,14 +130,31 @@ gap: 12px;
 border-radius: 30px 0 0 30px;
 background-color: var(--dark-blue);
 color:white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.add-contact-left img{
+    width: 55.6px;
+    height: auto;
+}
+
+
+#overlay-header{
+    color: white !important;
 }
 .big-badge{
   width: 120px;
     height: 120px; 
-    position: fixed;
-    left:  550px;
-    top: 240px;
+  border-radius: 60px;
 }
+.big-badge span {
+   height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 .add-contact-form{
     text-align: end;
     justify-self: end;
