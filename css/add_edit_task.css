@@ -5,7 +5,8 @@ body {
 
 /*------------- ADD TASK -------------*/
 
-#add-task-page {
+#add-task-page,
+#edit-task-page {
   padding: 110px 0 0 96px;
   max-width: 977px;
   max-height: 825px;
@@ -305,62 +306,6 @@ body {
   border-radius: 16px;
 }
 
-.edit-task-formular {
-  display: flex;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.edit-task-left,
-.edit-task-right {
-  width: 440px;
-}
-
-.edit-task-middle {
-  width: 96px;
-}
-
-.edit-task-formular input {
-  color: var(--light-gray);
-  font-size: 20px;
-  font-weight: 400;
-  width: 398px;
-  margin-bottom: 16px;
-  border-radius: 10px;
-  border: 1px solid var(--light-gray);
-  padding: 12px 21px;
-}
-
-.edit-task-formular textarea {
-  color: var(--light-gray);
-  font-size: 20px;
-  font-weight: 400;
-  width: 408px;
-  height: 84px;
-  margin-bottom: 16px;
-  border-radius: 10px;
-  border: 1px solid var(--light-gray);
-  padding: 18px 16px;
-}
-
-.edit-task-formular select {
-  color: var(--black);
-  font-size: 20px;
-  font-weight: 400;
-  width: 440px;
-  margin-bottom: 16px;
-  border-radius: 10px;
-  border: 1px solid var(--light-gray);
-  padding: 12px 16px;
-}
-
-.edit-task-line {
-  width: 1px;
-  height: 520px;
-  background-color: var(--light-gray);
-  margin: 0 48px;
-}
-
 .edit-task-prio-fields {
   display: flex;
   justify-content: space-between;
@@ -537,8 +482,10 @@ body {
 /*------------- MEDIA -------------*/
 
 @media (max-width: 1210px) {
-  .add-task-footer {
+  .add-task-footer,
+  .edit-task-footer {
     padding-top: 24px;
+    width: 440px;
   }
 
   .add-task-formular {
@@ -556,10 +503,6 @@ body {
 
   .add-task-required {
     top: 1180px;
-  }
-
-  .add-task-footer {
-    width: 440px;
   }
 }
 
