@@ -467,6 +467,15 @@
   z-index: 999;
 }
 
+.mobile-navbar-include {
+  background-color: var(--dark-blue);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+}
+
 /*------------- MEDIA -------------*/
 
 @media (max-width: 1190px) {

@@ -568,6 +568,10 @@
   #add-task-page {
     max-height: 100%;
     padding: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 
   .mobile-header-include {
@@ -621,7 +625,7 @@
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    bottom: 0;
+    bottom: 80px;
     left: 0;
     right: 0;
     height: 88px;
