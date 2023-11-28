@@ -2,6 +2,10 @@ h1{
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
+h2{
+    font-size: 47px;
+    font-weight: 500;
+}
 #scrollbar{
     width: 400px;
     height: 880px;
@@ -89,6 +93,21 @@ top:96px;
     
 }
 
+.card-closeup-header{
+    display: flex;
+}
+
+#card-closeup{
+    position: fixed;
+    top:311px;
+left: 750px;;
+    background-color: aqua;
+}
+
+.edit-delete{
+    font-size: 16px;
+}
+
 
 
 #add-contact-overlay{
@@ -116,12 +135,6 @@ top:96px;
     height: 592px;
 }
 
-#card-closeup{
-    width: 200px;
-    height: 200px;
-    background-color: aqua;
-}
-
 .add-contact-left{filter: brightness(1.2);
 width: 371px; /*hug?*/
 height: 462px;
@@ -139,6 +152,10 @@ justify-content: center;
     width: 55.6px;
     height: auto;
 }
+.add-contact-left span{
+    font-size: 27px;
+}
+
 
 
 #overlay-header{
@@ -151,6 +168,7 @@ justify-content: center;
 }
 .big-badge span {
    height: 100%;
+   width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
