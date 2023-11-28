@@ -640,6 +640,10 @@
   .add-task-buttons {
     padding-right: 16px;
   }
+
+  .mobile-navbar-include {
+    display: block;
+  }
 }
 
 @media (max-width: 370px) {
