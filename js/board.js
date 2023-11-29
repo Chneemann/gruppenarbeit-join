@@ -8,7 +8,6 @@ async function openAddTask() {
   document.getElementById("add-task-img-close").classList.remove("d-none");
   document.getElementById("add-task-page").style.backgroundColor =
     "var(--white)";
-  document.getElementById("add-task-page").style.padding = "64px 74px";
   overlay.classList.remove("d-none");
   await sleep(10);
   overlay.classList.add("dialog-show");
