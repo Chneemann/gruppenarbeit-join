@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/board.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/Join Logo.png" />
+    <title>Navbar</title>
+    <style>
+      .content {
+        position: fixed;
+        top: 96px;
+        left: 232px;
+        background-color: var(--very-light-gray);
+      }
+      @media (max-width: 860px) {
+        .content {
+          top: 0;
+          left: 0;
+        }
+      }
+    </style>
+    <script src="../script.js"></script>
+    <script src="../js/board.js"></script>
+  </head>
+  <body onload="includeHTML()">
+    <div
+      w3-include-html="../html/mobile_header.html"
+      id="mobile-header"
+      class="d-none"
+    ></div>
+    <div w3-include-html="../html/navbar.html" id="navbar"></div>
+    <div
+      w3-include-html="../html/mobile_navbar.html"
+      id="mobile-navbar"
+      class="d-none"
+    ></div>
+    <div class="content">
+      <div w3-include-html="../html/board.html"></div>
+    </div>
+  </body>
+</html>
