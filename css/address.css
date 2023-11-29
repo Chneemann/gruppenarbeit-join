@@ -95,6 +95,7 @@ top:96px;
 
 .card-closeup-header{
     display: flex;
+    gap:54px;
 }
 
 #card-closeup{
@@ -102,6 +103,11 @@ top:96px;
     top:311px;
 left: 750px;;
     background-color: aqua;
+}
+
+card-closeup-header-right{
+min-height: 88px;
+gap:8px;
 }
 
 .edit-delete{
@@ -172,6 +178,7 @@ justify-content: center;
     display: flex;
     justify-content: center;
     align-items: center;
+color: white;
   }
 .add-contact-form{
     text-align: end;
