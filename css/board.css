@@ -16,7 +16,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1080px;
 }
 
 .board-search {
@@ -482,13 +481,13 @@
 
 /*------------- MEDIA -------------*/
 
-@media (max-width: 1190px) {
+@media (max-width: calc(1190px + 232px)) {
   .board-header {
     width: 800px;
   }
 }
 
-@media (max-width: 912px) {
+@media (max-width: calc(897px + 232px)) {
   .board-header {
     flex-direction: column;
     align-items: start;
