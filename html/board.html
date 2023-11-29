@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board</title>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../css/board.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/board.css" />
   </head>
   <body>
     <div
-      w3-include-html="../html/task_overlay.html"
+      w3-include-html="./html/task_overlay.html"
       id="task-overlay-cart"
       class="dialog-bg d-none max-z-index"
       onclick="closeCart(event)"
     ></div>
     <div
-      w3-include-html="../html/add_task.html"
+      w3-include-html="./html/add_task.html"
       id="add-task-dialog"
       class="dialog-bg d-none"
       onclick="closeAddTask(event)"
@@ -35,7 +35,7 @@
           >
             <div class="board-btn-inside">
               <span>Add Task</span>
-              <img src="../assets/img/add_white.svg" alt="check" />
+              <img src="./assets/img/add_white.svg" alt="check" />
             </div>
           </button>
         </div>
@@ -44,7 +44,7 @@
         <div id="board-content-headline">
           <div class="board-content-column">
             <div class="board-content-headline">
-              <span>To do</span><img src="../assets/img/add.svg" alt="" />
+              <span>To do</span><img src="./assets/img/add.svg" alt="" />
             </div>
             <div id="board-content-task-todo" class="board-content-tasks">
               <div class="board-empty-task">No tasks To do</div>
@@ -53,7 +53,7 @@
 
           <div class="board-content-column">
             <div class="board-content-headline">
-              <span>In progress</span><img src="../assets/img/add.svg" alt="" />
+              <span>In progress</span><img src="./assets/img/add.svg" alt="" />
             </div>
             <div id="board-content-task-inprogress" class="board-content-tasks">
               <div class="board-cart" onclick="openCart()">
@@ -85,7 +85,7 @@
           <div class="board-content-column">
             <div class="board-content-headline">
               <span>Await feedback</span
-              ><img src="../assets/img/add.svg" alt="" />
+              ><img src="./assets/img/add.svg" alt="" />
             </div>
             <div
               id="board-content-task-awaitfeedback"
@@ -95,7 +95,7 @@
 
           <div class="board-content-column">
             <div class="board-content-headline">
-              <span>Done</span><img src="../assets/img/add.svg" alt="" />
+              <span>Done</span><img src="./assets/img/add.svg" alt="" />
             </div>
             <div id="board-content-task-done" class="board-content-tasks"></div>
           </div>

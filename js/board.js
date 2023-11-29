@@ -1,7 +1,7 @@
 // TASK
 
 async function openAddTask() {
-  loadW3Include("../html/add_task.html", "add-task-dialog");
+  loadW3Include("./html/add_task.html", "add-task-dialog");
   await sleep(10);
   var overlay = document.getElementById("add-task-dialog");
   document.body.style.overflow = "hidden";
@@ -26,7 +26,7 @@ async function closeAddTask() {
 }
 
 function editTask() {
-  loadW3Include("../html/edit_task.html", "task-overlay-cart");
+  loadW3Include("./html/edit_task.html", "task-overlay-cart");
 }
 
 function deleteTask() {
@@ -47,7 +47,7 @@ function loadW3Include(path, id) {
 // CART
 
 async function openCart() {
-  loadW3Include("../html/task_overlay.html", "task-overlay-cart");
+  loadW3Include("./html/task_overlay.html", "task-overlay-cart");
   var overlay = document.getElementById("task-overlay-cart");
   document.body.style.overflow = "hidden";
   document.getElementById("board-page").style.overflow = "hidden";
