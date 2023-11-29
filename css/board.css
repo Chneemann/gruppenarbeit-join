@@ -63,7 +63,7 @@
   border-radius: 10px;
   border: 1px solid var(--gray);
   background-color: var(--white);
-  background-image: url("./assets/img/search.svg");
+  background-image: url("../assets/img/search.svg");
   background-position-x: calc(100% - 10px);
   background-position-y: center;
   background-repeat: no-repeat;
@@ -268,7 +268,7 @@
 }
 
 .board-card-footer-priority {
-  background-image: url(./assets/img/medium.svg);
+  background-image: url(../assets/img/medium.svg);
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center;
