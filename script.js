@@ -1,4 +1,4 @@
-function renderMainpageContent(path) {
+function renderMainpageContent(path,func) {
   fetch(path)
     .then((response) => response.text())
     .then((html) => {
@@ -6,7 +6,12 @@ function renderMainpageContent(path) {
     })
     .catch((error) => {
       console.error("Error loading:", error);
-    });
+    })
+    .then(()=>{
+      if (func) {
+        func()
+      }
+     } );
 }
 
 // HTML Include

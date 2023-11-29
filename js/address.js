@@ -48,8 +48,13 @@ function getInitials(i) {// FUNKTION FÜR BADGES
     return initials.join("") //Methode entfernt das Komma
 }
 
+function test(path){
+    console.log('test');
+
+}
 
 function renderContacts() {
+    console.log('render contacts');
     for (let i = 0; i < contacts.length; i++) {
         firstLetter(i);
         let contact = contacts[i];
