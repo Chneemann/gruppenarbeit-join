@@ -52,19 +52,3 @@ function includeNavbarHTML() {
     }
   }
 }
-
-window.addEventListener("DOMContentLoaded", (event) => {
-  function handleResize() {
-    if (window.innerWidth < 860) {
-      document.getElementById("mobile-header").classList.remove("d-none");
-      document.getElementById("navbar").classList.add("d-none");
-      document.getElementById("mobile-navbar").classList.remove("d-none");
-    } else {
-      document.getElementById("mobile-header").classList.add("d-none");
-      document.getElementById("navbar").classList.remove("d-none");
-      document.getElementById("mobile-navbar").classList.add("d-none");
-    }
-  }
-  handleResize();
-  window.addEventListener("resize", handleResize);
-});
