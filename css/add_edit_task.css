@@ -1,8 +1,7 @@
 /*------------- ADD TASK -------------*/
 
 #add-task-page {
-  padding: 110px 0 0 96px;
-  max-height: 70vh;
+  padding: 79.5px 0 0 64px;
 }
 
 #add-task-page h1 {
@@ -18,7 +17,6 @@
 .add-task-header {
   display: flex;
   justify-content: space-between;
-  background-color: var(--white);
 }
 
 .add-task-img-close {
@@ -591,7 +589,7 @@
 
 @media (max-width: 475px) {
   #add-task-page {
-    padding: 0 !important;
+    padding: 48px 0 0 0;
   }
 
   .mobile-header-include {
@@ -602,8 +600,8 @@
     display: none;
   }
 
-  .spacer {
-    padding-top: 190px;
+  .add-task-left {
+    padding-top: 88px;
   }
 
   .add-task-right {
@@ -611,11 +609,15 @@
   }
 
   .add-task-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
-    width: 90%;
-    padding: 108px 0 0 16px;
-    margin: 0;
-    box-shadow: 0px 2px 4px 0px var(--white);
+    width: 100%;
+    top: 80px;
+    padding-top: 48px;
+    background-color: var(--very-light-gray);
+    box-shadow: 0px 2px 4px 0px var(--very-light-gray);
   }
 
   #add-task-page h1 {
@@ -651,8 +653,9 @@
     left: 0;
     right: 0;
     height: 88px;
-    background-color: var(--white);
-    box-shadow: 0px -2px 4px 0px var(--white);
+    background-color: var(--very-light-gray);
+    box-shadow: 0px -2px 4px 0px var(--very-light-gray);
+    padding: 0;
   }
 
   .add-task-required {
