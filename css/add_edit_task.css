@@ -3,6 +3,7 @@
 #add-task-page {
   padding: 110px 0 0 96px;
   max-height: 70vh;
+  width: 100%;
 }
 
 #add-task-page h1 {
@@ -591,12 +592,7 @@
 
 @media (max-width: 475px) {
   #add-task-page {
-    max-height: 100%;
     padding: 0 !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
   }
 
   .mobile-header-include {

@@ -1,3 +1,14 @@
+function renderMainpageContent(path) {
+  fetch(path)
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("mainpage-content").innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error loading:", error);
+    });
+}
+
 // HTML Include
 
 async function includeHTML() {
