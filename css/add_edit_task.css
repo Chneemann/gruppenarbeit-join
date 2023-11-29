@@ -44,14 +44,17 @@
   color: var(--light-red);
 }
 
-.add-task-formular {
+.add-task-formular,
+.edit-task-formular {
   display: flex;
   font-size: 20px;
   font-weight: 400;
 }
 
 .add-task-left,
-.add-task-right {
+.add-task-right,
+.edit-task-left,
+.edit-task-right {
   width: 440px;
 }
 
@@ -59,7 +62,8 @@
   width: 96px;
 }
 
-.add-task-formular input {
+.add-task-formular input,
+.edit-task-formular input {
   color: var(--light-gray);
   font-size: 20px;
   font-weight: 400;
@@ -70,7 +74,8 @@
   padding: 12px 21px;
 }
 
-.add-task-formular textarea {
+.add-task-formular textarea,
+.edit-task-formular textarea {
   color: var(--light-gray);
   font-size: 20px;
   font-weight: 400;
@@ -82,7 +87,8 @@
   padding: 18px 16px;
 }
 
-.add-task-formular select {
+.add-task-formular select,
+.edit-task-formular select {
   color: var(--black);
   font-size: 20px;
   font-weight: 400;
@@ -398,7 +404,6 @@
 .edit-task-footer {
   display: flex;
   justify-content: flex-end;
-  width: 977px;
   padding-top: 44px;
 }
 
@@ -479,7 +484,7 @@
   .add-task-footer,
   .edit-task-footer {
     padding-top: 24px;
-    width: 440px;
+    width: 100%;
   }
 
   .add-task-formular {
@@ -500,32 +505,52 @@
   }
 }
 
+@media (max-width: 1080px) {
+  .edit-task-formular {
+    display: block;
+  }
+
+  .edit-task-middle {
+    display: none;
+  }
+  .edit-task-left,
+  .edit-task-right {
+    width: 100%;
+  }
+}
+
 @media (max-width: 690px) {
   .dialog {
     padding: 64px 74px !important;
   }
 
-  .add-task-formular {
+  .add-task-formular,
+  .edit-task-formular {
     font-size: 16px;
   }
 
-  .add-task-formular input {
+  .add-task-formular input,
+  .edit-task-formular input {
     font-size: 16px;
     width: 298px;
   }
 
-  .add-task-formular textarea {
+  .add-task-formular textarea,
+  .edit-task-formular textarea {
     font-size: 16px;
     width: 308px;
   }
 
   .add-task-formular select,
-  .add-task-prio-fields {
+  .edit-task-formular select,
+  .add-task-prio-fields,
+  .edit-task-prio-fields {
     font-size: 16px;
     width: 340px;
   }
 
-  .add-task-prio-field {
+  .add-task-prio-field,
+  .edit-task-prio-field {
     font-size: 16px;
     width: 106px;
   }
@@ -603,7 +628,9 @@
   }
 
   .add-task-left,
-  .add-task-right {
+  .add-task-right,
+  .edit-task-left,
+  .edit-task-right {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -646,17 +673,48 @@
   }
 }
 
-@media (max-width: 370px) {
-  .add-task-prio-fields span {
+@media (max-width: 420px) {
+  .add-task-prio-fields span,
+  .edit-task-prio-fields span {
     display: none;
   }
 
+  .edit-task-prio-field {
+    width: 86px;
+  }
+
+  .edit-task-prio-fields {
+    width: 290px;
+  }
+
+  .edit-task-formular input {
+    width: 248px;
+  }
+
+  .edit-task-formular textarea {
+    width: 258px;
+  }
+
+  .edit-task-formular select {
+    width: 290px;
+  }
+}
+
+@media (max-width: 370px) {
   .add-task-formular input {
     width: 248px;
   }
 
+  .edit-task-formular input {
+    width: 198px;
+  }
+
   .add-task-formular textarea {
     width: 258px;
+  }
+
+  .edit-task-formular textarea {
+    width: 208px;
   }
 
   .add-task-formular select,
@@ -664,8 +722,20 @@
     width: 290px;
   }
 
+  .edit-task-prio-fields {
+    width: 240px;
+  }
+
+  .edit-task-formular select {
+    width: 240px;
+  }
+
   .add-task-prio-field {
     width: 86px;
+  }
+
+  .edit-task-prio-field {
+    width: 72px;
   }
 
   #add-task-icon-add {
