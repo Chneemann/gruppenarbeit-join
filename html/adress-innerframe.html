@@ -12,12 +12,13 @@
 </head>
 
 <body>
-
-    <div id="add-contact-overlay" onclick="off()"> <!-- eigentlich der frame*-->
+    <div id="add-contact-overlay" onclick="closeAddContact()"> <!-- eigentlich der frame*-->
         <div id="add-contact">
 
             <div class="add-contact-left"><img src="../assets/img/Join logo light.png" alt="">
-                <h1 id="overlay-header">Add Contacts</h1><span>Tasks are better with a Team </span>
+                <h1 id="overlay-header">Add contact</h1>
+                <span>Tasks are better with a Team </span>
+                <img src="../assets/img/Vector 5.png" alt="">
             </div>
 
 
@@ -32,11 +33,33 @@
                
             </div>
 
-    <div class="send-buttons"><button class="add-contact-btn-clear"><span>cancel</span><img src="../assets/img/close.svg" alt="close" /></button>
+    <div class="send-buttons"><button class="add-contact-btn-clear"><span>cancel</span><img src="../assets/img/close.svg" alt="close" onclick="closeAddContact()" /></button>
         <button class="add-contact-btn-create"><span>create contact</span><img src="../assets/img/check.svg" alt="ckeck" /></button>
             </div>
             </div>
         </div>
     </div>
 
+
+    <div class="inner-frame">
+        <div id="scrollbar">
+            <button onclick="addContact()">
+                <div><span>Add new contact</span> <img src="../assets/img/person_add.png" alt=""></div>
+            </button>
+            <div class="contact-list" id="contact-list">
+                
+                <div id="card"></div>
+            </div>
+        </div>
+
+        <div id="view-contact">
+
+            <div class="contact-header">
+                <h1>Contacts</h1>
+                <div class="separator"></div>
+                <span>Better with a team</span>
+            </div>
+            <div id="card-closeup"></div>
+        </div>
+    </div>
 </body>
