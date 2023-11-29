@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/img/Join Logo.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/Join Logo.png" />
     <script src="./script.js"></script>
     <title>Navbar</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="upper-frame">
-        <span>Kanban Project Management Tool</span>  
-      </div>
-    <div class="left-frame">
- <img class="logo-up-left"   src="../assets/img/Join logo light.png" alt="">
-
-
-<div class="nav-links">
-<img onclick="" src="../assets/img/Summary.png">
-<img src="../assets/img/Add Task.png">
-<img src="../assets/img/Board.png">
-<img src="../assets/img/Contacts.png">
-</div>
-
-<div class="reference">
-    <div><a href="">Privacy Policy</a></div>
-    <div>  <a href="">Legal Notice</a></div>
-    <div> <a href="">log out</a></div>
-  
-   
-</div>
+      <span>Kanban Project Management Tool</span>
     </div>
+    <div class="left-frame">
+      <img class="logo-up-left" src="./assets/img/Join logo light.png" alt="" />
 
-</body>
+      <div class="nav-links">
+        <img
+          onclick="renderMainpageContent('./summary.html')"
+          src="./assets/img/Summary.png"
+        />
+        <img
+          onclick="renderMainpageContent('./html/add_task.html')"
+          src="./assets/img/Add Task.png"
+        />
+        <img
+          onclick="renderMainpageContent('./html/board.html')"
+          src="./assets/img/Board.png"
+        />
+        <img
+          onclick="renderMainpageContent('')"
+          src="./assets/img/Contacts.png"
+        />
+      </div>
+
+      <div class="reference">
+        <div><a href="">Privacy Policy</a></div>
+        <div><a href="">Legal Notice</a></div>
+        <div><a href="">log out</a></div>
+      </div>
+    </div>
+  </body>
 </html>

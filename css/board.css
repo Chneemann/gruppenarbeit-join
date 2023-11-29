@@ -3,7 +3,7 @@
   margin: 0;
   background-color: var(--very-light-gray);
   padding: 97.5px 0 0 64px;
-  height: 100%;
+  height: 100vh;
 }
 
 .board-page h1 {
@@ -16,7 +16,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1080px;
 }
 
 .board-search {
@@ -167,6 +166,7 @@
 
 .board-card-category {
   position: absolute;
+  font-size: 16px;
   top: 16px;
   left: 16px;
   padding: 4px 16px;
@@ -314,6 +314,7 @@
 }
 
 #task-overlay-category {
+  font-size: 23px;
   padding: 4px 24px;
   border-radius: 8px;
   color: var(--white);
@@ -435,7 +436,7 @@
   border-radius: 30px;
   overflow: auto;
   overflow-x: hidden;
-  padding: 110px 96px !important;
+  padding: 64px 74px !important;
 }
 
 .dialog-show {
@@ -467,27 +468,15 @@
   z-index: 999;
 }
 
-.mobile-navbar-include {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background-color: var(--dark-blue);
-  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.1);
-  z-index: 499;
-}
-
 /*------------- MEDIA -------------*/
 
-@media (max-width: 1190px) {
+@media (max-width: calc(1190px + 232px)) {
   .board-header {
     width: 800px;
   }
 }
 
-@media (max-width: 912px) {
+@media (max-width: calc(897px + 232px)) {
   .board-header {
     flex-direction: column;
     align-items: start;

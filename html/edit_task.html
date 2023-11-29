@@ -5,11 +5,11 @@
       class="edit-task-img-close"
       onclick="closeCart()"
     >
-      <img src="../assets/img/close.svg" alt="" />
+      <img src="./assets/img/close.svg" alt="" />
     </div>
   </div>
-  <div class="add-task-formular">
-    <div class="add-task-left">
+  <div class="edit-task-formular">
+    <div class="edit-task-left">
       <div class="edit-task-title">
         <p>Title<span class="red-dot">*</span></p>
         <input
@@ -38,41 +38,41 @@
         />
       </div>
     </div>
-    <div class="add-task-middle">
+    <div class="edit-task-middle">
       <div class="add-task-line"></div>
     </div>
-    <div class="add-task-right">
+    <div class="edit-task-right">
       <div class="edit-task-prio">
         <p>Prio</p>
-        <div class="add-task-prio-fields">
+        <div class="edit-task-prio-fields">
           <button
             id="icon-urgent"
-            class="add-task-prio-field icon-urgent"
+            class="edit-task-prio-field icon-urgent"
             onclick="addPrioStatus('icon-urgent')"
           >
             <div id="icon-urgent-inline" class="edit-task-prio-button">
               <span>Urgent</span>
-              <img src="../assets/img/urgent.svg" alt="" />
+              <img src="./assets/img/urgent.svg" alt="" />
             </div>
           </button>
           <button
             id="icon-medium"
-            class="add-task-prio-field"
+            class="edit-task-prio-field"
             onclick="addPrioStatus('icon-medium')"
           >
             <div id="icon-medium-inline" class="edit-task-prio-button">
               <span>Medium</span>
-              <img src="../assets/img/medium.svg" alt="" />
+              <img src="./assets/img/medium.svg" alt="" />
             </div>
           </button>
           <button
             id="icon-low"
-            class="add-task-prio-field icon-low"
+            class="edit-task-prio-field icon-low"
             onclick="addPrioStatus('icon-low')"
           >
             <div id="icon-low-inline" class="edit-task-prio-button">
               <span>Low</span>
-              <img src="../assets/img/low.svg" alt="" />
+              <img src="./assets/img/low.svg" alt="" />
             </div>
           </button>
         </div>
@@ -106,7 +106,7 @@
         <div id="edit-task-icons">
           <div id="edit-task-icon-add">
             <img
-              src="../assets/img/add.svg"
+              src="./assets/img/add.svg"
               alt="add"
               onclick="addSubtask()"
               class="edit-task-icon"
@@ -114,14 +114,14 @@
           </div>
           <div id="edit-task-icon-close-check" class="d-none">
             <img
-              src="../assets/img/close.svg"
+              src="./assets/img/close.svg"
               alt="close"
               onclick="closeSubtask()"
               class="edit-task-icon"
             />
             <span class="edit-task-line small"></span>
             <img
-              src="../assets/img/check-black.png"
+              src="./assets/img/check-black.png"
               alt="check"
               onclick="confirmSubtask()"
               class="edit-task-icon"
@@ -138,7 +138,7 @@
         <button class="edit-task-btn" type="submit">
           <div class="edit-task-btn-inside">
             <span>Ok</span>
-            <img src="../assets/img/check.svg" alt="ckeck" />
+            <img src="./assets/img/check.svg" alt="ckeck" />
           </div>
         </button>
       </div>
