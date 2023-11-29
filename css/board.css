@@ -2,8 +2,7 @@
 .board-page {
   margin: 0;
   background-color: var(--very-light-gray);
-  padding: 97.5px 0 0 64px;
-  height: 100vh;
+  padding: 79.5px 0 0 64px;
 }
 
 .board-page h1 {
@@ -476,7 +475,7 @@
   }
 }
 
-@media (max-width: calc(897px + 232px)) {
+@media (max-width: calc(884px + 232px)) {
   .board-header {
     flex-direction: column;
     align-items: start;
@@ -503,8 +502,8 @@
     width: 100%;
   }
 
-  .board-page {
-    padding-right: 64px;
+  #board-page {
+    padding: 48px 16px 0 16px;
   }
 
   .board-search {
@@ -563,10 +562,6 @@
 
   .mobile-header-include {
     display: block;
-  }
-
-  .board-page {
-    padding: 128px 16px 0 16px;
   }
 
   .task-overlay {
