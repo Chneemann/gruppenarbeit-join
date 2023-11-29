@@ -314,6 +314,7 @@
 }
 
 #task-overlay-category {
+  font-size: 23px;
   padding: 4px 24px;
   border-radius: 8px;
   color: var(--white);
@@ -435,7 +436,7 @@
   border-radius: 30px;
   overflow: auto;
   overflow-x: hidden;
-  padding: 110px 96px !important;
+  padding: 64px 74px !important;
 }
 
 .dialog-show {
@@ -465,18 +466,6 @@
 
 .max-z-index {
   z-index: 999;
-}
-
-.mobile-navbar-include {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background-color: var(--dark-blue);
-  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.1);
-  z-index: 499;
 }
 
 /*------------- MEDIA -------------*/
