@@ -1,3 +1,10 @@
+// LOGOUT
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "./index.html";
+}
+
 function renderMainpageContent(path, func) {
   fetch(path)
     .then((response) => response.text())

@@ -45,6 +45,12 @@ async function guestLogin() {
   loginPassword.value = "Guest";
   loginBtn.disabled = true;
   guestLoginBtn.disabled = true;
+  for (let i = 0; i < users.length; i++) {
+    if (loginEmail.value == users[i]["email"]) {
+      localStorage.setItem("currentUser", JSON.stringify(users[i]));
+    }
+  }
+
   await sleep(1000);
   redirectToIndex();
 }
