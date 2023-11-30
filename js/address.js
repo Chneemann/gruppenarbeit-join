@@ -91,9 +91,9 @@ function viewCard(i) {
    
            
            <h3> Contact Information</h3>
-           <b>Email</b>
+           <p>Email</p>
             <a href=""> ${contacts[i]['email']}</a> <br>
-            <b>Phone</b>
+            <p>Phone</p>
             <span>${contacts[i]['phone']}</span>
     </div>
     
