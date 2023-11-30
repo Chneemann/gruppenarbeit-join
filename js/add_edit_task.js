@@ -1,3 +1,26 @@
+let taskPrio = "";
+
+function addTask() {
+  let title = document.getElementById("add-task-titel").value;
+  let description = document.getElementById("add-task-description").value;
+  let date = document.getElementById("add-task-date").value;
+
+  let timestamp = new Date(date).getTime();
+
+  let task = {
+    title: title,
+    description: description,
+    date: timestamp,
+    prio: taskPrio,
+  };
+
+  console.log(task);
+}
+
+function clearTask() {
+  console.log("Clear");
+}
+
 function addSubtask() {
   document.getElementById("add-task-subtask").style.color = "var(--black)";
   document.getElementById("add-task-subtask").value = "Contact Form";
@@ -66,32 +89,16 @@ function addPrioStatus(clicked) {
     .getElementById("icon-urgent-inline")
     .classList.remove("max-brightness");
   if (clicked == "icon-urgent") {
+    taskPrio = "Urgent";
     document.getElementById(clicked).classList.add("bgcolor-red");
   } else if (clicked == "icon-medium") {
+    taskPrio = "Medium";
     document.getElementById(clicked).classList.add("bgcolor-orange");
   } else if (clicked == "icon-low") {
+    taskPrio = "Low";
     document.getElementById(clicked).classList.add("bgcolor-green");
+  } else {
   }
   document.getElementById(`${clicked}-inline`).classList.add("max-brightness");
   document.getElementById(clicked).classList.add("add-task-prio-field-clicked");
-}
-
-function addTask() {
-  let title = document.getElementById("add-task-titel").value;
-  let description = document.getElementById("add-task-description").value;
-  let date = document.getElementById("add-task-date").value;
-
-  let timestamp = new Date(date).getTime();
-
-  let task = {
-    title: title,
-    description: description,
-    date: timestamp,
-  };
-
-  console.log(task);
-}
-
-function clearTask() {
-  console.log("Clear");
 }

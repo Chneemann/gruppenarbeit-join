@@ -1,3 +1,16 @@
+async function loadTaskfromServer() {
+  let url = `https://remote-storage.developerakademie.org`;
+  let response = await fetch(url);
+}
+
+async function saveTaskfromServer(key, value) {
+  let url = `https://remote-storage.developerakademie.org/item`;
+  let payload = { key, value };
+  let response = await fetch(url, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
 // TASK
 
 async function openAddTask() {
