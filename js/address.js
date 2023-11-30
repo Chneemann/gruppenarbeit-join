@@ -79,8 +79,10 @@ function viewCard(i) {
             <div class='big-badge' style='background-color:${contacts[i]['color']}'} ><span>${getInitials(i)}</span>
             </div>
             <div class='card-closeup-header-right'><h2>${contacts[i]['name']}</h2> 
-                <div class='edit-delete' onclick='editContact()'><img src="../assets/img/edit.svg">Edit</div>
-                <div class='edit-delete' onclick='deleteContact()'><img src="../assets/img/delete.svg">Delete</div>
+                <div class='edit-delete-contact'>
+                    <div class='edit-contact' onclick='editContact()'><img src="./assets/img/edit.svg">Edit</div>
+                    <div class='delete-contact' onclick='deleteContact()'><img src="./assets/img/delete.svg">Delete</div>
+                </div>
             </div>
         </div>
 
