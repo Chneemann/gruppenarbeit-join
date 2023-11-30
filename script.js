@@ -5,6 +5,18 @@ function logout() {
   window.location.href = "./index.html";
 }
 
+// NAVBAR USERIMG
+
+function userBadget() {
+  let user = JSON.parse(localStorage.getItem("currentUser"));
+  let userInitials = user.username
+    .split(" ")
+    .map((word) => word.charAt(0))
+    .join("");
+
+  document.getElementById("mobile-header-userimg").innerHTML = userInitials;
+}
+
 function renderMainpageContent(path, func) {
   fetch(path)
     .then((response) => response.text())

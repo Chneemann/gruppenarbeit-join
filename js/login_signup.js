@@ -2,6 +2,7 @@ let users = [];
 
 async function initLogin() {
   loadUsers();
+  moveLogoToTopLeft();
   if (JSON.parse(localStorage.getItem("currentUser"))) {
     redirectToIndex();
   }
