@@ -1,7 +1,8 @@
 /*------------- ADD TASK -------------*/
 
 #add-task-page {
-  padding: 79.5px 0 0 64px;
+  padding: 79.5px 64px;
+  max-height: 80%;
 }
 
 #add-task-page h1 {
@@ -273,8 +274,15 @@
 /*------------- EDIT TASK -------------*/
 
 #edit-task-page {
-  padding: 24px !important;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  height: auto;
   max-height: 90vh;
+  padding: 48px 40px;
+  background-color: var(--white);
+  border-radius: 30px;
+  padding: 24px;
   margin: 24px;
 }
 
@@ -472,8 +480,11 @@
   background-color: var(--green);
 }
 
-.mobile-header-include {
-  display: none;
+.text-wrap-overflow {
+  overflow: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 /*------------- MEDIA -------------*/
@@ -613,8 +624,10 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 100%;
+    width: 95%;
     top: 80px;
+    left: 0;
+    right: 0;
     padding-top: 48px;
     background-color: var(--very-light-gray);
     box-shadow: 0px 2px 4px 0px var(--very-light-gray);
@@ -648,7 +661,7 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    width: 100%;
+    width: 95%;
     bottom: 80px;
     left: 0;
     right: 0;
@@ -672,11 +685,6 @@
 }
 
 @media (max-width: 420px) {
-  .add-task-prio-fields span,
-  .edit-task-prio-fields span {
-    display: none;
-  }
-
   .edit-task-prio-field {
     width: 86px;
   }
@@ -699,6 +707,11 @@
 }
 
 @media (max-width: 370px) {
+  .add-task-prio-fields span,
+  .edit-task-prio-fields span {
+    display: none;
+  }
+
   .add-task-formular input {
     width: 248px;
   }

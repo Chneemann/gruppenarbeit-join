@@ -433,8 +433,6 @@
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 30px;
-  overflow: auto;
-  overflow-x: hidden;
   padding: 64px 74px !important;
 }
 
@@ -448,10 +446,6 @@
 
 /*------------- GLOBAL -------------*/
 
-.mobile-header-include {
-  display: none;
-}
-
 .text-wrap-overflow {
   overflow: auto;
   word-wrap: break-word;
@@ -461,10 +455,6 @@
 
 .d-none {
   display: none;
-}
-
-.max-z-index {
-  z-index: 999;
 }
 
 /*------------- MEDIA -------------*/
