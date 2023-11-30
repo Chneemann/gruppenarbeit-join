@@ -2,6 +2,9 @@ let users = [];
 
 async function initLogin() {
   loadUsers();
+  if (JSON.parse(localStorage.getItem("currentUser"))) {
+    redirectToIndex();
+  }
 }
 
 async function loadUsers() {
@@ -15,7 +18,43 @@ async function loadUsers() {
 // LOGIN
 
 function login() {
-  console.log("Login");
+  loginBtn.disabled = true;
+  guestLoginBtn.disabled = true;
+  let emailFound = false;
+  for (let i = 0; i < users.length; i++) {
+    if (loginEmail.value == users[i]["email"]) {
+      emailFound = true;
+      if (loginPassword.value == users[i]["password"]) {
+        localStorage.setItem("currentUser", JSON.stringify(users[i]));
+        redirectToIndex();
+        break;
+      } else {
+        alert("The password is incorrect");
+      }
+    }
+  }
+  if (!emailFound) {
+    alert("The email address is not in our database");
+  }
+  loginBtn.disabled = false;
+  guestLoginBtn.disabled = false;
+}
+
+async function guestLogin() {
+  loginEmail.value = "Guest";
+  loginPassword.value = "Guest";
+  loginBtn.disabled = true;
+  guestLoginBtn.disabled = true;
+  await sleep(1000);
+  redirectToIndex();
+}
+
+function resetFormLogin() {
+  loginBtn.disabled = false;
+  guestLoginBtn.disabled = false;
+  loginEmail.value = "";
+  loginPassword.value = "";
+  loginCheckBox.checked = false;
 }
 
 function redirectToIndex() {
@@ -33,7 +72,7 @@ async function register() {
       password: signupPassword.value,
     });
     await setItem("users", JSON.stringify(users));
-    resetForm();
+    resetFormSignup();
   }
   signupBtn.disabled = false;
 }
@@ -46,7 +85,7 @@ function validatePassword() {
   return true;
 }
 
-function resetForm() {
+function resetFormSignup() {
   signupUsername.value = "";
   signupEmail.value = "";
   signupPassword.value = "";
@@ -73,4 +112,10 @@ function loadLoginPage() {
   document.getElementById("login-page").classList.remove("d-none");
   document.getElementById("logo-loading").classList.add("d-none");
   document.getElementById("footer").classList.remove("d-none");
+}
+
+// GLOBAL
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

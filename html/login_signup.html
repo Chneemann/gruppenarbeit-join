@@ -8,7 +8,7 @@
       <p>Not a Join user?</p>
       <button onclick="loadSignupPage()">Sign up</button>
     </div>
-    <form id="login-form" onsubmit="login()">
+    <form id="login-form" onsubmit="login(); return false;">
       <div class="login-content">
         <h1>Log in</h1>
         <img src="./assets/img/blue-line.svg" alt="" />
@@ -29,15 +29,16 @@
           />
         </div>
         <div class="login-check-button">
-          <input type="checkbox" id="login-check-box" />
+          <input type="checkbox" id="loginCheckBox" />
           <label for="login-check-box">Remember me</label>
         </div>
         <div class="login-buttons">
-          <button class="login-btn" type="submit">Log in</button>
+          <button id="loginBtn" class="login-btn" type="submit">Log in</button>
           <button
+            id="guestLoginBtn"
             class="login-btn-guest"
             type="button"
-            onclick="redirectToIndex()"
+            onclick="guestLogin()"
           >
             Guest Log in
           </button>
