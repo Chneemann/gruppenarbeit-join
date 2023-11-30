@@ -1,4 +1,4 @@
-h1{
+h1,h2{
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
@@ -38,8 +38,8 @@ h2{
     justify-content: center;
 }
 #view-contact{
-width: 100%;
-height: 100%;
+min-width: 461px;
+min-height: 364px;
 position: fixed;
 right: 0;
 left: 688px;
@@ -95,14 +95,15 @@ top:96px;
 
 .card-closeup-header{
     display: flex;
+    align-items: center;
     gap:54px;
 }
 
 #card-closeup{
     position: fixed;
     top:311px;
-left: 750px;;
-    background-color: aqua;
+left: 750px;
+min-width: 461px;
 }
 
 card-closeup-header-right{
@@ -110,11 +111,22 @@ min-height: 88px;
 gap:8px;
 }
 
-.edit-delete{
+.edit-delete-contact{
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
     font-size: 16px;
 }
-
-
+.edit-contact, .delete-contact{
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 8px;
+}
+.contact-information p{
+    font-weight: 700;
+    font-size: 16px;
+}
 
 #add-contact-overlay{
     position: absolute;
@@ -179,6 +191,7 @@ justify-content: center;
     justify-content: center;
     align-items: center;
 color: white;
+font-size: 47px;
   }
 .add-contact-form{
     text-align: end;
@@ -288,6 +301,6 @@ color: white;
     padding: 15px 24px 15px 24px;
     gap:35px;
 }
-.single-contact a{
+.single-contact a, .contact-information a{
     color: var(--cerulian-blue);
 }
