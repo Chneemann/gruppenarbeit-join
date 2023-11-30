@@ -75,3 +75,23 @@ function addPrioStatus(clicked) {
   document.getElementById(`${clicked}-inline`).classList.add("max-brightness");
   document.getElementById(clicked).classList.add("add-task-prio-field-clicked");
 }
+
+function addTask() {
+  let title = document.getElementById("add-task-titel").value;
+  let description = document.getElementById("add-task-description").value;
+  let date = document.getElementById("add-task-date").value;
+
+  let timestamp = new Date(date).getTime();
+
+  let task = {
+    title: title,
+    description: description,
+    date: timestamp,
+  };
+
+  console.log(task);
+}
+
+function clearTask() {
+  console.log("Clear");
+}

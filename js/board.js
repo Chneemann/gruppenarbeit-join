@@ -33,23 +33,11 @@ function deleteTask() {
   //TODO
 }
 
-function loadW3Include(path, id) {
-  fetch(path)
-    .then((response) => response.text())
-    .then((html) => {
-      document.getElementById(id).innerHTML = html;
-    })
-    .catch((error) => {
-      console.error("Error loading:", error);
-    });
-}
-
 // CART
 
 async function openCart() {
   loadW3Include("./html/task_overlay.html", "task-overlay-cart");
   var overlay = document.getElementById("task-overlay-cart");
-  document.scrollRight = 1000;
   overlay.classList.remove("d-none");
   await sleep(10);
   overlay.classList.add("dialog-show");
@@ -106,3 +94,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
   handleResize();
   window.addEventListener("resize", handleResize);
 });
+
+// W3C
+
+function loadW3Include(path, id) {
+  fetch(path)
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById(id).innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error loading:", error);
+    });
+}
