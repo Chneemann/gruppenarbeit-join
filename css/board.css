@@ -415,7 +415,7 @@
 /*------------- DIALOG -------------*/
 
 .dialog-bg {
-  z-index: 399;
+  z-index: 8;
   position: fixed;
   left: 0;
   right: 0;
