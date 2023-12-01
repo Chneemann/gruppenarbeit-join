@@ -1,20 +1,30 @@
 let taskPrio = "";
 
 function addTask() {
-  let title = document.getElementById("add-task-titel").value;
-  let description = document.getElementById("add-task-description").value;
-  let date = document.getElementById("add-task-date").value;
-
-  let timestamp = new Date(date).getTime();
+  clearTaskBtn.disabled = true;
+  addTaskBtn.disabled = true;
+  let timestamp = new Date(addTaskDate.value).getTime();
 
   let task = {
-    title: title,
-    description: description,
+    title: addTaskTitel.value,
+    description: addTaskDescription.value,
+    assignet: addTaskAssignet.value,
+    category: addTaskCategory.value,
     date: timestamp,
     prio: taskPrio,
   };
+  resetForm();
+  console.log("Add", task);
+}
 
-  console.log(task);
+function resetForm() {
+  clearTaskBtn.disabled = false;
+  addTaskBtn.disabled = false;
+  addTaskTitel.value = "";
+  addTaskDescription.value = "";
+  addTaskAssignet.value = "";
+  addTaskDate.value = "";
+  addTaskCategory.value = "";
 }
 
 function clearTask() {

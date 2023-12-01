@@ -9,34 +9,34 @@
       <img src="./assets/img/close.svg" alt="" />
     </div>
   </div>
-  <form onsubmit="addTask()">
+  <form onsubmit="addTask(); return false">
     <div class="add-task-formular">
       <div class="add-task-left">
         <div class="add-task-title">
           <p>Title<span class="red-dot">*</span></p>
           <input
             type="text"
-            id="add-task-titel"
+            id="addTaskTitel"
             placeholder="Enter a title"
-            oninput="changeInputTextColor('add-task-titel')"
+            oninput="changeInputTextColor('addTaskTitel')"
             required
           />
         </div>
         <div class="add-task-description">
           <p>Description</p>
           <textarea
-            id="add-task-description"
+            id="addTaskDescription"
             placeholder="Enter a Description"
-            oninput="changeInputTextColor('add-task-description')"
+            oninput="changeInputTextColor('addTaskDescription')"
           ></textarea>
         </div>
         <div class="add-task-assignet">
           <p>Assignet to</p>
-          <select id="add-task-assignet" required>
+          <select id="addTaskAssignet" required>
             <option value="" selected>Select contacts to assign</option>
-            <option value="">Placeholder 1</option>
-            <option value="">Placeholder 2</option>
-            <option value="">Placeholder 3</option>
+            <option value="Placeholder 1">Placeholder 1</option>
+            <option value="Placeholder 2">Placeholder 2</option>
+            <option value="Placeholder 3">Placeholder 3</option>
           </select>
         </div>
       </div>
@@ -48,8 +48,8 @@
           <p>Due date<span class="red-dot">*</span></p>
           <input
             type="date"
-            id="add-task-date"
-            oninput="changeInputTextColor('add-task-date')"
+            id="addTaskDate"
+            oninput="changeInputTextColor('addTaskDate')"
             required
           />
         </div>
@@ -59,6 +59,7 @@
             <button
               id="icon-urgent"
               class="add-task-prio-field icon-urgent"
+              type="button"
               onclick="addPrioStatus('icon-urgent')"
             >
               <div id="icon-urgent-inline" class="add-task-prio-button">
@@ -69,6 +70,7 @@
             <button
               id="icon-medium"
               class="add-task-prio-field"
+              type="button"
               onclick="addPrioStatus('icon-medium')"
             >
               <div id="icon-medium-inline" class="add-task-prio-button">
@@ -79,6 +81,7 @@
             <button
               id="icon-low"
               class="add-task-prio-field icon-low"
+              type="button"
               onclick="addPrioStatus('icon-low')"
             >
               <div id="icon-low-inline" class="add-task-prio-button">
@@ -90,11 +93,11 @@
         </div>
         <div class="add-task-category">
           <p>Category</p>
-          <select id="add-task-category" required>
+          <select id="addTaskCategory" required>
             <option value="" selected>Select task category</option>
-            <option value="">Placeholder 1</option>
-            <option value="">Placeholder 2</option>
-            <option value="">Placeholder 3</option>
+            <option value="Placeholder 1">Placeholder 1</option>
+            <option value="Placeholder 2">Placeholder 2</option>
+            <option value="Placeholder 3">Placeholder 3</option>
           </select>
         </div>
         <div class="add-task-subtask">
@@ -141,14 +144,14 @@
         <span class="red-dot">*</span>This field is required
       </div>
       <div class="add-task-buttons">
-        <button class="add-task-btn-clear" type="submit" onclick="clearTask()">
+        <button id="clearTaskBtn" class="add-task-btn-clear" type="submit" onclick="clearTask()">
           <div class="add-task-btn-inside">
             <span>Clear</span>
             <img src="./assets/img/close.svg" alt="close" />
           </div>
         </button>
         <button class="add-task-btn-create" type="submit">
-          <div class="add-task-btn-inside">
+          <div id="addTaskBtn" class="add-task-btn-inside">
             <span>Create Task</span>
             <img src="./assets/img/check.svg" alt="ckeck" />
           </div>
