@@ -68,6 +68,7 @@ function renderTasks() {
 }
 
 /**
+ * This function checks who is working on the task and displays them with their initials
  *
  * @param {string} id User ID
  * @returns HTML user badget for any assignet user in the task
@@ -76,13 +77,27 @@ function checkAssignetUsersBoard(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
     userInitialsHTML.push(
-      generateAssignetUsersHTML(
+      generateAssignetUsersBoardHTML(
         tasks[id].assignet[i],
         getUserInitials(tasks[id].assignet[i])
       )
     );
   }
   return userInitialsHTML.join("");
+}
+
+/**
+ * This function generate the user badget
+ *
+ * @param {string} userInitials Initials in capital letters
+ * @returns HTML user badget
+ */
+function generateAssignetUsersBoardHTML(i, userInitials) {
+  return /*html*/ `
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
+      i
+    )})">${userInitials}</span>
+  `;
 }
 
 /**
@@ -121,20 +136,6 @@ function colorPicker(id) {
   let index = id % colors.length;
   index += 1;
   return colors[index - 1];
-}
-
-/**
- * This function generate the user badget
- *
- * @param {string} userInitials Initials in capital letters
- * @returns HTML user badget
- */
-function generateAssignetUsersHTML(i, userInitials) {
-  return /*html*/ `
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
-      i
-    )})">${userInitials}</span>
-  `;
 }
 
 /**
@@ -206,6 +207,45 @@ function generateEmptyTaskHTML(id) {
 // TASK OVERLAY
 
 /**
+ * This function checks who is working on the task and displays them with their initials
+ *
+ * @param {string} id User ID
+ * @returns HTML user badget for any assignet user in the task
+ */
+function checkAssignetUsers(id) {
+  const userInitialsHTML = [];
+  for (let i = 0; i < tasks[id].assignet.length; i++) {
+    const taskIdUser = tasks[id].assignet[i];
+    const user = users.find((user) => user.id === taskIdUser);
+    userInitialsHTML.push(
+      generateAssignetUsersHTML(
+        taskIdUser,
+        getUserInitials(taskIdUser),
+        user.username
+      )
+    );
+  }
+  return userInitialsHTML.join("");
+}
+
+/**
+ * This function generate the user badget
+ *
+ * @param {string} userInitials Initials in capital letters
+ * @returns HTML user badget
+ */
+function generateAssignetUsersHTML(i, userInitials, username) {
+  return /*html*/ `
+    <div class="task-overlay-person">
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
+      i
+    )})">${userInitials}</span>
+       <p>${username}</p>
+     </div>
+  `;
+}
+
+/**
  * This function capitalises the first letter and returns the word
  *
  * @param {String} id Current task id
@@ -253,18 +293,7 @@ function generateTaskOverlayHTML(id) {
         <div>
           Assigned To:
           <div class="task-overlay-assigned-person">
-            <div class="task-overlay-person">
-              <span class="board-card-footer-badged orange">EM</span>
-              <p>Emmanuel Mauer</p>
-            </div>
-            <div class="task-overlay-person">
-              <span class="board-card-footer-badged purple">MB</span>
-              <p>Marcel Bauer</p>
-            </div>
-            <div class="task-overlay-person">
-              <span class="board-card-footer-badged blue">AM</span>
-              <p>Anton Mayer</p>
-            </div>
+          ${checkAssignetUsers(id)}
           </div>
         </div>
         <div>
