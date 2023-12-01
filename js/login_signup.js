@@ -4,7 +4,7 @@ async function initLogin() {
   loadUsers();
   moveLogoToTopLeft();
   if (JSON.parse(localStorage.getItem("currentUser"))) {
-    redirectToIndex();
+    loadMainpage();
   }
 }
 
@@ -26,6 +26,12 @@ function login() {
     if (loginEmail.value == users[i]["email"]) {
       emailFound = true;
       if (loginPassword.value == users[i]["password"]) {
+        if (loginCheckBox.checked) {
+          localStorage.setItem(
+            "rememberUserLoginData",
+            JSON.stringify(users[i])
+          );
+        }
         localStorage.setItem("currentUser", JSON.stringify(users[i]));
         redirectToIndex();
         break;
@@ -53,7 +59,7 @@ async function guestLogin() {
   }
 
   await sleep(1000);
-  redirectToIndex();
+  loadMainpage();
 }
 
 function resetFormLogin() {
@@ -64,8 +70,10 @@ function resetFormLogin() {
   loginCheckBox.checked = false;
 }
 
-function redirectToIndex() {
-  window.location.href = "./mainpage.html";
+function loadMainpage() {
+  //window.location.href = "./mainpage.html";
+  document.getElementById("loginpage").classList.add("d-none");
+  document.getElementById("mainpage").classList.remove("d-none");
 }
 
 // SIGNUP

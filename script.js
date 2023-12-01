@@ -1,20 +1,9 @@
 // LOGOUT
 
 function logout() {
-  localStorage.clear();
-  window.location.href = "./index.html";
-}
-
-// NAVBAR USERIMG
-
-function userBadget() {
-  let user = JSON.parse(localStorage.getItem("currentUser"));
-  let userInitials = user.username
-    .split(" ")
-    .map((word) => word.charAt(0))
-    .join("");
-
-  document.getElementById("mobile-header-userimg").innerHTML = userInitials;
+  localStorage.removeItem("currentUser");
+  document.getElementById("loginpage").classList.remove("d-none");
+  document.getElementById("mainpage").classList.add("d-none");
 }
 
 function renderMainpageContent(path, func) {
