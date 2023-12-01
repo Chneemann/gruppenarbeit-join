@@ -3,11 +3,22 @@ let tasks = [
     id: "0",
     title: "Kochwelt Page & Recipe Recommender",
     description: "Build start page with recipe recommendation...",
-    assignet: "",
+    assignet: [5, 8, 15],
     category: "User Story",
     date: "",
     prio: "",
     status: "inprogress",
+    delete: "no",
+  },
+  {
+    id: "1",
+    title: "Kochwelt Page & Recipe Recommender",
+    description: "Build start page with recipe recommendation...",
+    assignet: [5, 8, 15],
+    category: "User Story",
+    date: "",
+    prio: "",
+    status: "done",
     delete: "no",
   },
 ];
@@ -39,7 +50,7 @@ function renderTasks() {
   for (let i = 0; i < tasks.length; i++) {
     for (let status of states) {
       if (tasks[i].status === status && tasks[i].delete === "no") {
-        generateTaskHTML(`board-content-task-${status}`);
+        generateTaskHTML(i, `board-content-task-${status}`);
       } else {
         generateEmptyTaskHTML(`board-content-task-${status}`);
       }
@@ -48,15 +59,76 @@ function renderTasks() {
 }
 
 /**
+ *
+ * @param {string} id User ID
+ * @returns HTML user badget for any assignet user in the task
+ */
+function checkAssignetUsers(id) {
+  const userInitialsHTML = [];
+  for (let i = 0; i < tasks[id].assignet.length; i++) {
+    userInitialsHTML.push(
+      generateAssignetUsersHTML(getUserInitials(tasks[id].assignet[i]))
+    );
+  }
+  return userInitialsHTML.join("");
+}
+
+/**
+ * This function creates the initials from the user name
+ *
+ * @param {string} id User id
+ * @returns Initials in capital letters
+ */
+function getUserInitials(id) {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id === id) {
+      const nameParts = users[i].username.split(" ");
+      const initials = nameParts.map((part) => part.charAt(0)).join("");
+      return initials.toUpperCase();
+    }
+  }
+}
+
+function colorPicker() {
+  let colors = [
+    "red",
+    "green",
+    "blue",
+    "orange",
+    "purple",
+    "pink",
+    "brown",
+    "cyan",
+    "magenta",
+    "turquoise",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+/**
+ * This function generate the user badget
+ *
+ * @param {string} userInitials Initials in capital letters
+ * @returns HTML user badget
+ */
+function generateAssignetUsersHTML(userInitials) {
+  return /*html*/ `
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker()})">${userInitials}</span>
+  `;
+}
+
+/**
  * This function generate the current task
  */
-function generateTaskHTML(id) {
-  document.getElementById(id).innerHTML = /*html*/ `
-    <div class="board-cart" draggable="true" ondragstart="startDragging(${tasks[0].id})" onclick="openCart()">
-      <div class="board-card-category blue">${tasks[0].category}</div>
-      <div class="board-card-headline">${tasks[0].title}<</div>
+function generateTaskHTML(id, name) {
+  document.getElementById(name).innerHTML = /*html*/ `
+    <div class="board-cart" draggable="true" ondragstart="startDragging(${
+      tasks[id].id
+    })" onclick="openCart()">
+      <div class="board-card-category blue">${tasks[id].category}</div>
+      <div class="board-card-headline">${tasks[id].title}<</div>
       <div class="board-card-description">
-      ${tasks[0].description}
+      ${tasks[id].description}
       </div>
       <div class="board-card-subtask">
         <div class="board-card-subtask-line">
@@ -66,9 +138,7 @@ function generateTaskHTML(id) {
       </div>
       <div class="board-card-footer">
         <div id="board-card-footer-badge">
-          <span class="board-card-footer-badged orange">AM</span>
-          <span class="board-card-footer-badged turquoise">EM</span>
-          <span class="board-card-footer-badged purple">MB</span>
+          ${checkAssignetUsers(tasks[id].id)}
         </div>
         <div class="board-card-footer-priority"></div>
       </div>

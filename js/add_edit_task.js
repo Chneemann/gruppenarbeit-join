@@ -133,7 +133,6 @@ async function loadUsers() {
         users[i]["username"] !== undefined &&
         users[i]["username"] !== "Guest"
       ) {
-        console.log(users[i]["username"]);
       }
     }
   } catch (e) {

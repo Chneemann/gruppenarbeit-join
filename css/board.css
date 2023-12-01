@@ -252,22 +252,6 @@
   font-weight: 400;
 }
 
-.blue {
-  background-color: var(--blue);
-}
-
-.orange {
-  background-color: var(--orange);
-}
-
-.turquoise {
-  background-color: var(--turquoise);
-}
-
-.purple {
-  background-color: var(--purple);
-}
-
 .board-card-footer-priority {
   background-image: url(../assets/img/medium.svg);
   background-size: 32px;

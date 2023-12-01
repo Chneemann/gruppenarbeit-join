@@ -1,4 +1,18 @@
-// LOGOUT
+users = [];
+
+/**
+ * This function loads all users from the backend.
+ */
+async function loadAllUsers() {
+  try {
+    const loadedUsers = JSON.parse(await getItem("users"));
+    users = loadedUsers.filter(
+      (user) => user.username !== undefined && user.username !== "Guest"
+    );
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
 
 /**
  * This function deletes the user from the LocalStorage and loads the login page, he is now logged out

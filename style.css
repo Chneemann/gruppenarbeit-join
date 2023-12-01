@@ -12,14 +12,19 @@
   --light-blue: #29abe2;
   --medium-blue: #4589ff;
   --light-red: #ff8190;
-  --red: #ff3d00;
-  --orange: #ffa800;
-  --green: #7ae229;
   --silver: #b2b3b6;
   --blue: #0038ff;
-  --turquoise: #1fd7c1;
-  --purple: #462f8a;
   --cerulian-blue: #007cee; /*Email-Adresse*/
+  --red: #ff0000;
+  --green: #00ff00;
+  --blue: #0000ff;
+  --orange: #ffa500;
+  --purple: #800080;
+  --pink: #ffc0cb;
+  --brown: #8b4513;
+  --cyan: #00ffff;
+  --magenta: #ff00ff;
+  --turquoise: #1fd7c1;
 }
 
 body {

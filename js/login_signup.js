@@ -29,8 +29,9 @@ async function loadUsers() {
 function checkRememberMe() {
   let checkUser = JSON.parse(localStorage.getItem("rememberUserLoginData"));
   if (checkUser) {
-    loginEmail.value = checkUser["username"];
+    loginEmail.value = checkUser["email"];
     loginPassword.value = checkUser["password"];
+    loginCheckBox.checked = true;
     changeInputTextColor("loginEmail");
     changeInputTextColor("loginPassword");
   }
@@ -120,6 +121,8 @@ async function register() {
     });
     await setItem("users", JSON.stringify(users));
     resetFormSignup();
+    alert("The user has been created, you can now log in.");
+    window.location.href = "./index.html";
   }
   signupBtn.disabled = false;
 }
