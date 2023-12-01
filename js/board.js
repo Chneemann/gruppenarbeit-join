@@ -2,7 +2,7 @@ let tasks = [
   {
     id: "0",
     title: "CSS Architecture Planning",
-    description: "Build start page with recipe recommendation...",
+    description: "Define CSS naming conventions and structure.",
     assignet: [4, 10, 18],
     category: "Technical Task",
     subtasks: ["Test 1"],
@@ -14,7 +14,7 @@ let tasks = [
   {
     id: "1",
     title: "Kochwelt Page & Recipe Recommender",
-    description: "Build start page with recipe recommendation...",
+    description: "Build start page with recipe recommendation.",
     assignet: [5, 7, 13],
     category: "User Story",
     subtasks: ["Test 1", "Test 2"],
@@ -72,7 +72,7 @@ function renderTasks() {
  * @param {string} id User ID
  * @returns HTML user badget for any assignet user in the task
  */
-function checkAssignetUsers(id) {
+function checkAssignetUsersBoard(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
     userInitialsHTML.push(
@@ -143,7 +143,7 @@ function generateAssignetUsersHTML(i, userInitials) {
  * @param {string} id Current task id
  * @returns Html code
  */
-function checkSubtasks(id) {
+function checkSubtasksBoard(id) {
   let countSubtasks = 0;
   for (let i = 0; i < tasks[id].subtasks.length; i++) {
     countSubtasks++;
@@ -169,24 +169,24 @@ function checkSubtasks(id) {
  * This function generate the current task
  *
  * @param {string} id Current task id
- * @param {string} name The id in html code
+ * @param {string} name The <div> id in html code
  */
 function generateTaskHTML(id, name) {
   document.getElementById(name).innerHTML += /*html*/ `
     <div class="board-cart" draggable="true" ondragstart="startDragging(${
       tasks[id].id
-    })" onclick="openCart()">
+    })" onclick="openCart(${tasks[id].id})">
       <div class="board-card-category blue">${tasks[id].category}</div>
       <div class="board-card-headline">${tasks[id].title}</div>
       <div class="board-card-description">
       ${tasks[id].description}
       </div>
       <div class="board-card-subtask">
-      ${checkSubtasks(tasks[id].id)}
+      ${checkSubtasksBoard(tasks[id].id)}
       </div>
       <div class="board-card-footer">
         <div id="board-card-footer-badge">
-          ${checkAssignetUsers(tasks[id].id)}
+          ${checkAssignetUsersBoard(tasks[id].id)}
         </div>
         <div class="board-card-footer-priority prio-${tasks[id].prio}"></div>
       </div>
@@ -195,10 +195,121 @@ function generateTaskHTML(id, name) {
 
 /**
  * This function generate the empty task
+ * @param {string} id The <div> id in html code
  */
 function generateEmptyTaskHTML(id) {
   document.getElementById(id).innerHTML = /*html*/ `
    <div class="board-empty-task">No tasks To do</div>
+  `;
+}
+
+// TASK OVERLAY
+
+/**
+ * This function capitalises the first letter and returns the word
+ *
+ * @param {String} id Current task id
+ * @returns The Priority, first letter capitalised
+ */
+function textTransformPriority(id) {
+  return tasks[id].prio.charAt(0).toUpperCase() + tasks[id].prio.slice(1);
+}
+
+/**
+ * This function displays the clicked task in large size
+ *
+ * @param {string} id Current task id
+ */
+function generateTaskOverlayHTML(id) {
+  document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
+  <div class="task-overlay" onclick="event.stopPropagation()">
+    <div class="text-wrap-overflow">
+      <div class="task-overlay-header">
+        <div id="task-overlay-category" class="blue">${tasks[id].category}</div>
+        <div class="task-overlay-img-close" onclick="closeCart()">
+          <img src="./assets/img/close.svg" alt="" />
+        </div>
+      </div>
+      <div class="task-overlay-headline">
+        <h2 id="task-overlay-headline">${tasks[id].title}</h2>
+      </div>
+      <div class="task-overlay-content">
+        <div id="task-overlay-description">
+        ${tasks[id].description}
+        </div>
+        <div class="task-overlay-date">
+          <p>Due date:</p>
+          <span id="task-overlay-date">10/05/2023</span>
+        </div>
+        <div class="task-overlay-prio">
+          <p>Priority:</p>
+          <span id="task-overlay-prio"
+            >${textTransformPriority(
+              id
+            )}</span><div class="board-card-priority prio-${
+    tasks[id].prio
+  }"></div>
+        </div>
+        <div>
+          Assigned To:
+          <div class="task-overlay-assigned-person">
+            <div class="task-overlay-person">
+              <span class="board-card-footer-badged orange">EM</span>
+              <p>Emmanuel Mauer</p>
+            </div>
+            <div class="task-overlay-person">
+              <span class="board-card-footer-badged purple">MB</span>
+              <p>Marcel Bauer</p>
+            </div>
+            <div class="task-overlay-person">
+              <span class="board-card-footer-badged blue">AM</span>
+              <p>Anton Mayer</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          Subtasks
+          <div class="task-overlay-subtasks">
+            <div class="task-overlay-subtask">
+              <input
+                id="task-overlay-checkbox-subtask1"
+                type="checkbox"
+                name=""
+                id=""
+              />
+              <p>Implement Recipe Recommendation</p>
+            </div>
+            <div class="task-overlay-subtask">
+              <input
+                id="task-overlay-checkbox-subtask2"
+                type="checkbox"
+                name=""
+                id=""
+              />
+              <p>Start Page Layout</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="task-overlay-footer">
+        <a href="#" onclick="deleteCart()"
+          ><img
+            class="task-overlay-footer-img"
+            src="./assets/img/delete.svg"
+            alt="delete"
+          /><span>Delete</span></a
+        >
+        <img src="./assets/img/line.svg" alt="line" />
+        <a href="#" onclick="editTask()"
+          ><img
+            class="task-overlay-footer-img"
+            src="./assets/img/edit.svg"
+            alt="edit"
+          /><span>Edit</span></a
+        >
+      </div>
+    </div>
+  </div>
   `;
 }
 
@@ -254,8 +365,9 @@ function deleteTask() {
 
 // OPEN/CLOSE CART
 
-async function openCart() {
-  loadW3Include("./html/task_overlay.html", "task-overlay-cart");
+async function openCart(id) {
+  //loadW3Include("./html/task_overlay.html", "task-overlay-cart");
+  generateTaskOverlayHTML(id);
   var overlay = document.getElementById("task-overlay-cart");
   overlay.classList.remove("d-none");
   await sleep(10);
@@ -295,24 +407,6 @@ function changeBackground(overlay) {
     { once: true }
   );
 }
-
-// ADD & REMOVE NAVBAR
-
-window.addEventListener("DOMContentLoaded", (event) => {
-  function handleResize() {
-    if (window.innerWidth < 860) {
-      document.getElementById("mobile-header").classList.remove("d-none");
-      document.getElementById("navbar").classList.add("d-none");
-      document.getElementById("mobile-navbar").classList.remove("d-none");
-    } else {
-      document.getElementById("mobile-header").classList.add("d-none");
-      document.getElementById("navbar").classList.remove("d-none");
-      document.getElementById("mobile-navbar").classList.add("d-none");
-    }
-  }
-  handleResize();
-  window.addEventListener("resize", handleResize);
-});
 
 // W3C
 

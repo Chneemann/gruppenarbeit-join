@@ -22,17 +22,78 @@
     <script src="./js/address.js"></script>
   </head>
   <body onload="includeHTML(), loadAllUsers()">
-    <div
-      w3-include-html="./html/mobile_header.html"
-      id="mobile-header"
-      class="d-none"
-    ></div>
-    <div w3-include-html="./html/navbar.html" id="navbar"></div>
-    <div
-      w3-include-html="./html/mobile_navbar.html"
-      id="mobile-navbar"
-      class="d-none"
-    ></div>
+    <div id="mobile-header" class="d-none">
+      <div class="mobile-header" onclick="logout()">
+        <img class="mobile-header-logo" src="./assets/img/logo.svg" alt="" />
+        <div class="mobile-header-userimg" id="mobile-header-userimg"></div>
+      </div>
+    </div>
+    <div id="navbar">
+      <div class="upper-frame">
+        <span>Kanban Project Management Tool</span>
+      </div>
+      <div class="left-frame">
+        <img
+          class="logo-up-left"
+          src="./assets/img/Join logo light.png"
+          alt=""
+        />
+
+        <div class="nav-links">
+          <img
+            onclick="renderMainpageContent('./summary.html')"
+            src="./assets/img/Summary.png"
+          />
+          <img
+            onclick="renderMainpageContent('./html/add_task.html')"
+            src="./assets/img/Add Task.png"
+          />
+          <img
+            onclick="renderMainpageContent('./html/board.html')"
+            src="./assets/img/Board.png"
+          />
+          <img
+            onclick="renderMainpageContent('./html/adress-innerframe.html',renderContacts)"
+            src="./assets/img/Contacts.png"
+          />
+        </div>
+        <div class="reference">
+          <a href=""><div>Privacy Policy</div></a>
+          <a href=""><div>Legal Notice</div></a>
+          <a onclick="signout()"><div>Sign out</div></a>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-navbar" class="d-none">
+      <div class="mobile-navbar">
+        <div
+          class="mobile-navbar-link"
+          onclick="renderMainpageContent('./summary.html')"
+        >
+          <img src="./assets/img/mobile-navbar/summary.svg" alt="" />
+          <p>Summary</p>
+        </div>
+        <div
+          class="mobile-navbar-link"
+          onclick="renderMainpageContent('./html/board.html')"
+          å
+        >
+          <img src="./assets/img/mobile-navbar/board.svg" alt="" />
+          <p>Board</p>
+        </div>
+        <div
+          class="mobile-navbar-link"
+          onclick="renderMainpageContent('./html/add_task.html')"
+        >
+          <img src="./assets/img/mobile-navbar/addtasks.svg" alt="" />
+          <p>Add Tasks</p>
+        </div>
+        <div class="mobile-navbar-link" onclick="renderMainpageContent('')">
+          <img src="./assets/img/mobile-navbar/contacts.svg" alt="" />
+          <p>Contacts</p>
+        </div>
+      </div>
+    </div>
     <div id="mainpage-content" class="content">
       <div w3-include-html="./summary.html"></div>
     </div>

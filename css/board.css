@@ -9,6 +9,10 @@
   margin: 0;
 }
 
+.blue {
+  background-color: var(--blue);
+}
+
 /*------------- BOARD HEADER -------------*/
 
 .board-header {
@@ -260,6 +264,13 @@
   width: 32px;
   height: 32px;
 }
+.board-card-priority {
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
 
 .prio-urgent {
   background-image: url(../assets/img/urgent.svg);
@@ -346,6 +357,10 @@
   width: 100px;
   margin: 0;
   padding: 0 25px 0 0;
+}
+
+.task-overlay-prio span {
+  margin-right: 10px;
 }
 
 #task-overlay-prio {
