@@ -14,7 +14,7 @@ function signout() {
  * This function loads the new file
  *
  * @param {string} path = Path of the file to be loaded
- * @param {*} func = !LAURA - BITTE EINFÜGEN!
+ * @param {*} func = !LAURA - BITTE EINFÜGEN
  */
 function renderMainpageContent(path, func) {
   fetch(path)
@@ -24,6 +24,11 @@ function renderMainpageContent(path, func) {
     })
     .catch((error) => {
       console.error("Error loading:", error);
+    })
+    .then(() => {
+      if (func) {
+        func();
+      }
     });
 }
 
