@@ -1,12 +1,21 @@
 // LOGOUT
 
-function logout() {
+/**
+ * This function deletes the user from the LocalStorage and loads the login page, he is now logged out
+ */
+function signout() {
   localStorage.removeItem("currentUser");
   window.location.href = "./index.html";
   document.getElementById("loginpage").classList.remove("d-none");
   document.getElementById("mainpage").classList.add("d-none");
 }
 
+/**
+ * This function loads the new file
+ *
+ * @param {string} path = Path of the file to be loaded
+ * @param {*} func = !LAURA - BITTE EINFÜGEN!
+ */
 function renderMainpageContent(path, func) {
   fetch(path)
     .then((response) => response.text())
@@ -15,30 +24,27 @@ function renderMainpageContent(path, func) {
     })
     .catch((error) => {
       console.error("Error loading:", error);
-    })
-    .then(() => {
-      if (func) {
-        func();
-      }
     });
 }
 
 // ADD & REMOVE NAVBAR
 
 window.addEventListener("DOMContentLoaded", (event) => {
-  function handleResize() {
-    if (window.innerWidth < 860) {
-      document.getElementById("mobile-header").classList.remove("d-none");
-      document.getElementById("navbar").classList.add("d-none");
-      document.getElementById("mobile-navbar").classList.remove("d-none");
-    } else {
-      document.getElementById("mobile-header").classList.add("d-none");
-      document.getElementById("navbar").classList.remove("d-none");
-      document.getElementById("mobile-navbar").classList.add("d-none");
+  if (window.location.pathname.includes("join.html")) {
+    function handleResize() {
+      if (window.innerWidth < 860) {
+        document.getElementById("mobile-header").classList.remove("d-none");
+        document.getElementById("navbar").classList.add("d-none");
+        document.getElementById("mobile-navbar").classList.remove("d-none");
+      } else {
+        document.getElementById("mobile-header").classList.add("d-none");
+        document.getElementById("navbar").classList.remove("d-none");
+        document.getElementById("mobile-navbar").classList.add("d-none");
+      }
     }
+    handleResize();
+    window.addEventListener("resize", handleResize);
   }
-  handleResize();
-  window.addEventListener("resize", handleResize);
 });
 
 // HTML Include
