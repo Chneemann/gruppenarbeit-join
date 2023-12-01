@@ -3,6 +3,7 @@ let users = [];
 async function initLogin() {
   loadUsers();
   moveLogoToTopLeft();
+  checkRememberMe();
   if (JSON.parse(localStorage.getItem("currentUser"))) {
     loadMainpage();
   }
@@ -13,6 +14,16 @@ async function loadUsers() {
     users = JSON.parse(await getItem("users"));
   } catch (e) {
     console.error("Loading error:", e);
+  }
+}
+
+function checkRememberMe() {
+  let checkUser = JSON.parse(localStorage.getItem("rememberUserLoginData"));
+  if (checkUser) {
+    loginEmail.value = checkUser["username"];
+    loginPassword.value = checkUser["password"];
+    changeInputTextColor("loginEmail");
+    changeInputTextColor("loginPassword");
   }
 }
 
@@ -133,4 +144,14 @@ function loadLoginPage() {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function changeInputTextColor(input) {
+  var inputElement = document.getElementById(input);
+
+  if (inputElement.value.trim() !== "") {
+    inputElement.style.color = "var(--black)";
+  } else {
+    inputElement.style.color = "";
+  }
 }
