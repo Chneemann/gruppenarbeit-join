@@ -1,10 +1,22 @@
-let tasks = [];
+let tasks = [
+  {
+    id: "0",
+    title: "Kochwelt Page & Recipe Recommender",
+    description: "Build start page with recipe recommendation...",
+    assignet: "",
+    category: "User Story",
+    date: "",
+    prio: "",
+    status: "inprogress",
+  },
+];
+let currentDraggedElement;
 
 // BOARD
 
 async function initBoard() {
   //loadTasks();
-  renderTask();
+  renderTasks();
 }
 
 /**
@@ -19,27 +31,31 @@ async function loadTasks() {
 }
 
 /**
- * This function renders the task
+ * This function checks all tasks and assigns them to the correct column
  */
-function renderTask() {
-  if (tasks) {
-    renderEmptyTaskHTML("board-content-task-todo");
-    renderTaskHTML("board-content-task-inprogress");
-    renderEmptyTaskHTML("board-content-task-awaitfeedback");
-    renderEmptyTaskHTML("board-content-task-done");
+function renderTasks() {
+  let statuses = ["todo", "inprogress", "awaitfeedback", "done"];
+  for (let i = 0; i < tasks.length; i++) {
+    for (let status of statuses) {
+      if (tasks[i].status === status) {
+        generateTaskHTML(`board-content-task-${status}`);
+      } else {
+        generateEmptyTaskHTML(`board-content-task-${status}`);
+      }
+    }
   }
 }
 
 /**
- * This function renders the current task
+ * This function generate the current task
  */
-function renderTaskHTML(id) {
+function generateTaskHTML(id) {
   document.getElementById(id).innerHTML = /*html*/ `
-    <div class="board-cart" onclick="openCart()">
-      <div class="board-card-category blue">User Story</div>
-      <div class="board-card-headline">Kochwelt Page & Recipe Recommender</div>
+    <div class="board-cart" draggable="true" ondragstart="startDragging(${tasks[0].id})" onclick="openCart()">
+      <div class="board-card-category blue">${tasks[0].category}</div>
+      <div class="board-card-headline">${tasks[0].title}<</div>
       <div class="board-card-description">
-        Build start page with recipe recommendation...
+      ${tasks[0].description}
       </div>
       <div class="board-card-subtask">
         <div class="board-card-subtask-line">
@@ -59,12 +75,27 @@ function renderTaskHTML(id) {
 }
 
 /**
- * This function displays the empty task
+ * This function generate the empty task
  */
-function renderEmptyTaskHTML(id) {
+function generateEmptyTaskHTML(id) {
   document.getElementById(id).innerHTML = /*html*/ `
    <div class="board-empty-task">No tasks To do</div>
   `;
+}
+
+// DRAG & DROP
+
+function startDragging(id) {
+  currentDraggedElement = id;
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drop(category) {
+  tasks[currentDraggedElement]["status"] = category;
+  initBoard();
 }
 
 // OPEN/CLOSE/EDIT/DELETE TASK
