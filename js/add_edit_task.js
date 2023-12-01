@@ -1,12 +1,29 @@
 let taskPrio = "";
 let taskSubtasks = "";
+let lastTaskId;
 
-function addTask() {
+function initAddTask() {
+  loadUsers();
+}
+
+async function loadTasks() {
+  try {
+    tasks = JSON.parse(await getItem("tasks"));
+    for (let i = 0; i < tasks.length; i++) {
+      lastTaskId = array[i] + 1;
+    }
+  } catch (e) {
+    console.error("Loading error:", e);
+    lastTaskId = "0";
+  }
+}
+
+async function addTask() {
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
   let timestamp = new Date(addTaskDate.value).getTime();
-
   let task = {
+    id: lastTaskId,
     title: addTaskTitel.value,
     description: addTaskDescription.value,
     assignet: addTaskAssignet.value,
@@ -14,6 +31,7 @@ function addTask() {
     date: timestamp,
     prio: taskPrio,
     status: "todo",
+    delete: "no",
   };
   resetForm();
 }
@@ -102,6 +120,25 @@ function addPrioStatus(clicked) {
   clickedPrioButton(clicked);
   document.getElementById(`${clicked}-inline`).classList.add("max-brightness");
   document.getElementById(clicked).classList.add("add-task-prio-field-clicked");
+}
+
+/**
+ * This function loads all users from the backend.
+ */
+async function loadUsers() {
+  try {
+    users = JSON.parse(await getItem("users"));
+    for (let i = 0; i < users.length; i++) {
+      if (
+        users[i]["username"] !== undefined &&
+        users[i]["username"] !== "Guest"
+      ) {
+        console.log(users[i]["username"]);
+      }
+    }
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
 }
 
 /**

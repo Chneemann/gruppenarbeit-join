@@ -8,6 +8,7 @@ let tasks = [
     date: "",
     prio: "",
     status: "inprogress",
+    delete: "no",
   },
 ];
 let currentDraggedElement;
@@ -34,10 +35,10 @@ async function loadTasks() {
  * This function checks all tasks and assigns them to the correct column
  */
 function renderTasks() {
-  let statuses = ["todo", "inprogress", "awaitfeedback", "done"];
+  let states = ["todo", "inprogress", "awaitfeedback", "done"];
   for (let i = 0; i < tasks.length; i++) {
-    for (let status of statuses) {
-      if (tasks[i].status === status) {
+    for (let status of states) {
+      if (tasks[i].status === status && tasks[i].delete === "no") {
         generateTaskHTML(`board-content-task-${status}`);
       } else {
         generateEmptyTaskHTML(`board-content-task-${status}`);

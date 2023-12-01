@@ -23,6 +23,8 @@ function renderMainpageContent(path, func) {
       document.getElementById("mainpage-content").innerHTML = html;
       if (path == "./html/board.html") {
         initBoard();
+      } else if (path == "./html/add_task.html") {
+        initAddTask();
       }
     })
     .catch((error) => {
@@ -64,7 +66,6 @@ async function includeHTML() {
     if (file) {
       try {
         const response = await fetch(file);
-
         if (response.ok) {
           const htmlText = await response.text();
           elmnt.innerHTML = htmlText;
