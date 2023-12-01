@@ -102,8 +102,7 @@ function resetFormLogin() {
  * This function closes the login page and opens the main page
  */
 function loadMainpage() {
-  document.getElementById("loginpage").classList.add("d-none");
-  document.getElementById("mainpage").classList.remove("d-none");
+  window.location.href = "./join.html";
 }
 
 // SIGNUP

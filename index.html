@@ -7,48 +7,16 @@
     <link rel="icon" href="./assets/img/favicon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./css/login_signup.css" />
-    <link rel="stylesheet" href="./css/board.css" />
-    <link rel="stylesheet" href="./css/add_edit_task.css" />
-    <link rel="stylesheet" href="./css/address.css" />
-    <link rel="stylesheet" href="./css/navbar.css" />
-    <link rel="stylesheet" href="css/mobile_summary.css" />
-    <link rel="stylesheet" href="css/summary.css" />
     <link
       rel="stylesheet"
       href="./fonts/Figtree/Figtree-VariableFont_wght.ttf"
     />
-    <script src="./script.js"></script>
+    <title>Join</title>
+    <script src="script.js"></script>
     <script src="./js/storage.js"></script>
     <script src="./js/login_signup.js"></script>
-    <script src="./js/board.js"></script>
-    <script src="./js/add_edit_task.js"></script>
-    <script src="./js/address.js"></script>
-    <style>
-      .content {
-        position: fixed;
-        top: 96px;
-        left: 232px;
-        right: 0;
-        height: calc(100% - (96px));
-        overflow: auto;
-        background-color: var(--very-light-gray);
-      }
-      @media (max-width: 859px) {
-        .content {
-          top: 80px;
-          left: 0;
-          height: calc(100% - (80px + 80px));
-        }
-        #board-page {
-          padding-top: 48px;
-        }
-        #add-task-page {
-          padding-top: 48px;
-        }
-      }
-    </style>
   </head>
-  <body onload="includeHTML(), initLogin(), userBadget()">
+  <body onload="includeHTML(), initLogin()">
     <div id="loginpage">
       <div id="login-signup-page">
         <div id="logo-loading">
@@ -165,22 +133,6 @@
           <a href="#">Privacy Policy</a>
           <a href="#">Legal notice</a>
         </footer>
-      </div>
-    </div>
-    <div id="mainpage" class="d-none">
-      <div
-        w3-include-html="./html/mobile_header.html"
-        id="mobile-header"
-        class="d-none"
-      ></div>
-      <div w3-include-html="./html/navbar.html" id="navbar"></div>
-      <div
-        w3-include-html="./html/mobile_navbar.html"
-        id="mobile-navbar"
-        class="d-none"
-      ></div>
-      <div id="mainpage-content" class="content">
-        <div w3-include-html="./summary.html"></div>
       </div>
     </div>
   </body>

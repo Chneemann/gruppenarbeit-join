@@ -2,6 +2,7 @@
 
 function logout() {
   localStorage.removeItem("currentUser");
+  window.location.href = "./index.html";
   document.getElementById("loginpage").classList.remove("d-none");
   document.getElementById("mainpage").classList.add("d-none");
 }

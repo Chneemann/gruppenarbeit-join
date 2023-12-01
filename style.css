@@ -131,6 +131,32 @@ input {
   padding: 4px 0 0 0;
 }
 
+/*------------- CONTENT -------------*/
+
+.content {
+  position: fixed;
+  top: 96px;
+  left: 232px;
+  right: 0;
+  height: calc(100% - (96px));
+  overflow: auto;
+  background-color: var(--very-light-gray);
+}
+
+@media (max-width: 859px) {
+  .content {
+    top: 80px;
+    left: 0;
+    height: calc(100% - (80px + 80px));
+  }
+  #board-page {
+    padding-top: 48px;
+  }
+  #add-task-page {
+    padding-top: 48px;
+  }
+}
+
 /*------------- SCROLLBAR -------------*/
 
 *::-webkit-scrollbar {
