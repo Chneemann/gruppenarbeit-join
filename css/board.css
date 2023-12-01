@@ -163,6 +163,7 @@
   background-color: var(--white);
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  margin-bottom: 16px;
 }
 
 .board-card-category {

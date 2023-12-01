@@ -1,13 +1,13 @@
 let tasks = [
   {
     id: "0",
-    title: "Kochwelt Page & Recipe Recommender",
+    title: "CSS Architecture Planning",
     description: "Build start page with recipe recommendation...",
-    assignet: [5, 8, 15],
-    category: "User Story",
+    assignet: [2, 3, 11],
+    category: "Technical Task",
     date: "",
-    prio: "",
-    status: "inprogress",
+    prio: "urgent",
+    status: "todo",
     delete: "no",
   },
   {
@@ -17,8 +17,8 @@ let tasks = [
     assignet: [5, 8, 15],
     category: "User Story",
     date: "",
-    prio: "",
-    status: "done",
+    prio: "low",
+    status: "inprogress",
     delete: "no",
   },
 ];
@@ -47,13 +47,17 @@ async function loadTasks() {
  */
 function renderTasks() {
   let states = ["todo", "inprogress", "awaitfeedback", "done"];
-  for (let i = 0; i < tasks.length; i++) {
-    for (let status of states) {
+  for (let status of states) {
+    document.getElementById(`board-content-task-${status}`).innerHTML = "";
+    for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].status === status && tasks[i].delete === "no") {
         generateTaskHTML(i, `board-content-task-${status}`);
-      } else {
-        generateEmptyTaskHTML(`board-content-task-${status}`);
       }
+    }
+    if (
+      document.getElementById(`board-content-task-${status}`).innerHTML === ""
+    ) {
+      generateEmptyTaskHTML(`board-content-task-${status}`);
     }
   }
 }
@@ -121,7 +125,7 @@ function generateAssignetUsersHTML(userInitials) {
  * This function generate the current task
  */
 function generateTaskHTML(id, name) {
-  document.getElementById(name).innerHTML = /*html*/ `
+  document.getElementById(name).innerHTML += /*html*/ `
     <div class="board-cart" draggable="true" ondragstart="startDragging(${
       tasks[id].id
     })" onclick="openCart()">
