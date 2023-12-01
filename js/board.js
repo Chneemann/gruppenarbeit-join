@@ -5,7 +5,7 @@ let tasks = [
     description: "Build start page with recipe recommendation...",
     assignet: [4, 10, 18],
     category: "Technical Task",
-    subtasks: [],
+    subtasks: ["Test 1"],
     date: "",
     prio: "urgent",
     status: "todo",
@@ -17,7 +17,7 @@ let tasks = [
     description: "Build start page with recipe recommendation...",
     assignet: [5, 7, 13],
     category: "User Story",
-    subtasks: [],
+    subtasks: ["Test 1", "Test 2"],
     date: "",
     prio: "low",
     status: "inprogress",
@@ -29,12 +29,15 @@ let currentDraggedElement;
 // BOARD
 
 async function initBoard() {
-  //loadTasks();
+  //loadTasks(); !!TODO!!
   renderTasks();
 }
 
 /**
  * This function loads all tasks from the backend.
+ *
+ * !!TODO!!
+ *
  */
 async function loadTasks() {
   try {
@@ -98,6 +101,10 @@ function getUserInitials(id) {
   }
 }
 
+/**
+ * It will use a modulo operation to ensure that the id remains
+ * in the range of 1 to 10 to then select a colour
+ */
 function colorPicker(id) {
   let colors = [
     "red",
@@ -131,7 +138,38 @@ function generateAssignetUsersHTML(i, userInitials) {
 }
 
 /**
+ * This function checks whether and how many subtasks are present in the task and returns them
+ *
+ * @param {string} id Current task id
+ * @returns Html code
+ */
+function checkSubtasks(id) {
+  let countSubtasks = 0;
+  for (let i = 0; i < tasks[id].subtasks.length; i++) {
+    countSubtasks++;
+  }
+  if (countSubtasks === 1) {
+    return /*html*/ `
+           <div class="board-card-subtask-line">
+      <span class="filler-half"></span>
+    </div>
+      <div class="board-card-subtask-text">1/2 Subtasks</div>`;
+  } else if (countSubtasks === 2) {
+    return /*html*/ `
+       <div class="board-card-subtask-line">
+      <span class="filler-full"></span>
+    </div>
+      <div class="board-card-subtask-text">2/2 Subtasks</div>`;
+  } else {
+    return /*html*/ ``;
+  }
+}
+
+/**
  * This function generate the current task
+ *
+ * @param {string} id Current task id
+ * @param {string} name The id in html code
  */
 function generateTaskHTML(id, name) {
   document.getElementById(name).innerHTML += /*html*/ `
@@ -144,10 +182,7 @@ function generateTaskHTML(id, name) {
       ${tasks[id].description}
       </div>
       <div class="board-card-subtask">
-        <div class="board-card-subtask-line">
-          <span class="filler-half"></span>
-        </div>
-        <div class="board-card-subtask-text">1/2 Subtasks</div>
+      ${checkSubtasks(tasks[id].id)}
       </div>
       <div class="board-card-footer">
         <div id="board-card-footer-badge">
