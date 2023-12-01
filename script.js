@@ -21,6 +21,9 @@ function renderMainpageContent(path, func) {
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("mainpage-content").innerHTML = html;
+      if (path == "./html/board.html") {
+        initBoard();
+      }
     })
     .catch((error) => {
       console.error("Error loading:", error);

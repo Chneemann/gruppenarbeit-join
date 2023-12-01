@@ -1,4 +1,5 @@
 let taskPrio = "";
+let taskSubtasks = "";
 
 function addTask() {
   clearTaskBtn.disabled = true;
@@ -15,7 +16,6 @@ function addTask() {
     status: "todo",
   };
   resetForm();
-  console.log("Add", task);
 }
 
 function resetForm() {
@@ -29,7 +29,7 @@ function resetForm() {
 }
 
 function clearTask() {
-  console.log("Clear");
+  // Todo
 }
 
 function addSubtask() {
@@ -99,6 +99,17 @@ function addPrioStatus(clicked) {
   document
     .getElementById("icon-urgent-inline")
     .classList.remove("max-brightness");
+  clickedPrioButton(clicked);
+  document.getElementById(`${clicked}-inline`).classList.add("max-brightness");
+  document.getElementById(clicked).classList.add("add-task-prio-field-clicked");
+}
+
+/**
+ * This function checks which prio button has been clicked, saves this
+ * and then colours it in its respective colour
+ * @param {string} clicked id of the button
+ */
+function clickedPrioButton(clicked) {
   if (clicked == "icon-urgent") {
     taskPrio = "Urgent";
     document.getElementById(clicked).classList.add("bgcolor-red");
@@ -108,8 +119,5 @@ function addPrioStatus(clicked) {
   } else if (clicked == "icon-low") {
     taskPrio = "Low";
     document.getElementById(clicked).classList.add("bgcolor-green");
-  } else {
   }
-  document.getElementById(`${clicked}-inline`).classList.add("max-brightness");
-  document.getElementById(clicked).classList.add("add-task-prio-field-clicked");
 }

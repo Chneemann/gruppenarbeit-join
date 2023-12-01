@@ -3,7 +3,8 @@ let tasks = [];
 // BOARD
 
 async function initBoard() {
-  loadTasks();
+  //loadTasks();
+  renderTask();
 }
 
 /**
@@ -15,6 +16,55 @@ async function loadTasks() {
   } catch (e) {
     console.error("Loading error:", e);
   }
+}
+
+/**
+ * This function renders the task
+ */
+function renderTask() {
+  if (tasks) {
+    renderEmptyTaskHTML("board-content-task-todo");
+    renderTaskHTML("board-content-task-inprogress");
+    renderEmptyTaskHTML("board-content-task-awaitfeedback");
+    renderEmptyTaskHTML("board-content-task-done");
+  }
+}
+
+/**
+ * This function renders the current task
+ */
+function renderTaskHTML(id) {
+  document.getElementById(id).innerHTML = /*html*/ `
+    <div class="board-cart" onclick="openCart()">
+      <div class="board-card-category blue">User Story</div>
+      <div class="board-card-headline">Kochwelt Page & Recipe Recommender</div>
+      <div class="board-card-description">
+        Build start page with recipe recommendation...
+      </div>
+      <div class="board-card-subtask">
+        <div class="board-card-subtask-line">
+          <span class="filler-half"></span>
+        </div>
+        <div class="board-card-subtask-text">1/2 Subtasks</div>
+      </div>
+      <div class="board-card-footer">
+        <div id="board-card-footer-badge">
+          <span class="board-card-footer-badged orange">AM</span>
+          <span class="board-card-footer-badged turquoise">EM</span>
+          <span class="board-card-footer-badged purple">MB</span>
+        </div>
+        <div class="board-card-footer-priority"></div>
+      </div>
+    </div>`;
+}
+
+/**
+ * This function displays the empty task
+ */
+function renderEmptyTaskHTML(id) {
+  document.getElementById(id).innerHTML = /*html*/ `
+   <div class="board-empty-task">No tasks To do</div>
+  `;
 }
 
 // OPEN/CLOSE/EDIT/DELETE TASK
