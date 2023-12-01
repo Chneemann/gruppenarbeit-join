@@ -6,6 +6,7 @@ let tasks = [
     assignet: [4, 10, 18],
     category: "Technical Task",
     subtasks: ["Test 1"],
+    subtaskstate: ["done"],
     date: "",
     prio: "urgent",
     status: "todo",
@@ -18,6 +19,7 @@ let tasks = [
     assignet: [5, 7, 13],
     category: "User Story",
     subtasks: ["Test 1", "Test 2"],
+    subtaskstate: ["ongoing", "done"],
     date: "",
     prio: "low",
     status: "inprogress",
@@ -146,23 +148,31 @@ function colorPicker(id) {
  */
 function checkSubtasksBoard(id) {
   let countSubtasks = 0;
-  for (let i = 0; i < tasks[id].subtasks.length; i++) {
-    countSubtasks++;
+  let fillerSubtasks;
+  for (let i = 0; i < tasks[id].subtaskstate.length; i++) {
+    if (tasks[id].subtaskstate[i] === "done") {
+      countSubtasks++;
+    }
   }
-  if (countSubtasks === 1) {
-    return /*html*/ `
-           <div class="board-card-subtask-line">
-      <span class="filler-half"></span>
-    </div>
-      <div class="board-card-subtask-text">1/2 Subtasks</div>`;
-  } else if (countSubtasks === 2) {
-    return /*html*/ `
-       <div class="board-card-subtask-line">
-      <span class="filler-full"></span>
-    </div>
-      <div class="board-card-subtask-text">2/2 Subtasks</div>`;
-  } else {
+  if (
+    (tasks[id].subtaskstate.length == 2 && countSubtasks == 1) ||
+    (tasks[id].subtaskstate.length == 1 && countSubtasks == 0)
+  ) {
+    fillerSubtasks = "filler-half";
+  } else if (
+    (tasks[id].subtaskstate.length && countSubtasks == 2) ||
+    (tasks[id].subtaskstate.length && countSubtasks == 1)
+  ) {
+    fillerSubtasks = "filler-full";
+  }
+  if (tasks[id].subtaskstate.length == 0) {
     return /*html*/ ``;
+  } else {
+    return /*html*/ `
+      <div class="board-card-subtask-line">
+        <span class="${fillerSubtasks}"></span>
+      </div>
+      <div class="board-card-subtask-text">${countSubtasks}/${tasks[id].subtaskstate.length} Subtasks</div>`;
   }
 }
 
@@ -207,7 +217,7 @@ function generateEmptyTaskHTML(id) {
 // TASK OVERLAY
 
 /**
- * This function checks who is working on the task and displays them with their initials
+ * This function checks who is working on the task and displays them with their initials and usernames
  *
  * @param {string} id User ID
  * @returns HTML user badget for any assignet user in the task
