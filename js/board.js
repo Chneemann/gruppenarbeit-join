@@ -1,4 +1,23 @@
-// TASK
+let tasks = [];
+
+// BOARD
+
+async function initBoard() {
+  loadTasks();
+}
+
+/**
+ * This function loads all tasks from the backend.
+ */
+async function loadTasks() {
+  try {
+    tasks = JSON.parse(await getItem("tasks"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+
+// OPEN/CLOSE/EDIT/DELETE TASK
 
 async function openAddTask() {
   loadW3Include("./html/add_task.html", "add-task-dialog");
@@ -33,7 +52,7 @@ function deleteTask() {
   //TODO
 }
 
-// CART
+// OPEN/CLOSE CART
 
 async function openCart() {
   loadW3Include("./html/task_overlay.html", "task-overlay-cart");

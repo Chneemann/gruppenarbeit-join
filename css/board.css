@@ -345,7 +345,7 @@
 
 .task-overlay-date p,
 .task-overlay-prio p {
-  width: 90px;
+  width: 100px;
   margin: 0;
   padding: 0 25px 0 0;
 }
@@ -408,6 +408,11 @@
 
 .task-overlay-footer img {
   padding-right: 8px;
+}
+
+.task-overlay-footer-img {
+  width: 24px;
+  height: 24px;
 }
 
 /*------------- EDIT TASK -------------*/

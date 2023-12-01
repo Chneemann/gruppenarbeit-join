@@ -12,6 +12,7 @@ function addTask() {
     category: addTaskCategory.value,
     date: timestamp,
     prio: taskPrio,
+    status: "todo",
   };
   resetForm();
   console.log("Add", task);

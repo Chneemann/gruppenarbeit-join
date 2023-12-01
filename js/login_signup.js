@@ -1,5 +1,8 @@
 let users = [];
 
+/**
+ * This function loads all users from the backend.
+ */
 async function initLogin() {
   loadUsers();
   moveLogoToTopLeft();
@@ -9,6 +12,9 @@ async function initLogin() {
   }
 }
 
+/**
+ * This function loads all users from the backend.
+ */
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
@@ -17,6 +23,9 @@ async function loadUsers() {
   }
 }
 
+/**
+ * This function checks whether login data is available in LocalStorage and inserts it into the form
+ */
 function checkRememberMe() {
   let checkUser = JSON.parse(localStorage.getItem("rememberUserLoginData"));
   if (checkUser) {
@@ -29,6 +38,9 @@ function checkRememberMe() {
 
 // LOGIN
 
+/**
+ * This function checks whether all the data entered is identical to the backend and then logs the user in
+ */
 function login() {
   loginBtn.disabled = true;
   guestLoginBtn.disabled = true;
@@ -58,6 +70,9 @@ function login() {
   guestLoginBtn.disabled = false;
 }
 
+/**
+ * This function places the guest user in the LocalStorage, the user is now logged in as a guest
+ */
 async function guestLogin() {
   loginEmail.value = "Guest";
   loginPassword.value = "Guest";
@@ -68,11 +83,13 @@ async function guestLogin() {
       localStorage.setItem("currentUser", JSON.stringify(users[i]));
     }
   }
-
   await sleep(1000);
   loadMainpage();
 }
 
+/**
+ * This function clears the Login form.
+ */
 function resetFormLogin() {
   loginBtn.disabled = false;
   guestLoginBtn.disabled = false;
@@ -81,14 +98,19 @@ function resetFormLogin() {
   loginCheckBox.checked = false;
 }
 
+/**
+ * This function closes the login page and opens the main page
+ */
 function loadMainpage() {
-  //window.location.href = "./mainpage.html";
   document.getElementById("loginpage").classList.add("d-none");
   document.getElementById("mainpage").classList.remove("d-none");
 }
 
 // SIGNUP
 
+/**
+ * This function pushes the new user data to the backend
+ */
 async function register() {
   signupBtn.disabled = true;
   if (validatePassword()) {
@@ -103,6 +125,10 @@ async function register() {
   signupBtn.disabled = false;
 }
 
+/**
+ * This function checks whether both passwords are identical
+ * @returns {bolean} - password repeat correct
+ */
 function validatePassword() {
   if (signupPassword.value !== signupConfirmPassword.value) {
     alert("Passwords don't match");
@@ -111,6 +137,9 @@ function validatePassword() {
   return true;
 }
 
+/**
+ * This function clears the Signup form.
+ */
 function resetFormSignup() {
   signupUsername.value = "";
   signupEmail.value = "";
@@ -119,6 +148,9 @@ function resetFormSignup() {
   signupCheckBox.checked = false;
 }
 
+/**
+ * This function moves the logo from the centre to the top left
+ */
 function moveLogoToTopLeft() {
   setTimeout(() => {
     document.querySelector(".logo-loading").classList.add("move-to-top-left");
