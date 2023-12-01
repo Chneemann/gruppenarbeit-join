@@ -254,12 +254,23 @@
 }
 
 .board-card-footer-priority {
-  background-image: url(../assets/img/medium.svg);
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center;
   width: 32px;
   height: 32px;
+}
+
+.prio-urgent {
+  background-image: url(../assets/img/urgent.svg);
+}
+
+.prio-medium {
+  background-image: url(../assets/img/medium.svg);
+}
+
+.prio-low {
+  background-image: url(../assets/img/low.svg);
 }
 
 /*------------- TASK OVERLAY -------------*/

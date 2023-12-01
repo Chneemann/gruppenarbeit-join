@@ -3,8 +3,9 @@ let tasks = [
     id: "0",
     title: "CSS Architecture Planning",
     description: "Build start page with recipe recommendation...",
-    assignet: [2, 3, 11],
+    assignet: [4, 10, 18],
     category: "Technical Task",
+    subtasks: [],
     date: "",
     prio: "urgent",
     status: "todo",
@@ -14,8 +15,9 @@ let tasks = [
     id: "1",
     title: "Kochwelt Page & Recipe Recommender",
     description: "Build start page with recipe recommendation...",
-    assignet: [5, 8, 15],
+    assignet: [5, 7, 13],
     category: "User Story",
+    subtasks: [],
     date: "",
     prio: "low",
     status: "inprogress",
@@ -71,7 +73,10 @@ function checkAssignetUsers(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
     userInitialsHTML.push(
-      generateAssignetUsersHTML(getUserInitials(tasks[id].assignet[i]))
+      generateAssignetUsersHTML(
+        tasks[id].assignet[i],
+        getUserInitials(tasks[id].assignet[i])
+      )
     );
   }
   return userInitialsHTML.join("");
@@ -93,7 +98,7 @@ function getUserInitials(id) {
   }
 }
 
-function colorPicker() {
+function colorPicker(id) {
   let colors = [
     "red",
     "green",
@@ -106,7 +111,9 @@ function colorPicker() {
     "magenta",
     "turquoise",
   ];
-  return colors[Math.floor(Math.random() * colors.length)];
+  let index = id % colors.length;
+  index += 1;
+  return colors[index - 1];
 }
 
 /**
@@ -115,9 +122,11 @@ function colorPicker() {
  * @param {string} userInitials Initials in capital letters
  * @returns HTML user badget
  */
-function generateAssignetUsersHTML(userInitials) {
+function generateAssignetUsersHTML(i, userInitials) {
   return /*html*/ `
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker()})">${userInitials}</span>
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
+      i
+    )})">${userInitials}</span>
   `;
 }
 
@@ -130,7 +139,7 @@ function generateTaskHTML(id, name) {
       tasks[id].id
     })" onclick="openCart()">
       <div class="board-card-category blue">${tasks[id].category}</div>
-      <div class="board-card-headline">${tasks[id].title}<</div>
+      <div class="board-card-headline">${tasks[id].title}</div>
       <div class="board-card-description">
       ${tasks[id].description}
       </div>
@@ -144,7 +153,7 @@ function generateTaskHTML(id, name) {
         <div id="board-card-footer-badge">
           ${checkAssignetUsers(tasks[id].id)}
         </div>
-        <div class="board-card-footer-priority"></div>
+        <div class="board-card-footer-priority prio-${tasks[id].prio}"></div>
       </div>
     </div>`;
 }
