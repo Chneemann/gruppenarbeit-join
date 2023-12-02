@@ -3,7 +3,7 @@ let taskSubtasks = "";
 let lastTaskId;
 
 function initAddTask() {
-  loadUsers();
+  // loadTasks();
 }
 
 async function loadTasks() {
@@ -123,26 +123,9 @@ function addPrioStatus(clicked) {
 }
 
 /**
- * This function loads all users from the backend.
- */
-async function loadUsers() {
-  try {
-    users = JSON.parse(await getItem("users"));
-    for (let i = 0; i < users.length; i++) {
-      if (
-        users[i]["username"] !== undefined &&
-        users[i]["username"] !== "Guest"
-      ) {
-      }
-    }
-  } catch (e) {
-    console.error("Loading error:", e);
-  }
-}
-
-/**
  * This function checks which prio button has been clicked, saves this
  * and then colours it in its respective colour
+ *
  * @param {string} clicked id of the button
  */
 function clickedPrioButton(clicked) {

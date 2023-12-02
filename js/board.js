@@ -183,36 +183,6 @@ function checkSubtasksBoard(id) {
       <div class="board-card-subtask-text">${countSubtasks}/${length} Subtasks</div>`;
 }
 
-/**
- * This function generate the current task
- *
- * @param {string} id Current task id
- * @param {string} name The <div> id in html code
- */
-function generateTaskHTML(id, name) {
-  document.getElementById(name).innerHTML += /*html*/ `
-    <div class="board-cart" draggable="true" ondragstart="startDragging(${
-      tasks[id].id
-    })" onclick="openCart(${tasks[id].id})">
-      <div class="board-card-category" style="background-color: var(--${generateTaskCategoryColor(
-        id
-      )})">${tasks[id].category}</div>
-      <div class="board-card-headline">${tasks[id].title}</div>
-      <div class="board-card-description">
-      ${tasks[id].description}
-      </div>
-      <div class="board-card-subtask">
-      ${checkSubtasksBoard(tasks[id].id)}
-      </div>
-      <div class="board-card-footer">
-        <div id="board-card-footer-badge">
-          ${checkAssignetUsersBoard(tasks[id].id)}
-        </div>
-        <div class="board-card-footer-priority prio-${tasks[id].prio}"></div>
-      </div>
-    </div>`;
-}
-
 function generateTaskCategoryColor(id) {
   if (tasks[id].category == "HTML") {
     return "brown";
@@ -322,76 +292,7 @@ function updateSubtask(id, i) {
   initBoard();
 }
 
-/**
- * This function displays the clicked task in large size
- *
- * @param {string} id Current task id
- */
-function generateTaskOverlayHTML(id) {
-  document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
-  <div class="task-overlay" onclick="event.stopPropagation()">
-    <div class="text-wrap-overflow">
-      <div class="task-overlay-header">
-        <div id="task-overlay-category" style="background-color: var(--${generateTaskCategoryColor(
-          id
-        )})">${tasks[id].category}</div>
-        <div class="task-overlay-img-close" onclick="closeCart()">
-          <img src="./assets/img/close.svg" alt="" />
-        </div>
-      </div>
-      <div class="task-overlay-headline">
-        <h2 id="task-overlay-headline">${tasks[id].title}</h2>
-      </div>
-      <div class="task-overlay-content">
-        <div id="task-overlay-description">
-        ${tasks[id].description}
-        </div>
-        <div class="task-overlay-date">
-          <p>Due date:</p>
-          <span id="task-overlay-date">10/05/2023</span>
-        </div>
-        <div class="task-overlay-prio">
-          <p>Priority:</p>
-          <span id="task-overlay-prio"
-            >${textTransformPriority(
-              id
-            )}</span><div class="board-card-priority prio-${
-    tasks[id].prio
-  }"></div>
-        </div>
-        <div>
-          Assigned To:
-          <div class="task-overlay-assigned-person">
-          ${checkAssignetUsers(id)}
-          </div>
-        </div>
-        <div>
-          Subtasks
-          <div id="task-overlay-subtasks" class="task-overlay-subtasks">
-          </div>
-        </div>
-      </div>
-      <div class="task-overlay-footer">
-        <a href="#" onclick="deleteTask(${id})"
-          ><img
-            class="task-overlay-footer-img"
-            src="./assets/img/delete.svg"
-            alt="delete"
-          /><span>Delete</span></a
-        >
-        <img src="./assets/img/line.svg" alt="line" />
-        <a href="#" onclick="editTask()"
-          ><img
-            class="task-overlay-footer-img"
-            src="./assets/img/edit.svg"
-            alt="edit"
-          /><span>Edit</span></a
-        >
-      </div>
-    </div>
-  </div>
-  `;
-}
+// EDIT TASK
 
 // DRAG & DROP
 
@@ -435,8 +336,9 @@ async function closeAddTask() {
   overlay.classList.add("d-none");
 }
 
-function editTask() {
-  loadW3Include("./html/edit_task.html", "task-overlay-cart");
+function editTask(id) {
+  //loadW3Include("./html/edit_task.html", "task-overlay-cart");
+  generateTaskOverlayEditHTML(id);
 }
 
 function deleteTask(id) {

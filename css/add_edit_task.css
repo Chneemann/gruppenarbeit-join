@@ -2,7 +2,6 @@
 
 #add-task-page {
   padding: 79.5px 64px;
-  max-height: 80%;
 }
 
 #add-task-page h1 {
@@ -66,7 +65,7 @@
   color: var(--light-gray);
   font-size: 20px;
   font-weight: 400;
-  width: 398px;
+  width: 396px;
   margin-bottom: 16px;
   border-radius: 10px;
   border: 1px solid var(--light-gray);
@@ -276,7 +275,7 @@
 #edit-task-page {
   display: flex;
   flex-direction: column;
-  max-width: 100%;
+  max-width: 980px;
   height: auto;
   max-height: 90vh;
   padding: 48px 40px;
@@ -403,6 +402,41 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.edit-task-assignet {
+  position: relative;
+}
+
+.edit-task-assignet-overlay {
+  position: absolute;
+  top: 95px;
+  width: 438px;
+  height: 150px;
+  border-radius: 10px 10px 20px 20px;
+  border: 1px solid var(--light-gray);
+  border-top: 0px;
+  background-color: var(--white);
+  overflow: auto;
+  z-index: 1;
+}
+
+.edit-task-contact-overlay input {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.edit-task-contact-overlay {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  height: 40px;
+  cursor: pointer;
+}
+
+.edit-task-contact-overlay:hover {
+  background-color: var(--very-light-gray);
 }
 
 /*------------- ADD TASK - FOOTER -------------*/
@@ -541,7 +575,7 @@
   .add-task-formular input,
   .edit-task-formular input {
     font-size: 16px;
-    width: 298px;
+    width: 296px;
   }
 
   .add-task-formular textarea,
@@ -587,6 +621,10 @@
 
   .add-task-required {
     padding-bottom: 24px;
+  }
+
+  #edit-task-icon-add {
+    left: 300px;
   }
 }
 
@@ -694,7 +732,7 @@
   }
 
   .edit-task-formular input {
-    width: 248px;
+    width: 246px;
   }
 
   .edit-task-formular textarea {
@@ -703,6 +741,9 @@
 
   .edit-task-formular select {
     width: 290px;
+  }
+  #edit-task-icon-add {
+    left: 250px;
   }
 }
 
@@ -749,7 +790,7 @@
     width: 72px;
   }
 
-  #add-task-icon-add {
-    left: 250px;
+  #edit-task-icon-add {
+    left: 200px;
   }
 }
