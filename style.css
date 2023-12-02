@@ -28,6 +28,10 @@
   --yellow: #ffee00;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   font-family: "Figtree", sans-serif;
   margin: auto 0;

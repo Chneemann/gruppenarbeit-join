@@ -128,7 +128,8 @@
 
 .board-content-headline img:hover {
   cursor: pointer;
-  border-color: var(--light-blue);
+  filter: invert(60%) sepia(58%) saturate(1629%) hue-rotate(165deg)
+    brightness(92%) contrast(92%);
 }
 
 /*------------- BOARD CONTENT (TASKS) -------------*/
@@ -178,6 +179,7 @@
   padding: 4px 16px;
   border-radius: 8px;
   color: var(--white);
+  text-shadow: 1px 1px 1px var(--black);
 }
 
 .board-card-headline {
@@ -326,6 +328,7 @@
   padding: 4px 24px;
   border-radius: 8px;
   color: var(--white);
+  text-shadow: 1px 1px 1px var(--black);
 }
 
 .task-overlay-headline h2 {
