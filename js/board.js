@@ -72,9 +72,10 @@ function renderTasks() {
   for (let status of states) {
     document.getElementById(`board-content-task-${status}`).innerHTML = "";
     for (let i = 0; i < tasks.length; i++) {
-      if (tasks[i].status === status && tasks[i].delete === "no") {
-        generateTaskHTML(i, `board-content-task-${status}`);
-      }
+      if (tasks[i].delete != "none")
+        if (tasks[i].status === status && tasks[i].delete === "no") {
+          generateTaskHTML(i, `board-content-task-${status}`);
+        }
     }
     if (
       document.getElementById(`board-content-task-${status}`).innerHTML === ""
@@ -357,7 +358,7 @@ function generateTaskOverlayHTML(id) {
         </div>
       </div>
       <div class="task-overlay-footer">
-        <a href="#" onclick="deleteCart()"
+        <a href="#" onclick="deleteTask(${id})"
           ><img
             class="task-overlay-footer-img"
             src="./assets/img/delete.svg"
@@ -424,8 +425,11 @@ function editTask() {
   loadW3Include("./html/edit_task.html", "task-overlay-cart");
 }
 
-function deleteTask() {
-  //TODO
+function deleteTask(id) {
+  alert("Do you really want to delete this task?");
+  closeCart();
+  tasks[id].delete = "yes";
+  initBoard();
 }
 
 // OPEN/CLOSE CART
@@ -450,12 +454,6 @@ async function closeCart() {
   overlay.style.backgroundColor = "";
   await sleep(100);
   overlay.classList.add("d-none");
-}
-
-function deleteCart() {
-  alert("Do you really want to delete this task?");
-  closeCart();
-  deleteTask();
 }
 
 // GLOBAL
