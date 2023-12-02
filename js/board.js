@@ -36,7 +36,7 @@ let tasks = [
     subtasks: ["Placeholder 1", "Placeholder 2"],
     subtaskstate: ["ongoing", "done"],
     date: "",
-    prio: "low",
+    prio: "medium",
     status: "awaitfeedback",
     delete: "no",
   },
@@ -173,7 +173,6 @@ function checkSubtasksBoard(id) {
       : (length && countSubtasks === 2) || (length && countSubtasks === 1)
       ? "filler-full"
       : undefined;
-
   return length === 0
     ? ""
     : /*html*/ `
@@ -272,6 +271,11 @@ function textTransformPriority(id) {
   return tasks[id].prio.charAt(0).toUpperCase() + tasks[id].prio.slice(1);
 }
 
+/**
+ * This function checks whether and how many subtasks are present in the current task and displays them
+ *
+ * @param {String} id Current task id
+ */
 function checkSubtasks(id) {
   if (tasks[id].subtasks.length === 0) {
     document.getElementById(
@@ -293,6 +297,12 @@ function checkSubtasks(id) {
   }
 }
 
+/**
+ * This function changes the status of the subtask when you click on the checkbox
+ *
+ * @param {String} id Current task id
+ * @param {number} i Current Subtask
+ */
 function updateSubtask(id, i) {
   tasks[id].subtaskstate[i] =
     tasks[id].subtaskstate[i] === "done" ? "ongoing" : "done";
