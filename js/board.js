@@ -1,12 +1,12 @@
 let tasks = [
   {
     id: "0",
-    title: "CSS Architecture Planning",
-    description: "Define CSS naming conventions and structure.",
+    title: "Check the code for duplicate entries",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     assignet: [4, 10, 18],
-    category: "Technical Task",
-    subtasks: ["Test 1"],
-    subtaskstate: ["done"],
+    category: "CSS",
+    subtasks: [],
+    subtaskstate: [],
     date: "",
     prio: "urgent",
     status: "todo",
@@ -14,15 +14,30 @@ let tasks = [
   },
   {
     id: "1",
-    title: "Kochwelt Page & Recipe Recommender",
-    description: "Build start page with recipe recommendation.",
+    title: "Working on the board side",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium excepturi placeat minima quod soluta laboriosam?",
     assignet: [5, 7, 13],
-    category: "User Story",
-    subtasks: ["Test 1", "Test 2"],
-    subtaskstate: ["ongoing", "done"],
+    category: "JavaScript",
+    subtasks: ["Placeholder 1"],
+    subtaskstate: ["ongoing"],
     date: "",
     prio: "low",
     status: "inprogress",
+    delete: "no",
+  },
+  {
+    id: "2",
+    title: "Assemble the code",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, sed!",
+    assignet: [8, 11, 19],
+    category: "HTML",
+    subtasks: ["Placeholder 1", "Placeholder 2"],
+    subtaskstate: ["ongoing", "done"],
+    date: "",
+    prio: "low",
+    status: "awaitfeedback",
     delete: "no",
   },
 ];
@@ -141,39 +156,31 @@ function colorPicker(id) {
 }
 
 /**
- * This function checks whether and how many subtasks are present in the task and returns them
+ * This function checks how many subtasks are present in the task and
+ * how many of them have already been processed
  *
  * @param {string} id Current task id
  * @returns Html code
  */
 function checkSubtasksBoard(id) {
-  let countSubtasks = 0;
-  let fillerSubtasks;
-  for (let i = 0; i < tasks[id].subtaskstate.length; i++) {
-    if (tasks[id].subtaskstate[i] === "done") {
-      countSubtasks++;
-    }
-  }
-  if (
-    (tasks[id].subtaskstate.length == 2 && countSubtasks == 1) ||
-    (tasks[id].subtaskstate.length == 1 && countSubtasks == 0)
-  ) {
-    fillerSubtasks = "filler-half";
-  } else if (
-    (tasks[id].subtaskstate.length && countSubtasks == 2) ||
-    (tasks[id].subtaskstate.length && countSubtasks == 1)
-  ) {
-    fillerSubtasks = "filler-full";
-  }
-  if (tasks[id].subtaskstate.length == 0) {
-    return /*html*/ ``;
-  } else {
-    return /*html*/ `
+  const countSubtasks = tasks[id].subtaskstate.filter(
+    (state) => state === "done"
+  ).length;
+  const length = tasks[id].subtaskstate.length;
+  const fillerSubtasks =
+    length === 2 && countSubtasks === 1
+      ? "filler-half"
+      : (length && countSubtasks === 2) || (length && countSubtasks === 1)
+      ? "filler-full"
+      : undefined;
+
+  return length === 0
+    ? ""
+    : /*html*/ `
       <div class="board-card-subtask-line">
         <span class="${fillerSubtasks}"></span>
       </div>
-      <div class="board-card-subtask-text">${countSubtasks}/${tasks[id].subtaskstate.length} Subtasks</div>`;
-  }
+      <div class="board-card-subtask-text">${countSubtasks}/${length} Subtasks</div>`;
 }
 
 /**
@@ -265,6 +272,33 @@ function textTransformPriority(id) {
   return tasks[id].prio.charAt(0).toUpperCase() + tasks[id].prio.slice(1);
 }
 
+function checkSubtasks(id) {
+  if (tasks[id].subtasks.length === 0) {
+    document.getElementById(
+      "task-overlay-subtasks"
+    ).innerHTML = /*html*/ `<div class="task-overlay-subtask"><p>No subtask createt</p></div>`;
+  } else {
+    for (let i = 0; i < tasks[id].subtasks.length; i++) {
+      document.getElementById("task-overlay-subtasks").innerHTML += /*html*/ `
+    <div class="task-overlay-subtask">
+      <input
+        id="task-overlay-checkbox-subtask${i}"
+        type="checkbox"
+        onclick="updateSubtask(${id}, ${i})"
+        ${tasks[id].subtaskstate[i] === "done" ? "checked" : ""}
+      />
+      <p>${tasks[id].subtasks[i]}</p>
+    </div>`;
+    }
+  }
+}
+
+function updateSubtask(id, i) {
+  tasks[id].subtaskstate[i] =
+    tasks[id].subtaskstate[i] === "done" ? "ongoing" : "done";
+  initBoard();
+}
+
 /**
  * This function displays the clicked task in large size
  *
@@ -308,25 +342,7 @@ function generateTaskOverlayHTML(id) {
         </div>
         <div>
           Subtasks
-          <div class="task-overlay-subtasks">
-            <div class="task-overlay-subtask">
-              <input
-                id="task-overlay-checkbox-subtask1"
-                type="checkbox"
-                name=""
-                id=""
-              />
-              <p>Implement Recipe Recommendation</p>
-            </div>
-            <div class="task-overlay-subtask">
-              <input
-                id="task-overlay-checkbox-subtask2"
-                type="checkbox"
-                name=""
-                id=""
-              />
-              <p>Start Page Layout</p>
-            </div>
+          <div id="task-overlay-subtasks" class="task-overlay-subtasks">
           </div>
         </div>
       </div>
@@ -407,6 +423,7 @@ function deleteTask() {
 async function openCart(id) {
   //loadW3Include("./html/task_overlay.html", "task-overlay-cart");
   generateTaskOverlayHTML(id);
+  checkSubtasks(id);
   var overlay = document.getElementById("task-overlay-cart");
   overlay.classList.remove("d-none");
   await sleep(10);
