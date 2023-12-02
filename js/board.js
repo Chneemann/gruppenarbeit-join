@@ -370,6 +370,7 @@ async function closeCart() {
   overlay.style.backgroundColor = "";
   await sleep(100);
   overlay.classList.add("d-none");
+  initBoard();
 }
 
 // GLOBAL

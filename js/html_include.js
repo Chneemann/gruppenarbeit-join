@@ -108,7 +108,9 @@ function generateTaskOverlayHTML(id) {
  */
 function generateTaskOverlayEditHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
-  <div id="edit-task-page" onclick="event.stopPropagation(), closeOverlayContacts(event)">
+  <div id="edit-task-page" onclick="event.stopPropagation(), closeOverlayContacts(event, ${
+    tasks[id].id
+  })">
     <div class="text-wrap-overflow">
       <div class="edit-task-header right">
         <div
@@ -195,7 +197,7 @@ function generateTaskOverlayEditHTML(id) {
               type="text"
               id="edit-task-assignet"
               placeholder="Select contact to assign"
-              onclick="openOverlayContacts(event)"
+              onclick="openOverlayContacts(${tasks[id].id})"
               oninput="changeInputTextColor('edit-task-assignet')"
             />
             <div id="edit-task-assignet-overlay" class="edit-task-assignet-overlay d-none">
@@ -262,35 +264,66 @@ function generateTaskOverlayEditHTML(id) {
   `;
 }
 
-function openOverlayContacts(event) {
-  if (event) event.stopPropagation();
+function openOverlayContacts(taskId) {
   document
     .getElementById("edit-task-assignet-overlay")
     .classList.remove("d-none");
-  renderAllContacts();
+  renderAllContacts(taskId);
 }
 
-function closeOverlayContacts(event) {
-  const overlay = document.getElementById("edit-task-assignet-overlay");
-  const target = event.target;
-
+function closeOverlayContacts(event, taskId) {
+  let overlay = document.getElementById("edit-task-assignet-overlay");
+  let target = event.target;
   if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
     overlay.classList.add("d-none");
-    saveContactToTask();
+    generateTaskOverlayEditHTML(taskId);
   }
 }
 
-function renderAllContacts() {
-  document.getElementById("edit-task-assignet-overlay").innerHTML = "";
+function renderAllContacts(taskId) {
+  let assignetUsers = tasks[taskId].assignet;
+  for (let i = 0; i < assignetUsers.length; i++) {
+    let user = users.find((u) => u.id === assignetUsers[i]);
+    if (user) {
+      renderContact(user, taskId);
+    }
+  }
   for (let i = 0; i < users.length; i++) {
-    document.getElementById(
-      "edit-task-assignet-overlay"
-    ).innerHTML += /*html*/ `
-    <div class="edit-task-contact-overlay"><span>${getUserInitials(
-      users[i].id
-    )}</span><span>${users[i].username}</span><input type="checkbox"></div>
-    `;
+    if (!assignetUsers.includes(users[i].id)) {
+      renderContact(users[i], taskId);
+    }
   }
 }
 
-function saveContactToTask() {}
+function renderContact(user, taskId) {
+  document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
+    <div onclick="addContactToAssignet(${
+      user.id
+    }, ${taskId})" class="edit-task-contact-overlay"><span>${getUserInitials(
+    user.id
+  )}</span><span>${user.username}</span><input id="contact_checkbox${
+    user.id
+  }" type="checkbox" ${checkContactIsInAssignet(taskId, user.id)}></div>
+  `;
+}
+
+function checkContactIsInAssignet(taskId, userId) {
+  for (let i = 0; i < tasks[taskId].assignet.length; i++) {
+    if (userId == tasks[taskId].assignet[i]) {
+      return "checked";
+    }
+  }
+}
+
+function addContactToAssignet(userId, taskId) {
+  let checkbox = document.getElementById(`contact_checkbox${userId}`);
+  checkbox.checked = !checkbox.checked;
+  if (checkbox.checked) {
+    tasks[taskId].assignet.push(userId);
+  } else {
+    const index = tasks[taskId].assignet.indexOf(userId);
+    if (index !== -1) {
+      tasks[taskId].assignet.splice(index, 1);
+    }
+  }
+}
