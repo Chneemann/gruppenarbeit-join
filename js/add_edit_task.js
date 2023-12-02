@@ -42,6 +42,10 @@ function resetForm() {
  * @param {number} taskId - The ID of the task.
  */
 function openOverlayContacts(taskId) {
+  document
+    .getElementById("edit-task-icon-closecontact")
+    .classList.remove("d-none");
+  document.getElementById("edit-task-icon-opencontact").classList.add("d-none");
   document.getElementById("edit-task-assignet-overlay").innerHTML = "";
   document
     .getElementById("edit-task-assignet-overlay")
@@ -83,24 +87,6 @@ function renderAllContacts(taskId) {
       renderContact(users[i], taskId);
     }
   }
-}
-
-/**
- * Renders a single contact in the contact list of the overlay.
- *
- * @param {Object} user - The user to be rendered.
- * @param {number} taskId - The ID of the task.
- */
-function renderContact(user, taskId) {
-  document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
-    <div onclick="addContactToAssignet(${
-      user.id
-    }, ${taskId})" class="edit-task-contact-overlay"><span>${getUserInitials(
-    user.id
-  )}</span><span>${user.username}</span><input id="contact_checkbox${
-    user.id
-  }" type="checkbox" ${checkContactIsInAssignet(taskId, user.id)}></div>
-  `;
 }
 
 /**

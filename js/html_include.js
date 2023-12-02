@@ -199,11 +199,19 @@ function generateTaskOverlayEditHTML(id) {
               onclick="openOverlayContacts(${tasks[id].id})"
               oninput="changeInputTextColor('edit-task-assignet')"
             />
-            <div id="edit-task-icon-add">
+            <div id="edit-task-icon-closecontact" class="d-none">
                 <img
-                src="./assets/img/close.svg"
-                  alt="close"
+                  src="./assets/img/check-black.png"
+                  alt="add"
                   onclick="closeOverlayContacts(event, ${tasks[id].id})"
+                  class="edit-task-icon"
+                />
+              </div>
+              <div id="edit-task-icon-opencontact">
+                <img
+                  src="./assets/img/add.svg"
+                  alt="open"
+                  onclick="openOverlayContacts(${tasks[id].id})"
                   class="edit-task-icon"
                 />
               </div>
@@ -270,5 +278,26 @@ function generateTaskOverlayEditHTML(id) {
       </div>
     </div>
   </div>
+  `;
+}
+
+/**
+ * Renders a single contact in the contact list of the overlay.
+ *
+ * @param {Object} user - The user to be rendered.
+ * @param {number} taskId - The ID of the task.
+ */
+function renderContact(user, taskId) {
+  document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
+    <div onclick="addContactToAssignet(${
+      user.id
+    }, ${taskId})" class="edit-task-contact-overlay"><span>${getUserInitials(
+    user.id
+  )}</span><span>${user.username}</span><input id="contact_checkbox${
+    user.id
+  }" type="checkbox" style="pointer-events: none" ${checkContactIsInAssignet(
+    taskId,
+    user.id
+  )}></div>
   `;
 }

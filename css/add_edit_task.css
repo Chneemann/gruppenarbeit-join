@@ -357,7 +357,9 @@
   cursor: pointer;
 }
 
-#edit-task-icon-add {
+#edit-task-icon-add,
+#edit-task-icon-opencontact,
+#edit-task-icon-closecontact {
   position: relative;
   top: -52px;
   left: 400px;
