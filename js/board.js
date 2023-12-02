@@ -194,7 +194,9 @@ function generateTaskHTML(id, name) {
     <div class="board-cart" draggable="true" ondragstart="startDragging(${
       tasks[id].id
     })" onclick="openCart(${tasks[id].id})">
-      <div class="board-card-category blue">${tasks[id].category}</div>
+      <div class="board-card-category" style="background-color: var(--${generateTaskCategoryColor(
+        id
+      )})">${tasks[id].category}</div>
       <div class="board-card-headline">${tasks[id].title}</div>
       <div class="board-card-description">
       ${tasks[id].description}
@@ -209,6 +211,16 @@ function generateTaskHTML(id, name) {
         <div class="board-card-footer-priority prio-${tasks[id].prio}"></div>
       </div>
     </div>`;
+}
+
+function generateTaskCategoryColor(id) {
+  if (tasks[id].category == "HTML") {
+    return "brown";
+  } else if (tasks[id].category == "CSS") {
+    return "blue";
+  } else if (tasks[id].category == "JavaScript") {
+    return "yellow";
+  }
 }
 
 /**
@@ -320,7 +332,9 @@ function generateTaskOverlayHTML(id) {
   <div class="task-overlay" onclick="event.stopPropagation()">
     <div class="text-wrap-overflow">
       <div class="task-overlay-header">
-        <div id="task-overlay-category" class="blue">${tasks[id].category}</div>
+        <div id="task-overlay-category" style="background-color: var(--${generateTaskCategoryColor(
+          id
+        )})">${tasks[id].category}</div>
         <div class="task-overlay-img-close" onclick="closeCart()">
           <img src="./assets/img/close.svg" alt="" />
         </div>
