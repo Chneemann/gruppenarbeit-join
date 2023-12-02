@@ -251,7 +251,7 @@ function generateTaskOverlayEditHTML(id) {
         <div class="edit-task-footer">
           <div class="edit-task-buttons">
             <button class="edit-task-btn" type="submit">
-              <div class="edit-task-btn-inside">
+              <div class="edit-task-btn-inside" onclick="confirmEditTask()">
                 <span>Ok</span>
                 <img src="./assets/img/check.svg" alt="ckeck" />
               </div>
@@ -326,4 +326,9 @@ function addContactToAssignet(userId, taskId) {
       tasks[taskId].assignet.splice(index, 1);
     }
   }
+}
+
+async function confirmEditTask() {
+  await setItem("tasks", JSON.stringify(tasks));
+  closeCart();
 }

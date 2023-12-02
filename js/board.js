@@ -1,59 +1,15 @@
-let tasks = [
-  {
-    id: "0",
-    title: "Check the code for duplicate entries",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    assignet: [4, 10, 18],
-    category: "CSS",
-    subtasks: [],
-    subtaskstate: [],
-    date: "",
-    prio: "urgent",
-    status: "todo",
-    delete: "no",
-  },
-  {
-    id: "1",
-    title: "Working on the board side",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium excepturi placeat minima quod soluta laboriosam?",
-    assignet: [5, 7, 13],
-    category: "JavaScript",
-    subtasks: ["Placeholder 1"],
-    subtaskstate: ["ongoing"],
-    date: "",
-    prio: "low",
-    status: "inprogress",
-    delete: "no",
-  },
-  {
-    id: "2",
-    title: "Assemble the code",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, sed!",
-    assignet: [8, 11, 19],
-    category: "HTML",
-    subtasks: ["Placeholder 1", "Placeholder 2"],
-    subtaskstate: ["ongoing", "done"],
-    date: "",
-    prio: "medium",
-    status: "awaitfeedback",
-    delete: "no",
-  },
-];
+let tasks = [];
 let currentDraggedElement;
 
 // BOARD
 
 async function initBoard() {
-  //loadTasks(); !!TODO!!
+  await loadTasks();
   renderTasks();
 }
 
 /**
  * This function loads all tasks from the backend.
- *
- * !!TODO!!
  *
  */
 async function loadTasks() {
@@ -304,8 +260,9 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function drop(category) {
+async function drop(category) {
   tasks[currentDraggedElement]["status"] = category;
+  await setItem("tasks", JSON.stringify(tasks));
   initBoard();
 }
 

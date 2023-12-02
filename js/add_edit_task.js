@@ -6,18 +6,6 @@ function initAddTask() {
   // loadTasks();
 }
 
-async function loadTasks() {
-  try {
-    tasks = JSON.parse(await getItem("tasks"));
-    for (let i = 0; i < tasks.length; i++) {
-      lastTaskId = array[i] + 1;
-    }
-  } catch (e) {
-    console.error("Loading error:", e);
-    lastTaskId = "0";
-  }
-}
-
 async function addTask() {
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
