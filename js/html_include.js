@@ -56,7 +56,7 @@ function generateTaskOverlayHTML(id) {
         </div>
         <div class="task-overlay-date">
           <p>Due date:</p>
-          <span id="task-overlay-date">10/05/2023</span>
+          <span id="task-overlay-date">${timestampInDate(tasks[id].date)}</span>
         </div>
         <div class="task-overlay-prio">
           <p>Priority:</p>
@@ -108,9 +108,7 @@ function generateTaskOverlayHTML(id) {
  */
 function generateTaskOverlayEditHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
-  <div id="edit-task-page" onclick="event.stopPropagation(), closeOverlayContacts(event, ${
-    tasks[id].id
-  })">
+  <div id="edit-task-page" onclick="event.stopPropagation()">
     <div class="text-wrap-overflow">
       <div class="edit-task-header right">
         <div
@@ -127,7 +125,7 @@ function generateTaskOverlayEditHTML(id) {
             <p>Title<span class="red-dot">*</span></p>
             <input
               type="text"
-              id="edit-task-titel"
+              id="editTaskTitel"
               placeholder="Enter a title"
               value="${tasks[id].title}"
               oninput="changeInputTextColor('edit-task-titel')"
@@ -137,7 +135,7 @@ function generateTaskOverlayEditHTML(id) {
           <div class="edit-task-description">
             <p>Description</p>
             <textarea
-              id="edit-task-description"
+              id="editTaskDescription"
               placeholder="Enter a Description"
               oninput="changeInputTextColor('edit-task-description')"
             >${tasks[id].description}</textarea>
@@ -146,8 +144,9 @@ function generateTaskOverlayEditHTML(id) {
             <p>Due date<span class="red-dot">*</span></p>
             <input
               type="date"
-              id="edit-task-date"
+              id="editTaskDate"
               oninput="changeInputTextColor('edit-task-date')"
+              value="${timestampForInputfield(tasks[id].date)}"
               required
             />
           </div>
@@ -200,6 +199,14 @@ function generateTaskOverlayEditHTML(id) {
               onclick="openOverlayContacts(${tasks[id].id})"
               oninput="changeInputTextColor('edit-task-assignet')"
             />
+            <div id="edit-task-icon-add">
+                <img
+                src="./assets/img/close.svg"
+                  alt="close"
+                  onclick="closeOverlayContacts(event, ${tasks[id].id})"
+                  class="edit-task-icon"
+                />
+              </div>
             <div id="edit-task-assignet-overlay" class="edit-task-assignet-overlay d-none">
             </div>
             <div class="board-card-footer">
@@ -250,8 +257,10 @@ function generateTaskOverlayEditHTML(id) {
       <div>
         <div class="edit-task-footer">
           <div class="edit-task-buttons">
-            <button class="edit-task-btn" type="submit">
-              <div class="edit-task-btn-inside" onclick="confirmEditTask()">
+            <button class="edit-task-btn" type="button" onclick="confirmEditTask(${
+              tasks[id].id
+            })">
+              <div class="edit-task-btn-inside">
                 <span>Ok</span>
                 <img src="./assets/img/check.svg" alt="ckeck" />
               </div>
@@ -265,6 +274,7 @@ function generateTaskOverlayEditHTML(id) {
 }
 
 function openOverlayContacts(taskId) {
+  document.getElementById("edit-task-assignet-overlay").innerHTML = "";
   document
     .getElementById("edit-task-assignet-overlay")
     .classList.remove("d-none");
@@ -274,6 +284,7 @@ function openOverlayContacts(taskId) {
 function closeOverlayContacts(event, taskId) {
   let overlay = document.getElementById("edit-task-assignet-overlay");
   let target = event.target;
+
   if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
     overlay.classList.add("d-none");
     generateTaskOverlayEditHTML(taskId);
@@ -328,7 +339,13 @@ function addContactToAssignet(userId, taskId) {
   }
 }
 
-async function confirmEditTask() {
+async function confirmEditTask(taskId) {
+  const selectedDate = new Date(editTaskDate.value);
+  const timestamp = selectedDate.getTime();
+  tasks[taskId]["title"] = editTaskTitel.value;
+  tasks[taskId]["description"] = editTaskDescription.value;
+  tasks[taskId]["date"] = timestamp;
+  tasks[taskId]["prio"] = taskPrio.toLowerCase();
   await setItem("tasks", JSON.stringify(tasks));
   closeCart();
 }

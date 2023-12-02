@@ -242,12 +242,32 @@ function checkSubtasks(id) {
  * @param {String} id Current task id
  * @param {number} i Current Subtask
  */
-function updateSubtask(id, i) {
+async function updateSubtask(id, i) {
   tasks[id].subtaskstate[i] =
     tasks[id].subtaskstate[i] === "done" ? "ongoing" : "done";
+  await setItem("tasks", JSON.stringify(tasks));
   initBoard();
 }
 
+function formatTwoDigits(number) {
+  return number < 10 ? `0${number}` : `${number}`;
+}
+
+function timestampInDate(timestamp) {
+  const dateObject = new Date(timestamp);
+  const year = dateObject.getFullYear();
+  const month = formatTwoDigits(dateObject.getMonth() + 1);
+  const day = formatTwoDigits(dateObject.getDate());
+  return `${day}/${month}/${year}`;
+}
+
+function timestampForInputfield(timestamp) {
+  const dateObject = new Date(timestamp);
+  const year = dateObject.getFullYear();
+  const month = formatTwoDigits(dateObject.getMonth() + 1);
+  const day = formatTwoDigits(dateObject.getDate());
+  return `${year}-${month}-${day}`;
+}
 // EDIT TASK
 
 // DRAG & DROP
@@ -294,8 +314,9 @@ async function closeAddTask() {
 }
 
 function editTask(id) {
-  //loadW3Include("./html/edit_task.html", "task-overlay-cart");
   generateTaskOverlayEditHTML(id);
+  taskPrio = tasks[id].prio;
+  addPrioStatus(`icon-${taskPrio}`);
 }
 
 function deleteTask(id) {
@@ -308,7 +329,6 @@ function deleteTask(id) {
 // OPEN/CLOSE CART
 
 async function openCart(id) {
-  //loadW3Include("./html/task_overlay.html", "task-overlay-cart");
   generateTaskOverlayHTML(id);
   checkSubtasks(id);
   var overlay = document.getElementById("task-overlay-cart");
