@@ -3,6 +3,9 @@ let currentDraggedElement;
 
 // BOARD
 
+/**
+ * Initialises the board by loading all tasks
+ */
 async function initBoard() {
   await loadTasks();
   renderTasks();
@@ -249,10 +252,22 @@ async function updateSubtask(id, i) {
   initBoard();
 }
 
+/**
+ * Formats a number to always have two digits.
+ *
+ * @param {number} number - The number to format.
+ * @returns {string} - The formatted number with two digits.
+ */
 function formatTwoDigits(number) {
   return number < 10 ? `0${number}` : `${number}`;
 }
 
+/**
+ * Converts a timestamp to a date string in the format DD/MM/YYYY.
+ *
+ * @param {number} timestamp - The timestamp to convert.
+ * @returns {string} - The formatted date string.
+ */
 function timestampInDate(timestamp) {
   const dateObject = new Date(timestamp);
   const year = dateObject.getFullYear();
@@ -261,6 +276,12 @@ function timestampInDate(timestamp) {
   return `${day}/${month}/${year}`;
 }
 
+/**
+ * Converts a timestamp to a date string suitable for input fields (YYYY-MM-DD).
+ *
+ * @param {number} timestamp - The timestamp to convert.
+ * @returns {string} - The formatted date string for input fields.
+ */
 function timestampForInputfield(timestamp) {
   const dateObject = new Date(timestamp);
   const year = dateObject.getFullYear();
@@ -268,18 +289,32 @@ function timestampForInputfield(timestamp) {
   const day = formatTwoDigits(dateObject.getDate());
   return `${year}-${month}-${day}`;
 }
-// EDIT TASK
 
 // DRAG & DROP
 
+/**
+ * Start dragging a task.
+ *
+ * @param {string} id - The ID of the task being dragged.
+ */
 function startDragging(id) {
   currentDraggedElement = id;
 }
 
+/**
+ * Allow dropping on the board.
+ *
+ * @param {Event} ev - The drop event.
+ */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
+/**
+ * Handle the drop event by updating the task's status and saving it to storage.
+ *
+ * @param {string} category - The category to which the task is dropped.
+ */
 async function drop(category) {
   tasks[currentDraggedElement]["status"] = category;
   await setItem("tasks", JSON.stringify(tasks));

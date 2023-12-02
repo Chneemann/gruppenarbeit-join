@@ -34,6 +34,127 @@ function resetForm() {
   addTaskCategory.value = "";
 }
 
+// EDIT TASK
+
+/**
+ * Opens the overlay for the contact list and renders all contacts.
+ *
+ * @param {number} taskId - The ID of the task.
+ */
+function openOverlayContacts(taskId) {
+  document.getElementById("edit-task-assignet-overlay").innerHTML = "";
+  document
+    .getElementById("edit-task-assignet-overlay")
+    .classList.remove("d-none");
+  renderAllContacts(taskId);
+}
+
+/**
+ * Closes the overlay for the contact list if the click takes place outside the overlay
+ *
+ * @param {Event} event - The click event.
+ * @param {number} taskId - The ID of the task.
+ */
+function closeOverlayContacts(event, taskId) {
+  let overlay = document.getElementById("edit-task-assignet-overlay");
+  let target = event.target;
+
+  if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
+    overlay.classList.add("d-none");
+    generateTaskOverlayEditHTML(taskId);
+  }
+}
+
+/**
+ * Renders all contacts, both assigned and unassigned, the assigned ones should come first.
+ *
+ * @param {number} taskId - The ID of the task.
+ */
+function renderAllContacts(taskId) {
+  let assignetUsers = tasks[taskId].assignet;
+  for (let i = 0; i < assignetUsers.length; i++) {
+    let user = users.find((u) => u.id === assignetUsers[i]);
+    if (user) {
+      renderContact(user, taskId);
+    }
+  }
+  for (let i = 0; i < users.length; i++) {
+    if (!assignetUsers.includes(users[i].id)) {
+      renderContact(users[i], taskId);
+    }
+  }
+}
+
+/**
+ * Renders a single contact in the contact list of the overlay.
+ *
+ * @param {Object} user - The user to be rendered.
+ * @param {number} taskId - The ID of the task.
+ */
+function renderContact(user, taskId) {
+  document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
+    <div onclick="addContactToAssignet(${
+      user.id
+    }, ${taskId})" class="edit-task-contact-overlay"><span>${getUserInitials(
+    user.id
+  )}</span><span>${user.username}</span><input id="contact_checkbox${
+    user.id
+  }" type="checkbox" ${checkContactIsInAssignet(taskId, user.id)}></div>
+  `;
+}
+
+/**
+ * Checks whether a contact is already assigned to the task.
+ *
+ * @param {number} taskId - The ID of the user.
+ * @param {number} userId - Die ID des Benutzers.
+ * @returns {string} - Der "checked"-Wert für das HTML-Checkbox-Attribut.
+ */
+function checkContactIsInAssignet(taskId, userId) {
+  for (let i = 0; i < tasks[taskId].assignet.length; i++) {
+    if (userId == tasks[taskId].assignet[i]) {
+      return "checked";
+    }
+  }
+}
+
+/**
+ * Adds or removes a contact from the task assignment.
+ *
+ * @param {number} userId - The ID of the user.
+ * @param {number} taskId - The ID of the task.
+ */
+function addContactToAssignet(userId, taskId) {
+  let checkbox = document.getElementById(`contact_checkbox${userId}`);
+  checkbox.checked = !checkbox.checked;
+  if (checkbox.checked) {
+    tasks[taskId].assignet.push(userId);
+  } else {
+    const index = tasks[taskId].assignet.indexOf(userId);
+    if (index !== -1) {
+      tasks[taskId].assignet.splice(index, 1);
+    }
+  }
+}
+
+/**
+ * Confirms the processing of a task and updates the information in the backend.
+ *
+ * @param {number} taskId - The ID of the task.
+ */
+async function confirmEditTask(taskId) {
+  const selectedDate = new Date(editTaskDate.value);
+  const timestamp = selectedDate.getTime();
+  tasks[taskId]["title"] = editTaskTitel.value;
+  tasks[taskId]["description"] = editTaskDescription.value;
+  tasks[taskId]["date"] = timestamp;
+  tasks[taskId]["prio"] = taskPrio.toLowerCase();
+  await setItem("tasks", JSON.stringify(tasks));
+  closeCart();
+}
+
+// ADD TASK
+
 function clearTask() {
   // Todo
 }
