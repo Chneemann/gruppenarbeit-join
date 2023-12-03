@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adressbuch</title>
-    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./css/address.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
     <script src="./js/address.js"></script>
@@ -36,19 +35,15 @@
                 </form>
 
 
-                <div class="send-buttons">
-                    <button class="add-contact-btn-clear" id="delete-close-contact"><span>cancel</span><img
-                            src="./assets/img/close.svg" alt="close" onclick="closeAddContact()" /></button>
-
-                    <button class="add-contact-btn-create" onclick="addContact()"><span id="submit-contact">create
-                            contact</span><img src="./assets/img/check.svg" alt="" /></button>
+                <div id="submit-buttons">
+                   
                 </div>
             </div>
         </div>
     </div>
 
     <div class="inner-frame">
-        <div id="scrollbar">
+        <div id="scrollcontainer">
             <button onclick="openAddContact()">
                 <div><span>Add new contact</span> <img src="./assets/img/person_add.png" alt=""></div>
             </button>
