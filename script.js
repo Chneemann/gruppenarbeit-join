@@ -59,7 +59,6 @@ async function loadAllUsers() {
 async function loadAllContacts() {
   try {
     contacts = JSON.parse(await getItem("contacts"));
-    await setItem("contacts", JSON.stringify(contacts));
   } catch (e) {
     console.error("Loading error:", e);
   }

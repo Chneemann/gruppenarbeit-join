@@ -267,13 +267,13 @@ function renderTaskOverlayEditHTML(id) {
                 <img
                   src="./assets/img/check-black.png"
                   alt="check"
-                  onclick="confirmSubtask()"
+                  onclick="confirmSubtask('edit')"
                   class="edit-task-icon"
                 />
               </div>
             </div>
             <div id="edit-task-subtask-addet">
-            
+            ${checkSubtasksEdit(tasks[id].id)}
             </div>
           </div>
         </div>

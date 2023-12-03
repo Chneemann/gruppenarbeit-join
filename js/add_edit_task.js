@@ -77,7 +77,6 @@ function closeOverlayContacts(event, taskId) {
 function checkAssignetContactEdit(taskId) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[taskId].assignet.length; i++) {
-    console.log(i);
     userInitialsHTML.push(
       renderAssignetContactBoardHTML(
         tasks[taskId].assignet[i],
@@ -160,6 +159,16 @@ async function confirmEditTask(taskId) {
   closeCart();
 }
 
+function checkSubtasksEdit(taskId) {
+  for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
+    console.log(taskId);
+    return /*html*/ `
+  <div class="edit-task-subtask">
+    <span>${tasks[taskId].subtasks[i]}</span>
+  </div>`;
+  }
+}
+
 /**
  * Searches for contacts based on the input value and renders the matching contacts in the overlay.
  *
@@ -186,12 +195,11 @@ function clearTask() {
 
 function addSubtask(id) {
   document.getElementById(`${id}-task-subtask`).style.color = "var(--black)";
-  document.getElementById(`${id}-task-subtask`).value = "Contact Form";
   document.getElementById(`${id}-task-icon-add`).classList.add("d-none");
   document.getElementById(`${id}-task-icon-close-check`).classList.add("flex");
 }
 
-function closeSubtask() {
+function closeSubtask(id) {
   document.getElementById(`${id}-task-subtask`).style.color =
     "var(--light-gray)";
   document.getElementById(`${id}-task-subtask`).value = "";
@@ -201,9 +209,9 @@ function closeSubtask() {
     .classList.remove("flex");
 }
 
-function confirmSubtask() {
-  let newSubtask = document.getElementById("add-task-subtask").value;
-  document.getElementById("add-task-subtask-addet").innerHTML = /*html*/ `
+function confirmSubtask(id) {
+  let newSubtask = document.getElementById(`${id}-task-subtask`).value;
+  document.getElementById(`${id}-task-subtask-addet`).innerHTML = /*html*/ `
     <div class="add-task-subtask-addet">
       <li>${newSubtask}</li>
       <div class="add-task-icons-addet">
@@ -237,6 +245,12 @@ function changeInputTextColor(input) {
   }
 }
 
+/**
+ * This function checks which prio button has been clicked, saves this
+ * and then colours it in its respective colour
+ *
+ * @param {string} clicked id of the button
+ */
 function addPrioStatus(clicked) {
   document
     .getElementById("icon-low")
