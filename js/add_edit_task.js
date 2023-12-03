@@ -65,22 +65,23 @@ function closeOverlayContacts(event, taskId) {
 
   if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
     overlay.classList.add("d-none");
-    checkAssignetUsersEdit(taskId);
+    checkAssignetContactEdit(taskId);
   }
 }
 
 /**
- * This function checks who is working on the task and displays them with their initials and usernames
+ * This function checks who is working on the task and displays them
  *
- * @param {string} id User ID
+ * @param {string} taskId The ID of the contact.
  */
-function checkAssignetUsersEdit(id) {
+function checkAssignetContactEdit(taskId) {
   const userInitialsHTML = [];
-  for (let i = 0; i < tasks[id].assignet.length; i++) {
+  for (let i = 0; i < tasks[taskId].assignet.length; i++) {
     userInitialsHTML.push(
-      renderAssignetUsersBoardHTML(
-        tasks[id].assignet[i],
-        getUserInitials(tasks[id].assignet[i])
+      renderAssignetContactBoardHTML(
+        tasks[taskId].assignet[i],
+        contacts[i].initials,
+        contacts[i].color
       )
     );
   }
@@ -94,16 +95,16 @@ function checkAssignetUsersEdit(id) {
  * @param {number} taskId - The ID of the task.
  */
 function renderAllContacts(taskId) {
-  let assignetUsers = tasks[taskId].assignet;
-  for (let i = 0; i < assignetUsers.length; i++) {
-    let user = users.find((u) => u.id === assignetUsers[i]);
-    if (user) {
-      renderContactHTML(user, taskId);
+  let assignetContacts = tasks[taskId].assignet;
+  for (let i = 0; i < assignetContacts.length; i++) {
+    let contact = contacts.find((u) => u.id === assignetContacts[i]);
+    if (contact) {
+      renderContactHTML(contact, taskId);
     }
   }
-  for (let i = 0; i < users.length; i++) {
-    if (!assignetUsers.includes(users[i].id)) {
-      renderContactHTML(users[i], taskId);
+  for (let i = 0; i < contacts.length - 1; i++) {
+    if (!assignetContacts.includes(contacts[i].id)) {
+      renderContactHTML(contacts[i], taskId);
     }
   }
 }
@@ -111,13 +112,13 @@ function renderAllContacts(taskId) {
 /**
  * Checks whether a contact is already assigned to the task.
  *
- * @param {number} taskId - The ID of the user.
- * @param {number} userId - Die ID des Benutzers.
- * @returns {string} - Der "checked"-Wert für das HTML-Checkbox-Attribut.
+ * @param {number} taskId - The ID of the task.
+ * @param {number} contactId - The ID of the contact.
+ * @returns {string} - The "checked" value for the HTML checkbox attribute.
  */
-function checkContactIsInAssignet(taskId, userId) {
+function checkContactIsInAssignet(taskId, contactId) {
   for (let i = 0; i < tasks[taskId].assignet.length; i++) {
-    if (userId == tasks[taskId].assignet[i]) {
+    if (contactId == tasks[taskId].assignet[i]) {
       return "checked";
     }
   }
@@ -126,16 +127,16 @@ function checkContactIsInAssignet(taskId, userId) {
 /**
  * Adds or removes a contact from the task assignment.
  *
- * @param {number} userId - The ID of the user.
+ * @param {number} contactId - The ID of the contact.
  * @param {number} taskId - The ID of the task.
  */
-function addContactToAssignet(userId, taskId) {
-  let checkbox = document.getElementById(`contact_checkbox${userId}`);
+function addContactToAssignet(contactId, taskId) {
+  let checkbox = document.getElementById(`contact_checkbox${contactId}`);
   checkbox.checked = !checkbox.checked;
   if (checkbox.checked) {
-    tasks[taskId].assignet.push(userId);
+    tasks[taskId].assignet.push(contactId);
   } else {
-    const index = tasks[taskId].assignet.indexOf(userId);
+    const index = tasks[taskId].assignet.indexOf(contactId);
     if (index !== -1) {
       tasks[taskId].assignet.splice(index, 1);
     }
@@ -158,6 +159,16 @@ async function confirmEditTask(taskId) {
   closeCart();
 }
 
+function checkSubtasksEdit(taskId) {
+  for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
+    console.log(taskId);
+    return /*html*/ `
+  <div class="edit-task-subtask">
+    <span>${tasks[taskId].subtasks[i]}</span>
+  </div>`;
+  }
+}
+
 /**
  * Searches for contacts based on the input value and renders the matching contacts in the overlay.
  *
@@ -169,9 +180,9 @@ function searchContact(taskId) {
     .value.toLowerCase();
   document.getElementById("edit-task-assignet-overlay").innerHTML = "";
 
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].username.toLowerCase().includes(search)) {
-      renderContactHTML(users[i], taskId);
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].name.toLowerCase().includes(search)) {
+      renderContactHTML(contacts[i], taskId);
     }
   }
 }
@@ -184,12 +195,11 @@ function clearTask() {
 
 function addSubtask(id) {
   document.getElementById(`${id}-task-subtask`).style.color = "var(--black)";
-  document.getElementById(`${id}-task-subtask`).value = "Contact Form";
   document.getElementById(`${id}-task-icon-add`).classList.add("d-none");
   document.getElementById(`${id}-task-icon-close-check`).classList.add("flex");
 }
 
-function closeSubtask() {
+function closeSubtask(id) {
   document.getElementById(`${id}-task-subtask`).style.color =
     "var(--light-gray)";
   document.getElementById(`${id}-task-subtask`).value = "";
@@ -199,9 +209,9 @@ function closeSubtask() {
     .classList.remove("flex");
 }
 
-function confirmSubtask() {
-  let newSubtask = document.getElementById("add-task-subtask").value;
-  document.getElementById("add-task-subtask-addet").innerHTML = /*html*/ `
+function confirmSubtask(id) {
+  let newSubtask = document.getElementById(`${id}-task-subtask`).value;
+  document.getElementById(`${id}-task-subtask-addet`).innerHTML = /*html*/ `
     <div class="add-task-subtask-addet">
       <li>${newSubtask}</li>
       <div class="add-task-icons-addet">
@@ -235,6 +245,12 @@ function changeInputTextColor(input) {
   }
 }
 
+/**
+ * This function checks which prio button has been clicked, saves this
+ * and then colours it in its respective colour
+ *
+ * @param {string} clicked id of the button
+ */
 function addPrioStatus(clicked) {
   document
     .getElementById("icon-low")

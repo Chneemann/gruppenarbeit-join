@@ -47,10 +47,7 @@ function isGrayscale(color) {
  */
 async function loadAllUsers() {
   try {
-    const loadedUsers = JSON.parse(await getItem("users"));
-    users = loadedUsers.filter(
-      (user) => user.username !== undefined && user.username !== "Guest"
-    );
+    users = JSON.parse(await getItem("users"));
   } catch (e) {
     console.error("Loading error:", e);
   }
@@ -62,7 +59,6 @@ async function loadAllUsers() {
 async function loadAllContacts() {
   try {
     contacts = JSON.parse(await getItem("contacts"));
-    await setItem("contacts", JSON.stringify(contacts));
   } catch (e) {
     console.error("Loading error:", e);
   }
@@ -99,7 +95,8 @@ function renderMainpageContent(path, func) {
       console.error("Error loading:", error);
     })
     .then(() => {
-      if (func) {console.log('test then func');
+      if (func) {
+        console.log("test then func");
         func();
       }
     });

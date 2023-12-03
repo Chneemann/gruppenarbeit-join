@@ -50,33 +50,22 @@ function renderTasks() {
  * @param {string} id User ID
  * @returns HTML user badget for any assignet user in the task
  */
-function checkAssignetUsersBoard(id) {
+function checkAssignetContactBoard(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
-    userInitialsHTML.push(
-      renderAssignetUsersBoardHTML(
-        tasks[id].assignet[i],
-        getUserInitials(tasks[id].assignet[i])
-      )
-    );
-  }
-  return userInitialsHTML.join("");
-}
-
-/**
- * This function creates the initials from the user name
- *
- * @param {string} id User id
- * @returns Initials in capital letters
- */
-function getUserInitials(id) {
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].id === id) {
-      const nameParts = users[i].username.split(" ");
-      const initials = nameParts.map((part) => part.charAt(0)).join("");
-      return initials.toUpperCase();
+    for (let j = 0; j < contacts.length; j++) {
+      if (tasks[id].assignet[i] == contacts[j].id) {
+        userInitialsHTML.push(
+          renderAssignetContactBoardHTML(
+            tasks[id].assignet[i],
+            contacts[j].initials,
+            contacts[j].color
+          )
+        );
+      }
     }
   }
+  return userInitialsHTML.join("");
 }
 
 /**
@@ -152,18 +141,21 @@ function generateTaskCategoryColor(id) {
  * @param {string} id User ID
  * @returns HTML user badget for any assignet user in the task
  */
-function checkAssignetUsers(id) {
+function checkAssignetContact(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
-    const taskIdUser = tasks[id].assignet[i];
-    const user = users.find((user) => user.id === taskIdUser);
-    userInitialsHTML.push(
-      generateAssignetUsersHTML(
-        taskIdUser,
-        getUserInitials(taskIdUser),
-        user.username
-      )
-    );
+    for (let j = 0; j < contacts.length; j++) {
+      if (tasks[id].assignet[i] == contacts[j].id) {
+        userInitialsHTML.push(
+          generateAssignetContactHTML(
+            tasks[id].assignet[i],
+            contacts[j].initials,
+            contacts[j].name,
+            contacts[j].color
+          )
+        );
+      }
+    }
   }
   return userInitialsHTML.join("");
 }

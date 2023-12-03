@@ -446,6 +446,10 @@
   background-color: var(--very-light-gray);
 }
 
+.edit-task-subtask {
+  font-size: 16px;
+}
+
 /*------------- EDIT TASK - FOOTER -------------*/
 
 .edit-task-footer {

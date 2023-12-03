@@ -23,7 +23,7 @@ function renderTaskHTML(id, name) {
       </div>
       <div class="board-card-footer">
         <div id="board-card-footer-badge">
-          ${checkAssignetUsersBoard(tasks[id].id)}
+          ${checkAssignetContactBoard(tasks[id].id)}
         </div>
         <div class="board-card-footer-priority prio-${tasks[id].prio}"></div>
       </div>
@@ -36,11 +36,9 @@ function renderTaskHTML(id, name) {
  * @param {string} userInitials Initials in capital letters
  * @returns HTML user badget
  */
-function renderAssignetUsersBoardHTML(i, userInitials) {
+function renderAssignetContactBoardHTML(i, userInitials, color) {
   return /*html*/ `
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
-      i
-    )})">${userInitials}</span>
+    <span class="board-card-footer-badged" style="background-color: ${color}">${userInitials}</span>
   `;
 }
 
@@ -86,7 +84,7 @@ function renderTaskOverlayHTML(id) {
         <div>
           Assigned To:
           <div class="task-overlay-assigned-person">
-          ${checkAssignetUsers(id)}
+          ${checkAssignetContact(id)}
           </div>
         </div>
         <div>
@@ -237,7 +235,7 @@ function renderTaskOverlayEditHTML(id) {
             </div>
             <div class="edit-card-footer">
               <div id="board-card-footer-badge">
-              ${checkAssignetUsersBoard(tasks[id].id)}
+              ${checkAssignetContactBoard(tasks[id].id)}
               </div>
             </div>
           </div>
@@ -269,13 +267,13 @@ function renderTaskOverlayEditHTML(id) {
                 <img
                   src="./assets/img/check-black.png"
                   alt="check"
-                  onclick="confirmSubtask()"
+                  onclick="confirmSubtask('edit')"
                   class="edit-task-icon"
                 />
               </div>
             </div>
             <div id="edit-task-subtask-addet">
-            
+            ${checkSubtasksEdit(tasks[id].id)}
             </div>
           </div>
         </div>
@@ -302,20 +300,20 @@ function renderTaskOverlayEditHTML(id) {
 /**
  * Renders a single contact in the contact list of the overlay.
  *
- * @param {Object} user - The user to be rendered.
+ * @param {Object} contact - The contact to be rendered.
  * @param {number} taskId - The ID of the task.
  */
-function renderContactHTML(user, taskId) {
+function renderContactHTML(contact, taskId) {
   document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
     <div onclick="addContactToAssignet(${
-      user.id
-    }, ${taskId})" class="edit-task-contact-overlay"><span>${getUserInitials(
-    user.id
-  )}</span><span>${user.username}</span><input id="contact_checkbox${
-    user.id
+      contact.id
+    }, ${taskId})" class="edit-task-contact-overlay"><span>${
+    contact.initials
+  }</span><span>${contact.name}</span><input id="contact_checkbox${
+    contact.id
   }" type="checkbox" style="pointer-events: none" ${checkContactIsInAssignet(
     taskId,
-    user.id
+    contact.id
   )}></div>
   `;
 }
@@ -336,12 +334,10 @@ function generateEmptyTaskHTML(id) {
  * @param {string} userInitials Initials in capital letters
  * @returns HTML user badget
  */
-function generateAssignetUsersHTML(i, userInitials, username) {
+function generateAssignetContactHTML(i, userInitials, username, color) {
   return /*html*/ `
     <div class="task-overlay-person">
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
-      i
-    )})">${userInitials}</span>
+    <span class="board-card-footer-badged" style="background-color: ${color}">${userInitials}</span>
        <p>${username}</p>
      </div>
   `;
