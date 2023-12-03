@@ -207,11 +207,11 @@ function confirmSubtask(divId, taskId) {
       renderAllSubtasks(divId, taskId);
       closeSubtask(divId);
     } else {
-      alert("");
+      alert("The field must not be empty.");
     }
   } else {
     taskSubtasks.push(newSubtask);
-    taskSubtasksstate.push("ongoing");
+    taskSubtaskstate.push("ongoing");
     renderAllSubtasks(divId, taskId);
     closeSubtask(divId);
   }

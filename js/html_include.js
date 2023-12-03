@@ -346,7 +346,7 @@ function generateAssignetContactHTML(i, userInitials, username, color) {
  * @param {String} taskId - The ID of the task.
  * @param {string} i - The length of the subtasks array (tasks[taskId].subtasks)
  */
-function renderSubtaskEditHTML(divId, i, taskId) {
+function renderSubtaskEditHTML(divId, taskId, i) {
   document.getElementById(`${divId}-task-subtask-addet`).innerHTML += /*html*/ `
   <div class="edit-task-subtask-addet">
     <li>${tasks[taskId].subtasks[i]}</li>
@@ -361,7 +361,7 @@ function renderSubtaskEditHTML(divId, i, taskId) {
         src="../assets/img/delete.svg"
         alt="delete"
         class="edit-task-icon-addet"
-        onclick="deleteSubtask(${taskId},${i})"
+        onclick="deleteSubtask('${divId}',${i},${taskId})"
       />
     </div>
   </div>`;
