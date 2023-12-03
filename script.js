@@ -160,29 +160,3 @@ function includeNavbarHTML() {
     }
   }
 }
-
-// RANDOM COLOR
-
-function getRandomColor() {
-  function getRandomComponent() {
-    const component = Math.floor(Math.random() * 256).toString(16);
-    return component.length === 1 ? "0" + component : component;
-  }
-  let color;
-  do {
-    const red = getRandomComponent();
-    const green = getRandomComponent();
-    const blue = getRandomComponent();
-    color = `#${red}${green}${blue}`;
-  } while (isGrayscale(color));
-
-  return color;
-}
-
-function isGrayscale(color) {
-  const hex = color.slice(1);
-  const r = parseInt(hex.substring(0, 2), 16);
-  const g = parseInt(hex.substring(2, 4), 16);
-  const b = parseInt(hex.substring(4, 6), 16);
-  return r === g && g === b;
-}
