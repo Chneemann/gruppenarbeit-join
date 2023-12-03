@@ -6,18 +6,6 @@ function initAddTask() {
   // loadTasks();
 }
 
-async function loadTasks() {
-  try {
-    tasks = JSON.parse(await getItem("tasks"));
-    for (let i = 0; i < tasks.length; i++) {
-      lastTaskId = array[i] + 1;
-    }
-  } catch (e) {
-    console.error("Loading error:", e);
-    lastTaskId = "0";
-  }
-}
-
 async function addTask() {
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
@@ -46,22 +34,169 @@ function resetForm() {
   addTaskCategory.value = "";
 }
 
+// EDIT TASK
+
+/**
+ * Opens the overlay for the contact list and renders all contacts.
+ *
+ * @param {number} taskId - The ID of the task.
+ */
+function openOverlayContacts(taskId) {
+  document
+    .getElementById("edit-task-icon-closecontact")
+    .classList.remove("d-none");
+  document.getElementById("edit-task-icon-opencontact").classList.add("d-none");
+  document.getElementById("edit-task-assignet-overlay").innerHTML = "";
+  document
+    .getElementById("edit-task-assignet-overlay")
+    .classList.remove("d-none");
+  renderAllContacts(taskId);
+}
+
+/**
+ * Closes the overlay for the contact list if the click takes place outside the overlay
+ *
+ * @param {Event} event - The click event.
+ * @param {number} taskId - The ID of the task.
+ */
+function closeOverlayContacts(event, taskId) {
+  let overlay = document.getElementById("edit-task-assignet-overlay");
+  let target = event.target;
+
+  if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
+    overlay.classList.add("d-none");
+    checkAssignetUsersEdit(taskId);
+  }
+}
+
+/**
+ * This function checks who is working on the task and displays them with their initials and usernames
+ *
+ * @param {string} id User ID
+ */
+function checkAssignetUsersEdit(id) {
+  const userInitialsHTML = [];
+  for (let i = 0; i < tasks[id].assignet.length; i++) {
+    userInitialsHTML.push(
+      renderAssignetUsersBoardHTML(
+        tasks[id].assignet[i],
+        getUserInitials(tasks[id].assignet[i])
+      )
+    );
+  }
+  document.getElementById("board-card-footer-badge").innerHTML =
+    userInitialsHTML.join("");
+}
+
+/**
+ * Renders all contacts, both assigned and unassigned, the assigned ones should come first.
+ *
+ * @param {number} taskId - The ID of the task.
+ */
+function renderAllContacts(taskId) {
+  let assignetUsers = tasks[taskId].assignet;
+  for (let i = 0; i < assignetUsers.length; i++) {
+    let user = users.find((u) => u.id === assignetUsers[i]);
+    if (user) {
+      renderContactHTML(user, taskId);
+    }
+  }
+  for (let i = 0; i < users.length; i++) {
+    if (!assignetUsers.includes(users[i].id)) {
+      renderContactHTML(users[i], taskId);
+    }
+  }
+}
+
+/**
+ * Checks whether a contact is already assigned to the task.
+ *
+ * @param {number} taskId - The ID of the user.
+ * @param {number} userId - Die ID des Benutzers.
+ * @returns {string} - Der "checked"-Wert für das HTML-Checkbox-Attribut.
+ */
+function checkContactIsInAssignet(taskId, userId) {
+  for (let i = 0; i < tasks[taskId].assignet.length; i++) {
+    if (userId == tasks[taskId].assignet[i]) {
+      return "checked";
+    }
+  }
+}
+
+/**
+ * Adds or removes a contact from the task assignment.
+ *
+ * @param {number} userId - The ID of the user.
+ * @param {number} taskId - The ID of the task.
+ */
+function addContactToAssignet(userId, taskId) {
+  let checkbox = document.getElementById(`contact_checkbox${userId}`);
+  checkbox.checked = !checkbox.checked;
+  if (checkbox.checked) {
+    tasks[taskId].assignet.push(userId);
+  } else {
+    const index = tasks[taskId].assignet.indexOf(userId);
+    if (index !== -1) {
+      tasks[taskId].assignet.splice(index, 1);
+    }
+  }
+}
+
+/**
+ * Confirms the processing of a task and updates the information in the backend.
+ *
+ * @param {number} taskId - The ID of the task.
+ */
+async function confirmEditTask(taskId) {
+  const selectedDate = new Date(editTaskDate.value);
+  const timestamp = selectedDate.getTime();
+  tasks[taskId]["title"] = editTaskTitel.value;
+  tasks[taskId]["description"] = editTaskDescription.value;
+  tasks[taskId]["date"] = timestamp;
+  tasks[taskId]["prio"] = taskPrio.toLowerCase();
+  await setItem("tasks", JSON.stringify(tasks));
+  closeCart();
+}
+
+/**
+ * Searches for contacts based on the input value and renders the matching contacts in the overlay.
+ *
+ * @param {string} taskId - The ID of the task for which contacts are being searched.
+ */
+function searchContact(taskId) {
+  let search = document
+    .getElementById("edit-task-assignet")
+    .value.toLowerCase();
+  document.getElementById("edit-task-assignet-overlay").innerHTML = "";
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].username.toLowerCase().includes(search)) {
+      renderContactHTML(users[i], taskId);
+    }
+  }
+}
+
+// ADD TASK
+
 function clearTask() {
   // Todo
 }
 
-function addSubtask() {
-  document.getElementById("add-task-subtask").style.color = "var(--black)";
-  document.getElementById("add-task-subtask").value = "Contact Form";
-  document.getElementById("add-task-icon-add").classList.add("d-none");
-  document.getElementById("add-task-icon-close-check").classList.add("flex");
+function addSubtask(id) {
+  document.getElementById(`${id}-task-subtask`).style.color = "var(--black)";
+  document.getElementById(`${id}-task-subtask`).value = "Contact Form";
+  document.getElementById(`${id}-task-icon-add`).classList.add("d-none");
+  document.getElementById(`${id}-task-icon-close-check`).classList.add("flex");
 }
 
 function closeSubtask() {
-  document.getElementById("add-task-subtask").style.color = "var(--light-gray)";
-  document.getElementById("add-task-subtask").value = "";
-  document.getElementById("add-task-icon-add").classList.remove("d-none");
-  document.getElementById("add-task-icon-close-check").classList.remove("flex");
+  document.getElementById(`${id}-task-subtask`).style.color =
+    "var(--light-gray)";
+  document.getElementById(`${id}-task-subtask`).value = "";
+  document.getElementById(`${id}-task-icon-add`).classList.remove("d-none");
+  document
+    .getElementById(`${id}-task-icon-close-check`)
+    .classList.remove("flex");
 }
 
 function confirmSubtask() {

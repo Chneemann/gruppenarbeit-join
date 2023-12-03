@@ -115,6 +115,7 @@ async function register() {
   signupBtn.disabled = true;
   if (validatePassword()) {
     users.push({
+      id: users[users.length].id,
       username: signupUsername.value,
       email: signupEmail.value,
       password: signupPassword.value,

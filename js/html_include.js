@@ -1,12 +1,12 @@
 // BOARD
 
 /**
- * This function generate the current task
+ * This function render the current task
  *
  * @param {string} id Current task id
  * @param {string} name The <div> id in html code
  */
-function generateTaskHTML(id, name) {
+function renderTaskHTML(id, name) {
   document.getElementById(name).innerHTML += /*html*/ `
     <div class="board-cart" draggable="true" ondragstart="startDragging(${
       tasks[id].id
@@ -31,11 +31,27 @@ function generateTaskHTML(id, name) {
 }
 
 /**
- * This function displays the clicked task in large size
+ * This function render the user badget
+ *
+ * @param {string} userInitials Initials in capital letters
+ * @returns HTML user badget
+ */
+function renderAssignetUsersBoardHTML(i, userInitials) {
+  return /*html*/ `
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
+      i
+    )})">${userInitials}</span>
+  `;
+}
+
+// BOARD DISPLAY CURRENT TASK
+
+/**
+ * This function displays the current task in large size
  *
  * @param {string} id Current task id
  */
-function generateTaskOverlayHTML(id) {
+function renderTaskOverlayHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
   <div class="task-overlay" onclick="event.stopPropagation()">
     <div class="text-wrap-overflow">
@@ -56,7 +72,7 @@ function generateTaskOverlayHTML(id) {
         </div>
         <div class="task-overlay-date">
           <p>Due date:</p>
-          <span id="task-overlay-date">10/05/2023</span>
+          <span id="task-overlay-date">${timestampInDate(tasks[id].date)}</span>
         </div>
         <div class="task-overlay-prio">
           <p>Priority:</p>
@@ -102,13 +118,13 @@ function generateTaskOverlayHTML(id) {
 }
 
 /**
- * This function displays the clicked task in large size
+ * Displays the task that the user wants to edit
  *
  * @param {string} id Current task id
  */
-function generateTaskOverlayEditHTML(id) {
+function renderTaskOverlayEditHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
-  <div id="edit-task-page" onclick="event.stopPropagation(), closeOverlayContacts(event)">
+  <div id="edit-task-page" onclick="event.stopPropagation()">
     <div class="text-wrap-overflow">
       <div class="edit-task-header right">
         <div
@@ -125,7 +141,7 @@ function generateTaskOverlayEditHTML(id) {
             <p>Title<span class="red-dot">*</span></p>
             <input
               type="text"
-              id="edit-task-titel"
+              id="editTaskTitel"
               placeholder="Enter a title"
               value="${tasks[id].title}"
               oninput="changeInputTextColor('edit-task-titel')"
@@ -135,7 +151,7 @@ function generateTaskOverlayEditHTML(id) {
           <div class="edit-task-description">
             <p>Description</p>
             <textarea
-              id="edit-task-description"
+              id="editTaskDescription"
               placeholder="Enter a Description"
               oninput="changeInputTextColor('edit-task-description')"
             >${tasks[id].description}</textarea>
@@ -144,8 +160,9 @@ function generateTaskOverlayEditHTML(id) {
             <p>Due date<span class="red-dot">*</span></p>
             <input
               type="date"
-              id="edit-task-date"
+              id="editTaskDate"
               oninput="changeInputTextColor('edit-task-date')"
+              value="${timestampForInputfield(tasks[id].date)}"
               required
             />
           </div>
@@ -195,12 +212,30 @@ function generateTaskOverlayEditHTML(id) {
               type="text"
               id="edit-task-assignet"
               placeholder="Select contact to assign"
-              onclick="openOverlayContacts(event)"
-              oninput="changeInputTextColor('edit-task-assignet')"
+              onclick="openOverlayContacts(${tasks[id].id})"
+              oninput="changeInputTextColor('edit-task-assignet'), searchContact(${
+                tasks[id].id
+              })"
             />
+            <div id="edit-task-icon-closecontact" class="d-none">
+                <img
+                  src="./assets/img/check-black.png"
+                  alt="add"
+                  onclick="closeOverlayContacts(event, ${tasks[id].id})"
+                  class="edit-task-icon"
+                />
+              </div>
+              <div id="edit-task-icon-opencontact">
+                <img
+                  src="./assets/img/add.svg"
+                  alt="open"
+                  onclick="openOverlayContacts(${tasks[id].id})"
+                  class="edit-task-icon"
+                />
+              </div>
             <div id="edit-task-assignet-overlay" class="edit-task-assignet-overlay d-none">
             </div>
-            <div class="board-card-footer">
+            <div class="edit-card-footer">
               <div id="board-card-footer-badge">
               ${checkAssignetUsersBoard(tasks[id].id)}
               </div>
@@ -212,14 +247,14 @@ function generateTaskOverlayEditHTML(id) {
               type="text"
               id="edit-task-subtask"
               placeholder="Add new subtask"
-              onclick="addSubtask()"
+              onclick="addSubtask('edit')"
             />
             <div id="edit-task-icons">
               <div id="edit-task-icon-add">
                 <img
                   src="./assets/img/add.svg"
                   alt="add"
-                  onclick="addSubtask()"
+                  onclick="addSubtask('edit')"
                   class="edit-task-icon"
                 />
               </div>
@@ -227,7 +262,7 @@ function generateTaskOverlayEditHTML(id) {
                 <img
                   src="./assets/img/close.svg"
                   alt="close"
-                  onclick="closeSubtask()"
+                  onclick="closeSubtask('edit')"
                   class="edit-task-icon"
                 />
                 <span class="edit-task-line small"></span>
@@ -248,7 +283,9 @@ function generateTaskOverlayEditHTML(id) {
       <div>
         <div class="edit-task-footer">
           <div class="edit-task-buttons">
-            <button class="edit-task-btn" type="submit">
+            <button class="edit-task-btn" type="button" onclick="confirmEditTask(${
+              tasks[id].id
+            })">
               <div class="edit-task-btn-inside">
                 <span>Ok</span>
                 <img src="./assets/img/check.svg" alt="ckeck" />
@@ -262,35 +299,50 @@ function generateTaskOverlayEditHTML(id) {
   `;
 }
 
-function openOverlayContacts(event) {
-  if (event) event.stopPropagation();
-  document
-    .getElementById("edit-task-assignet-overlay")
-    .classList.remove("d-none");
-  renderAllContacts();
+/**
+ * Renders a single contact in the contact list of the overlay.
+ *
+ * @param {Object} user - The user to be rendered.
+ * @param {number} taskId - The ID of the task.
+ */
+function renderContactHTML(user, taskId) {
+  document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
+    <div onclick="addContactToAssignet(${
+      user.id
+    }, ${taskId})" class="edit-task-contact-overlay"><span>${getUserInitials(
+    user.id
+  )}</span><span>${user.username}</span><input id="contact_checkbox${
+    user.id
+  }" type="checkbox" style="pointer-events: none" ${checkContactIsInAssignet(
+    taskId,
+    user.id
+  )}></div>
+  `;
 }
 
-function closeOverlayContacts(event) {
-  const overlay = document.getElementById("edit-task-assignet-overlay");
-  const target = event.target;
-
-  if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
-    overlay.classList.add("d-none");
-    saveContactToTask();
-  }
+/**
+ * This function generate the empty task
+ * @param {string} id The <div> id in html code
+ */
+function generateEmptyTaskHTML(id) {
+  document.getElementById(id).innerHTML = /*html*/ `
+   <div class="board-empty-task">No tasks To do</div>
+  `;
 }
 
-function renderAllContacts() {
-  document.getElementById("edit-task-assignet-overlay").innerHTML = "";
-  for (let i = 0; i < users.length; i++) {
-    document.getElementById(
-      "edit-task-assignet-overlay"
-    ).innerHTML += /*html*/ `
-    <div class="edit-task-contact-overlay"><span>${getUserInitials(
-      users[i].id
-    )}</span><span>${users[i].username}</span><input type="checkbox"></div>
-    `;
-  }
+/**
+ * This function generate the user badget
+ *
+ * @param {string} userInitials Initials in capital letters
+ * @returns HTML user badget
+ */
+function generateAssignetUsersHTML(i, userInitials, username) {
+  return /*html*/ `
+    <div class="task-overlay-person">
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
+      i
+    )})">${userInitials}</span>
+       <p>${username}</p>
+     </div>
+  `;
 }
-
-function saveContactToTask() {}

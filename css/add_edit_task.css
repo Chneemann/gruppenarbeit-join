@@ -357,7 +357,9 @@
   cursor: pointer;
 }
 
-#edit-task-icon-add {
+#edit-task-icon-add,
+#edit-task-icon-opencontact,
+#edit-task-icon-closecontact {
   position: relative;
   top: -52px;
   left: 400px;
@@ -425,21 +427,26 @@
   margin: 10px;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .edit-task-contact-overlay {
   display: flex;
-  align-self: center;
+  align-items: center;
   justify-content: space-between;
   height: 40px;
   cursor: pointer;
+}
+
+.edit-task-contact-overlay span:first-child {
+  padding-left: 10px;
 }
 
 .edit-task-contact-overlay:hover {
   background-color: var(--very-light-gray);
 }
 
-/*------------- ADD TASK - FOOTER -------------*/
+/*------------- EDIT TASK - FOOTER -------------*/
 
 .edit-task-footer {
   display: flex;
@@ -478,6 +485,11 @@
 .edit-task-btn:hover {
   background-color: var(--light-blue);
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.edit-card-footer {
+  position: absolute;
+  top: 110px;
 }
 
 /*------------- GLOBAL -------------*/

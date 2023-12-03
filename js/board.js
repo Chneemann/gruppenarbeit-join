@@ -1,59 +1,18 @@
-let tasks = [
-  {
-    id: "0",
-    title: "Check the code for duplicate entries",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    assignet: [4, 10, 18],
-    category: "CSS",
-    subtasks: [],
-    subtaskstate: [],
-    date: "",
-    prio: "urgent",
-    status: "todo",
-    delete: "no",
-  },
-  {
-    id: "1",
-    title: "Working on the board side",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium excepturi placeat minima quod soluta laboriosam?",
-    assignet: [5, 7, 13],
-    category: "JavaScript",
-    subtasks: ["Placeholder 1"],
-    subtaskstate: ["ongoing"],
-    date: "",
-    prio: "low",
-    status: "inprogress",
-    delete: "no",
-  },
-  {
-    id: "2",
-    title: "Assemble the code",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, sed!",
-    assignet: [8, 11, 19],
-    category: "HTML",
-    subtasks: ["Placeholder 1", "Placeholder 2"],
-    subtaskstate: ["ongoing", "done"],
-    date: "",
-    prio: "medium",
-    status: "awaitfeedback",
-    delete: "no",
-  },
-];
+let tasks = [];
 let currentDraggedElement;
 
 // BOARD
 
+/**
+ * Initialises the board by loading all tasks
+ */
 async function initBoard() {
-  //loadTasks(); !!TODO!!
+  await loadTasks();
   renderTasks();
 }
 
 /**
  * This function loads all tasks from the backend.
- *
- * !!TODO!!
  *
  */
 async function loadTasks() {
@@ -74,7 +33,7 @@ function renderTasks() {
     for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].delete != "none")
         if (tasks[i].status === status && tasks[i].delete === "no") {
-          generateTaskHTML(i, `board-content-task-${status}`);
+          renderTaskHTML(i, `board-content-task-${status}`);
         }
     }
     if (
@@ -95,27 +54,13 @@ function checkAssignetUsersBoard(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
     userInitialsHTML.push(
-      generateAssignetUsersBoardHTML(
+      renderAssignetUsersBoardHTML(
         tasks[id].assignet[i],
         getUserInitials(tasks[id].assignet[i])
       )
     );
   }
   return userInitialsHTML.join("");
-}
-
-/**
- * This function generate the user badget
- *
- * @param {string} userInitials Initials in capital letters
- * @returns HTML user badget
- */
-function generateAssignetUsersBoardHTML(i, userInitials) {
-  return /*html*/ `
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
-      i
-    )})">${userInitials}</span>
-  `;
 }
 
 /**
@@ -183,6 +128,12 @@ function checkSubtasksBoard(id) {
       <div class="board-card-subtask-text">${countSubtasks}/${length} Subtasks</div>`;
 }
 
+/**
+ * Generates a category color based on the task's category.
+ *
+ * @param {number} id - The task ID.
+ * @returns {string} - The color associated with the task's category.
+ */
 function generateTaskCategoryColor(id) {
   if (tasks[id].category == "HTML") {
     return "brown";
@@ -191,16 +142,6 @@ function generateTaskCategoryColor(id) {
   } else if (tasks[id].category == "JavaScript") {
     return "yellow";
   }
-}
-
-/**
- * This function generate the empty task
- * @param {string} id The <div> id in html code
- */
-function generateEmptyTaskHTML(id) {
-  document.getElementById(id).innerHTML = /*html*/ `
-   <div class="board-empty-task">No tasks To do</div>
-  `;
 }
 
 // TASK OVERLAY
@@ -225,23 +166,6 @@ function checkAssignetUsers(id) {
     );
   }
   return userInitialsHTML.join("");
-}
-
-/**
- * This function generate the user badget
- *
- * @param {string} userInitials Initials in capital letters
- * @returns HTML user badget
- */
-function generateAssignetUsersHTML(i, userInitials, username) {
-  return /*html*/ `
-    <div class="task-overlay-person">
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
-      i
-    )})">${userInitials}</span>
-       <p>${username}</p>
-     </div>
-  `;
 }
 
 /**
@@ -286,27 +210,114 @@ function checkSubtasks(id) {
  * @param {String} id Current task id
  * @param {number} i Current Subtask
  */
-function updateSubtask(id, i) {
+async function updateSubtask(id, i) {
   tasks[id].subtaskstate[i] =
     tasks[id].subtaskstate[i] === "done" ? "ongoing" : "done";
+  await setItem("tasks", JSON.stringify(tasks));
   initBoard();
 }
 
-// EDIT TASK
+/**
+ * Returns the current date in timestamp format
+ *
+ * @returns - The current date in the timestamp
+ */
+function getCurrentTimestamp() {
+  return new Date().getTime();
+}
+
+/**
+ * Formats a number to always have two digits.
+ *
+ * @param {number} number - The number to format.
+ * @returns {string} - The formatted number with two digits.
+ */
+function formatTwoDigits(number) {
+  return number < 10 ? `0${number}` : `${number}`;
+}
+
+/**
+ * Converts a timestamp to a date string in the format DD/MM/YYYY.
+ *
+ * @param {number} timestamp - The timestamp to convert.
+ * @returns {string} - The formatted date string.
+ */
+function timestampInDate(timestamp) {
+  const dateObject = new Date(timestamp);
+  const year = dateObject.getFullYear();
+  const month = formatTwoDigits(dateObject.getMonth() + 1);
+  const day = formatTwoDigits(dateObject.getDate());
+  return `${day}/${month}/${year}`;
+}
+
+/**
+ * Converts a timestamp to a date string suitable for input fields (YYYY-MM-DD).
+ *
+ * @param {number} timestamp - The timestamp to convert.
+ * @returns {string} - The formatted date string for input fields.
+ */
+function timestampForInputfield(timestamp) {
+  const dateObject = new Date(timestamp);
+  const year = dateObject.getFullYear();
+  const month = formatTwoDigits(dateObject.getMonth() + 1);
+  const day = formatTwoDigits(dateObject.getDate());
+  return `${year}-${month}-${day}`;
+}
 
 // DRAG & DROP
 
+/**
+ * Start dragging a task.
+ *
+ * @param {string} id - The ID of the task being dragged.
+ */
 function startDragging(id) {
   currentDraggedElement = id;
 }
 
+/**
+ * Allow dropping on the board.
+ *
+ * @param {Event} ev - The drop event.
+ */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function drop(category) {
+/**
+ * Handle the drop event by updating the task's status and saving it to storage.
+ *
+ * @param {string} category - The category to which the task is dropped.
+ */
+async function drop(category) {
   tasks[currentDraggedElement]["status"] = category;
+  await setItem("tasks", JSON.stringify(tasks));
   initBoard();
+}
+
+/**
+ * Searches for tasks based on the input provided in the board search field.
+ * It filters and renders tasks that contain the search term in their title.
+ */
+function searchTask() {
+  let search = document.getElementById("board-searchfield").value.toLowerCase();
+  let states = ["todo", "inprogress", "awaitfeedback", "done"];
+  for (let status of states) {
+    generateEmptyTaskHTML(`board-content-task-${status}`);
+  }
+  for (let i = 0; i < tasks.length; i++) {
+    if (
+      tasks[i].title.toLowerCase().includes(search) ||
+      tasks[i].description.toLowerCase().includes(search)
+    ) {
+      if (tasks[i].delete === "no") {
+        document.getElementById(
+          `board-content-task-${tasks[i].status}`
+        ).innerHTML = "";
+        renderTaskHTML(i, `board-content-task-${tasks[i].status}`);
+      }
+    }
+  }
 }
 
 // OPEN/CLOSE/EDIT/DELETE TASK
@@ -337,8 +348,9 @@ async function closeAddTask() {
 }
 
 function editTask(id) {
-  //loadW3Include("./html/edit_task.html", "task-overlay-cart");
-  generateTaskOverlayEditHTML(id);
+  renderTaskOverlayEditHTML(id);
+  taskPrio = tasks[id].prio;
+  addPrioStatus(`icon-${taskPrio}`);
 }
 
 function deleteTask(id) {
@@ -351,8 +363,7 @@ function deleteTask(id) {
 // OPEN/CLOSE CART
 
 async function openCart(id) {
-  //loadW3Include("./html/task_overlay.html", "task-overlay-cart");
-  generateTaskOverlayHTML(id);
+  renderTaskOverlayHTML(id);
   checkSubtasks(id);
   var overlay = document.getElementById("task-overlay-cart");
   overlay.classList.remove("d-none");
@@ -370,6 +381,7 @@ async function closeCart() {
   overlay.style.backgroundColor = "";
   await sleep(100);
   overlay.classList.add("d-none");
+  initBoard();
 }
 
 // GLOBAL
