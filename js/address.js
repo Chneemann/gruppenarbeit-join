@@ -29,14 +29,15 @@ function addContact() {
     document.getElementById("overlay-header").innerHTML = "Add Contact";
 
 }
-function addContact() {
+async function addContact() {
 
-    let newName = document.getElementById('name').value;
-    let newEmail = document.getElementById("email").value;
-    let newPhone = document.getElementById("phone").value;
-    let newColor = randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    contacts.push({ newName, newEmail, newPhone, newColor });
-    console.log(contacts[contacts.length - 1]);
+    let name = document.getElementById('name').value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let color = randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    let id = JSON.stringify(contacts.length+1);
+
+    contacts.push({id, name, email, phone, color });
     console.log(contacts);
 
     renderContacts();
@@ -106,13 +107,12 @@ function getInitials(i) {
 }
 
 function renderContacts(){
-    console.log('Test REnder');
     for (let i = 0; i < contacts.length; i++) {
         firstLetter(i);
         let contact = contacts[i];
 
         document.getElementById("contact-list").innerHTML += /*html*/ `
-        <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'> <!-- /*id notwendig? */ -->
+        <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'> 
         <div class='badge' style="background-color:${contact["color"]
             }"} ><span>${getInitials(i)}</span></div>
         <div class='card'>
