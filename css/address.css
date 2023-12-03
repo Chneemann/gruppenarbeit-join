@@ -6,18 +6,20 @@ h2{
     font-size: 47px;
     font-weight: 500;
 }
-#scrollbar{
+#scrollbar{padding: 32px 24px 32px ;
     width: 400px;
-    height: 880px;
-    padding: 32px 24px 32px 24px;
+    
     position: fixed;
     display: flex;
     flex-direction: row;
     left:232px;
     top:96px;
-    box-shadow:  6px 0 5px rgba(129, 127, 127, 0.2);
+   box-shadow:  6px 0 5px rgba(129, 127, 127, 0.2);
+    overflow: auto;
 }
-
+.contact-list{
+    overflow: auto; 
+}
 #scrollbar button{
     width: 352px;
     height: 56px;
