@@ -71,7 +71,7 @@ function resetForm() {
     document.getElementById("name").value = '';
     document.getElementById("email").value = '';
     document.getElementById("phone").value = '';
-
+}
     function editContact() {
         document.getElementById("add-contact-overlay").style.display = "flex";
         document.getElementById("overlay-header").innerHTML = "Edit Contact";
@@ -106,6 +106,7 @@ function resetForm() {
     }
 
     function renderContacts() {
+        console.log('Test REnder');
         for (let i = 0; i < contacts.length; i++) {
             firstLetter(i);
             let contact = contacts[i];
