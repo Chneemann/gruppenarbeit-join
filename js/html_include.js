@@ -197,7 +197,9 @@ function generateTaskOverlayEditHTML(id) {
               id="edit-task-assignet"
               placeholder="Select contact to assign"
               onclick="openOverlayContacts(${tasks[id].id})"
-              oninput="changeInputTextColor('edit-task-assignet')"
+              oninput="changeInputTextColor('edit-task-assignet'), searchContact(${
+                tasks[id].id
+              })"
             />
             <div id="edit-task-icon-closecontact" class="d-none">
                 <img
@@ -287,7 +289,7 @@ function generateTaskOverlayEditHTML(id) {
  * @param {Object} user - The user to be rendered.
  * @param {number} taskId - The ID of the task.
  */
-function renderContact(user, taskId) {
+function renderContactHTML(user, taskId) {
   document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
     <div onclick="addContactToAssignet(${
       user.id

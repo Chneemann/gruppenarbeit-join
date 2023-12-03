@@ -65,8 +65,27 @@ function closeOverlayContacts(event, taskId) {
 
   if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
     overlay.classList.add("d-none");
-    generateTaskOverlayEditHTML(taskId);
+    checkAssignetUsersEdit(taskId);
   }
+}
+
+/**
+ * This function checks who is working on the task and displays them with their initials and usernames
+ *
+ * @param {string} id User ID
+ */
+function checkAssignetUsersEdit(id) {
+  const userInitialsHTML = [];
+  for (let i = 0; i < tasks[id].assignet.length; i++) {
+    userInitialsHTML.push(
+      generateAssignetUsersBoardHTML(
+        tasks[id].assignet[i],
+        getUserInitials(tasks[id].assignet[i])
+      )
+    );
+  }
+  document.getElementById("board-card-footer-badge").innerHTML =
+    userInitialsHTML.join("");
 }
 
 /**
@@ -79,12 +98,12 @@ function renderAllContacts(taskId) {
   for (let i = 0; i < assignetUsers.length; i++) {
     let user = users.find((u) => u.id === assignetUsers[i]);
     if (user) {
-      renderContact(user, taskId);
+      renderContactHTML(user, taskId);
     }
   }
   for (let i = 0; i < users.length; i++) {
     if (!assignetUsers.includes(users[i].id)) {
-      renderContact(users[i], taskId);
+      renderContactHTML(users[i], taskId);
     }
   }
 }
@@ -137,6 +156,19 @@ async function confirmEditTask(taskId) {
   tasks[taskId]["prio"] = taskPrio.toLowerCase();
   await setItem("tasks", JSON.stringify(tasks));
   closeCart();
+}
+
+function searchContact(taskId) {
+  let search = document
+    .getElementById("edit-task-assignet")
+    .value.toLowerCase();
+  document.getElementById("edit-task-assignet-overlay").innerHTML = "";
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].username.toLowerCase().includes(search)) {
+      renderContactHTML(users[i], taskId);
+    }
+  }
 }
 
 // ADD TASK
