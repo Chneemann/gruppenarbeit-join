@@ -1,39 +1,3 @@
-let taskPrio = "";
-let taskSubtasks = "";
-let lastTaskId;
-
-function initAddTask() {
-  // loadTasks();
-}
-
-async function addTask() {
-  clearTaskBtn.disabled = true;
-  addTaskBtn.disabled = true;
-  let timestamp = new Date(addTaskDate.value).getTime();
-  let task = {
-    id: lastTaskId,
-    title: addTaskTitel.value,
-    description: addTaskDescription.value,
-    assignet: addTaskAssignet.value,
-    category: addTaskCategory.value,
-    date: timestamp,
-    prio: taskPrio,
-    status: "todo",
-    delete: "no",
-  };
-  resetForm();
-}
-
-function resetForm() {
-  clearTaskBtn.disabled = false;
-  addTaskBtn.disabled = false;
-  addTaskTitel.value = "";
-  addTaskDescription.value = "";
-  addTaskAssignet.value = "";
-  addTaskDate.value = "";
-  addTaskCategory.value = "";
-}
-
 // EDIT TASK
 
 /**
@@ -159,13 +123,10 @@ async function confirmEditTask(taskId) {
   closeCart();
 }
 
-function checkSubtasksEdit(taskId) {
+function renderAllSubtasksEdit(taskId) {
+  document.getElementById("edit-task-subtask-addet").innerHTML = "";
   for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
-    console.log(taskId);
-    return /*html*/ `
-  <div class="edit-task-subtask">
-    <span>${tasks[taskId].subtasks[i]}</span>
-  </div>`;
+    generateSubtaskEditHTML(taskId, i);
   }
 }
 
@@ -187,52 +148,35 @@ function searchContact(taskId) {
   }
 }
 
-// ADD TASK
-
-function clearTask() {
-  // Todo
-}
-
-function addSubtask(id) {
-  document.getElementById(`${id}-task-subtask`).style.color = "var(--black)";
-  document.getElementById(`${id}-task-icon-add`).classList.add("d-none");
-  document.getElementById(`${id}-task-icon-close-check`).classList.add("flex");
-}
-
-function closeSubtask(id) {
-  document.getElementById(`${id}-task-subtask`).style.color =
-    "var(--light-gray)";
-  document.getElementById(`${id}-task-subtask`).value = "";
-  document.getElementById(`${id}-task-icon-add`).classList.remove("d-none");
+function addSubtask(divId) {
+  document.getElementById(`${divId}-task-subtask`).style.color = "var(--black)";
+  document.getElementById(`${divId}-task-icon-add`).classList.add("d-none");
   document
-    .getElementById(`${id}-task-icon-close-check`)
-    .classList.remove("flex");
+    .getElementById(`${divId}-task-icon-close-check`)
+    .classList.remove("d-none");
 }
 
-function confirmSubtask(id) {
-  let newSubtask = document.getElementById(`${id}-task-subtask`).value;
-  document.getElementById(`${id}-task-subtask-addet`).innerHTML = /*html*/ `
-    <div class="add-task-subtask-addet">
-      <li>${newSubtask}</li>
-      <div class="add-task-icons-addet">
-        <img
-          src="../assets/img/edit.svg"
-          alt="edit"
-          class="add-task-icon-addet"
-        />
-        <div class="add-task-subtask-line"></div>
-        <img
-          src="../assets/img/delete.svg"
-          alt="delete"
-          class="add-task-icon-addet"
-          onclick="deleteSubtask()"
-        />
-      </div>
-    </div>`;
+function closeSubtask(divId) {
+  document.getElementById(`${divId}-task-subtask`).style.color =
+    "var(--light-gray)";
+  document.getElementById(`${divId}-task-subtask`).value = "";
+  document.getElementById(`${divId}-task-icon-add`).classList.remove("d-none");
+  document
+    .getElementById(`${divId}-task-icon-close-check`)
+    .classList.add("d-none");
 }
 
-function deleteSubtask() {
-  document.getElementById("add-task-subtask-addet").innerHTML = "";
+function confirmSubtask(taskId) {
+  let newSubtask = document.getElementById(`edit-task-subtask`).value;
+  tasks[taskId].subtasks.push(newSubtask);
+  tasks[taskId].subtaskstate.push("ongoing");
+  renderAllSubtasksEdit(taskId);
+}
+
+function deleteSubtask(taskId, i) {
+  tasks[taskId].subtasks.splice(i, 1);
+  tasks[taskId].subtaskstate.splice(i, 1);
+  renderAllSubtasksEdit(taskId);
 }
 
 function changeInputTextColor(input) {

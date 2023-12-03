@@ -341,6 +341,7 @@ async function closeAddTask() {
 
 function editTask(id) {
   renderTaskOverlayEditHTML(id);
+  renderAllSubtasksEdit(id);
   taskPrio = tasks[id].prio;
   addPrioStatus(`icon-${taskPrio}`);
 }

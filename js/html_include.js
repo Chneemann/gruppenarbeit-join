@@ -256,7 +256,7 @@ function renderTaskOverlayEditHTML(id) {
                   class="edit-task-icon"
                 />
               </div>
-              <div id="edit-task-icon-close-check" class="d-none">
+              <div id="edit-task-icon-close-check" class="d-none flex">
                 <img
                   src="./assets/img/close.svg"
                   alt="close"
@@ -267,13 +267,12 @@ function renderTaskOverlayEditHTML(id) {
                 <img
                   src="./assets/img/check-black.png"
                   alt="check"
-                  onclick="confirmSubtask('edit')"
+                  onclick="confirmSubtask(${tasks[id].id})"
                   class="edit-task-icon"
                 />
               </div>
             </div>
             <div id="edit-task-subtask-addet">
-            ${checkSubtasksEdit(tasks[id].id)}
             </div>
           </div>
         </div>
@@ -341,4 +340,25 @@ function generateAssignetContactHTML(i, userInitials, username, color) {
        <p>${username}</p>
      </div>
   `;
+}
+
+function generateSubtaskEditHTML(taskId, i) {
+  document.getElementById("edit-task-subtask-addet").innerHTML += /*html*/ `
+  <div class="edit-task-subtask-addet">
+    <li>${tasks[taskId].subtasks[i]}</li>
+    <div class="edit-task-icons-addet">
+      <img
+        src="../assets/img/edit.svg"
+        alt="edit"
+        class="edit-task-icon-addet"
+      />
+      <div class="edit-task-subtask-line"></div>
+      <img
+        src="../assets/img/delete.svg"
+        alt="delete"
+        class="edit-task-icon-addet"
+        onclick="deleteSubtask(${taskId},${i})"
+      />
+    </div>
+  </div>`;
 }
