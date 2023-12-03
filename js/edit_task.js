@@ -41,13 +41,17 @@ function closeOverlayContacts(event, taskId) {
 function checkAssignetContactEdit(taskId) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[taskId].assignet.length; i++) {
-    userInitialsHTML.push(
-      renderAssignetContactBoardHTML(
-        tasks[taskId].assignet[i],
-        contacts[i].initials,
-        contacts[i].color
-      )
-    );
+    for (let j = 0; j < contacts.length; j++) {
+      if (tasks[taskId].assignet[i] == contacts[j].id) {
+        userInitialsHTML.push(
+          renderAssignetContactBoardHTML(
+            tasks[taskId].assignet[i],
+            contacts[j].initials,
+            contacts[j].color
+          )
+        );
+      }
+    }
   }
   document.getElementById("board-card-footer-badge").innerHTML =
     userInitialsHTML.join("");
@@ -66,7 +70,7 @@ function renderAllContacts(taskId) {
       renderContactHTML(contact, taskId);
     }
   }
-  for (let i = 0; i < contacts.length - 1; i++) {
+  for (let i = 0; i < contacts.length; i++) {
     if (!assignetContacts.includes(contacts[i].id)) {
       renderContactHTML(contacts[i], taskId);
     }
@@ -123,10 +127,15 @@ async function confirmEditTask(taskId) {
   closeCart();
 }
 
+/**
+ * Displays all subtasks in the current task
+ *
+ * @param {number} taskId - The ID of the task.
+ */
 function renderAllSubtasksEdit(taskId) {
   document.getElementById("edit-task-subtask-addet").innerHTML = "";
   for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
-    generateSubtaskEditHTML(taskId, i);
+    renderSubtaskEditHTML(taskId, i);
   }
 }
 

@@ -47,6 +47,7 @@
   display: flex;
   font-size: 20px;
   font-weight: 400;
+  overflow: hidden;
 }
 
 .add-task-left,

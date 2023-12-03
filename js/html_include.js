@@ -235,7 +235,6 @@ function renderTaskOverlayEditHTML(id) {
             </div>
             <div class="edit-card-footer">
               <div id="board-card-footer-badge">
-              ${checkAssignetContactBoard(tasks[id].id)}
               </div>
             </div>
           </div>
@@ -342,7 +341,7 @@ function generateAssignetContactHTML(i, userInitials, username, color) {
   `;
 }
 
-function generateSubtaskEditHTML(taskId, i) {
+function renderSubtaskEditHTML(taskId, i) {
   document.getElementById("edit-task-subtask-addet").innerHTML += /*html*/ `
   <div class="edit-task-subtask-addet">
     <li>${tasks[taskId].subtasks[i]}</li>
