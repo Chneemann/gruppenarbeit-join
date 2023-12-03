@@ -142,7 +142,7 @@ function renderTaskOverlayEditHTML(id) {
               id="editTaskTitel"
               placeholder="Enter a title"
               value="${tasks[id].title}"
-              oninput="changeInputTextColor('edit-task-titel')"
+              oninput="changeInputTextColor('editTaskTitel')"
               required
             />
           </div>
@@ -151,7 +151,7 @@ function renderTaskOverlayEditHTML(id) {
             <textarea
               id="editTaskDescription"
               placeholder="Enter a Description"
-              oninput="changeInputTextColor('edit-task-description')"
+              oninput="changeInputTextColor('editTaskDescription')"
             >${tasks[id].description}</textarea>
           </div>
           <div class="edit-task-date">
@@ -159,7 +159,7 @@ function renderTaskOverlayEditHTML(id) {
             <input
               type="date"
               id="editTaskDate"
-              oninput="changeInputTextColor('edit-task-date')"
+              oninput="changeInputTextColor('editTaskDate')"
               value="${timestampForInputfield(tasks[id].date)}"
               required
             />

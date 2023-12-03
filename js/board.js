@@ -171,10 +171,11 @@ function textTransformPriority(id) {
  * @param {String} id Current task id
  */
 function checkSubtasks(id) {
+  document.getElementById("task-overlay-subtasks").innerHTML = "";
   if (tasks[id].subtasks.length === 0) {
     document.getElementById(
       "task-overlay-subtasks"
-    ).innerHTML = /*html*/ `<div class="task-overlay-subtask"><p>No subtask createt</p></div>`;
+    ).innerHTML = /*html*/ `<div class="task-overlay-subtask"><span>No subtask createt</span></div>`;
   } else {
     for (let i = 0; i < tasks[id].subtasks.length; i++) {
       document.getElementById("task-overlay-subtasks").innerHTML += /*html*/ `
@@ -185,7 +186,7 @@ function checkSubtasks(id) {
         onclick="updateSubtask(${id}, ${i})"
         ${tasks[id].subtaskstate[i] === "done" ? "checked" : ""}
       />
-      <p>${tasks[id].subtasks[i]}</p>
+      <p onclick="updateSubtask(${id}, ${i})">${tasks[id].subtasks[i]}</p>
     </div>`;
     }
   }
@@ -202,6 +203,7 @@ async function updateSubtask(id, i) {
     tasks[id].subtaskstate[i] === "done" ? "ongoing" : "done";
   await setItem("tasks", JSON.stringify(tasks));
   initBoard();
+  checkSubtasks(id);
 }
 
 /**
@@ -338,6 +340,7 @@ function editTask(id) {
   renderTaskOverlayEditHTML(id);
   renderAllSubtasksEdit(id);
   checkAssignetContactEdit(id);
+  document.getElementById("board-card-footer-badge").style.width = "400px";
   taskPrio = tasks[id].prio;
   addPrioStatus(`icon-${taskPrio}`);
 }

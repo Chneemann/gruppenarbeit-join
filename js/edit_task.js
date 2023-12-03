@@ -26,6 +26,12 @@ function openOverlayContacts(taskId) {
 function closeOverlayContacts(event, taskId) {
   let overlay = document.getElementById("edit-task-assignet-overlay");
   let target = event.target;
+  document
+    .getElementById("edit-task-icon-opencontact")
+    .classList.remove("d-none");
+  document
+    .getElementById("edit-task-icon-closecontact")
+    .classList.add("d-none");
 
   if (!overlay.contains(target) && !target.matches("#edit-task-assignet")) {
     overlay.classList.add("d-none");

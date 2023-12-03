@@ -1,8 +1,8 @@
-/* body */
 .board-page {
   margin: 0;
   background-color: var(--very-light-gray);
   padding: 79.5px 0 0 64px;
+  font-family: "Figtree", sans-serif !important;
 }
 
 .board-page h1 {
@@ -179,7 +179,7 @@
   padding: 4px 16px;
   border-radius: 8px;
   color: var(--white);
-  text-shadow: 1px 1px 1px var(--black);
+  text-shadow: 1px 1px 2px var(--black);
 }
 
 .board-card-headline {
@@ -236,19 +236,25 @@
 
 #board-card-footer-badge {
   display: flex;
+  width: 170px;
+  overflow: auto;
 }
 
 .board-card-footer-badged {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   border-radius: 45px;
   border: 1px solid var(--white);
   color: var(--white);
   font-size: 12px;
   font-weight: 400;
+}
+
+#board-card-footer-badge span {
+  text-shadow: 1px 1px 2px var(--black);
 }
 
 .board-card-footer-priority {
@@ -291,6 +297,7 @@
   border-radius: 30px;
   padding: 24px;
   margin: 24px;
+  position: relative;
 }
 
 .task-overlay-header {
@@ -320,7 +327,7 @@
   padding: 4px 24px;
   border-radius: 8px;
   color: var(--white);
-  text-shadow: 1px 1px 1px var(--black);
+  text-shadow: 1px 1px 2px var(--black);
 }
 
 .task-overlay-headline h2 {
@@ -384,12 +391,27 @@
 .task-overlay-person p {
   margin: 0;
   padding-left: 16px;
-  font-family: Open Sans;
   font-size: 19px;
   font-weight: 400;
 }
 
+.task-overlay-person span {
+  text-shadow: 1px 1px 2px var(--black);
+}
+
+.task-overlay-subtask input {
+  cursor: pointer;
+}
+
 .task-overlay-subtask p {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.task-overlay-subtask span {
   margin: 0;
   padding-left: 16px;
   font-size: 16px;
@@ -399,6 +421,9 @@
 .task-overlay-footer {
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
 }
 
 .task-overlay-footer a {
