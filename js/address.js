@@ -23,6 +23,10 @@ function openAddContact(){
  document.getElementById("add-contact-overlay").style.display = "flex";
     document.getElementById("overlay-header").innerHTML='Add Contact';
 
+function addContact() {
+  document.getElementById("add-contact-overlay").style.display = "flex";
+  document.getElementById("overlay-header").innerHTML = "Add Contact";
+
 }
 function addContact() {
    
@@ -34,7 +38,7 @@ function addContact() {
     console.log(contacts[contacts.length-1]);
     console.log(contacts);
 
-    renderContacts();
+    renderContacts(); 
 }
 
 function editContact(i){
@@ -66,43 +70,53 @@ function resetForm(){
     document.getElementById("name").value = '';
     document.getElementById("email").value ='';
     document.getElementById("phone").value ='';
+=======
+function editContact() {
+  document.getElementById("add-contact-overlay").style.display = "flex";
+  document.getElementById("overlay-header").innerHTML = "Edit Contact";
+}
+function closeAddContact() {
+  document.getElementById("add-contact-overlay").style.display = "none";
+>>>>>>> e988de73d3a77dc58abf8cd4bf74019174110126
 }
 
-function firstLetter(i) { //FUNKTION FÜR REGISTER
+function firstLetter(i) {
+  //FUNKTION FÜR REGISTER
 
     let firstLetter = contacts[i].name[0].toUpperCase();
-    document.getElementById("contact-list").innerHTML += /*html*/`
+    document.getElementById("contact-list").innerHTML += /*html*/ `
     <div class='first-letter' id='first-letter-${firstLetter}'>
     ${firstLetter}</div>
-    `
+    `;
     return firstLetter;
 
 }
 
-function getInitials(i) {// FUNKTION FÜR BADGES
-    const allNames = contacts[i].name.split(' ');
+function getInitials(i) {
+  // FUNKTION FÜR BADGES
+    const allNames = contacts[i].name.split(" ");
 
     let initials = [];
     for (let index = 0; index < allNames.length; index++) {
 
         initials.push(allNames[index][0].toUpperCase());
     }
-    return initials.join("") //Methode entfernt das Komma
+    return initials.join(""); //Methode entfernt das Komma
 }
 
-
 function renderContacts() {
-    console.log('render contacts');
     for (let i = 0; i < contacts.length; i++) {
         firstLetter(i);
         let contact = contacts[i];
 
-        document.getElementById("contact-list").innerHTML += /*html*/`
+        document.getElementById("contact-list").innerHTML += /*html*/ `
         <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'> <!-- /*id notwendig? */ -->
-        <div class='badge' style="background-color:${contact['color']}"} ><span>${getInitials(i)}</span></div>
+        <div class='badge' style="background-color:${
+          contact["color"]
+        }"} ><span>${getInitials(i)}</span></div>
         <div class='card'>
-           <span>${contact['name']}</span>   <br>
-            <a href=""> ${contact['email']}</a> <br>
+           <span>${contact["name"]}</span>   <br>
+            <a href=""> ${contact["email"]}</a> <br>
     </div>
 </div>
        `;
@@ -110,13 +124,17 @@ function renderContacts() {
 }
 
 function viewCard(i) {
-
-    document.getElementById('card-closeup').innerHTML = /*html*/
+document.getElementById("card-closeup").innerHTML =
+    /*html*/
         `
         <div class='card-closeup-header'>
-            <div class='big-badge' style='background-color:${contacts[i]['color']}'} ><span>${getInitials(i)}</span>
+            <div class='big-badge' style='background-color:${
+              contacts[i]["color"]
+            }'} ><span>${getInitials(i)}</span>
             </div>
-            <div class='card-closeup-header-right'><h2>${contacts[i]['name']}</h2> 
+            <div class='card-closeup-header-right'><h2>${
+              contacts[i]["name"]
+            }</h2> 
                 <div class='edit-delete-contact'>
                     <div class='edit-contact' onclick='editContact(${i})'><img src="./assets/img/edit.svg">Edit</div>
                     <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div>
@@ -130,13 +148,13 @@ function viewCard(i) {
            
            <h3> Contact Information</h3>
            <p>Email</p>
-            <a href=""> ${contacts[i]['email']}</a> <br>
+            <a href=""> ${contacts[i]["email"]}</a> <br>
             <p>Phone</p>
-            <span>${contacts[i]['phone']}</span>
+            <span>${contacts[i]["phone"]}</span>
     </div>
     
 
     
-    `
-    console.log('test view card', i);
+    `;
+    console.log("test view card", i);
 }

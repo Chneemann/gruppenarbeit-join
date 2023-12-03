@@ -1,4 +1,5 @@
 users = [];
+let contacts = [];
 
 document.addEventListener("DOMContentLoaded", function () {
   const imgElements = document.querySelectorAll("img");
@@ -7,6 +8,39 @@ document.addEventListener("DOMContentLoaded", function () {
     img.draggable = false;
   });
 });
+
+function getRandomColor() {
+  /**
+   * Generates a random component of the RGB color.
+   * @returns {string} A random hexadecimal value for an RGB component.
+   */
+  function getRandomComponent() {
+    const component = Math.floor(Math.random() * 256).toString(16);
+    return component.length === 1 ? "0" + component : component;
+  }
+
+  let color;
+  do {
+    // Generate random RGB components.
+    const red = getRandomComponent();
+    const green = getRandomComponent();
+    const blue = getRandomComponent();
+    // Combine components into a color.
+    color = `#${red}${green}${blue}`;
+  } while (isGrayscale(color)); // Ensure the generated color is not grayscale.
+
+  return color;
+}
+
+function isGrayscale(color) {
+  const hex = color.slice(1); // Remove the '#' from the color string.
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+
+  // Check if all RGB components are equal, indicating a grayscale color.
+  return r === g && g === b;
+}
 
 /**
  * This function loads all users from the backend.
@@ -17,6 +51,18 @@ async function loadAllUsers() {
     users = loadedUsers.filter(
       (user) => user.username !== undefined && user.username !== "Guest"
     );
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+
+/**
+ * This function loads all contacts from the backend.
+ */
+async function loadAllContacts() {
+  try {
+    contacts = JSON.parse(await getItem("contacts"));
+    await setItem("contacts", JSON.stringify(contacts));
   } catch (e) {
     console.error("Loading error:", e);
   }
