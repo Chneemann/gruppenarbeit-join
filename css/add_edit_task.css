@@ -191,6 +191,33 @@
   border-radius: 20px;
 }
 
+.edit-task-subtask-addet input {
+  height: 25px;
+  width: 310px;
+  max-width: 310px;
+  padding: 0 0 0 8px;
+  margin: 0;
+  color: var(--black);
+  background-color: var(--very-light-gray);
+  font-size: 17px;
+  border: 0;
+}
+
+.edit-task-subtask-addet li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edit-task-subtask-addet img:first-child {
+  filter: invert();
+}
+
+.edit-task-subtask-addet img:hover {
+  filter: invert(60%) sepia(58%) saturate(1629%) hue-rotate(165deg)
+    brightness(92%) contrast(92%);
+}
+
 .add-task-subtask-addet:hover {
   background-color: var(--very-light-gray2);
 }
@@ -395,7 +422,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 400px;
+  width: 418px;
   font-size: 16px;
   padding: 4px 12px;
   border-radius: 20px;
@@ -598,6 +625,14 @@
   .add-task-formular,
   .edit-task-formular {
     font-size: 16px;
+  }
+
+  .edit-task-subtask-addet {
+    width: 318px;
+  }
+
+  .edit-task-subtask-addet input {
+    width: 220px !important;
   }
 
   .add-task-formular input,

@@ -109,12 +109,7 @@
         />
         <div id="add-task-icons">
           <div id="add-task-icon-add">
-            <img
-              src="./assets/img/add.svg"
-              alt="add"
-              onclick="closeSubtask('add')"
-              class="add-task-icon"
-            />
+            <img src="./assets/img/add.svg" alt="add" class="add-task-icon2" />
           </div>
           <div id="add-task-icon-close-check" class="d-none flex">
             <img
@@ -127,42 +122,42 @@
             <img
               src="./assets/img/check-black.png"
               alt="check"
-              onclick="confirmSubtask('add', '0')"
+              onclick="confirmSubtask('add')"
               class="add-task-icon"
             />
           </div>
         </div>
         <div id="add-task-subtask-addet"></div>
       </div>
-    </div>
-  </div>
-  <div>
-    <div class="add-task-footer">
-      <div class="add-task-required">
-        <span class="red-dot">*</span>This field is required
-      </div>
-      <div class="add-task-buttons">
-        <button
-          id="clearTaskBtn"
-          class="add-task-btn-clear"
-          type="submit"
-          onclick="clearTask()"
-        >
-          <div class="add-task-btn-inside">
-            <span>Clear</span>
-            <img src="./assets/img/close.svg" alt="close" />
+      <div>
+        <div class="add-task-footer">
+          <div class="add-task-required">
+            <span class="red-dot">*</span>This field is required
           </div>
-        </button>
-        <button
-          class="add-task-btn-create"
-          type="submit"
-          onclick="createTask()"
-        >
-          <div id="addTaskBtn" class="add-task-btn-inside">
-            <span>Create Task</span>
-            <img src="./assets/img/check.svg" alt="ckeck" />
+          <div class="add-task-buttons">
+            <button
+              id="clearTaskBtn"
+              class="add-task-btn-clear"
+              type="submit"
+              onclick="clearTask()"
+            >
+              <div class="add-task-btn-inside">
+                <span>Clear</span>
+                <img src="./assets/img/close.svg" alt="close" />
+              </div>
+            </button>
+            <button
+              class="add-task-btn-create"
+              type="submit"
+              onclick="createTask()"
+            >
+              <div id="addTaskBtn" class="add-task-btn-inside">
+                <span>Create Task</span>
+                <img src="./assets/img/check.svg" alt="ckeck" />
+              </div>
+            </button>
           </div>
-        </button>
+        </div>
       </div>
     </div>
   </div>

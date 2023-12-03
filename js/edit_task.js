@@ -198,22 +198,54 @@ function closeSubtask(divId) {
     .classList.add("d-none");
 }
 
+function editSubtask(divId, taskId) {
+  document
+    .getElementById(`${divId}TaskTitletext${taskId}`)
+    .classList.add("d-none");
+  document
+    .getElementById(`${divId}-edit-task-icon-subtask-edit${taskId}`)
+    .classList.add("d-none");
+  document
+    .getElementById(`${divId}TaskEditfield${taskId}`)
+    .classList.remove("d-none");
+  document
+    .getElementById(`${divId}-edit-task-icon-subtask-close${taskId}`)
+    .classList.remove("d-none");
+}
+
+function saveEditSubtask(divId, taskId) {
+  taskSubtasks[taskId] = document.getElementById(
+    `addTaskEditfield${taskId}`
+  ).value;
+  document
+    .getElementById(`${divId}TaskTitletext${taskId}`)
+    .classList.remove("d-none");
+  document
+    .getElementById(`${divId}-edit-task-icon-subtask-edit${taskId}`)
+    .classList.remove("d-none");
+  document
+    .getElementById(`${divId}TaskEditfield${taskId}`)
+    .classList.add("d-none");
+  document
+    .getElementById(`${divId}-edit-task-icon-subtask-close${taskId}`)
+    .classList.add("d-none");
+  renderAllSubtasks(divId, taskId);
+}
+
 function confirmSubtask(divId, taskId) {
   let newSubtask = document.getElementById(`${divId}-task-subtask`).value;
-  if (divId == "edit") {
-    if (!newSubtask == "") {
+  if (!newSubtask == "") {
+    if (divId == "edit") {
       tasks[taskId].subtasks.push(newSubtask);
       tasks[taskId].subtaskstate.push("ongoing");
       renderAllSubtasks(divId, taskId);
       closeSubtask(divId);
-    } else {
-      alert("The field must not be empty.");
+    } else if (divId == "add") {
+      taskSubtasks.push(newSubtask);
+      taskSubtaskstate.push("ongoing");
+      renderAllSubtasks(divId, taskId);
+      closeSubtask(divId);
     }
-  } else {
-    taskSubtasks.push(newSubtask);
-    taskSubtaskstate.push("ongoing");
-    renderAllSubtasks(divId, taskId);
-    closeSubtask(divId);
   }
 }
 
@@ -222,7 +254,7 @@ function deleteSubtask(divId, i, taskId) {
     tasks[taskId].subtasks.splice(i, 1);
     tasks[taskId].subtaskstate.splice(i, 1);
     renderAllSubtasks("edit", taskId);
-  } else {
+  } else if (divId == "add") {
     taskSubtasks.splice(i, 1);
     taskSubtaskstate.splice(i, 1);
     renderAllSubtasks("add", taskId);
