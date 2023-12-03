@@ -1,4 +1,4 @@
-let contacts = [
+let co = [
     {
         'name': 'Jana',
         'email': 'js@gmail.com',
@@ -72,62 +72,62 @@ function resetForm() {
     document.getElementById("email").value = '';
     document.getElementById("phone").value = '';
 }
-    function editContact() {
-        document.getElementById("add-contact-overlay").style.display = "flex";
-        document.getElementById("overlay-header").innerHTML = "Edit Contact";
-    }
-    function closeAddContact() {
-        document.getElementById("add-contact-overlay").style.display = "none";
+function editContact() {
+    document.getElementById("add-contact-overlay").style.display = "flex";
+    document.getElementById("overlay-header").innerHTML = "Edit Contact";
+}
+function closeAddContact() {
+    document.getElementById("add-contact-overlay").style.display = "none";
 
-    }
+}
 
-    function firstLetter(i) {
-        //FUNKTION FÜR REGISTER
+function firstLetter(i) {
+    //FUNKTION FÜR REGISTER
 
-        let firstLetter = contacts[i].name[0].toUpperCase();
-        document.getElementById("contact-list").innerHTML += /*html*/ `
+    let firstLetter = contacts[i].name[0].toUpperCase();
+    document.getElementById("contact-list").innerHTML += /*html*/ `
     <div class='first-letter' id='first-letter-${firstLetter}'>
     ${firstLetter}</div>
     `;
-        return firstLetter;
+    return firstLetter;
 
+}
+
+function getInitials(i) {
+    // FUNKTION FÜR BADGES
+    const allNames = contacts[i].name.split(" ");
+
+    let initials = [];
+    for (let index = 0; index < allNames.length; index++) {
+
+        initials.push(allNames[index][0].toUpperCase());
     }
+    return initials.join(""); //Methode entfernt das Komma
+}
 
-    function getInitials(i) {
-        // FUNKTION FÜR BADGES
-        const allNames = contacts[i].name.split(" ");
+function renderContacts(){
+    console.log('Test REnder');
+    for (let i = 0; i < contacts.length; i++) {
+        firstLetter(i);
+        let contact = contacts[i];
 
-        let initials = [];
-        for (let index = 0; index < allNames.length; index++) {
-
-            initials.push(allNames[index][0].toUpperCase());
-        }
-        return initials.join(""); //Methode entfernt das Komma
-    }
-
-    function renderContacts() {
-        console.log('Test REnder');
-        for (let i = 0; i < contacts.length; i++) {
-            firstLetter(i);
-            let contact = contacts[i];
-
-            document.getElementById("contact-list").innerHTML += /*html*/ `
+        document.getElementById("contact-list").innerHTML += /*html*/ `
         <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'> <!-- /*id notwendig? */ -->
         <div class='badge' style="background-color:${contact["color"]
-                }"} ><span>${getInitials(i)}</span></div>
+            }"} ><span>${getInitials(i)}</span></div>
         <div class='card'>
            <span>${contact["name"]}</span>   <br>
             <a href=""> ${contact["email"]}</a> <br>
     </div>
 </div>
        `;
-        }
     }
+}
 
-    function viewCard(i) {
-        document.getElementById("card-closeup").innerHTML =
-            /*html*/
-            `
+function viewCard(i) {
+    document.getElementById("card-closeup").innerHTML =
+        /*html*/
+        `
         <div class='card-closeup-header'>
             <div class='big-badge' style='background-color:${contacts[i]["color"]}><
               span>${getInitials(i)}</span>
@@ -150,4 +150,4 @@ function resetForm() {
             <span>${contacts[i]["phone"]}</span>
     </div>
     `;
-    }
+}

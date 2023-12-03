@@ -99,7 +99,7 @@ function renderMainpageContent(path, func) {
       console.error("Error loading:", error);
     })
     .then(() => {
-      if (func) {console.log('test then func')
+      if (func) {console.log('test then func');
         func();
       }
     });
