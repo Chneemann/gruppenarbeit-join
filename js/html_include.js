@@ -235,7 +235,7 @@ function renderTaskOverlayEditHTML(id) {
               </div>
             <div id="edit-task-assignet-overlay" class="edit-task-assignet-overlay d-none">
             </div>
-            <div class="board-card-footer">
+            <div class="edit-card-footer">
               <div id="board-card-footer-badge">
               ${checkAssignetUsersBoard(tasks[id].id)}
               </div>

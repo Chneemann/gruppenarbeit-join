@@ -78,7 +78,7 @@ function checkAssignetUsersEdit(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
     userInitialsHTML.push(
-      generateAssignetUsersBoardHTML(
+      renderAssignetUsersBoardHTML(
         tasks[id].assignet[i],
         getUserInitials(tasks[id].assignet[i])
       )

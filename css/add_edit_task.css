@@ -446,7 +446,7 @@
   background-color: var(--very-light-gray);
 }
 
-/*------------- ADD TASK - FOOTER -------------*/
+/*------------- EDIT TASK - FOOTER -------------*/
 
 .edit-task-footer {
   display: flex;
@@ -485,6 +485,11 @@
 .edit-task-btn:hover {
   background-color: var(--light-blue);
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.edit-card-footer {
+  position: absolute;
+  top: 110px;
 }
 
 /*------------- GLOBAL -------------*/
