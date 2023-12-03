@@ -1,9 +1,11 @@
 let taskPrio = "";
 let taskSubtasks = [];
+let taskSubtasksstate = [];
 let lastTaskId;
 let task = "";
 
-function initAddTask() {
+async function initAddTask() {
+  await loadAllTasks();
   // loadTasks();
 }
 
@@ -12,13 +14,15 @@ async function createTask() {
   addTaskBtn.disabled = true;
   let timestamp = new Date(addTaskDate.value).getTime();
   task = {
-    id: lastTaskId,
+    id: tasks.length,
     title: addTaskTitel.value,
     description: addTaskDescription.value,
     assignet: addTaskAssignet.value,
     category: addTaskCategory.value,
     date: timestamp,
     prio: taskPrio,
+    subtasks: taskSubtasks,
+    subtasksstate: taskSubtasksstate,
     status: "todo",
     delete: "no",
   };
@@ -29,5 +33,6 @@ async function createTask() {
 function clearTask() {
   taskPrio = "";
   taskSubtasks = [];
+  taskSubtasksstate = [];
   renderMainpageContent("./html/add_task.html");
 }

@@ -211,6 +211,7 @@ function confirmSubtask(divId, taskId) {
     }
   } else {
     taskSubtasks.push(newSubtask);
+    taskSubtasksstate.push("ongoing");
     renderAllSubtasks(divId, taskId);
     closeSubtask(divId);
   }
@@ -223,6 +224,7 @@ function deleteSubtask(divId, i, taskId) {
     renderAllSubtasks("edit", taskId);
   } else {
     taskSubtasks.splice(i, 1);
+    taskSubtaskstate.splice(i, 1);
     renderAllSubtasks("add", taskId);
   }
 }

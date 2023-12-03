@@ -38,6 +38,18 @@ async function loadAllContacts() {
 }
 
 /**
+ * This function loads all tasks from the backend.
+ *
+ */
+async function loadAllTasks() {
+  try {
+    tasks = JSON.parse(await getItem("tasks"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+
+/**
  * This function deletes the user from the LocalStorage and loads the login page, he is now logged out
  */
 function signout() {

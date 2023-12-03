@@ -121,7 +121,7 @@ async function register() {
 
   if (validatePassword()) {
     users.push({
-      id: users.length + 1,
+      id: users.length,
       username: signupUsername.value,
       email: signupEmail.value,
       password: signupPassword.value,

@@ -7,20 +7,8 @@ let currentDraggedElement;
  * Initialises the board by loading all tasks
  */
 async function initBoard() {
-  await loadTasks();
+  await loadAllTasks();
   renderTasks();
-}
-
-/**
- * This function loads all tasks from the backend.
- *
- */
-async function loadTasks() {
-  try {
-    tasks = JSON.parse(await getItem("tasks"));
-  } catch (e) {
-    console.error("Loading error:", e);
-  }
 }
 
 /**
