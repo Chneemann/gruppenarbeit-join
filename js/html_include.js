@@ -1,12 +1,12 @@
 // BOARD
 
 /**
- * This function generate the current task
+ * This function render the current task
  *
  * @param {string} id Current task id
  * @param {string} name The <div> id in html code
  */
-function generateTaskHTML(id, name) {
+function renderTaskHTML(id, name) {
   document.getElementById(name).innerHTML += /*html*/ `
     <div class="board-cart" draggable="true" ondragstart="startDragging(${
       tasks[id].id
@@ -31,12 +31,12 @@ function generateTaskHTML(id, name) {
 }
 
 /**
- * This function generate the user badget
+ * This function render the user badget
  *
  * @param {string} userInitials Initials in capital letters
  * @returns HTML user badget
  */
-function generateAssignetUsersBoardHTML(i, userInitials) {
+function renderAssignetUsersBoardHTML(i, userInitials) {
   return /*html*/ `
     <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
       i
@@ -47,11 +47,11 @@ function generateAssignetUsersBoardHTML(i, userInitials) {
 // BOARD DISPLAY CURRENT TASK
 
 /**
- * This function displays the clicked task in large size
+ * This function displays the current task in large size
  *
  * @param {string} id Current task id
  */
-function generateTaskOverlayHTML(id) {
+function renderTaskOverlayHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
   <div class="task-overlay" onclick="event.stopPropagation()">
     <div class="text-wrap-overflow">
@@ -118,11 +118,11 @@ function generateTaskOverlayHTML(id) {
 }
 
 /**
- * This function displays the clicked task in large size
+ * Displays the task that the user wants to edit
  *
  * @param {string} id Current task id
  */
-function generateTaskOverlayEditHTML(id) {
+function renderTaskOverlayEditHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
   <div id="edit-task-page" onclick="event.stopPropagation()">
     <div class="text-wrap-overflow">

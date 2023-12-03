@@ -33,7 +33,7 @@ function renderTasks() {
     for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].delete != "none")
         if (tasks[i].status === status && tasks[i].delete === "no") {
-          generateTaskHTML(i, `board-content-task-${status}`);
+          renderTaskHTML(i, `board-content-task-${status}`);
         }
     }
     if (
@@ -54,7 +54,7 @@ function checkAssignetUsersBoard(id) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
     userInitialsHTML.push(
-      generateAssignetUsersBoardHTML(
+      renderAssignetUsersBoardHTML(
         tasks[id].assignet[i],
         getUserInitials(tasks[id].assignet[i])
       )
@@ -295,6 +295,31 @@ async function drop(category) {
   initBoard();
 }
 
+/**
+ * Searches for tasks based on the input provided in the board search field.
+ * It filters and renders tasks that contain the search term in their title.
+ */
+function searchTask() {
+  let search = document.getElementById("board-searchfield").value.toLowerCase();
+  let states = ["todo", "inprogress", "awaitfeedback", "done"];
+  for (let status of states) {
+    generateEmptyTaskHTML(`board-content-task-${status}`);
+  }
+  for (let i = 0; i < tasks.length; i++) {
+    if (
+      tasks[i].title.toLowerCase().includes(search) ||
+      tasks[i].description.toLowerCase().includes(search)
+    ) {
+      if (tasks[i].delete === "no") {
+        document.getElementById(
+          `board-content-task-${tasks[i].status}`
+        ).innerHTML = "";
+        renderTaskHTML(i, `board-content-task-${tasks[i].status}`);
+      }
+    }
+  }
+}
+
 // OPEN/CLOSE/EDIT/DELETE TASK
 
 async function openAddTask() {
@@ -323,7 +348,7 @@ async function closeAddTask() {
 }
 
 function editTask(id) {
-  generateTaskOverlayEditHTML(id);
+  renderTaskOverlayEditHTML(id);
   taskPrio = tasks[id].prio;
   addPrioStatus(`icon-${taskPrio}`);
 }
@@ -338,7 +363,7 @@ function deleteTask(id) {
 // OPEN/CLOSE CART
 
 async function openCart(id) {
-  generateTaskOverlayHTML(id);
+  renderTaskOverlayHTML(id);
   checkSubtasks(id);
   var overlay = document.getElementById("task-overlay-cart");
   overlay.classList.remove("d-none");

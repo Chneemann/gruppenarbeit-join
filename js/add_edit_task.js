@@ -158,6 +158,11 @@ async function confirmEditTask(taskId) {
   closeCart();
 }
 
+/**
+ * Searches for contacts based on the input value and renders the matching contacts in the overlay.
+ *
+ * @param {string} taskId - The ID of the task for which contacts are being searched.
+ */
 function searchContact(taskId) {
   let search = document
     .getElementById("edit-task-assignet")

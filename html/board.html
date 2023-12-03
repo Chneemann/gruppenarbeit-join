@@ -15,7 +15,12 @@
     <h1>Board</h1>
     <div class="board-search">
       <div>
-        <input id="board-searchfield" type="text" placeholder="Find Task" />
+        <input
+          id="board-searchfield"
+          type="text"
+          placeholder="Find Task"
+          oninput="searchTask()"
+        />
         <span class="board-line"></span>
       </div>
       <button class="board-btn-add-task" type="submit" onclick="openAddTask()">
