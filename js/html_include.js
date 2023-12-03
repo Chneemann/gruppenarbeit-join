@@ -244,15 +244,13 @@ function renderTaskOverlayEditHTML(id) {
               type="text"
               id="edit-task-subtask"
               placeholder="Add new subtask"
-              onclick="addSubtask('edit')"
+              oninput="userInputSubtask('edit')"
             />
             <div id="edit-task-icons">
               <div id="edit-task-icon-add">
                 <img
                   src="./assets/img/add.svg"
                   alt="add"
-                  onclick="addSubtask('edit')"
-                  class="edit-task-icon"
                 />
               </div>
               <div id="edit-task-icon-close-check" class="d-none flex">

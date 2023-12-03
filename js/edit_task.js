@@ -6,6 +6,7 @@
  * @param {number} taskId - The ID of the task.
  */
 function openOverlayContacts(taskId) {
+  document.getElementById("edit-task-assignet").value = "";
   document
     .getElementById("edit-task-icon-closecontact")
     .classList.remove("d-none");
@@ -157,9 +158,18 @@ function searchContact(taskId) {
   document.getElementById("edit-task-assignet-overlay").innerHTML = "";
 
   for (let i = 0; i < contacts.length; i++) {
-    if (contacts[i].name.toLowerCase().includes(search)) {
+    if (
+      contacts[i].name.toLowerCase().includes(search) ||
+      contacts[i].initials.toLowerCase().includes(search)
+    ) {
       renderContactHTML(contacts[i], taskId);
     }
+  }
+}
+
+function userInputSubtask(divId) {
+  if (document.getElementById("edit-task-subtask").value > "0") {
+    addSubtask(divId);
   }
 }
 
@@ -183,9 +193,13 @@ function closeSubtask(divId) {
 
 function confirmSubtask(taskId) {
   let newSubtask = document.getElementById(`edit-task-subtask`).value;
-  tasks[taskId].subtasks.push(newSubtask);
-  tasks[taskId].subtaskstate.push("ongoing");
-  renderAllSubtasksEdit(taskId);
+  if (!newSubtask == "") {
+    tasks[taskId].subtasks.push(newSubtask);
+    tasks[taskId].subtaskstate.push("ongoing");
+    renderAllSubtasksEdit(taskId);
+  } else {
+    alert("");
+  }
 }
 
 function deleteSubtask(taskId, i) {
