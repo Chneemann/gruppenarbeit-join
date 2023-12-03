@@ -64,20 +64,6 @@ function checkAssignetUsersBoard(id) {
 }
 
 /**
- * This function generate the user badget
- *
- * @param {string} userInitials Initials in capital letters
- * @returns HTML user badget
- */
-function generateAssignetUsersBoardHTML(i, userInitials) {
-  return /*html*/ `
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
-      i
-    )})">${userInitials}</span>
-  `;
-}
-
-/**
  * This function creates the initials from the user name
  *
  * @param {string} id User id
@@ -142,6 +128,12 @@ function checkSubtasksBoard(id) {
       <div class="board-card-subtask-text">${countSubtasks}/${length} Subtasks</div>`;
 }
 
+/**
+ * Generates a category color based on the task's category.
+ *
+ * @param {number} id - The task ID.
+ * @returns {string} - The color associated with the task's category.
+ */
 function generateTaskCategoryColor(id) {
   if (tasks[id].category == "HTML") {
     return "brown";
@@ -150,16 +142,6 @@ function generateTaskCategoryColor(id) {
   } else if (tasks[id].category == "JavaScript") {
     return "yellow";
   }
-}
-
-/**
- * This function generate the empty task
- * @param {string} id The <div> id in html code
- */
-function generateEmptyTaskHTML(id) {
-  document.getElementById(id).innerHTML = /*html*/ `
-   <div class="board-empty-task">No tasks To do</div>
-  `;
 }
 
 // TASK OVERLAY
@@ -184,23 +166,6 @@ function checkAssignetUsers(id) {
     );
   }
   return userInitialsHTML.join("");
-}
-
-/**
- * This function generate the user badget
- *
- * @param {string} userInitials Initials in capital letters
- * @returns HTML user badget
- */
-function generateAssignetUsersHTML(i, userInitials, username) {
-  return /*html*/ `
-    <div class="task-overlay-person">
-    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
-      i
-    )})">${userInitials}</span>
-       <p>${username}</p>
-     </div>
-  `;
 }
 
 /**

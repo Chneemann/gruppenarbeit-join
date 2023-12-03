@@ -31,6 +31,22 @@ function generateTaskHTML(id, name) {
 }
 
 /**
+ * This function generate the user badget
+ *
+ * @param {string} userInitials Initials in capital letters
+ * @returns HTML user badget
+ */
+function generateAssignetUsersBoardHTML(i, userInitials) {
+  return /*html*/ `
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
+      i
+    )})">${userInitials}</span>
+  `;
+}
+
+// BOARD DISPLAY CURRENT TASK
+
+/**
  * This function displays the clicked task in large size
  *
  * @param {string} id Current task id
@@ -301,5 +317,32 @@ function renderContactHTML(user, taskId) {
     taskId,
     user.id
   )}></div>
+  `;
+}
+
+/**
+ * This function generate the empty task
+ * @param {string} id The <div> id in html code
+ */
+function generateEmptyTaskHTML(id) {
+  document.getElementById(id).innerHTML = /*html*/ `
+   <div class="board-empty-task">No tasks To do</div>
+  `;
+}
+
+/**
+ * This function generate the user badget
+ *
+ * @param {string} userInitials Initials in capital letters
+ * @returns HTML user badget
+ */
+function generateAssignetUsersHTML(i, userInitials, username) {
+  return /*html*/ `
+    <div class="task-overlay-person">
+    <span class="board-card-footer-badged" style="background-color: var(--${colorPicker(
+      i
+    )})">${userInitials}</span>
+       <p>${username}</p>
+     </div>
   `;
 }
