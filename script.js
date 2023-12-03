@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+function init() {
+  includeHTML();
+  loadAllUsers();
+  loadAllContacts();
+}
+
 /**
  * This function loads all users from the backend.
  */

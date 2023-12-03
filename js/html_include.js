@@ -264,7 +264,7 @@ function renderTaskOverlayEditHTML(id) {
                 <img
                   src="./assets/img/check-black.png"
                   alt="check"
-                  onclick="confirmSubtask(${tasks[id].id})"
+                  onclick="confirmSubtask('edit', ${tasks[id].id})"
                   class="edit-task-icon"
                 />
               </div>
@@ -339,8 +339,15 @@ function generateAssignetContactHTML(i, userInitials, username, color) {
   `;
 }
 
-function renderSubtaskEditHTML(taskId, i) {
-  document.getElementById("edit-task-subtask-addet").innerHTML += /*html*/ `
+/**
+ * Renders the HTML for a subtask in the edit task view.
+ *
+ * @param {String} divId - The <div> id in html code
+ * @param {String} taskId - The ID of the task.
+ * @param {string} i - The length of the subtasks array (tasks[taskId].subtasks)
+ */
+function renderSubtaskEditHTML(divId, i, taskId) {
+  document.getElementById(`${divId}-task-subtask-addet`).innerHTML += /*html*/ `
   <div class="edit-task-subtask-addet">
     <li>${tasks[taskId].subtasks[i]}</li>
     <div class="edit-task-icons-addet">
@@ -355,6 +362,33 @@ function renderSubtaskEditHTML(taskId, i) {
         alt="delete"
         class="edit-task-icon-addet"
         onclick="deleteSubtask(${taskId},${i})"
+      />
+    </div>
+  </div>`;
+}
+
+/**
+ * Renders the HTML for a subtask in the add task view.
+ *
+ * @param {String} divId - The <div> id in html code
+ * @param {string} i - The length of the subtasks array (tasks[taskId].subtasks)
+ */
+function renderSubtaskAddHTML(divId, i) {
+  document.getElementById(`${divId}-task-subtask-addet`).innerHTML += /*html*/ `
+  <div class="edit-task-subtask-addet">
+    <li>${taskSubtasks[i]}</li>
+    <div class="edit-task-icons-addet">
+      <img
+        src="../assets/img/edit.svg"
+        alt="edit"
+        class="edit-task-icon-addet"
+      />
+      <div class="edit-task-subtask-line"></div>
+      <img
+        src="../assets/img/delete.svg"
+        alt="delete"
+        class="edit-task-icon-addet"
+        onclick="deleteSubtask('${divId}',${i})"
       />
     </div>
   </div>`;

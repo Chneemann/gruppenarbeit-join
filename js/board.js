@@ -338,7 +338,7 @@ async function closeAddTask() {
 
 function editTask(id) {
   renderTaskOverlayEditHTML(id);
-  renderAllSubtasksEdit(id);
+  renderAllSubtasks("edit", id);
   checkAssignetContactEdit(id);
   document.getElementById("board-card-footer-badge").style.width = "400px";
   taskPrio = tasks[id].prio;

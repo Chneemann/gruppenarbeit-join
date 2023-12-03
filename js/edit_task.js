@@ -139,10 +139,17 @@ async function confirmEditTask(taskId) {
  *
  * @param {number} taskId - The ID of the task.
  */
-function renderAllSubtasksEdit(taskId) {
-  document.getElementById("edit-task-subtask-addet").innerHTML = "";
-  for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
-    renderSubtaskEditHTML(taskId, i);
+function renderAllSubtasks(divId, taskId) {
+  if (divId == "edit") {
+    document.getElementById(`${divId}-task-subtask-addet`).innerHTML = "";
+    for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
+      renderSubtaskEditHTML(divId, taskId, i);
+    }
+  } else {
+    document.getElementById(`${divId}-task-subtask-addet`).innerHTML = "";
+    for (let i = 0; i < taskSubtasks.length; i++) {
+      renderSubtaskAddHTML(divId, i);
+    }
   }
 }
 
@@ -168,7 +175,7 @@ function searchContact(taskId) {
 }
 
 function userInputSubtask(divId) {
-  if (document.getElementById("edit-task-subtask").value > "0") {
+  if (document.getElementById(`${divId}-task-subtask`).value > "0") {
     addSubtask(divId);
   }
 }
@@ -191,21 +198,33 @@ function closeSubtask(divId) {
     .classList.add("d-none");
 }
 
-function confirmSubtask(taskId) {
-  let newSubtask = document.getElementById(`edit-task-subtask`).value;
-  if (!newSubtask == "") {
-    tasks[taskId].subtasks.push(newSubtask);
-    tasks[taskId].subtaskstate.push("ongoing");
-    renderAllSubtasksEdit(taskId);
+function confirmSubtask(divId, taskId) {
+  let newSubtask = document.getElementById(`${divId}-task-subtask`).value;
+  if (divId == "edit") {
+    if (!newSubtask == "") {
+      tasks[taskId].subtasks.push(newSubtask);
+      tasks[taskId].subtaskstate.push("ongoing");
+      renderAllSubtasks(divId, taskId);
+      closeSubtask(divId);
+    } else {
+      alert("");
+    }
   } else {
-    alert("");
+    taskSubtasks.push(newSubtask);
+    renderAllSubtasks(divId, taskId);
+    closeSubtask(divId);
   }
 }
 
-function deleteSubtask(taskId, i) {
-  tasks[taskId].subtasks.splice(i, 1);
-  tasks[taskId].subtaskstate.splice(i, 1);
-  renderAllSubtasksEdit(taskId);
+function deleteSubtask(divId, i, taskId) {
+  if (divId == "edit") {
+    tasks[taskId].subtasks.splice(i, 1);
+    tasks[taskId].subtaskstate.splice(i, 1);
+    renderAllSubtasks("edit", taskId);
+  } else {
+    taskSubtasks.splice(i, 1);
+    renderAllSubtasks("add", taskId);
+  }
 }
 
 function changeInputTextColor(input) {
