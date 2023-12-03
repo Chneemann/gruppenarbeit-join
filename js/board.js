@@ -253,6 +253,15 @@ async function updateSubtask(id, i) {
 }
 
 /**
+ * Returns the current date in timestamp format
+ *
+ * @returns - The current date in the timestamp
+ */
+function getCurrentTimestamp() {
+  return new Date().getTime();
+}
+
+/**
  * Formats a number to always have two digits.
  *
  * @param {number} number - The number to format.

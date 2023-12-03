@@ -229,14 +229,14 @@ function generateTaskOverlayEditHTML(id) {
               type="text"
               id="edit-task-subtask"
               placeholder="Add new subtask"
-              onclick="addSubtask()"
+              onclick="addSubtask('edit')"
             />
             <div id="edit-task-icons">
               <div id="edit-task-icon-add">
                 <img
                   src="./assets/img/add.svg"
                   alt="add"
-                  onclick="addSubtask()"
+                  onclick="addSubtask('edit')"
                   class="edit-task-icon"
                 />
               </div>
@@ -244,7 +244,7 @@ function generateTaskOverlayEditHTML(id) {
                 <img
                   src="./assets/img/close.svg"
                   alt="close"
-                  onclick="closeSubtask()"
+                  onclick="closeSubtask('edit')"
                   class="edit-task-icon"
                 />
                 <span class="edit-task-line small"></span>
