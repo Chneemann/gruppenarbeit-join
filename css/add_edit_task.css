@@ -380,11 +380,17 @@
   cursor: pointer;
 }
 
+#edit-task-subtask-addet {
+  height: 100px;
+  width: 440px;
+  overflow: auto;
+}
+
 .edit-task-subtask-addet {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 418px;
+  width: 400px;
   font-size: 16px;
   padding: 4px 12px;
   border-radius: 20px;

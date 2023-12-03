@@ -102,17 +102,12 @@ function checkSubtasksBoard(id) {
     (state) => state === "done"
   ).length;
   const length = tasks[id].subtaskstate.length;
-  const fillerSubtasks =
-    length === 2 && countSubtasks === 1
-      ? "filler-half"
-      : (length && countSubtasks === 2) || (length && countSubtasks === 1)
-      ? "filler-full"
-      : undefined;
+  const fillerLegth = (countSubtasks / length) * 120;
   return length === 0
     ? ""
     : /*html*/ `
       <div class="board-card-subtask-line">
-        <span class="${fillerSubtasks}"></span>
+        <span class="filler-full" style="width:${fillerLegth}px"></span>
       </div>
       <div class="board-card-subtask-text">${countSubtasks}/${length} Subtasks</div>`;
 }

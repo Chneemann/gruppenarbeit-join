@@ -205,7 +205,7 @@
 
 .board-card-subtask-line {
   display: flex;
-  width: 128px;
+  width: 120px;
   height: 8px;
   padding-right: 0px;
   flex-direction: column;
@@ -216,17 +216,9 @@
   margin-right: 11px;
 }
 
-.filler-half {
-  border-radius: 16px;
-  background-color: var(--medium-blue);
-  width: 64px;
-  height: 8px;
-}
-
 .filler-full {
   border-radius: 16px;
   background-color: var(--medium-blue);
-  width: 128px;
   height: 8px;
 }
 
