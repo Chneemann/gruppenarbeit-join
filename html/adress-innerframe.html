@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="./css/address.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
     <script src="./js/address.js"></script>
-   
+
 </head>
 
 <body>
-    <div id="add-contact-overlay" onclick="closeAddContact()"> <!-- eigentlich der frame, gerne Vorschläge, aber ich hab*-->
+    <div id="add-contact-overlay" onclick="closeAddContact()">
+        <!-- eigentlich der frame, gerne Vorschläge, aber ich hab*-->
         <div id="add-contact">
 
             <div class="add-contact-left"><img src="./assets/img/Join logo light.png" alt="">
@@ -23,22 +24,24 @@
             </div>
 
 
-            <img class="big-badge"     src="./assets/img/Group 13.png" alt="">
+            <img class="big-badge" src="./assets/img/Group 13.png" alt="">
 
 
             <div class="add-contact-form">
                 <img src="./assets/img/close.svg" alt="" onclick="closeAddContact()">
-            <div class="contact-inputs">
-                <input type="text" placeholder='Name' id="name" ><input type="email" placeholder='Email' id="email"><input type="tel"
-                    placeholder='Phone' id="phone">
-               
-            </div>
+                <div class="contact-inputs">
+                    <input type="text" placeholder='Name' id="name"><input type="email" placeholder='Email'
+                        id="email"><input type="tel" placeholder='Phone' id="phone">
 
-    <div class="send-buttons">
-        <button class="add-contact-btn-clear"><span>cancel</span><img src="./assets/img/close.svg" alt="close" onclick="closeAddContact()" /></button>
+                </div>
 
-        <button class="add-contact-btn-create"><span>create contact</span><img src="./assets/img/check.svg" alt="ckeck" /></button>
-            </div>
+                <div class="send-buttons">
+                    <button class="add-contact-btn-clear"><span>cancel</span><img src="./assets/img/close.svg"
+                            alt="close" onclick="closeAddContact()" /></button>
+
+                    <button class="add-contact-btn-create"><span>create contact</span><img src="./assets/img/check.svg"
+                            alt="ckeck" /></button>
+                </div>
             </div>
         </div>
     </div>
@@ -49,7 +52,7 @@
                 <div><span>Add new contact</span> <img src="./assets/img/person_add.png" alt=""></div>
             </button>
             <div class="contact-list" id="contact-list">
-                
+
                 <div id="card"></div>
             </div>
         </div>

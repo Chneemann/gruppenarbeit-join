@@ -1,5 +1,11 @@
 function addContact() {
   document.getElementById("add-contact-overlay").style.display = "flex";
+  document.getElementById("overlay-header").innerHTML = "Add Contact";
+}
+
+function editContact() {
+  document.getElementById("add-contact-overlay").style.display = "flex";
+  document.getElementById("overlay-header").innerHTML = "Edit Contact";
 }
 function closeAddContact() {
   document.getElementById("add-contact-overlay").style.display = "none";
