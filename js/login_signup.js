@@ -112,19 +112,28 @@ function loadMainpage() {
  * This function pushes the new user data to the backend
  */
 async function register() {
+  await loadAllContacts();
   signupBtn.disabled = true;
+  let newContactsArray = Array.from(
+    { length: contacts.length },
+    (_, index) => index
+  );
+
   if (validatePassword()) {
     users.push({
-      id: users[users.length].id,
+      id: users.length + 1,
       username: signupUsername.value,
       email: signupEmail.value,
       password: signupPassword.value,
+      contacts: newContactsArray,
     });
     await setItem("users", JSON.stringify(users));
     resetFormSignup();
-    alert("The user has been created, you can now log in.");
-    window.location.href = "./index.html";
+    alert("The user has been created. You can now log in.");
+    window.location.href =
+      "./index.html?msg=Registration successful, you can now log in.";
   }
+
   signupBtn.disabled = false;
 }
 
