@@ -13,13 +13,16 @@ body {
 }
 
 .bg_container {
-  height: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: flex;
   align-items: center;
   width: 100%;
+  padding-left: 80px;
 }
 
 .title {
@@ -52,7 +55,7 @@ body {
 }
 
 .frame_up {
-  gap: 50px;
+  gap: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,7 +84,7 @@ body {
 .welcome_box {
   display: flex;
   flex-direction: column;
-  padding-left: 200px;
+  padding-left: 140px;
 }
 
 .welcome {
@@ -105,10 +108,10 @@ body {
 
 .frame_pencil {
   display: flex;
-  gap: 40px;
+  gap: 18px;
   justify-content: center;
   align-items: center;
-  padding: 38px 19px;
+  padding: 38px 58px;
   border-radius: 30px;
   color: black;
   cursor: pointer;
@@ -121,10 +124,10 @@ body {
 
 .frame_rectangle {
   display: flex;
-  gap: 40px;
+  gap: 18px;
   justify-content: center;
   align-items: center;
-  padding: 38px 19px;
+  padding: 38px 58px;
   border-radius: 30px;
   cursor: pointer;
 }
@@ -136,7 +139,7 @@ body {
 
 .frame_urgent {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   justify-content: center;
   align-items: center;
   padding: 38px 19px;
@@ -157,7 +160,7 @@ body {
   left: 128.5px;
 }
 
-.circle{
+.circle {
   width: 69px;
   height: 69px;
   position: absolute;
@@ -171,7 +174,7 @@ body {
   left: 21.5px;
 }
 
-.pencil_blue{
+.pencil_blue {
   width: 24.37px;
   height: 24.33px;
   position: absolute;
@@ -183,23 +186,23 @@ body {
   display: flex;
 }
 
-.frame_pencil:hover .pencil_blue{
+.frame_pencil:hover .pencil_blue {
   display: flex;
 }
 
-.frame_pencil:hover .hidden_pencil{
+.frame_pencil:hover .hidden_pencil {
   display: none;
 }
 
-.frame_rectangle:hover .change_color{
+.frame_rectangle:hover .change_color {
   display: flex;
 }
 
-.frame_rectangle:hover .pencil_blue{
+.frame_rectangle:hover .pencil_blue {
   display: flex;
 }
 
-.frame_rectangle:hover .hidden_pencil{
+.frame_rectangle:hover .hidden_pencil {
   display: none;
 }
 
@@ -301,6 +304,7 @@ body {
   border-radius: 30px;
   color: black;
   cursor: pointer;
+  gap: 13px;
 }
 
 .new_tasks:hover {
@@ -312,6 +316,6 @@ body {
   display: none;
 }
 
-.d-none{
+.d-none {
   display: none;
 }

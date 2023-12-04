@@ -1,6 +1,6 @@
 let taskPrio = "";
 let taskSubtasks = [];
-let taskSubtasksstate = [];
+let taskSubtaskstate = [];
 let lastTaskId;
 let task = "";
 
@@ -22,7 +22,7 @@ async function createTask() {
     date: timestamp,
     prio: taskPrio,
     subtasks: taskSubtasks,
-    subtasksstate: taskSubtasksstate,
+    subtasksstate: taskSubtaskstate,
     status: "todo",
     delete: "no",
   };
@@ -33,6 +33,6 @@ async function createTask() {
 function clearTask() {
   taskPrio = "";
   taskSubtasks = [];
-  taskSubtasksstate = [];
+  taskSubtaskstate = [];
   renderMainpageContent("./html/add_task.html");
 }

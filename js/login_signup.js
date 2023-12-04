@@ -75,15 +75,17 @@ function login() {
  * This function places the guest user in the LocalStorage, the user is now logged in as a guest
  */
 async function guestLogin() {
+  let userGuest = [];
   loginEmail.value = "Guest";
   loginPassword.value = "Guest";
   loginBtn.disabled = true;
   guestLoginBtn.disabled = true;
-  for (let i = 0; i < users.length; i++) {
-    if (loginEmail.value == users[i]["email"]) {
-      localStorage.setItem("currentUser", JSON.stringify(users[i]));
-    }
-  }
+  userGuest.push({
+    id: 0,
+    username: "Guest",
+    email: "Guest",
+  });
+  localStorage.setItem("currentUser", JSON.stringify(userGuest));
   await sleep(1000);
   loadMainpage();
 }
