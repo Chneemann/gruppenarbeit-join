@@ -1,3 +1,6 @@
+@media (max-width:1220px) {
+  
+}
 @media (max-width: 680px) {
   .header {
     width: 90% !important;
@@ -18,6 +21,29 @@
 }
 .mobile_lost {
   display: none !important;
+}
+
+@media (max-width: 580px){
+  .frame_pencil {
+    padding: 0px !important;
+    gap: 8px !important;
+  }
+
+  .frame_rectangle {
+    padding: 0px !important;
+    gap: 8px !important;
+  }
+
+  .frame_urgent {
+    padding: 0px !important;
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+    gap: 36px !important;
+  }
+  .frame_down {
+    gap: 16px !important;
+  }
+  
 }
 
 @media (max-width: 480px) {
@@ -136,7 +162,7 @@
  
 
   .mobile_lost {
-    display: none !important;
+    display: none;
   }
 
   .mobile_visible {
@@ -258,7 +284,7 @@
   }
 
   .mobile_lost {
-    display: none !important;
+    display: none;
   }
 
   .mobile_visible {
