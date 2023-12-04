@@ -1,3 +1,4 @@
+
 function openAddContact() {
     document.getElementById("add-contact-overlay").style.display = "flex";
     document.getElementById("overlay-header").innerHTML = 'Add Contact';
@@ -40,7 +41,8 @@ function closeAddContact() {
     resetForm();
 }
 
-async function addContact() {
+async function addContact() { 
+
     console.log('addContact');
     let name = document.getElementById('name').value;
     let email = document.getElementById("email").value;
@@ -49,7 +51,7 @@ async function addContact() {
     let color = getRandomColor()
     console.log(color);
     let id = JSON.stringify(contacts.length);
-
+    localStorage.setItem
     contacts.push({id, name, email, phone, color });
     
     await setItem("contacts", JSON.stringify(contacts));
@@ -57,14 +59,13 @@ async function addContact() {
     renderContacts();
 }
 
-
 async function deleteContact(i) {
     console.log('delete i', i);
     contacts.splice(i, 1);
-    await setItem("contacts", JSON.stringify(contacts));
-    resetPage();
-    renderContacts();
+   resetPage();
+   renderContacts();
 }
+
 async function editContact(id){console.log(contacts[id]['color']);
     let name = document.getElementById('name').value;
     let email = document.getElementById("email").value;
