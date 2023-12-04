@@ -1,7 +1,8 @@
 /*------------- ADD TASK -------------*/
 
 #add-task-page {
-  padding: 79.5px 64px;
+  padding: 79.5px 54px 79.5px 64px;
+  max-width: 980px;
 }
 
 #add-task-page h1 {
@@ -78,7 +79,7 @@
   color: var(--light-gray);
   font-size: 20px;
   font-weight: 400;
-  width: 408px;
+  width: 406px;
   height: 84px;
   margin-bottom: 32px;
   border-radius: 10px;
@@ -150,7 +151,15 @@
 }
 
 .add-task-subtask {
+  position: relative;
   padding-bottom: 12px;
+}
+
+#add-task-icon-add,
+#add-task-icon-close-check {
+  position: absolute;
+  top: 57px;
+  right: 10px;
 }
 
 #add-task-icons {
@@ -159,20 +168,6 @@
 
 #add-task-subtask {
   cursor: pointer;
-}
-
-#add-task-icon-add {
-  position: relative;
-  top: -52px;
-  left: 400px;
-  width: 24px;
-}
-
-#add-task-icon-close-check {
-  position: relative;
-  top: -52px;
-  left: 355px;
-  width: 72px;
 }
 
 .add-task-icon:hover {
@@ -193,7 +188,7 @@
 
 .edit-task-subtask-addet input {
   height: 25px;
-  width: 310px;
+  width: 290px;
   max-width: 310px;
   padding: 0 0 0 8px;
   margin: 0;
@@ -580,22 +575,29 @@
 /*------------- MEDIA -------------*/
 
 @media (max-width: calc(1210px + 232px)) {
+  #add-task-page {
+    max-width: 440px;
+  }
   .add-task-footer,
   .edit-task-footer {
     padding-top: 24px;
     width: 100%;
   }
 
-  .add-task-formular {
+  .add-task-formular,
+  .edit-task-formular {
     display: block;
   }
 
-  .add-task-middle {
+  .add-task-middle,
+  .edit-task-middle {
     display: none;
   }
 
   .add-task-left,
-  .add-task-right {
+  .add-task-right,
+  .edit-task-left,
+  .edit-task-right {
     width: 100%;
   }
 
@@ -604,23 +606,17 @@
   }
 }
 
-@media (max-width: 1080px) {
-  .edit-task-formular {
-    display: block;
-  }
-
-  .edit-task-middle {
-    display: none;
-  }
-  .edit-task-left,
-  .edit-task-right {
-    width: 100%;
-  }
-}
-
 @media (max-width: 690px) {
+  #add-task-page {
+    max-width: 340px;
+  }
   .dialog {
     padding: 64px 74px !important;
+  }
+
+  #add-task-icon-add,
+  #add-task-icon-close-check {
+    top: 47px;
   }
 
   .add-task-formular,
@@ -629,7 +625,7 @@
   }
 
   .edit-task-subtask-addet input {
-    width: 220px !important;
+    width: 200px !important;
   }
 
   .add-task-formular input,
@@ -641,7 +637,7 @@
   .add-task-formular textarea,
   .edit-task-formular textarea {
     font-size: 16px;
-    width: 308px;
+    width: 306px;
   }
 
   .add-task-formular select,
@@ -660,14 +656,6 @@
 
   .add-task-required {
     top: 1070px;
-  }
-
-  #add-task-icon-add {
-    left: 300px;
-  }
-
-  #add-task-icon-close-check {
-    left: 255px;
   }
 
   .add-task-buttons {
@@ -699,7 +687,13 @@
 
 @media (max-width: 475px) {
   #add-task-page {
-    padding: 48px 0 0 0;
+    padding: 48px 8px;
+    max-width: 100% !important;
+  }
+
+  #add-task-icon-add,
+  #add-task-icon-close-check {
+    top: 63px;
   }
 
   .mobile-header-include {
@@ -715,7 +709,7 @@
   }
 
   .add-task-right {
-    padding-bottom: 88px;
+    padding-bottom: 60px;
   }
 
   .add-task-header {
@@ -810,6 +804,9 @@
 }
 
 @media (max-width: 370px) {
+  #add-task-page {
+    padding: 48px 0px;
+  }
   .add-task-prio-fields span,
   .edit-task-prio-fields span {
     display: none;
