@@ -1,114 +1,122 @@
-@media (max-width: 1134px) {
-  .welcome_box{
-    padding-left: 80px;
-  }
-}
-@media (max-width: 1024px) {
-  body {
-    padding-left: 0px;
-    padding-top: 0px;
-  }
+
+@media (max-width: 320px) {
   .bg_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .header {
-    justify-content: center;
-  }
-  .welcome_box{
-    padding-left: 50px;
-  }
-}
-
-@media (max-width: 800px) {
-  .header {
-    flex-direction: column;
-    padding-left: 24px;
-    align-items: flex-start;
+    padding-top: 32px !important;
   }
 
-  .mobile_lost {
-    display: none;
+  .header {
+    width: 90% !important;
+    flex-direction: column !important;
+    padding-left: 12px !important;
+    align-items: flex-start !important;
+  }
+
+  .title {
+    font-size: 47px !important;
+    width: max-content !important;
   }
 
   .metrics_title {
-    padding-left: 0px;
+    font-size: 20px !important;
+    width: max-content !important;
+    padding-left: 0px !important;
+  }
+
+  .first_frame{
+    gap: 100px !important;
+  }
+
+  .btn_frames {
+    padding: 0px !important;
+    padding-top: 24px !important;
+    flex-direction: column !important;
+  }
+
+  .frame_pencil {
+    padding: 0px !important;
+    gap: 8px !important;
+  }
+
+  .frame_rectangle {
+    padding: 0px !important;
+    gap: 8px !important;
+  }
+
+  .ellipse {
+    height: 40px !important;
+    width: 40px !important;
+  }
+
+  .pencil {
+    width: 17.77px !important;
+    height: 16.98px !important;
+    top: 12.17px !important;
+    left: 11.5px !important;
+  }
+
+  .rectangle {
+    width: 17.77px !important;
+    height: 16.98px !important;
+    top: 12.17px !important;
+    left: 11.5px !important;
+  }
+
+  .txt_number {
+    font-size: 47px !important;
+  }
+
+  .tasks {
+    padding-right: 0px !important;
+  }
+
+  .frame_urgent {
+    padding: 0px !important;
+    gap: 8px !important;
+  }
+
+  .peak_up {
+    width: 26.19px !important;
+    height: 12.17px !important;
+    top: 16px !important;
+    left: 7px !important;
+  }
+
+  .peak_down {
+    width: 26.19px !important;
+    height: 12.17px !important;
+    top: 10px !important;
+    left: 7px !important;
+  }
+
+  .date {
+    font-size: 15px !important;
+    width: 80px !important;
+  }
+
+  .deadline {
+    font-size: 12px !important;
+  }
+
+  .urgent_txt {
+    width: 80px !important;
+  }
+
+  .new_tasks {
+    width: 60px !important;
+    height: 60px !important;
+    gap: 4px !important;
+  }
+
+  .txt_todo {
+    font-size: 15px !important;
+  }
+
+  .mobile_lost {
+    display: none !important;
   }
 
   .mobile_visible {
-    display: flex;
-    padding-top: 12px;
-  }
-}
-@media (max-width: 650px) {
-  .header {
-    padding-left: 35px;
-  }
-
-  .btn_frames {
-    margin-bottom: 0px;
-  }
-
-  .frame_up {
-    gap: 10px;
-  }
-
-  .frame_down {
-    gap: 20px;
-  }
-
-  .frame_pencil {
-    gap: 24px;
-  }
-}
-@media (max-width: 560px) {
-  .btn_frames {
-    padding: 0px;
-    padding-top: 40px;
-  }
-  .first_frame{
-    max-width: 450px;
-  }
-  .frame_pencil {
-    gap: 12px;
-    padding: 26px 19px 26px 19px;
-  }
-  .frame_rectangle {
-    gap: 24px;
-    padding: 26px 19px 26px 19px;
-  }
-  .frame_urgent {
-    padding: 18px;
-    gap: 12px;
-  }
-  .new_tasks {
-    width: 140px;
-  }
-}
-
-@media (max-width: 475px) {
-  .frame_pencil {
-    gap: 12px;
-    padding: 26px 19px 26px 19px;
-  }
-  .frame_rectangle {
-    gap: 24px;
-    padding: 26px 19px 26px 19px;
-  }
-  .frame_urgent {
-    padding: 18px;
-    gap: 12px;
-  }
-  .new_tasks {
-    width: 140px;
-  }
-}
-@media (max-width: 320px) {
-  .btn_frames {
-    padding: 0px;
-    padding-left: 0px;
-    padding-top: 40px;
+    display: flex !important;
+    padding-top: 18px !important;
   }
 }
