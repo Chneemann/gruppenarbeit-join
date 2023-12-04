@@ -13,6 +13,7 @@ function init() {
   includeHTML();
   loadAllUsers();
   loadAllContacts();
+  currentUserBadged();
 }
 
 /**
