@@ -1,5 +1,5 @@
 users = [];
-let contacts = [];
+let localContactIds =[];
 
 document.addEventListener("DOMContentLoaded", function () {
   const imgElements = document.querySelectorAll("img");
