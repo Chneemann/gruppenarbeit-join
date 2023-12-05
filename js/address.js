@@ -147,12 +147,14 @@ function firstLetter(i) {
     ${firstLetter}</div>
     `;
     }
-    else if (i=0){
+    else if(i==0){
         document.getElementById("contact-list").innerHTML += /*html*/ `
-    <div class='first-letter' id='first-letter-${firstLetter}'>
-    ${firstLetter}</div>
-    `;
+        <div class='first-letter' id='first-letter-${firstLetter}'>
+        ${firstLetter}</div>
+        `;
     }
+    
+
 
     return firstLetter;
 
