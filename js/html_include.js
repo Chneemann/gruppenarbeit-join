@@ -18,9 +18,7 @@ function renderTaskHTML(id, name) {
       <div class="board-card-description">
       ${tasks[id].description}
       </div>
-      <div class="board-card-subtask">
       ${checkSubtasksBoard(tasks[id].id)}
-      </div>
       <div class="board-card-footer">
         <div id="board-card-footer-badge">
           ${checkAssignetContactBoard(tasks[id].id)}
@@ -38,7 +36,7 @@ function renderTaskHTML(id, name) {
  */
 function renderAssignetContactBoardHTML(i, userInitials, color) {
   return /*html*/ `
-    <span class="board-card-footer-badged" style="background-color: ${color}">${userInitials}</span>
+    <span class="board-card-footer-badged margin-left" style="background-color: ${color}">${userInitials}</span>
   `;
 }
 

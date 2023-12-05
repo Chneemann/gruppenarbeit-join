@@ -99,10 +99,12 @@ function checkSubtasksBoard(id) {
   return length === 0
     ? ""
     : /*html*/ `
-      <div class="board-card-subtask-line">
-        <span class="filler-full" style="width:${fillerLegth}px"></span>
-      </div>
-      <div class="board-card-subtask-text">${countSubtasks}/${length} Subtasks</div>`;
+      <div class="board-card-subtask">
+        <div class="board-card-subtask-line">
+          <span class="filler-full" style="width:${fillerLegth}px"></span>
+        </div>
+        <div class="board-card-subtask-text">${countSubtasks}/${length} Subtasks</div>
+      </div>`;
 }
 
 /**
