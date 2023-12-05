@@ -156,7 +156,6 @@ body {
 .ellipse {
   width: 69px;
   height: 69px;
- 
 }
 
 .circle {
@@ -318,49 +317,50 @@ body {
 .not_displayed {
   display: none;
 }
-
+@media (max-width: 950px){
+  .mobile_lost {
+    display: none;
+  }
+}
 @media (max-width: 680px) {
   .header {
-    width: 90% ;
-    flex-direction: column ;
-    align-items: flex-start ;
-    padding-left: 0px ;
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0px;
   }
 
   .metrics_title {
-    padding-left: 0px ;
+    padding-left: 0px;
   }
 
   .btn_frames {
-    padding: 0px ;
-    padding-top: 24px ;
-    flex-direction: column ;
+    padding: 0px;
+    padding-top: 24px;
+    flex-direction: column;
   }
 
   .mobile_lost {
-    display: none ;
+    display: none;
   }
 }
 
 @media (max-width: 580px) {
   .frame_pencil {
-    padding: 0px ;
-    gap: 8px ;
+    padding: 0px;
+    gap: 8px;
   }
 
   .frame_rectangle {
-    padding: 0px ;
-    gap: 8px ;
+    padding: 0px;
+    gap: 8px;
   }
 
   .frame_urgent {
-    padding: 0px ;
-    padding-top: 36px ;
-    padding-bottom: 36px ;
-    gap: 36px ;
-  }
-  .frame_down {
-    gap: 16px ;
+    padding: 0px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    gap: 36px;
   }
 }
 
@@ -389,14 +389,6 @@ body {
 
   .first_frame {
     gap: 100px;
-  }
-
-  .frame_up {
-    gap: 75px;
-  }
-
-  .frame_down {
-    gap: 75px;
   }
 
   .btn_frames {
@@ -530,7 +522,19 @@ body {
     width: 40px;
   }
 
+  .circle {
+    height: 40px;
+    width: 40px;
+  }
+
   .pencil {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .pencil_blue {
     width: 17.77px;
     height: 16.98px;
     top: 12.17px;
