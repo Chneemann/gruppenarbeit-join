@@ -21,7 +21,7 @@ function renderContacts() {
             }"} ><span>${contact["initials"]}</span></div>
         <div class='card'>
            <span>${contact["name"]}</span>   <br>
-            <a href=""> ${contact["email"]}</a> <br>
+            <a href="mail-to:${contact["email"]}"> ${contact["email"]}</a> <br>
     </div>
 </div>
        `;
@@ -31,12 +31,14 @@ function renderContacts() {
 
 function openAddContact() {
     document.getElementById("add-contact-overlay").style.display = "flex";
+    document.getElementById("add-contact").classList.add("slide-left");
+
     document.getElementById("overlay-header").innerHTML = 'Add Contact';
     document.getElementById("submit-buttons").innerHTML = `<button class="add-contact-btn-clear" id="delete-close-contact" onclick="closeAddContact()"><span>cancel</span><img
     src="./assets/img/close.svg"/>
     </button>
 
-    <button class="add-contact-btn-create" id="submit-contact" onclick="addContact(), closeAddContact(), alert('Neuen Kontakt angelegt')"><span>Create
+    <button class="add-contact-btn-create" id="submit-contact" onclick="addContact(), closeAddContact(), alert('Neuen Kontakt angelegt'), createContactAlert()"><span>Create
         contact</span><img src="./assets/img/check.svg" />
     </button>
     `
@@ -44,9 +46,10 @@ function openAddContact() {
 
 
 function openEditContact(id) {
-    console.log(id);
+    resetPage();
     document.getElementById("add-contact-overlay").style.display = "flex";
     document.getElementById("overlay-header").innerHTML = "Edit Contact";
+    document.getElementById("subtitle").classList.add('none');
     document.getElementById("submit-buttons").innerHTML = ` <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
 </button>
 
@@ -54,7 +57,16 @@ function openEditContact(id) {
     contact</span><img src="./assets/img/check.svg" onclick="editContact(${id})"/>
 </button>
     `
-    document.getElementById("name").value = contacts[id]['name'];
+
+    fillInput(id);
+   
+    document.getElementById("delete-close-contact").innerHTML = `
+    <span onclick="deleteContact(${id})" >delete</span>
+    `;
+}
+
+function fillInput(id){
+     document.getElementById("name").value = contacts[id]['name'];
     document.getElementById("email").value = contacts[id]['email'];
     document.getElementById("phone").value = contacts[id]['phone'];
     document.getElementById("overlay-badge").classList.add('big-badge');
@@ -62,15 +74,13 @@ function openEditContact(id) {
     document.getElementById("overlay-badge").innerHTML = `
     <span>${contacts[id]['initials']}</span>
     `;
-    document.getElementById("delete-close-contact").innerHTML = `
-    <span onclick="deleteContact(${id})" >delete</span>
-    `;
 }
 
 
 function closeAddContact() {
     document.getElementById("add-contact-overlay").style.display = "none";
     resetForm();
+    renderContacts();
 }
 
 
@@ -86,13 +96,12 @@ function openContactOptions(i){
 
 async function addContact() {
 
-    console.log('addContact');
     let name = document.getElementById('name').value;
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
     let initials = getInitials(name);
     let color = getRandomColor()
-    console.log(color);
+
     let id = JSON.stringify(contacts.length);
     localStorage.setItem
     contacts.push({ id, name, initials, email, phone, color });
@@ -102,9 +111,14 @@ async function addContact() {
     renderContacts();
 }
 
+function createContactAlert(){
+    document.getElementById("submit-buttons").innerHTML+= `
+    <div class="create-contact-alert">contact successfully created</div>
+    `
+}
 
 async function deleteContact(i) {
-    console.log('delete i', i);
+
     contacts.splice(i, 1);
     resetPage();
     renderContacts();
@@ -162,7 +176,7 @@ function firstLetter(i) {
 
 
 function getInitials(name) {
-    console.log(name);
+
     const allNames = name.split(" ");
 
     let initials = [];
@@ -176,9 +190,15 @@ function getInitials(name) {
 
 
 function viewCard(i) {
-    console.log(contacts[i]["color"], contacts[i]["initials"])
     document.getElementById("view-contact").style.display = "block";
-    document.getElementById("card-closeup").innerHTML =
+    renderCardCloseup(i);
+    document.getElementById("card-closeup").style.transform="translateX(0)"
+    document.getElementById("card-closeup").style.transition="transform 2s"
+    
+}
+
+function  renderCardCloseup(i){
+document.getElementById("card-closeup").innerHTML =
         /*html*/
         `
         <div class='card-closeup-header'>
@@ -197,15 +217,15 @@ function viewCard(i) {
            
            <h3> Contact Information</h3>
            <p>Email</p>
-            <a href=""> ${contacts[i]["email"]}</a> <br>
+            <a href="mail-to:${contacts[i]["email"]}"> ${contacts[i]["email"]}</a> <br>
             <p>Phone</p>
             <span>${contacts[i]["phone"]}</span>
     </div>
     <button onclick="openContactOptions(${i})" class="button-open-add-contact-mobile" id="contact-options">
                 <img src="./assets/img/Menu Contact Options.png">
             </button>
-    `;
-}
+    `; 
+};
 
 
 function getRandomColor() {
