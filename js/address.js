@@ -1,3 +1,33 @@
+function renderContacts() {
+
+    contacts.sort(function (a, b) {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
+
+
+    for (let i = 0; i < contacts.length; i++) {
+        firstLetter(i);
+        let contact = contacts[i];
+
+        document.getElementById("contact-list").innerHTML += /*html*/ `
+        <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'>
+        <div class='badge' style="background-color:${contact["color"]
+            }"} ><span>${contact["initials"]}</span></div>
+        <div class='card'>
+           <span>${contact["name"]}</span>   <br>
+            <a href=""> ${contact["email"]}</a> <br>
+    </div>
+</div>
+       `;
+    }
+}
+
 
 function openAddContact() {
     document.getElementById("add-contact-overlay").style.display = "flex";
@@ -36,10 +66,13 @@ function openEditContact(id) {
     <span onclick="deleteContact(${id})" >delete</span>
     `;
 }
+
+
 function closeAddContact() {
     document.getElementById("add-contact-overlay").style.display = "none";
     resetForm();
 }
+
 
 function openContactOptions(i){
     document.getElementById('contact-options').innerHTML += 
@@ -49,6 +82,7 @@ function openContactOptions(i){
                     <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div></div>
 `
 }
+
 
 async function addContact() {
 
@@ -68,12 +102,14 @@ async function addContact() {
     renderContacts();
 }
 
+
 async function deleteContact(i) {
     console.log('delete i', i);
     contacts.splice(i, 1);
     resetPage();
     renderContacts();
 }
+
 
 async function editContact(id) {
     let name = document.getElementById('name').value;
@@ -93,10 +129,13 @@ function resetForm() {
     document.getElementById("email").value = '';
     document.getElementById("phone").value = '';
 }
+
+
 function resetPage() {
     document.getElementById("contact-list").innerHTML = '';
     document.getElementById("view-contact").style.display = "none";
 }
+
 
 function firstLetter(i) {
     //FUNKTION FÜR REGISTER
@@ -108,10 +147,17 @@ function firstLetter(i) {
     ${firstLetter}</div>
     `;
     }
+    else if (i=0){
+        document.getElementById("contact-list").innerHTML += /*html*/ `
+    <div class='first-letter' id='first-letter-${firstLetter}'>
+    ${firstLetter}</div>
+    `;
+    }
 
     return firstLetter;
 
 }
+
 
 function getInitials(name) {
     console.log(name);
@@ -125,35 +171,7 @@ function getInitials(name) {
     return initials.join(""); //Methode entfernt das Komma
 }
 
-function renderContacts() {
 
-    contacts.sort(function (a, b) {
-        if (a.name < b.name) {
-            return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return 0;
-    });
-
-
-    for (let i = 0; i < contacts.length; i++) {
-        firstLetter(i);
-        let contact = contacts[i];
-
-        document.getElementById("contact-list").innerHTML += /*html*/ `
-        <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'>
-        <div class='badge' style="background-color:${contact["color"]
-            }"} ><span>${contact["initials"]}</span></div>
-        <div class='card'>
-           <span>${contact["name"]}</span>   <br>
-            <a href=""> ${contact["email"]}</a> <br>
-    </div>
-</div>
-       `;
-    }
-}
 
 function viewCard(i) {
     console.log(contacts[i]["color"], contacts[i]["initials"])

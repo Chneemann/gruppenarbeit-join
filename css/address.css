@@ -114,6 +114,17 @@ flex-direction: row;
 align-items: center;
 gap: 8px;
 }
+
+
+.edit-contact:hover, .delete-contact:hover{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    color: var(--light-blue);
+    filter: invert(60%) sepia(89%) saturate(1719%) hue-rotate(165deg) brightness(93%) contrast(89%);
+    font-weight: bold;
+    }
 .contact-information p{
     font-weight: 700;
     font-size: 16px;
@@ -293,7 +304,9 @@ font-size: 47px;
     padding: 15px 24px 15px 24px;
     gap:35px;
 }
-
+.single-contact:hover{
+   background-color: var(--very-light-gray2);
+}
 
 .single-contact a, .contact-information a{
     color: var(--cerulian-blue);
