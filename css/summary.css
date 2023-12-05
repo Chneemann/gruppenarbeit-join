@@ -76,7 +76,7 @@ body {
 .btn_frames {
   display: flex;
   align-items: center;
-  padding: 64px;
+  padding: 50px;
   margin-bottom: 48px;
   width: 90%;
 }
@@ -115,7 +115,7 @@ body {
   border-radius: 30px;
   color: black;
   cursor: pointer;
-  background-color:var(--white);
+  background-color: var(--white);
 }
 
 .frame_pencil:hover {
@@ -131,7 +131,7 @@ body {
   padding: 38px 58px;
   border-radius: 30px;
   cursor: pointer;
-  background-color:var(--white);
+  background-color: var(--white);
 }
 
 .frame_rectangle:hover {
@@ -144,11 +144,11 @@ body {
   gap: 48px;
   justify-content: center;
   align-items: center;
-  padding: 38px 19px;
+  padding: 38px 53px;
   border-radius: 30px;
   color: black;
   cursor: pointer;
-  background-color:var(--white);
+  background-color: var(--white);
 }
 
 .frame_urgent:hover {
@@ -306,7 +306,8 @@ body {
   color: black;
   cursor: pointer;
   gap: 13px;
-  background-color:var(--white);
+  background-color: var(--white);
+  padding: 8px;
 }
 
 .new_tasks:hover {
@@ -321,9 +322,67 @@ body {
 .not_displayed {
   display: none;
 }
+.blue_bar {
+  display: flex;
+}
+@media (max-width: 1230px) {
+  .btn_frames {
+    padding: 40px;
+  }
+  .welcome_box {
+    padding-left: 70px;
+  }
+}
+@media (max-width: 1110px) {
+  .mobile_lost {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .header {
+    padding-left: 40px;
+  }
+  .btn_frames {
+    justify-content: center;
+    padding: 0px;
+    padding-top: 20px;
+  }
+  .frame_pencil {
+    padding: 38px 32px;
+  }
+  .frame_rectangle {
+    padding: 38px 32px;
+  }
+  .frame_urgent {
+    gap: 30px;
+    padding: 38px 32px;
+  }
+  .frame_down {
+    gap: 20px;
+  }
+}
 @media (max-width: 950px) {
   .mobile_lost {
     display: none;
+  }
+  .bar_mobile_lost {
+    display: none;
+    
+  }
+}
+
+@media (max-width: 893px) {
+  .title {
+    font-size: 50px;
+  }
+  .metrics_title {
+    font-size: 24px;
+  }
+  .frame_down {
+    gap: 16px;
+  }
+  .new_tasks {
+    padding: 0px;
   }
 }
 @media (max-width: 680px) {
@@ -331,10 +390,6 @@ body {
     width: 90%;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 0px;
-  }
-
-  .metrics_title {
     padding-left: 0px;
   }
 
@@ -347,38 +402,50 @@ body {
   .mobile_lost {
     display: none;
   }
+  
   .mobile_visible {
     display: flex;
     padding-top: 18px;
   }
-  .frame_pencil{
+  .frame_pencil {
     padding: 29px 36px;
   }
-  .frame_rectangle{
+  .frame_rectangle {
     padding: 29px 36px;
   }
 }
 
 @media (max-width: 580px) {
+  .ellipse{
+    width: 60px;
+    height: 60px;
+  }
+  .circle{
+    width: 60px;
+    height: 60px;
+  }
   .frame_pencil {
-    padding: 0px;
+    padding: 12px;
     gap: 8px;
   }
 
   .frame_rectangle {
-    padding: 0px;
+    padding: 12px;
     gap: 8px;
   }
 
   .frame_urgent {
-    padding: 0px;
+    padding: 12px;
     padding-top: 36px;
     padding-bottom: 36px;
-    gap: 36px;
+    gap: 20px;
   }
 
   .frame_up {
-    gap: 75px;
+    gap: 60px;
+  }
+  .new_tasks{
+    width: 150px;
   }
   .mobile_visible {
     display: flex;
@@ -420,13 +487,13 @@ body {
   }
 
   .frame_pencil {
-    padding: 0px;
-    gap: 8px;
+    padding: 12px;
+    gap: 10px;
   }
 
   .frame_rectangle {
-    padding: 0px;
-    gap: 8px;
+    padding: 12px;
+    gap: 10px;
   }
 
   .ellipse {
@@ -457,8 +524,8 @@ body {
   }
 
   .frame_urgent {
-    padding: 0px;
-    gap: 18px;
+    padding: 20px;
+    gap: 30px;
   }
 
   .peak_up {
@@ -485,8 +552,8 @@ body {
   }
 
   .new_tasks {
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
     gap: 4px;
   }
 
@@ -495,8 +562,26 @@ body {
     padding-top: 18px;
   }
 }
+@media (max-width: 400px){
+  .frame_pencil {
+    padding: 4px;
+    gap: 8px;
+  }
 
-@media (max-width: 320px) {
+  .frame_rectangle {
+    padding: 4px;
+    gap: 8px;
+  }
+  .frame_urgent {
+    padding: 10px;
+    gap: 20px;
+  }
+  .new_tasks {
+    width: 105px;
+    height: 105px;
+  }
+}
+@media (max-width: 360px) {
   .bg_container {
     padding-top: 32px;
   }
@@ -529,14 +614,17 @@ body {
     flex-direction: column;
   }
 
+  .frame_up{
+    gap: 38px;
+  }
   .frame_pencil {
-    padding: 0px;
-    gap: 8px;
+    padding: 10px;
+    gap: 4px;
   }
 
   .frame_rectangle {
-    padding: 0px;
-    gap: 8px;
+    padding: 10px;
+    gap: 4px;
   }
 
   .ellipse {
@@ -579,8 +667,8 @@ body {
   }
 
   .frame_urgent {
-    padding: 0px;
-    gap: 8px;
+    padding: 10px;
+    gap: 4px;
   }
 
   .peak_up {
@@ -611,9 +699,8 @@ body {
   }
 
   .new_tasks {
-    width: 60px;
-    height: 60px;
-    gap: 4px;
+    width: 90px;
+    gap: 2px;
   }
 
   .txt_todo {
@@ -624,4 +711,5 @@ body {
     display: flex;
     padding-top: 18px;
   }
+
 }
