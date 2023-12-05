@@ -33,20 +33,23 @@
   </div>
   <div class="board-content">
     <div id="board-content-headline">
-      <div class="board-content-column">
+      <div
+        class="board-content-column"
+        ondragover="allowDrop(event)"
+        ondrop="drop('todo')"
+      >
         <div class="board-content-headline">
           <span>To do</span
           ><img src="./assets/img/add.svg" alt="add" onclick="openAddTask()" />
         </div>
-        <div
-          id="board-content-task-todo"
-          class="board-content-tasks"
-          ondrop="drop('todo')"
-          ondragover="allowDrop(event)"
-        ></div>
+        <div id="board-content-task-todo" class="board-content-tasks"></div>
       </div>
 
-      <div class="board-content-column">
+      <div
+        class="board-content-column"
+        ondragover="allowDrop(event)"
+        ondrop="drop('inprogress')"
+      >
         <div class="board-content-headline">
           <span>In progress</span
           ><img src="./assets/img/add.svg" alt="add" onclick="openAddTask()" />
@@ -54,12 +57,14 @@
         <div
           id="board-content-task-inprogress"
           class="board-content-tasks"
-          ondrop="drop('inprogress')"
-          ondragover="allowDrop(event)"
         ></div>
       </div>
 
-      <div class="board-content-column">
+      <div
+        class="board-content-column"
+        ondragover="allowDrop(event)"
+        ondrop="drop('awaitfeedback')"
+      >
         <div class="board-content-headline">
           <span>Await feedback</span
           ><img src="./assets/img/add.svg" alt="add" onclick="openAddTask()" />
@@ -67,22 +72,19 @@
         <div
           id="board-content-task-awaitfeedback"
           class="board-content-tasks"
-          ondrop="drop('awaitfeedback')"
-          ondragover="allowDrop(event)"
         ></div>
       </div>
 
-      <div class="board-content-column">
+      <div
+        class="board-content-column"
+        ondragover="allowDrop(event)"
+        ondrop="drop('done')"
+      >
         <div class="board-content-headline">
           <span>Done</span
           ><img src="../assets/img/add.svg" alt="add" onclick="openAddTask()" />
         </div>
-        <div
-          id="board-content-task-done"
-          class="board-content-tasks"
-          ondrop="drop('done')"
-          ondragover="allowDrop(event)"
-        ></div>
+        <div id="board-content-task-done" class="board-content-tasks"></div>
       </div>
     </div>
     <div id="board-content-tasks"></div>

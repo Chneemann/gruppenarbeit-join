@@ -98,7 +98,7 @@ async function updateTemporaryTask() {
 async function saveTaskOnServer() {
   tasks[tempTaskId].delete = "no";
   await setItem("tasks", JSON.stringify(tasks));
-  sleep(2000);
+  await sleep(1000);
   clearTask();
 }
 
