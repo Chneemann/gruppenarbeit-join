@@ -64,25 +64,7 @@
                 <span>Better with a team</span>
             </div>
             <div id="card-closeup" class="view-contact-subContainer"></div>
+            
         </div>
     </div>
-<script>document.addEventListener("DOMContentLoaded", function () {
-    var myDiv = document.getElementById("view-contact");
-    var subContainers = myDiv.getElementsByClassName("view-contact-subContainer");
-    console('test eventListener');
-    // Überprüfen, ob das Element gefunden wurde
-    if (myDiv) {
-        // Event Listener auf das Dokument setzen
-        document.addEventListener("click", function (event) {
-            // Überprüfen, ob der Klick außerhalb des Divs erfolgt ist
-            if (!myDiv.contains(event.target)) {
-                // Das Div schließen
-                myDiv.style.display = "none";
-                for (var i = 0; i < subContainers.length; i++) {
-                    subContainers[i].style.display = "none";
-                }
-            }
-        });
-    }
-});</script>
 </body>
