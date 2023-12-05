@@ -365,10 +365,7 @@ body {
   .mobile_lost {
     display: none;
   }
-  .bar_mobile_lost {
-    display: none;
-    
-  }
+  
 }
 
 @media (max-width: 893px) {
@@ -412,6 +409,9 @@ body {
   }
   .frame_rectangle {
     padding: 29px 36px;
+  }
+  .blue_bar{
+    display: none;
   }
 }
 
