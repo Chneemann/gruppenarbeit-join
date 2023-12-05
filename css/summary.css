@@ -318,3 +318,284 @@ body {
 .not_displayed {
   display: none;
 }
+
+@media (max-width: 680px) {
+  .header {
+    width: 90% ;
+    flex-direction: column ;
+    align-items: flex-start ;
+    padding-left: 0px ;
+  }
+
+  .metrics_title {
+    padding-left: 0px ;
+  }
+
+  .btn_frames {
+    padding: 0px ;
+    padding-top: 24px ;
+    flex-direction: column ;
+  }
+
+  .mobile_lost {
+    display: none ;
+  }
+}
+
+@media (max-width: 580px) {
+  .frame_pencil {
+    padding: 0px ;
+    gap: 8px ;
+  }
+
+  .frame_rectangle {
+    padding: 0px ;
+    gap: 8px ;
+  }
+
+  .frame_urgent {
+    padding: 0px ;
+    padding-top: 36px ;
+    padding-bottom: 36px ;
+    gap: 36px ;
+  }
+  .frame_down {
+    gap: 16px ;
+  }
+}
+
+@media (max-width: 480px) {
+  .bg_container {
+    padding-top: 32px;
+  }
+
+  .header {
+    width: 90%;
+    flex-direction: column;
+    padding-left: 12px;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 47px;
+    width: max-content;
+  }
+
+  .metrics_title {
+    font-size: 20px;
+    width: max-content;
+    padding-left: 0px;
+  }
+
+  .first_frame {
+    gap: 100px;
+  }
+
+  .frame_up {
+    gap: 75px;
+  }
+
+  .frame_down {
+    gap: 75px;
+  }
+
+  .btn_frames {
+    padding: 0px;
+    padding-top: 24px;
+    flex-direction: column;
+  }
+
+  .frame_pencil {
+    padding: 0px;
+    gap: 8px;
+  }
+
+  .frame_rectangle {
+    padding: 0px;
+    gap: 8px;
+  }
+
+  .ellipse {
+    height: 40px;
+    width: 40px;
+  }
+
+  .pencil {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .rectangle {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .txt_number {
+    font-size: 47px;
+  }
+
+  .tasks {
+    padding-right: 0px;
+  }
+
+  .frame_urgent {
+    padding: 0px;
+    gap: 36px;
+  }
+
+  .peak_up {
+    width: 26.19px;
+    height: 12.17px;
+    top: 16px;
+    left: 7px;
+  }
+
+  .peak_down {
+    width: 26.19px;
+    height: 12.17px;
+    top: 10px;
+    left: 7px;
+  }
+
+  .date {
+    font-size: 15px;
+    width: 160px;
+  }
+
+  .urgent_txt {
+    width: 80px;
+  }
+
+  .new_tasks {
+    width: 60px;
+    height: 60px;
+    gap: 4px;
+  }
+
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .bg_container {
+    padding-top: 32px;
+  }
+
+  .header {
+    width: 90%;
+    flex-direction: column;
+    padding-left: 12px;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 47px;
+    width: max-content;
+  }
+
+  .metrics_title {
+    font-size: 20px;
+    width: max-content;
+    padding-left: 0px;
+  }
+
+  .first_frame {
+    gap: 100px;
+  }
+
+  .btn_frames {
+    padding: 0px;
+    padding-top: 24px;
+    flex-direction: column;
+  }
+
+  .frame_pencil {
+    padding: 0px;
+    gap: 8px;
+  }
+
+  .frame_rectangle {
+    padding: 0px;
+    gap: 8px;
+  }
+
+  .ellipse {
+    height: 40px;
+    width: 40px;
+  }
+
+  .pencil {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .rectangle {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .txt_number {
+    font-size: 47px;
+  }
+
+  .tasks {
+    padding-right: 0px;
+  }
+
+  .frame_urgent {
+    padding: 0px;
+    gap: 8px;
+  }
+
+  .peak_up {
+    width: 26.19px;
+    height: 12.17px;
+    top: 16px;
+    left: 7px;
+  }
+
+  .peak_down {
+    width: 26.19px;
+    height: 12.17px;
+    top: 10px;
+    left: 7px;
+  }
+
+  .date {
+    font-size: 15px;
+    width: 80px;
+  }
+
+  .deadline {
+    font-size: 12px;
+  }
+
+  .urgent_txt {
+    width: 80px;
+  }
+
+  .new_tasks {
+    width: 60px;
+    height: 60px;
+    gap: 4px;
+  }
+
+  .txt_todo {
+    font-size: 15px;
+  }
+
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
+  }
+}
