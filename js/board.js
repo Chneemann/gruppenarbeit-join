@@ -307,6 +307,7 @@ function searchTask() {
 // OPEN/CLOSE/EDIT/DELETE TASK
 
 async function openAddTask() {
+  /*
   loadW3Include("./html/add_task.html", "add-task-dialog");
   await sleep(10);
   var overlay = document.getElementById("add-task-dialog");
@@ -319,6 +320,8 @@ async function openAddTask() {
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");
   changeBackground(overlay);
+  */
+  renderMainpageContent("./html/add_task.html");
 }
 
 async function closeAddTask() {
@@ -344,7 +347,7 @@ async function deleteTask(id) {
   alert("Do you really want to delete this task?");
   closeCart();
   tasks[id].delete = "yes";
-  // await setItem("tasks", JSON.stringify(tasks));
+  await setItem("tasks", JSON.stringify(tasks));
   initBoard();
 }
 

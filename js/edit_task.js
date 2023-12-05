@@ -215,16 +215,14 @@ function saveEditSubtask(divId, taskId, i) {
     `${divId}TaskEditfield${i}`
   ).value;
   document
-    .getElementById(`${divId}TaskTitletext${taskId}`)
+    .getElementById(`${divId}TaskTitletext${i}`)
     .classList.remove("d-none");
   document
-    .getElementById(`${divId}-edit-task-icon-subtask-edit${taskId}`)
+    .getElementById(`${divId}-edit-task-icon-subtask-edit${i}`)
     .classList.remove("d-none");
+  document.getElementById(`${divId}TaskEditfield${i}`).classList.add("d-none");
   document
-    .getElementById(`${divId}TaskEditfield${taskId}`)
-    .classList.add("d-none");
-  document
-    .getElementById(`${divId}-edit-task-icon-subtask-close${taskId}`)
+    .getElementById(`${divId}-edit-task-icon-subtask-close${i}`)
     .classList.add("d-none");
   renderAllSubtasks(divId, taskId);
 }

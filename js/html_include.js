@@ -369,7 +369,7 @@ function renderSubtaskHTML(divId, taskId, i) {
         src="../assets/img/delete.svg"
         alt="delete"
         class="edit-task-icon-addet"
-        onclick="deleteSubtask('${divId}',${i})"
+        onclick="deleteSubtask('${divId}',${taskId},${i})"
       />
     </div>
   </div>`;
@@ -381,10 +381,11 @@ function renderSubtaskHTML(divId, taskId, i) {
  * @param {String} divId - The <div> id in html code
  * @param {string} i - The length of the subtasks array (tasks[taskId].subtasks)
  */
+/*
 function renderSubtaskAddHTML(divId, i) {
-  document.getElementById(`${divId}-task-subtask-addet`).innerHTML += /*html*/ `
+  document.getElementById(`${divId}-task-subtask-addet`).innerHTML += `
   <div class="edit-task-subtask-addet">
-    <li><span id="addTaskTitletext${i}">${taskSubtasks[i]}</span><input type="text" id="addTaskEditfield${i}" value="${taskSubtasks[i]}" class="d-none"/></li>
+    <li><span id="addTaskTitletext${i}">${taskSubtasks[i]}</span><input type="text" id="${divId}TaskEditfield${i}" value="${taskSubtasks[i]}" class="d-none"/></li>
     <div class="edit-task-icons-addet">
     <img
         id="add-edit-task-icon-subtask-close${i}"
@@ -410,3 +411,4 @@ function renderSubtaskAddHTML(divId, i) {
     </div>
   </div>`;
 }
+*/
