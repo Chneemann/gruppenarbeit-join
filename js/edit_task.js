@@ -243,7 +243,7 @@ function confirmSubtask(divId, taskId) {
   }
 }
 
-function deleteSubtask(divId, i, taskId) {
+function deleteSubtask(divId, taskId, i) {
   taskId = taskId || tempTaskId;
   tasks[taskId].subtasks.splice(i, 1);
   tasks[taskId].subtasksstate.splice(i, 1);
