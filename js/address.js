@@ -38,7 +38,7 @@ function openAddContact() {
     src="./assets/img/close.svg"/>
     </button>
 
-    <button class="add-contact-btn-create" id="submit-contact" onclick="addContact(), closeAddContact(), alert('Neuen Kontakt angelegt')"><span>Create
+    <button class="add-contact-btn-create" id="submit-contact" onclick="addContact(), closeAddContact(), alert('Neuen Kontakt angelegt'), createContactAlert()"><span>Create
         contact</span><img src="./assets/img/check.svg" />
     </button>
     `

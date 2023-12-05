@@ -126,7 +126,9 @@ h2 {
     position: fixed;
     top: 311px;
     left: 750px;
+    bottom:60px;
     min-width: 461px;
+    
 }
 
 
@@ -316,6 +318,10 @@ card-closeup-header-right {
 
 }
 
+create-contact-alert{
+    display: none;
+}
+
 
 .add-contact-btn-clear {
     display: flex;
@@ -391,6 +397,7 @@ card-closeup-header-right {
         bottom: 200px;
         top: 96px;
         box-shadow: none;
+        padding: 0;
     }
 
 
@@ -433,7 +440,7 @@ card-closeup-header-right {
         width: 116px;
         height: 100px;
         position: fixed;
-        bottom: 96px;
+        bottom: 40px;
         right: 6px;
         display: flex;
         flex-direction: column;
@@ -571,6 +578,8 @@ card-closeup-header-right {
         font-size: 20px;
         font-weight: 700;
         margin-left: 16px;
+        transform: translateY(200px);
+        transition: transform 1s;
     }
 
 
@@ -628,7 +637,6 @@ card-closeup-header-right {
     #scrollcontainer {
         padding: 0px;
         width: 100vw;
-        height: 80vh;
         position: fixed;
         left: -10px;
         bottom: 200px;
