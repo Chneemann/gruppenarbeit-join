@@ -1,14 +1,9 @@
 users = [];
 let localContactIds = [];
 
-document.addEventListener("DOMContentLoaded", function () {
-  const imgElements = document.querySelectorAll("img");
-
-  imgElements.forEach(function (img) {
-    img.draggable = false;
-  });
-});
-
+/**
+ * Loads all required functions of the page
+ */
 function init() {
   includeHTML();
   loadAllUsers();
@@ -61,10 +56,21 @@ function signout() {
 }
 
 /**
- * This function loads the new file
+ * Gives all img-files the draggable value false, so that only the intended ones can be moved
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  const imgElements = document.querySelectorAll("img");
+
+  imgElements.forEach(function (img) {
+    img.draggable = false;
+  });
+});
+
+/**
+ * This function loads the new file into the content of the main page
  *
  * @param {string} path = Path of the file to be loaded
- * @param {*} func = !LAURA - BITTE EINFÜGEN
+ * @param {*} func = TODO: ! LAURA - BITTE EINFÜGEN !
  */
 function renderMainpageContent(path, func) {
   fetch(path)
@@ -75,6 +81,7 @@ function renderMainpageContent(path, func) {
         initBoard();
       } else if (path == "./html/add_task.html") {
         initAddTask();
+      } else if (path == "./html/adress-innerframe.html") {
       }
     })
     .catch((error) => {
@@ -88,8 +95,9 @@ function renderMainpageContent(path, func) {
     });
 }
 
-// ADD & REMOVE NAVBAR
-
+/**
+ * Changes the navbar depending on the display size of the browser
+ */
 window.addEventListener("DOMContentLoaded", (event) => {
   if (window.location.pathname.includes("join.html")) {
     function handleResize() {
@@ -126,38 +134,6 @@ async function includeHTML() {
       } catch (error) {
         console.error("Error fetching HTML:", error);
       }
-    }
-  }
-}
-
-function includeNavbarHTML() {
-  var z, i, elmnt, file, xhttp;
-  /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            elmnt.innerHTML = this.responseText;
-          }
-          if (this.status == 404) {
-            elmnt.innerHTML = "Page not found.";
-          }
-          /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute("w3-include-html");
-          includeNavbarHTML();
-        }
-      };
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /* Exit the function: */
-      return;
     }
   }
 }

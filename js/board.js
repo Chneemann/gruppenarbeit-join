@@ -86,10 +86,10 @@ function colorPicker(id) {
  * @returns Html code
  */
 function checkSubtasksBoard(id) {
-  const countSubtasks = tasks[id].subtaskstate.filter(
+  const countSubtasks = tasks[id].subtasksstate.filter(
     (state) => state === "done"
   ).length;
-  const length = tasks[id].subtaskstate.length;
+  const length = tasks[id].subtasksstate.length;
   const fillerLegth = (countSubtasks / length) * 120;
   return length === 0
     ? ""
@@ -172,7 +172,7 @@ function checkSubtasks(id) {
         id="task-overlay-checkbox-subtask${i}"
         type="checkbox"
         onclick="updateSubtask(${id}, ${i})"
-        ${tasks[id].subtaskstate[i] === "done" ? "checked" : ""}
+        ${tasks[id].subtasksstate[i] === "done" ? "checked" : ""}
       />
       <p onclick="updateSubtask(${id}, ${i})">${tasks[id].subtasks[i]}</p>
     </div>`;
@@ -187,8 +187,8 @@ function checkSubtasks(id) {
  * @param {number} i Current Subtask
  */
 async function updateSubtask(id, i) {
-  tasks[id].subtaskstate[i] =
-    tasks[id].subtaskstate[i] === "done" ? "ongoing" : "done";
+  tasks[id].subtasksstate[i] =
+    tasks[id].subtasksstate[i] === "done" ? "ongoing" : "done";
   await setItem("tasks", JSON.stringify(tasks));
   initBoard();
   checkSubtasks(id);

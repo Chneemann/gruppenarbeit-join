@@ -1,4 +1,4 @@
-<div id="add-task-page" class="" onclick="event.stopPropagation()">
+<div id="add-task-page" onclick="event.stopPropagation()">
   <div class="add-task-header">
     <h1>Add Task</h1>
     <div
@@ -35,12 +35,6 @@
       </div>
       <div class="add-task-assignet">
         <p>Assignet to</p>
-        <select id="addTaskAssignet" required>
-          <option value="" selected>Select contacts to assign</option>
-          <option value="Placeholder 1">Placeholder 1</option>
-          <option value="Placeholder 2">Placeholder 2</option>
-          <option value="Placeholder 3">Placeholder 3</option>
-        </select>
       </div>
     </div>
     <div class="add-task-middle">
@@ -160,11 +154,7 @@
           <img src="./assets/img/close.svg" alt="close" />
         </div>
       </button>
-      <button
-        class="add-task-btn-create"
-        type="submit"
-        onclick="createNewTask()"
-      >
+      <button class="add-task-btn-create" type="submit" onclick="createTask()">
         <div id="addTaskBtn" class="add-task-btn-inside">
           <span>Create Task</span>
           <img src="./assets/img/check.svg" alt="ckeck" />

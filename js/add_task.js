@@ -2,26 +2,81 @@ let taskPrio = "";
 let taskSubtasks = [];
 let taskSubtaskstate = [];
 let lastTaskId;
-let task = "";
 let checkInputFields = [];
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+let tempTaskId;
 
 /**
  * Initialises the task form by loading all required functions
  */
 async function initAddTask() {
   await loadAllTasks();
+  checkTemporaryTask();
+}
+
+function checkTemporaryTask() {
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].creator == currentUser[0].id && tasks[i].delete == "") {
+      tempTaskId = tasks[i].id;
+    }
+  }
+  if (tempTaskId) {
+    fillAllInputs(tempTaskId);
+  } else {
+    createTemporaryTask();
+  }
+}
+
+function fillAllInputs(tempTaskId) {
+  addTaskTitel.value = tasks[tempTaskId].title;
+  addTaskDescription.value = tasks[tempTaskId].description;
+  addTaskDate.value = timestampForInputfield(tasks[tempTaskId].date);
 }
 
 /**
  * Checks whether all entries are correct
  */
-async function createNewTask() {
-  console.log(checkAllInputFields(), checkTaskDate());
+async function createTask() {
+  clearTaskBtn.disabled = false;
+  addTaskBtn.disabled = false;
+  updateTemporaryTask();
   if (checkAllInputFields() && checkTaskDate()) {
     saveTaskOnServer();
   } else {
     errorTaskInput();
   }
+}
+
+async function createTemporaryTask() {
+  tasks.push({
+    id: tasks.length,
+    title: "",
+    description: "",
+    assignet: [],
+    category: "",
+    date: "",
+    prio: "",
+    subtasks: [],
+    subtasksstate: [],
+    creator: currentUser[0].id,
+    status: "todo",
+    delete: "",
+  });
+  await setItem("tasks", JSON.stringify(tasks));
+}
+
+async function updateTemporaryTask() {
+  clearTaskBtn.disabled = true;
+  addTaskBtn.disabled = true;
+  let timestamp = new Date(addTaskDate.value).getTime();
+  tasks[tempTaskId].title = addTaskTitel.value;
+  tasks[tempTaskId].description = addTaskDescription.value;
+  tasks[tempTaskId].category = addTaskCategory.value;
+  tasks[tempTaskId].date = timestamp;
+  tasks[tempTaskId].prio = taskPrio.toLowerCase();
+  tasks[tempTaskId].subtasks = taskSubtasks;
+  tasks[tempTaskId].subtasksstate = taskSubtaskstate;
+  await setItem("tasks", JSON.stringify(tasks));
 }
 
 /**
@@ -30,20 +85,6 @@ async function createNewTask() {
 function saveTaskOnServer() {
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
-  let timestamp = new Date(addTaskDate.value).getTime();
-  task = {
-    id: tasks.length,
-    title: addTaskTitel.value,
-    description: addTaskDescription.value,
-    assignet: addTaskAssignet.value,
-    category: addTaskCategory.value,
-    date: timestamp,
-    prio: taskPrio,
-    subtasks: taskSubtasks,
-    subtasksstate: taskSubtaskstate,
-    status: "todo",
-    delete: "no",
-  };
   alert("Your task has been created.");
   clearTask();
 }

@@ -391,7 +391,9 @@
 
 #edit-task-icon-add,
 #edit-task-icon-opencontact,
-#edit-task-icon-closecontact {
+#edit-task-icon-closecontact,
+#add-task-icon-opencontact,
+#add-task-icon-closecontact {
   position: relative;
   top: -52px;
   left: 400px;
@@ -449,7 +451,27 @@
   height: 150px;
 }
 
+.edit-task-assignet {
+  position: relative;
+}
 .edit-task-assignet-overlay {
+  position: absolute;
+  top: 95px;
+  width: 438px;
+  height: 150px;
+  border-radius: 10px 10px 20px 20px;
+  border: 1px solid var(--light-gray);
+  border-top: 0px;
+  background-color: var(--white);
+  overflow: auto;
+  z-index: 1;
+}
+
+.add-task-assignet {
+  position: relative;
+}
+
+.add-task-assignet-overlay {
   position: absolute;
   top: 95px;
   width: 438px;
@@ -680,7 +702,8 @@
   }
 
   #edit-task-icon-add,
-  #edit-task-icon-opencontact {
+  #edit-task-icon-opencontact,
+  #add-task-icon-opencontact {
     left: 300px;
   }
 }
@@ -806,7 +829,8 @@
     width: 290px;
   }
   #edit-task-icon-add,
-  #edit-task-icon-opencontact {
+  #edit-task-icon-opencontact,
+  #add-task-icon-opencontact {
     left: 250px;
   }
 }
