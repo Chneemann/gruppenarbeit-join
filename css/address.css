@@ -15,7 +15,7 @@ h2{
 
 }
 
-#scrollcontainer button{
+.button-open-add-contact-desktop{
     width: 352px;
     height: 56px;
     position: fixed;
@@ -29,11 +29,9 @@ h2{
     gap: 16px;
     margin-left:20px;
 }
-#scrollbar button div{
-    display: flex;
-    gap:16px;
-    align-items: center;
-    justify-content: center;
+
+.button-open-add-contact-mobile{
+    display: none;
 }
 #view-contact{
 min-width: 461px;
@@ -43,13 +41,7 @@ right: 0;
 left: 688px;
 top:96px;
 }
-.inner-frame{
-    position:fixed;
-    left: 232px;
-    top: 96px;
-    display: flex;
-    flex-direction: column;
-}
+
 .contact-header{
     position:fixed;
     left: 743px;
@@ -310,10 +302,11 @@ font-size: 47px;
 
 @media (max-width: 860px) {
     #scrollcontainer{
+        z-index: 0;
         padding: 32px 24px 32px ;
         width: 90vw;
 
-        height:80vh;
+        height:72vh;
         position: fixed;
         display: flex;
         flex-direction: row;
@@ -322,11 +315,24 @@ font-size: 47px;
         top:96px;
         box-shadow: none;
     }
-    
+    .button-open-add-contact-desktop{
+       display: none;
+
+    }
+    .button-open-add-contact-mobile{
+        position: relative;
+        bottom:10%;
+        right: 10%;
+        display:flex;
+        position: fixed;
+        border: none;
+        margin: none;
+        z-index: 12;
+    }
     .contact-list{
         position: fixed;
-        top: 200px;
-        height: 66%;
+        top: 100px;
+        height: 76%;
         width: 400px;
         font-size: 20px;
         margin-left:24px;
@@ -431,13 +437,57 @@ font-size: 47px;
         padding: 0;
         
     }
+    #view-contact{
+        display: none;
+        z-index: 3;
+        position: fixed;
+        top:80px;
+        left: 5px;
+        bottom:80px;
+        background-color: var(--very-light-gray);
+    }
+
+.contact-header{
+    position: fixed;
+    top:80px;
+        left: 16px;
+    height:73px;
+    width: 569px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+}
+.separator{
+    width: 3px;
+    background-color: var(--black);
+    border-radius: 1px;
+    height: 100%;
+}
+.contact-header span{
+    font-size: 27px;
+}
+#card-closeup{
+    position: fixed;
+    top:280px;
+    left: 16px;
+min-width: 461px;
+}
+
+.card-closeup-header{
+    display: flex;
+    align-items: center;
+    gap:54px;
+}
+
+
 }
 
 @media (max-width: 475px){
     #scrollcontainer{
         padding:0px;
         width: 100vw;
-
         height:80vh;
         position: fixed;
         left:-10px;bottom: 200px;

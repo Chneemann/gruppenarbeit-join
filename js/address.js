@@ -30,7 +30,7 @@ function openEditContact(id) {
     document.getElementById("overlay-badge").classList.add('big-badge');
     document.getElementById("overlay-badge").style.backgroundColor = contacts[id]['color'];
     document.getElementById("overlay-badge").innerHTML = `
-    <span>${getInitials(id)}</span>
+    <span>${contacts[id]['initials']}</span>
     `;
     document.getElementById("delete-close-contact").innerHTML = `
     <span onclick="deleteContact(${id})" >delete</span>
@@ -41,19 +41,19 @@ function closeAddContact() {
     resetForm();
 }
 
-async function addContact() { 
+async function addContact() {
 
     console.log('addContact');
     let name = document.getElementById('name').value;
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
-    
+    let initials = getInitials(name);
     let color = getRandomColor()
     console.log(color);
     let id = JSON.stringify(contacts.length);
     localStorage.setItem
-    contacts.push({id, name, email, phone, color });
-    
+    contacts.push({ id, name, initials, email, phone, color });
+
     await setItem("contacts", JSON.stringify(contacts));
     resetPage();
     renderContacts();
@@ -62,18 +62,20 @@ async function addContact() {
 async function deleteContact(i) {
     console.log('delete i', i);
     contacts.splice(i, 1);
-   resetPage();
-   renderContacts();
+    resetPage();
+    renderContacts();
 }
 
-async function editContact(id){console.log(contacts[id]['color']);
+async function editContact(id) {
     let name = document.getElementById('name').value;
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
+    let initials = getInitials(name);
     let color = contacts[id]['color'];
-    contacts.splice(id, 1, {id, name, email, phone, color });
+    contacts.splice(id, 1, { id, name, initials, email, phone, color });
     await setItem("contacts", JSON.stringify(contacts));
     resetPage();
+    closeAddContact();
     renderContacts();
 }
 
@@ -82,27 +84,29 @@ function resetForm() {
     document.getElementById("email").value = '';
     document.getElementById("phone").value = '';
 }
-function resetPage(){
-    document.getElementById("contact-list").innerHTML='';
+function resetPage() {
+    document.getElementById("contact-list").innerHTML = '';
+    document.getElementById("view-contact").style.display = "none";
 }
 
 function firstLetter(i) {
     //FUNKTION FÜR REGISTER
 
     let firstLetter = contacts[i].name[0].toUpperCase();
-    if ((i>0)&&(firstLetter != contacts[i-1].name[0])){
-    document.getElementById("contact-list").innerHTML += /*html*/ `
+    if ((i > 0) && (firstLetter != contacts[i - 1].name[0])) {
+        document.getElementById("contact-list").innerHTML += /*html*/ `
     <div class='first-letter' id='first-letter-${firstLetter}'>
     ${firstLetter}</div>
-    `;}
-    
+    `;
+    }
+
     return firstLetter;
 
 }
 
-function getInitials(i) {
-    // FUNKTION FÜR BADGES
-    const allNames = contacts[i].name.split(" ");
+function getInitials(name) {
+    console.log(name);
+    const allNames = name.split(" ");
 
     let initials = [];
     for (let index = 0; index < allNames.length; index++) {
@@ -112,18 +116,18 @@ function getInitials(i) {
     return initials.join(""); //Methode entfernt das Komma
 }
 
-function renderContacts(){
+function renderContacts() {
 
     contacts.sort(function (a, b) {
         if (a.name < b.name) {
-          return -1;
+            return -1;
         }
         if (a.name > b.name) {
-          return 1;
+            return 1;
         }
         return 0;
-      });
-    
+    });
+
 
     for (let i = 0; i < contacts.length; i++) {
         firstLetter(i);
@@ -132,7 +136,7 @@ function renderContacts(){
         document.getElementById("contact-list").innerHTML += /*html*/ `
         <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'>
         <div class='badge' style="background-color:${contact["color"]
-            }"} ><span>${getInitials(i)}</span></div>
+            }"} ><span>${contact["initials"]}</span></div>
         <div class='card'>
            <span>${contact["name"]}</span>   <br>
             <a href=""> ${contact["email"]}</a> <br>
@@ -143,12 +147,14 @@ function renderContacts(){
 }
 
 function viewCard(i) {
+    console.log(contacts[i]["color"], contacts[i]["initials"])
+    document.getElementById("view-contact").style.display = "block";
     document.getElementById("card-closeup").innerHTML =
         /*html*/
         `
         <div class='card-closeup-header'>
-            <div class='big-badge' style='background-color:${contacts[i]["color"]}><
-              span>${getInitials(i)}</span>
+            <div class='big-badge' style='background-color:${contacts[i]["color"]}'>
+            <span>${contacts[i]["initials"]}</span>
             </div>
             <div class='card-closeup-header-right'><h2>${contacts[i]["name"]}</h2> 
                 <div class='edit-delete-contact'>
@@ -159,7 +165,6 @@ function viewCard(i) {
         </div>
 
     <div class='contact-information'>
-   
            
            <h3> Contact Information</h3>
            <p>Email</p>
@@ -169,27 +174,30 @@ function viewCard(i) {
     </div>
     `;
 }
+
+
 function getRandomColor() {
     function getRandomComponent() {
-      const component = Math.floor(Math.random() * 256).toString(16);
-      return component.length === 1 ? "0" + component : component;
+        const component = Math.floor(Math.random() * 256).toString(16);
+        return component.length === 1 ? "0" + component : component;
     }
     let color;
     do {
-      const red = getRandomComponent();
-      const green = getRandomComponent();
-      const blue = getRandomComponent();
-      color = `#${red}${green}${blue}`;
+        const red = getRandomComponent();
+        const green = getRandomComponent();
+        const blue = getRandomComponent();
+        color = `#${red}${green}${blue}`;
     } while (isGrayscale(color));
-  
+
     return color;
-  }
-  
-  function isGrayscale(color) {
+}
+
+
+function isGrayscale(color) {
     const hex = color.slice(1);
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
     return r === g && g === b;
-  }
-  
+}
+

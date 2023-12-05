@@ -43,24 +43,46 @@
     </div>
 
     <div class="inner-frame">
-        <div id="scrollcontainer">
-            <button onclick="openAddContact()">
+        <div id="scrollcontainer" >
+            <button onclick="openAddContact()" class="button-open-add-contact-desktop">
                 <div><span>Add new contact</span> <img src="./assets/img/person_add.png" alt=""></div>
             </button>
             <div class="contact-list" id="contact-list">
 
                 <div id="card"></div>
             </div>
+            <button onclick="openAddContact()" class="button-open-add-contact-mobile">
+                <img src="./assets/img/Secondary mobile contact V1.png" alt="">
+            </button>
         </div>
 
         <div id="view-contact">
 
-            <div class="contact-header">
-                <h1>Contacts</h1>
-                <div class="separator"></div>
+            <div class="contact-header view-contact-subContainer">
+                <h1 class="view-contact-subContainer">Contacts</h1>
+                <div class="separator view-contact-subContainer"></div>
                 <span>Better with a team</span>
             </div>
-            <div id="card-closeup"></div>
+            <div id="card-closeup" class="view-contact-subContainer"></div>
         </div>
     </div>
+<script>document.addEventListener("DOMContentLoaded", function () {
+    var myDiv = document.getElementById("view-contact");
+    var subContainers = myDiv.getElementsByClassName("view-contact-subContainer");
+    console('test eventListener');
+    // Überprüfen, ob das Element gefunden wurde
+    if (myDiv) {
+        // Event Listener auf das Dokument setzen
+        document.addEventListener("click", function (event) {
+            // Überprüfen, ob der Klick außerhalb des Divs erfolgt ist
+            if (!myDiv.contains(event.target)) {
+                // Das Div schließen
+                myDiv.style.display = "none";
+                for (var i = 0; i < subContainers.length; i++) {
+                    subContainers[i].style.display = "none";
+                }
+            }
+        });
+    }
+});</script>
 </body>
