@@ -85,6 +85,10 @@ async function updateTemporaryTask() {
   tasks[tempTaskId].description = addTaskDescription.value;
   tasks[tempTaskId].category = addTaskCategory.value;
   tasks[tempTaskId].date = timestamp;
+  tasks[tempTaskId].prio = taskPrio.toLowerCase();
+  tasks[tempTaskId].subtasks = tasks[tempTaskId].subtasks.concat(taskSubtasks);
+  tasks[tempTaskId].subtasksstate =
+    tasks[tempTaskId].subtasksstate.concat(taskSubtaskstate);
   await setItem("tasks", JSON.stringify(tasks));
 }
 
@@ -92,11 +96,20 @@ async function updateTemporaryTask() {
  * Creates the new task in the backend
  */
 async function saveTaskOnServer() {
-  clearTaskBtn.disabled = true;
-  addTaskBtn.disabled = true;
   tasks[tempTaskId].delete = "no";
   await setItem("tasks", JSON.stringify(tasks));
+  sleep(2000);
   clearTask();
+}
+
+/**
+ * Resets the form to 0 by zeroing the variables and re-rendering the page
+ */
+function clearTask() {
+  tempTaskId = "";
+  clearTaskBtn.disabled = true;
+  addTaskBtn.disabled = true;
+  renderMainpageContent("./html/board.html");
 }
 
 /**
@@ -160,14 +173,6 @@ function checkField(index, prop, element, errorElement, callback) {
 }
 
 /**
- * Resets the form to 0 by zeroing the variables and re-rendering the page
- */
-function clearTask() {
-  tempTaskId = "";
-  renderMainpageContent("./html/board.html");
-}
-
-/**
  * Checks all input fields for empty values and returns true if all fields are valid, otherwise false.
  * @returns {boolean} - Returns true if all input fields are valid, false otherwise.
  */
@@ -186,6 +191,7 @@ function renderAddTaskAssignetContent() {
   <input
     type="text"
     id="edit-task-assignet"
+    autocomplete="off"
     placeholder="Select contact to assign"
     onclick="openOverlayContacts(tempTaskId)"
     oninput="changeInputTextColor('edit-task-assignet'), searchContact(tempTaskId)"

@@ -209,6 +209,7 @@ function renderTaskOverlayEditHTML(id) {
             <input
               type="text"
               id="edit-task-assignet"
+              autocomplete="off"
               placeholder="Select contact to assign"
               onclick="openOverlayContacts(${tasks[id].id})"
               oninput="changeInputTextColor('edit-task-assignet'), searchContact(${
@@ -346,20 +347,20 @@ function generateAssignetContactHTML(i, userInitials, username, color) {
  * @param {String} taskId - The ID of the task.
  * @param {string} i - The length of the subtasks array (tasks[taskId].subtasks)
  */
-function renderSubtaskEditHTML(divId, taskId, i) {
+function renderSubtaskHTML(divId, taskId, i) {
   document.getElementById(`${divId}-task-subtask-addet`).innerHTML += /*html*/ `
     <div class="edit-task-subtask-addet">
-    <li><span id="editTaskTitletext${i}">${tasks[taskId].subtasks[i]}</span><input type="text" id="editTaskEditfield${i}" value="${taskSubtasks[i]}" class="d-none"/></li>
+    <li><span id="${divId}TaskTitletext${i}">${tasks[taskId].subtasks[i]}</span><input type="text" id="${divId}TaskEditfield${i}" value="${tasks[taskId].subtasks[i]}" class="d-none"/></li>
     <div class="edit-task-icons-addet">
     <img
-        id="edit-edit-task-icon-subtask-close${i}"
+        id="${divId}-edit-task-icon-subtask-close${i}"
         src="../assets/img/check.svg"
         alt="add"
         class="edit-task-icon-addet d-none"
-        onclick="saveEditSubtask('${divId}',${i})"
+        onclick="saveEditSubtask('${divId}',${taskId},${i})"
       />
       <img
-      id="edit-edit-task-icon-subtask-edit${i}"
+      id="${divId}-edit-task-icon-subtask-edit${i}"
         src="../assets/img/edit.svg"
         alt="edit"
         class="edit-task-icon-addet"

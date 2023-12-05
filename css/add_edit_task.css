@@ -58,6 +58,11 @@
   width: 440px;
 }
 
+.add-task-left,
+.add-task-right {
+  padding-bottom: 80px;
+}
+
 .add-task-middle {
   width: 96px;
 }
@@ -235,7 +240,6 @@
 .add-task-footer {
   display: flex;
   justify-content: space-between;
-  padding-top: 45px;
 }
 
 .add-task-buttons {
@@ -629,6 +633,11 @@
   .edit-task-left,
   .edit-task-right {
     width: 100%;
+  }
+
+  .add-task-left,
+  .add-task-right {
+    padding-bottom: 0;
   }
 
   .add-task-required {

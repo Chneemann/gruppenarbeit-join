@@ -144,16 +144,9 @@ async function confirmEditTask(taskId) {
  * @param {number} taskId - The ID of the task.
  */
 function renderAllSubtasks(divId, taskId) {
-  if (divId == "edit") {
-    document.getElementById(`${divId}-task-subtask-addet`).innerHTML = "";
-    for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
-      renderSubtaskEditHTML(divId, taskId, i);
-    }
-  } else {
-    document.getElementById(`${divId}-task-subtask-addet`).innerHTML = "";
-    for (let i = 0; i < taskSubtasks.length; i++) {
-      renderSubtaskAddHTML(divId, i);
-    }
+  document.getElementById(`${divId}-task-subtask-addet`).innerHTML = "";
+  for (let i = 0; i < tasks[taskId].subtasks.length; i++) {
+    renderSubtaskHTML(divId, taskId, i);
   }
 }
 
@@ -217,9 +210,9 @@ function editSubtask(divId, taskId) {
     .classList.remove("d-none");
 }
 
-function saveEditSubtask(divId, taskId) {
-  taskSubtasks[taskId] = document.getElementById(
-    `addTaskEditfield${taskId}`
+function saveEditSubtask(divId, taskId, i) {
+  tasks[taskId].subtasks[i] = document.getElementById(
+    `${divId}TaskEditfield${i}`
   ).value;
   document
     .getElementById(`${divId}TaskTitletext${taskId}`)
@@ -237,32 +230,26 @@ function saveEditSubtask(divId, taskId) {
 }
 
 function confirmSubtask(divId, taskId) {
+  taskId = taskId || tempTaskId;
   let newSubtask = document.getElementById(`${divId}-task-subtask`).value;
   if (!newSubtask == "") {
-    if (divId == "edit") {
-      tasks[taskId].subtasks.push(newSubtask);
-      tasks[taskId].subtaskstate.push("ongoing");
-      renderAllSubtasks(divId, taskId);
-      closeSubtask(divId);
-    } else if (divId == "add") {
-      taskSubtasks.push(newSubtask);
-      taskSubtaskstate.push("ongoing");
-      renderAllSubtasks(divId, taskId);
-      closeSubtask(divId);
-    }
+    tasks[taskId].subtasks.push(newSubtask);
+    tasks[taskId].subtasksstate.push("ongoing");
+    renderAllSubtasks(divId, taskId);
+    closeSubtask(divId);
+  } else if (divId == "add") {
+    taskSubtasks.push(newSubtask);
+    taskSubtaskstate.push("ongoing");
+    renderAllSubtasks(divId, taskId);
+    closeSubtask(divId);
   }
 }
 
 function deleteSubtask(divId, i, taskId) {
-  if (divId == "edit") {
-    tasks[taskId].subtasks.splice(i, 1);
-    tasks[taskId].subtaskstate.splice(i, 1);
-    renderAllSubtasks("edit", taskId);
-  } else if (divId == "add") {
-    taskSubtasks.splice(i, 1);
-    taskSubtaskstate.splice(i, 1);
-    renderAllSubtasks("add", taskId);
-  }
+  taskId = taskId || tempTaskId;
+  tasks[taskId].subtasks.splice(i, 1);
+  tasks[taskId].subtasksstate.splice(i, 1);
+  renderAllSubtasks(divId, taskId);
 }
 
 function changeInputTextColor(input) {

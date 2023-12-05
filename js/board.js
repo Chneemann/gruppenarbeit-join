@@ -338,10 +338,11 @@ function editTask(id) {
   addPrioStatus(`icon-${taskPrio}`);
 }
 
-function deleteTask(id) {
+async function deleteTask(id) {
   alert("Do you really want to delete this task?");
   closeCart();
   tasks[id].delete = "yes";
+  // await setItem("tasks", JSON.stringify(tasks));
   initBoard();
 }
 
