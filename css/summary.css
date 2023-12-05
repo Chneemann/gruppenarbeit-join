@@ -115,6 +115,7 @@ body {
   border-radius: 30px;
   color: black;
   cursor: pointer;
+  background-color:var(--white);
 }
 
 .frame_pencil:hover {
@@ -130,6 +131,7 @@ body {
   padding: 38px 58px;
   border-radius: 30px;
   cursor: pointer;
+  background-color:var(--white);
 }
 
 .frame_rectangle:hover {
@@ -146,6 +148,7 @@ body {
   border-radius: 30px;
   color: black;
   cursor: pointer;
+  background-color:var(--white);
 }
 
 .frame_urgent:hover {
@@ -303,6 +306,7 @@ body {
   color: black;
   cursor: pointer;
   gap: 13px;
+  background-color:var(--white);
 }
 
 .new_tasks:hover {
@@ -317,7 +321,7 @@ body {
 .not_displayed {
   display: none;
 }
-@media (max-width: 950px){
+@media (max-width: 950px) {
   .mobile_lost {
     display: none;
   }
@@ -343,6 +347,16 @@ body {
   .mobile_lost {
     display: none;
   }
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
+  }
+  .frame_pencil{
+    padding: 29px 36px;
+  }
+  .frame_rectangle{
+    padding: 29px 36px;
+  }
 }
 
 @media (max-width: 580px) {
@@ -361,6 +375,14 @@ body {
     padding-top: 36px;
     padding-bottom: 36px;
     gap: 36px;
+  }
+
+  .frame_up {
+    gap: 75px;
+  }
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
   }
 }
 
@@ -436,7 +458,7 @@ body {
 
   .frame_urgent {
     padding: 0px;
-    gap: 36px;
+    gap: 18px;
   }
 
   .peak_up {
@@ -455,7 +477,7 @@ body {
 
   .date {
     font-size: 15px;
-    width: 160px;
+    width: 100px;
   }
 
   .urgent_txt {
