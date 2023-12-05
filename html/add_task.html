@@ -16,10 +16,14 @@
         <input
           type="text"
           id="addTaskTitel"
+          class=""
           placeholder="Enter a title"
           oninput="changeInputTextColor('addTaskTitel')"
           required
         />
+      </div>
+      <div id="addTaskTitelError" class="add-task-errortext d-none">
+        This field needs to be filled out
       </div>
       <div class="add-task-description">
         <p>Description</p>
@@ -51,9 +55,12 @@
           oninput="changeInputTextColor('addTaskDate')"
           required
         />
+        <div id="addTaskDateError" class="add-task-errortext d-none">
+          A date must be entered
+        </div>
       </div>
       <div class="add-task-prio">
-        <p>Prio</p>
+        <p>Prio<span class="red-dot">*</span></p>
         <div class="add-task-prio-fields">
           <button
             id="icon-urgent"
@@ -89,15 +96,21 @@
             </div>
           </button>
         </div>
+        <div id="addTaskPrioError" class="add-task-errortext d-none">
+          You must select a priority
+        </div>
       </div>
       <div class="add-task-category">
-        <p>Category</p>
+        <p>Category<span class="red-dot">*</span></p>
         <select id="addTaskCategory" required>
           <option value="" selected>Select task category</option>
           <option value="html">HTML</option>
           <option value="css">CSS</option>
           <option value="javascript">JavaScript</option>
         </select>
+        <div id="addTaskCategoryError" class="add-task-errortext d-none">
+          A category must be selected
+        </div>
       </div>
       <div class="add-task-subtask">
         <p>Subtask</p>
@@ -111,7 +124,7 @@
           <div id="add-task-icon-add">
             <img src="./assets/img/add.svg" alt="add" class="add-task-icon2" />
           </div>
-          <div id="add-task-icon-close-check" class="d-none flex">
+          <div id="add-task-icon-close-check" class="flex d-none">
             <img
               src="./assets/img/close.svg"
               alt="close"
@@ -129,36 +142,34 @@
         </div>
         <div id="add-task-subtask-addet"></div>
       </div>
-      <div>
-        <div class="add-task-footer">
-          <div class="add-task-required">
-            <span class="red-dot">*</span>This field is required
-          </div>
-          <div class="add-task-buttons">
-            <button
-              id="clearTaskBtn"
-              class="add-task-btn-clear"
-              type="submit"
-              onclick="clearTask()"
-            >
-              <div class="add-task-btn-inside">
-                <span>Clear</span>
-                <img src="./assets/img/close.svg" alt="close" />
-              </div>
-            </button>
-            <button
-              class="add-task-btn-create"
-              type="submit"
-              onclick="createTask()"
-            >
-              <div id="addTaskBtn" class="add-task-btn-inside">
-                <span>Create Task</span>
-                <img src="./assets/img/check.svg" alt="ckeck" />
-              </div>
-            </button>
-          </div>
+    </div>
+  </div>
+  <div class="add-task-footer">
+    <div class="add-task-required">
+      <span class="red-dot">*</span> This field is required
+    </div>
+    <div class="add-task-buttons">
+      <button
+        id="clearTaskBtn"
+        class="add-task-btn-clear"
+        type="submit"
+        onclick="clearTask()"
+      >
+        <div class="add-task-btn-inside">
+          <span>Clear</span>
+          <img src="./assets/img/close.svg" alt="close" />
         </div>
-      </div>
+      </button>
+      <button
+        class="add-task-btn-create"
+        type="submit"
+        onclick="createNewTask()"
+      >
+        <div id="addTaskBtn" class="add-task-btn-inside">
+          <span>Create Task</span>
+          <img src="./assets/img/check.svg" alt="ckeck" />
+        </div>
+      </button>
     </div>
   </div>
 </div>

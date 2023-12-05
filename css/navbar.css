@@ -72,23 +72,3 @@ a {
   text-decoration: none;
   color: #b2b3b6;
 }
-@media (orientation: portrait) {
-  .logo-up-left {
-    width: 37px;
-    height: 38px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-  .left-frame {
-    display: none;
-  }
-  .upper-frame span {
-    display: none;
-  }
-  .upper-frame {
-    background-image: url("../assets/img/Join-dark.png");
-    justify-content: space-between;
-  }
-}

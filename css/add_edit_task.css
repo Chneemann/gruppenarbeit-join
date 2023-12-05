@@ -235,8 +235,7 @@
 .add-task-footer {
   display: flex;
   justify-content: space-between;
-  width: 977px;
-  padding-top: 125px;
+  padding-top: 45px;
 }
 
 .add-task-buttons {
@@ -296,6 +295,11 @@
 .add-task-btn-create:hover {
   background-color: var(--light-blue);
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.add-task-errortext {
+  font-size: 14px;
+  color: var(--red);
 }
 
 /*------------- EDIT TASK -------------*/
@@ -541,10 +545,6 @@
   margin-right: 12px;
 }
 
-.d-none {
-  display: none;
-}
-
 .flex {
   display: flex;
 }
@@ -570,6 +570,14 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+}
+
+.red-border {
+  border-color: var(--red) !important;
+}
+
+.d-none {
+  display: none;
 }
 
 /*------------- MEDIA -------------*/
