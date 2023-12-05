@@ -116,6 +116,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function changeInputTextColor(input) {
+  var inputElement = document.getElementById(input);
+
+  if (inputElement.value.trim() !== "") {
+    inputElement.style.color = "var(--black)";
+  } else {
+    inputElement.style.color = "";
+  }
+}
+
 // HTML Include
 
 async function includeHTML() {

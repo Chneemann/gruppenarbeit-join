@@ -35,10 +35,10 @@ function renderTasks() {
 /**
  * This function checks who is working on the task and displays them with their initials
  *
- * @param {string} id User ID
+ * @param {string} id Current task id
  * @returns HTML user badget for any assignet user in the task
  */
-function checkAssignetContactBoard(id) {
+function checkAssignetContactBoard(id, check) {
   const userInitialsHTML = [];
   for (let i = 0; i < tasks[id].assignet.length; i++) {
     for (let j = 0; j < contacts.length; j++) {
@@ -53,7 +53,12 @@ function checkAssignetContactBoard(id) {
       }
     }
   }
-  return userInitialsHTML.join("");
+  if (check) {
+    document.getElementById("board-card-footer-badge").innerHTML =
+      userInitialsHTML.join("");
+  } else {
+    return userInitialsHTML.join("");
+  }
 }
 
 /**
@@ -121,7 +126,7 @@ function generateTaskCategoryColor(id) {
 /**
  * This function checks who is working on the task and displays them with their initials and usernames
  *
- * @param {string} id User ID
+ * @param {string} id Current task id
  * @returns HTML user badget for any assignet user in the task
  */
 function checkAssignetContact(id) {

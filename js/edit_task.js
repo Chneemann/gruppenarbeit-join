@@ -1,3 +1,7 @@
+let taskPrio = "";
+let taskSubtasks = [];
+let taskSubtaskstate = [];
+
 // EDIT TASK
 
 /**

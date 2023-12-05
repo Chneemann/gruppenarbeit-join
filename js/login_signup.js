@@ -185,19 +185,3 @@ function loadLoginPage() {
   document.getElementById("logo-loading").classList.add("d-none");
   document.getElementById("footer").classList.remove("d-none");
 }
-
-// GLOBAL
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function changeInputTextColor(input) {
-  var inputElement = document.getElementById(input);
-
-  if (inputElement.value.trim() !== "") {
-    inputElement.style.color = "var(--black)";
-  } else {
-    inputElement.style.color = "";
-  }
-}

@@ -1,16 +1,14 @@
-let taskPrio = "";
-let taskSubtasks = [];
-let taskSubtaskstate = [];
 let lastTaskId;
 let checkInputFields = [];
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-let tempTaskId;
+let tempTaskId = "";
 
 /**
  * Initialises the task form by loading all required functions
  */
 async function initAddTask() {
   await loadAllTasks();
+  renderAddTaskAssignetContent();
   checkTemporaryTask();
 }
 
@@ -21,16 +19,27 @@ function checkTemporaryTask() {
     }
   }
   if (tempTaskId) {
-    fillAllInputs(tempTaskId);
+    fillAllInputs();
   } else {
     createTemporaryTask();
   }
 }
 
-function fillAllInputs(tempTaskId) {
+function fillAllInputs() {
   addTaskTitel.value = tasks[tempTaskId].title;
+  addTaskTitel.style.color = "var(--black)";
   addTaskDescription.value = tasks[tempTaskId].description;
-  addTaskDate.value = timestampForInputfield(tasks[tempTaskId].date);
+  addTaskDescription.style.color = "var(--black)";
+  addTaskCategory.value = tasks[tempTaskId].category;
+  if (tasks[tempTaskId].date != "") {
+    addTaskDate.value = timestampForInputfield(tasks[tempTaskId].date);
+    addTaskDate.style.color = "var(--black)";
+  }
+  if (tasks[tempTaskId].prio != "") {
+    addPrioStatus("icon-" + tasks[tempTaskId].prio);
+  }
+  checkAssignetContactBoard(tempTaskId, true);
+  renderAllSubtasks("add", tempTaskId);
 }
 
 /**
@@ -40,7 +49,7 @@ async function createTask() {
   clearTaskBtn.disabled = false;
   addTaskBtn.disabled = false;
   updateTemporaryTask();
-  if (checkAllInputFields() && checkTaskDate()) {
+  if (checkAllRequiredInputFields() && checkTaskDate()) {
     saveTaskOnServer();
   } else {
     errorTaskInput();
@@ -69,23 +78,24 @@ async function updateTemporaryTask() {
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
   let timestamp = new Date(addTaskDate.value).getTime();
+  if (addTaskDate.value == "") {
+    timestamp = "";
+  }
   tasks[tempTaskId].title = addTaskTitel.value;
   tasks[tempTaskId].description = addTaskDescription.value;
   tasks[tempTaskId].category = addTaskCategory.value;
   tasks[tempTaskId].date = timestamp;
-  tasks[tempTaskId].prio = taskPrio.toLowerCase();
-  tasks[tempTaskId].subtasks = taskSubtasks;
-  tasks[tempTaskId].subtasksstate = taskSubtaskstate;
   await setItem("tasks", JSON.stringify(tasks));
 }
 
 /**
  * Creates the new task in the backend
  */
-function saveTaskOnServer() {
+async function saveTaskOnServer() {
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
-  alert("Your task has been created.");
+  tasks[tempTaskId].delete = "no";
+  await setItem("tasks", JSON.stringify(tasks));
   clearTask();
 }
 
@@ -153,21 +163,56 @@ function checkField(index, prop, element, errorElement, callback) {
  * Resets the form to 0 by zeroing the variables and re-rendering the page
  */
 function clearTask() {
-  taskPrio = "";
-  taskSubtasks = [];
-  taskSubtaskstate = [];
-  renderMainpageContent("./html/add_task.html");
+  tempTaskId = "";
+  renderMainpageContent("./html/board.html");
 }
 
 /**
  * Checks all input fields for empty values and returns true if all fields are valid, otherwise false.
  * @returns {boolean} - Returns true if all input fields are valid, false otherwise.
  */
-function checkAllInputFields() {
+function checkAllRequiredInputFields() {
   checkInputFields = [];
   checkInputFields.push({ title: addTaskTitel.value !== "" });
   checkInputFields.push({ date: addTaskDate.value !== "" });
   checkInputFields.push({ category: addTaskCategory.value !== "" });
   checkInputFields.push({ prio: taskPrio !== "" });
   return checkInputFields.every((field) => Object.values(field)[0]);
+}
+
+function renderAddTaskAssignetContent() {
+  document.getElementById("add-task-assignet").innerHTML = /*html*/ `
+  <p>Assignet to</p>
+  <input
+    type="text"
+    id="edit-task-assignet"
+    placeholder="Select contact to assign"
+    onclick="openOverlayContacts(tempTaskId)"
+    oninput="changeInputTextColor('edit-task-assignet'), searchContact(tempTaskId)"
+  />
+  <div id="edit-task-icon-closecontact" class="d-none">
+    <img
+      src="./assets/img/check-black.png"
+      alt="add"
+      onclick="closeOverlayContacts(event, tempTaskId)"
+      class="edit-task-icon"
+    />
+  </div>
+  <div id="edit-task-icon-opencontact">
+    <img
+      src="./assets/img/add.svg"
+      alt="open"
+      onclick="openOverlayContacts(tempTaskId)"
+      class="edit-task-icon"
+    />
+  </div>
+  <div
+    id="edit-task-assignet-overlay"
+    class="edit-task-assignet-overlay d-none"
+  ></div>
+  <div class="edit-card-footer">
+    <div id="board-card-footer-badge">
+    </div>
+  </div>
+`;
 }

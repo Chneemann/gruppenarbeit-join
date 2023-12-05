@@ -33,9 +33,7 @@
           oninput="changeInputTextColor('addTaskDescription')"
         ></textarea>
       </div>
-      <div class="add-task-assignet">
-        <p>Assignet to</p>
-      </div>
+      <div id="add-task-assignet" class="add-task-assignet"></div>
     </div>
     <div class="add-task-middle">
       <div class="add-task-line"></div>
@@ -98,9 +96,9 @@
         <p>Category<span class="red-dot">*</span></p>
         <select id="addTaskCategory" required>
           <option value="" selected>Select task category</option>
-          <option value="html">HTML</option>
-          <option value="css">CSS</option>
-          <option value="javascript">JavaScript</option>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
         </select>
         <div id="addTaskCategoryError" class="add-task-errortext d-none">
           A category must be selected
