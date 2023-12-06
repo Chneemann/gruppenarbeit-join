@@ -364,11 +364,9 @@ body {
 @media (max-width: 950px) {
   .mobile_lost {
     display: none;
-  }
-  
+  } 
 }
-
-@media (max-width: 893px) {
+@media (max-width: 983px) {
   .title {
     font-size: 50px;
   }
@@ -477,7 +475,7 @@ body {
   }
 
   .first_frame {
-    gap: 100px;
+    gap: 80px;
   }
 
   .btn_frames {
@@ -553,7 +551,7 @@ body {
 
   .new_tasks {
     width: 120px;
-    height: 120px;
+    height: 135px;
     gap: 4px;
   }
 
@@ -577,8 +575,8 @@ body {
     gap: 20px;
   }
   .new_tasks {
-    width: 105px;
-    height: 105px;
+    width: 111px;
+    height: 140px;
   }
 }
 @media (max-width: 360px) {
@@ -605,7 +603,7 @@ body {
   }
 
   .first_frame {
-    gap: 100px;
+    gap: 80px;
   }
 
   .btn_frames {
@@ -660,6 +658,7 @@ body {
 
   .txt_number {
     font-size: 47px;
+    line-height: 55px;
   }
 
   .tasks {
