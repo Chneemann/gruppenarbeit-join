@@ -28,6 +28,10 @@
   --turquoise: #1fd7c1;
   --yellow: #ffee00;
 }
+@font-face {
+  font-family: "Figtree", sans-serif;
+  src: url("./fonts/Figtree/Figtree-VariableFont_wght.ttf");
+}
 
 html {
   overflow: hidden;

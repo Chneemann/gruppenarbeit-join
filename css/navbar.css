@@ -1,7 +1,3 @@
-@font-face {
-  font-family: Figtree;
-  src: url("./Figtree-VariableFont_wght.ttf"); /*gerne in den Font-Ordner verschieben, ich habe es nicht anders hinbekommen. L*/
-}
 .left-frame {
   position: fixed;
   width: 232px;
