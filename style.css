@@ -208,6 +208,15 @@ input {
   font-weight: 400;
 }
 
+.navbar-links a {
+  text-decoration: none;
+  color: var(--gray);
+}
+
+.navbar-links a:hover {
+  color: var(--light-blue);
+}
+
 .header-help {
   display: flex;
   justify-content: space-between;
@@ -219,6 +228,7 @@ input {
   width: 32px;
   height: 32px;
   cursor: pointer;
+  margin-left: 48px;
 }
 
 .header-help img:hover {
@@ -256,9 +266,21 @@ input {
   margin-right: 35px;
 }
 
+.wrapping-wort {
+  overflow: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
 @media (max-width: 634px) {
   .navbar-links {
     padding: 48px 16px 0 16px;
+  }
+
+  .navbar-links h1 {
+    font-size: 36px;
+    font-weight: 700;
   }
 }
 

@@ -23,7 +23,7 @@ function openNavbarMenu() {
 }
 
 function closeNavbarMenu(event) {
-  if (event.target.id != "header-userimg") {
+  if (!["header-userimg", "mobile-header-userimg"].includes(event.target.id)) {
     document.getElementById("navbar-menu").classList.add("d-none");
   }
 }

@@ -196,6 +196,8 @@
   font-size: 16px;
   font-weight: 400;
   margin-top: 8px;
+  max-height: 100px;
+  overflow: auto;
 }
 
 .board-card-subtask {
