@@ -88,19 +88,37 @@ input {
   width: 32px;
 }
 
-.mobile-header-userimg {
+.mobile-header-left-frame {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 16px;
+  right: 40px;
   top: 20px;
+}
+
+.mobile-header-userimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   width: 40px;
   border: 2px solid var(--black);
   border-radius: 25px;
   color: var(--light-blue);
   cursor: pointer;
+}
+
+.mobile-header-helpimg {
+  display: flex;
+  align-items: center;
+  width: 56px;
+  cursor: pointer;
+}
+
+.mobile-header-helpimg:hover {
+  filter: invert(60%) sepia(58%) saturate(1629%) hue-rotate(165deg)
+    brightness(92%) contrast(92%);
 }
 
 /*------------- MOBILE NAVBAR -------------*/
@@ -115,7 +133,6 @@ input {
   align-items: center;
   height: 80px;
   background-color: var(--dark-blue);
-  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-navbar-link {
@@ -146,7 +163,7 @@ input {
 
 .content {
   position: fixed;
-  top: 96px;
+  top: 100px;
   left: 232px;
   right: 0;
   height: calc(100% - (96px));
@@ -156,8 +173,9 @@ input {
 
 @media (max-width: 859px) {
   .content {
-    top: 80px;
+    top: 84px;
     left: 0;
+    right: 0;
     height: calc(100% - (80px + 80px));
   }
   #board-page {
@@ -166,6 +184,62 @@ input {
   #add-task-page {
     padding-top: 48px;
   }
+}
+
+/*------------- NAVBAR LINKS -------------*/
+
+.navbar-links {
+  padding: 79.5px 64px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.header-help {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.header-help img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.header-help img:hover {
+  width: 36px;
+  height: 36px;
+  background-color: var(--light-gray);
+  border-radius: 18px;
+}
+
+.help-color {
+  color: var(--light-blue);
+}
+
+.navbar-links h1 {
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.navbar-links h2 {
+  font-size: 27px;
+  font-weight: 700;
+  margin: 24px 0;
+}
+
+.navbar-links h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.navbar-links table tr td:first-child {
+  display: flex;
+  font-size: 27px;
+  font-weight: 700;
+  margin-right: 35px;
 }
 
 /*------------- SCROLLBAR -------------*/

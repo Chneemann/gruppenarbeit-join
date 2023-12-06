@@ -124,10 +124,10 @@
 .board-content-headline img {
   border-radius: 8px;
   border: 2px solid var(--dark-blue);
+  cursor: pointer;
 }
 
 .board-content-headline img:hover {
-  cursor: pointer;
   filter: invert(60%) sepia(58%) saturate(1629%) hue-rotate(165deg)
     brightness(92%) contrast(92%);
 }

@@ -18,7 +18,7 @@ function currentUserBadged() {
   }
 }
 
-function openNavbarMenu(divId) {
+function openNavbarMenu() {
   document.getElementById("navbar-menu").classList.toggle("d-none");
 }
 

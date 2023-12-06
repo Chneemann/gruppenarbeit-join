@@ -28,21 +28,37 @@
     <div id="mobile-header" class="d-none">
       <div class="mobile-header">
         <img class="mobile-header-logo" src="./assets/img/logo.svg" alt="" />
-        <div
-          class="mobile-header-userimg"
-          id="mobile-header-userimg"
-          onclick="openNavbarMenu()"
-        ></div>
+        <div class="mobile-header-left-frame">
+          <div
+            class="mobile-header-helpimg"
+            onclick="renderMainpageContent('./html/help.html')"
+          >
+            <img src="./assets/img/help.svg" alt="" />
+          </div>
+          <div
+            class="mobile-header-userimg"
+            id="mobile-header-userimg"
+            onclick="openNavbarMenu()"
+          ></div>
+        </div>
       </div>
     </div>
     <div id="navbar">
       <div class="upper-frame">
         <span>Kanban Project Management Tool</span>
-        <div
-          class="mobile-header-userimg"
-          id="header-userimg"
-          onclick="openNavbarMenu()"
-        ></div>
+        <div class="mobile-header-left-frame">
+          <div
+            class="mobile-header-helpimg"
+            onclick="renderMainpageContent('./html/help.html')"
+          >
+            <img src="./assets/img/help.svg" alt="" />
+          </div>
+          <div
+            class="mobile-header-userimg"
+            id="header-userimg"
+            onclick="openNavbarMenu()"
+          ></div>
+        </div>
       </div>
       <div class="left-frame">
         <img
@@ -109,7 +125,7 @@
         </div>
       </div>
     </div>
-    <div id="mainpage-content" class="content">
+    <div class="content">
       <div id="navbar-menu" class="navbar-menu d-none">
         <div class="navbar-menu-button"><span>Legal Notice</span></div>
         <div class="navbar-menu-button"><span>Privacy Policy</span></div>
@@ -117,7 +133,9 @@
           <span>Log out</span>
         </div>
       </div>
-      <div w3-include-html="./summary.html"></div>
+      <div id="mainpage-content">
+        <div w3-include-html="./summary.html"></div>
+      </div>
     </div>
   </body>
 </html>
