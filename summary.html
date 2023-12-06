@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>summary</title>
   </head>
-  <body>
+  <body onload="initSummary()">
     <container class="bg_container">
       <div class="header">
         <div class="title">Join 360</div>
@@ -47,7 +47,7 @@
                   alt=""
                 />
               </div>
-              <div class="tasks">
+              <div id="toDo" class="tasks">
                 <div class="txt_number">1</div>
                 <div class="txt_todo">To-do</div>
               </div>
@@ -75,7 +75,7 @@
                   alt=""
                 />
               </div>
-              <div class="tasks">
+              <div id="Done" class="tasks">
                 <div class="txt_number">1</div>
                 <div class="txt_todo">Done</div>
               </div>
@@ -116,11 +116,11 @@
               <span class="txt_number">5</span>
               <span class="txt_todo">Tasks in board</span>
             </div>
-            <div  class="new_tasks">
+            <div id="inProgress" class="new_tasks">
               <span class="txt_number">2</span>
               <span class="txt_todo">Tasks in progress</span>
             </div>
-            <div class="new_tasks">
+            <div id="awaitFeedback" class="new_tasks">
               <span class="txt_number">2</span>
               <span class="txt_todo">Awaiting feedback</span>
             </div>
@@ -133,5 +133,4 @@
       </div>
     </container>
   </body>
-  <script src="script.js"></script>
 </html>
