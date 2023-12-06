@@ -46,30 +46,30 @@
 .nav-links img {
   width: 100%;
 }
-.nav-links img:hover,
-.reference div:hover {
+.nav-links img:hover {
   background-color: #091931;
   cursor: pointer;
 }
 
 .reference {
   display: flex;
+  align-items: center;
   flex-direction: column;
   padding-bottom: 6vh;
 }
 .reference div {
-  width: 100%;
+  width: 105px;
+  padding: 8px;
   display: flex;
   text-align: center;
   justify-content: center;
+  color: var(--gray);
   padding-top: 2vh;
   padding-bottom: 2vh;
+  cursor: pointer;
 }
-
-a {
-  font-size: 16px;
-  text-decoration: none;
-  color: #b2b3b6;
+.reference div:hover {
+  color: var(--light-blue);
 }
 
 /* ------ NAVBAR MENU ------ */
