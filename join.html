@@ -82,8 +82,12 @@
           />
         </div>
         <div class="reference">
-          <div>Privacy Policy</div>
-          <div>Legal Notice</div>
+          <div onclick="renderMainpageContent('./html/privacypolicy.html')">
+            Privacy Policy
+          </div>
+          <div onclick="renderMainpageContent('./html/legalnotice.html')">
+            Legal Notice
+          </div>
           <div onclick="logout()">Log out</div>
         </div>
       </div>
@@ -125,10 +129,20 @@
       <div
         id="navbar-menu"
         class="navbar-menu d-none"
-        onclick="event.stopPropagation()"
+        onclick="event.stopPropagation('./html/privacypolicy.html')"
       >
-        <div class="navbar-menu-button"><span>Legal Notice</span></div>
-        <div class="navbar-menu-button"><span>Privacy Policy</span></div>
+        <div
+          class="navbar-menu-button"
+          onclick="renderMainpageContent('./html/legalnotice.html')"
+        >
+          <span>Legal Notice</span>
+        </div>
+        <div
+          class="navbar-menu-button"
+          onclick="renderMainpageContent('./summary.html')"
+        >
+          <span>Privacy Policy</span>
+        </div>
         <div class="navbar-menu-button" onclick="logout()">
           <span>Log out</span>
         </div>
