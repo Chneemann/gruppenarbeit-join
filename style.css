@@ -77,7 +77,7 @@ input {
   right: 0;
   height: 80px;
   background-color: var(--white);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-header-logo {
@@ -163,7 +163,7 @@ input {
 
 .content {
   position: fixed;
-  top: 100px;
+  top: 90px;
   left: 232px;
   right: 0;
   height: calc(100% - (96px));
@@ -173,7 +173,7 @@ input {
 
 @media (max-width: 859px) {
   .content {
-    top: 84px;
+    top: 82px;
     left: 0;
     right: 0;
     height: calc(100% - (80px + 80px));
@@ -189,7 +189,7 @@ input {
 /*------------- NAVBAR LINKS -------------*/
 
 .navbar-links {
-  padding: 79.5px 64px;
+  padding: 79.5px 64px 0 64px;
   font-size: 16px;
   font-weight: 400;
 }
@@ -240,6 +240,12 @@ input {
   font-size: 27px;
   font-weight: 700;
   margin-right: 35px;
+}
+
+@media (max-width: 634px) {
+  .navbar-links {
+    padding: 48px 16px 0 16px;
+  }
 }
 
 /*------------- SCROLLBAR -------------*/

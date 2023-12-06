@@ -24,7 +24,7 @@
     <script src="./js/add_task.js"></script>
     <script src="./js/address.js"></script>
   </head>
-  <body onload="init()">
+  <body onload="init()" onclick="closeNavbarMenu(event)">
     <div id="mobile-header" class="d-none">
       <div class="mobile-header">
         <img class="mobile-header-logo" src="./assets/img/logo.svg" alt="" />
@@ -126,7 +126,11 @@
       </div>
     </div>
     <div class="content">
-      <div id="navbar-menu" class="navbar-menu d-none">
+      <div
+        id="navbar-menu"
+        class="navbar-menu d-none"
+        onclick="event.stopPropagation()"
+      >
         <div class="navbar-menu-button"><span>Legal Notice</span></div>
         <div class="navbar-menu-button"><span>Privacy Policy</span></div>
         <div class="navbar-menu-button" onclick="logout()">

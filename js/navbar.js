@@ -22,6 +22,12 @@ function openNavbarMenu() {
   document.getElementById("navbar-menu").classList.toggle("d-none");
 }
 
+function closeNavbarMenu(event) {
+  if (event.target.id != "header-userimg") {
+    document.getElementById("navbar-menu").classList.add("d-none");
+  }
+}
+
 /**
  * This function deletes the user from the LocalStorage and loads the login page, he is now logged out
  */
