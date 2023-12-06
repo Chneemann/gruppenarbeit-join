@@ -65,7 +65,7 @@ function login() {
     }
   }
   if (!emailFound) {
-    openInformationWindow("The email address is not in our database.", 4000);
+    openInformationWindow("The email address is not in our database.", 3000);
   }
   loginBtn.disabled = false;
   guestLoginBtn.disabled = false;
@@ -121,7 +121,7 @@ async function register() {
     (_, index) => index
   );
 
-  if (validatePassword()) {
+  if (validatePassword() && checkNameValidity()) {
     users.push({
       id: users.length,
       username: signupUsername.value,
@@ -129,14 +129,28 @@ async function register() {
       password: signupPassword.value,
       contacts: newContactsArray,
     });
-    await setItem("users", JSON.stringify(users));
+    // await setItem("users", JSON.stringify(users));
     resetFormSignup();
-    alert("The user has been created. You can now log in.");
-    window.location.href =
-      "./index.html?msg=Registration successful, you can now log in.";
+    openInformationWindow(
+      "The user has been created. You can now log in.",
+      300
+    );
+    await sleep(3700);
+    window.location.href = "./index.html";
   }
-
   signupBtn.disabled = false;
+}
+
+function checkNameValidity() {
+  const fullNameValue = signupUsername.value.trim();
+  const nameRegex = /^(\S+\s+\S+)$/;
+  const isValidName = nameRegex.test(fullNameValue);
+  if (!isValidName) {
+    openInformationWindow("You must enter a first name and a surname.", 3000);
+    return false;
+  } else {
+    return true;
+  }
 }
 
 /**
@@ -145,7 +159,7 @@ async function register() {
  */
 function validatePassword() {
   if (signupPassword.value !== signupConfirmPassword.value) {
-    alert("Passwords don't match");
+    openInformationWindow("Passwords don't match.", 1500);
     return false;
   }
   return true;
