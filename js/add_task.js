@@ -99,19 +99,33 @@ async function saveTaskOnServer() {
   tasks[tempTaskId].delete = "no";
   await setItem("tasks", JSON.stringify(tasks));
   await sleep(1000);
-  clearTask();
+  clearTemporaryTask();
 }
 
 /**
  * Resets the form to 0 by zeroing the variables and re-rendering the page
  */
-function clearTask() {
+function clearTemporaryTask() {
   tempTaskId = "";
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
   renderMainpageContent("./html/board.html");
+  openInformationWindow("Your task has been created.", 3000);
 }
 
+async function clearTask() {
+  tasks[tempTaskId].title = "";
+  tasks[tempTaskId].description = "";
+  tasks[tempTaskId].category = [];
+  tasks[tempTaskId].date = "";
+  tasks[tempTaskId].prio = "";
+  tasks[tempTaskId].subtasks = [];
+  tasks[tempTaskId].subtasksstate = [];
+  await setItem("tasks", JSON.stringify(tasks));
+  clearTaskBtn.disabled = true;
+  addTaskBtn.disabled = true;
+  renderMainpageContent("./html/add_task.html");
+}
 /**
  * Checks the entered date and returns a value indicating whether the date is correct.
  * @returns {boolean} - Returns true if the date is correct, false otherwise.
