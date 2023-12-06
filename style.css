@@ -2,6 +2,7 @@
   --black: #000;
   --white: #fff;
   --dark-blue: #2a3647;
+  --dark-blue2: #2a3d59;
   --very-dark-blue: #091931;
   --blue-gray: #42526e;
   --gray: #a8a8a8;
@@ -154,8 +155,8 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 76px;
-  height: 72px;
+  width: 80px;
+  height: 65px;
   cursor: pointer;
 }
 
@@ -165,12 +166,12 @@ input {
 }
 
 .mobile-navbar p {
-  color: var(--white);
+  color: var(--very-light-gray4);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   margin: 0;
-  padding: 4px 0 0 0;
+  padding: 8px 0 0 0;
 }
 
 /*------------- CONTENT -------------*/

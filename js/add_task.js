@@ -1,6 +1,5 @@
 let lastTaskId;
 let checkInputFields = [];
-let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 let tempTaskId = "";
 
 /**

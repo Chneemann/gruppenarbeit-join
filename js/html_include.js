@@ -25,7 +25,8 @@ function renderTaskHTML(id, name) {
         </div>
         <div class="board-card-footer-priority prio-${tasks[id].prio}"></div>
       </div>
-    </div>`;
+    </div>
+    `;
 }
 
 /**

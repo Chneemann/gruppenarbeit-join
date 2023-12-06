@@ -64,22 +64,42 @@
         <img class="logo-up-left" src="./assets/img/logo_navbar.svg" alt="" />
 
         <div class="nav-links">
-          <img
+          <div
+            id="navLinkSummary"
+            class="nav-links-inner"
             onclick="renderMainpageContent('./summary.html')"
-            src="./assets/img/Summary.png"
-          />
-          <img
+          >
+            <img src="./assets/img/navbar/summary.svg" alt="sumary" /><span
+              >Summary</span
+            >
+          </div>
+          <div
+            id="navLinkAddtask"
+            class="nav-links-inner"
             onclick="renderMainpageContent('./html/add_task.html')"
-            src="./assets/img/Add Task.png"
-          />
-          <img
+          >
+            <img src="./assets/img/navbar/addtasks.svg" alt="addtask" /><span
+              >Add Task</span
+            >
+          </div>
+          <div
+            id="navLinkBoard"
+            class="nav-links-inner"
             onclick="renderMainpageContent('./html/board.html')"
-            src="./assets/img/Board.png"
-          />
-          <img
+          >
+            <img src="./assets/img/navbar/board.svg" alt="board" /><span
+              >Board</span
+            >
+          </div>
+          <div
+            id="navLinkContacts"
+            class="nav-links-inner"
             onclick="renderMainpageContent('./html/adress-innerframe.html',renderContacts)"
-            src="./assets/img/Contacts.png"
-          />
+          >
+            <img src="./assets/img/navbar/contacts.svg" alt="contacts" /><span
+              >Contacts</span
+            >
+          </div>
         </div>
         <div class="reference">
           <div onclick="renderMainpageContent('./html/privacypolicy.html')">
@@ -98,7 +118,7 @@
           class="mobile-navbar-link"
           onclick="renderMainpageContent('./summary.html')"
         >
-          <img src="./assets/img/mobile-navbar/summary.svg" alt="" />
+          <img src="./assets/img/navbar/summary.svg" alt="summary" />
           <p>Summary</p>
         </div>
         <div
@@ -106,21 +126,21 @@
           onclick="renderMainpageContent('./html/board.html')"
           å
         >
-          <img src="./assets/img/mobile-navbar/board.svg" alt="" />
+          <img src="./assets/img/navbar/board.svg" alt="board" />
           <p>Board</p>
         </div>
         <div
           class="mobile-navbar-link"
           onclick="renderMainpageContent('./html/add_task.html')"
         >
-          <img src="./assets/img/mobile-navbar/addtasks.svg" alt="" />
+          <img src="./assets/img/navbar/addtasks.svg" alt="addtask" />
           <p>Add Tasks</p>
         </div>
         <div
           class="mobile-navbar-link"
           onclick="renderMainpageContent('./html/adress-innerframe.html',renderContacts)"
         >
-          <img src="./assets/img/mobile-navbar/contacts.svg" alt="" />
+          <img src="./assets/img/navbar/contacts.svg" alt="contacts" />
           <p>Contacts</p>
         </div>
       </div>
