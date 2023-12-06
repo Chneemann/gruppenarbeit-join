@@ -56,6 +56,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+async function openInformationWindow(infoTxt, sleeptime) {
+  var overlay = document.getElementById("information-window");
+  overlay.classList.remove("d-none");
+  await sleep(10);
+  overlay.classList.add("dialog-show");
+  overlay.classList.remove("dialog-hide");
+  changeBackground(overlay);
+  document.getElementById("information-msg").innerHTML = infoTxt;
+  await sleep(sleeptime);
+  document.body.style.overflow = "auto";
+  overlay.classList.add("dialog-hide");
+  overlay.classList.remove("dialog-show");
+  overlay.style.backgroundColor = "";
+  await sleep(100);
+  overlay.classList.add("d-none");
+}
+
 /**
  * This function loads the new file into the content of the main page
  *
@@ -125,5 +142,29 @@ async function includeHTML() {
         console.error("Error fetching HTML:", error);
       }
     }
+  }
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function changeBackground(overlay) {
+  overlay.addEventListener(
+    "transitionend",
+    function () {
+      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+    },
+    { once: true }
+  );
+}
+
+function changeInputTextColor(input) {
+  var inputElement = document.getElementById(input);
+
+  if (inputElement.value.trim() !== "") {
+    inputElement.style.color = "var(--black)";
+  } else {
+    inputElement.style.color = "";
   }
 }

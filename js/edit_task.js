@@ -250,16 +250,6 @@ function deleteSubtask(divId, taskId, i) {
   renderAllSubtasks(divId, taskId);
 }
 
-function changeInputTextColor(input) {
-  var inputElement = document.getElementById(input);
-
-  if (inputElement.value.trim() !== "") {
-    inputElement.style.color = "var(--black)";
-  } else {
-    inputElement.style.color = "";
-  }
-}
-
 /**
  * This function checks which prio button has been clicked, saves this
  * and then colours it in its respective colour

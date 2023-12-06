@@ -325,6 +325,7 @@ async function openAddTask() {
 }
 
 async function closeAddTask() {
+  /*
   var overlay = document.getElementById("add-task-dialog");
   document.body.style.overflow = "auto";
   overlay.classList.add("dialog-hide");
@@ -332,6 +333,7 @@ async function closeAddTask() {
   overlay.style.backgroundColor = "";
   await sleep(100);
   overlay.classList.add("d-none");
+    */
 }
 
 function editTask(id) {
@@ -344,11 +346,12 @@ function editTask(id) {
 }
 
 async function deleteTask(id) {
-  alert("Do you really want to delete this task?");
   closeCart();
   tasks[id].delete = "yes";
   await setItem("tasks", JSON.stringify(tasks));
   initBoard();
+  await sleep(200);
+  openInformationWindow("The task has been deleted.", 3000);
 }
 
 // OPEN/CLOSE CART
@@ -373,22 +376,6 @@ async function closeCart() {
   await sleep(100);
   overlay.classList.add("d-none");
   initBoard();
-}
-
-// GLOBAL
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function changeBackground(overlay) {
-  overlay.addEventListener(
-    "transitionend",
-    function () {
-      overlay.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-    },
-    { once: true }
-  );
 }
 
 // W3C

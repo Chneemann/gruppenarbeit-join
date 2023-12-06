@@ -72,6 +72,10 @@ input {
   font-family: "Figtree", sans-serif;
 }
 
+.d-none {
+  display: none !important;
+}
+
 /*------------- MOBILE HEADER -------------*/
 
 .mobile-header {
@@ -109,8 +113,13 @@ input {
   width: 40px;
   border: 2px solid var(--black);
   border-radius: 25px;
+  background-color: var(--white);
   color: var(--light-blue);
   cursor: pointer;
+}
+
+.mobile-header-userimg:hover {
+  background-color: var(--very-light-gray2);
 }
 
 .mobile-header-helpimg {
@@ -252,6 +261,20 @@ input {
   }
 }
 
+/*------------- INFORMATION WINDOW -------------*/
+
+#information-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid lightgray;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 24px;
+}
+
 /*------------- SCROLLBAR -------------*/
 
 *::-webkit-scrollbar {
@@ -266,4 +289,36 @@ input {
   background-color: var(--light-gray);
   border-radius: 10px;
   border: 3px solid var(--white);
+}
+
+/*------------- DIALOG -------------*/
+
+.dialog-bg {
+  z-index: 8;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  transform: translateX(100%);
+  transition: transform 0.1s ease-in-out;
+}
+
+.dialog {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 30px;
+  padding: 64px 74px !important;
+}
+
+.dialog-show {
+  transform: translateX(0%);
+}
+
+.dialog-hide {
+  transform: translateX(100%);
 }

@@ -133,11 +133,11 @@ h1 {
 }
 
 .input-icon-mail {
-  background-image: url("./assets/img/mail.svg");
+  background-image: url("../assets/img/mail.svg");
 }
 
 .input-icon-lock {
-  background-image: url("./assets/img/lock.svg");
+  background-image: url("../assets/img/lock.svg");
 }
 
 .login-check-button {
@@ -249,7 +249,7 @@ h1 {
 }
 
 .input-icon-name {
-  background-image: url("./assets/img/person.svg");
+  background-image: url("../assets/img/person.svg");
 }
 
 .signup-input-fields {

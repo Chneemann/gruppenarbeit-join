@@ -60,12 +60,12 @@ function login() {
         redirectToIndex();
         break;
       } else {
-        alert("The password is incorrect");
+        openInformationWindow("The password is incorrect.", 2000);
       }
     }
   }
   if (!emailFound) {
-    alert("The email address is not in our database");
+    openInformationWindow("The email address is not in our database.", 4000);
   }
   loginBtn.disabled = false;
   guestLoginBtn.disabled = false;
