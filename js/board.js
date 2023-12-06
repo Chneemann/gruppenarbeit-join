@@ -120,6 +120,8 @@ function generateTaskCategoryColor(id) {
     return "blue";
   } else if (tasks[id].category == "JavaScript") {
     return "yellow";
+  } else if (tasks[id].category == "Angular") {
+    return "red";
   }
 }
 
@@ -292,7 +294,8 @@ function searchTask() {
   for (let i = 0; i < tasks.length; i++) {
     if (
       tasks[i].title.toLowerCase().includes(search) ||
-      tasks[i].description.toLowerCase().includes(search)
+      tasks[i].description.toLowerCase().includes(search) ||
+      tasks[i].category.toLowerCase().includes(search)
     ) {
       if (tasks[i].delete === "no") {
         document.getElementById(

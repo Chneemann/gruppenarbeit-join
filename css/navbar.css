@@ -82,6 +82,7 @@
   border-radius: 20px 0 20px 20px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   padding: 10px;
+  z-index: 1;
 }
 
 .navbar-menu-button {

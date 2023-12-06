@@ -502,7 +502,14 @@
   }
 }
 
-@media (max-width: 634px) {
+@media (max-width: 635px) {
+  .board-content-tasks {
+    display: flex;
+  }
+
+  .board-cart:nth-child(2) {
+    margin-left: 12px;
+  }
   .board-header {
     min-width: 246px;
     width: 100%;
@@ -552,6 +559,16 @@
     padding: 3px;
     border-radius: 10px;
     background: var(--dark-blue);
+  }
+}
+
+@media (max-width: 555px) {
+  .board-content-tasks {
+    display: block;
+  }
+
+  .board-cart:nth-child(2) {
+    margin-left: 0;
   }
 }
 
