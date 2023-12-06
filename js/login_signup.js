@@ -5,10 +5,11 @@ let users = [];
  */
 async function initLogin() {
   loadUsers();
+  includeHTML();
   moveLogoToTopLeft();
   checkRememberMe();
   if (JSON.parse(localStorage.getItem("currentUser"))) {
-    loadMainpage();
+    loadJoin();
   }
 }
 
@@ -87,7 +88,7 @@ async function guestLogin() {
   });
   localStorage.setItem("currentUser", JSON.stringify(userGuest));
   await sleep(1000);
-  loadMainpage();
+  loadJoin();
 }
 
 /**
@@ -104,7 +105,7 @@ function resetFormLogin() {
 /**
  * This function closes the login page and opens the main page
  */
-function loadMainpage() {
+function loadJoin() {
   window.location.href = "./join.html";
 }
 
@@ -141,6 +142,10 @@ async function register() {
   signupBtn.disabled = false;
 }
 
+/**
+ * Checks whether first name and surname have been entered
+ * @returns {bolean} - name/surname input correct
+ */
 function checkNameValidity() {
   const fullNameValue = signupUsername.value.trim();
   const nameRegex = /^(\S+\s+\S+)$/;
@@ -182,17 +187,23 @@ function resetFormSignup() {
 function moveLogoToTopLeft() {
   setTimeout(() => {
     document.querySelector(".logo-loading").classList.add("move-to-top-left");
-  }, "2000");
+  }, "1000");
   setTimeout(() => {
     loadLoginPage();
-  }, "4000");
+  }, "3000");
 }
 
+/**
+ * Loading the sign up page
+ */
 function loadSignupPage() {
   document.getElementById("signup-page").classList.remove("d-none");
   document.getElementById("login-page").classList.add("d-none");
 }
 
+/**
+ * Loading the log in page
+ */
 function loadLoginPage() {
   document.getElementById("signup-page").classList.add("d-none");
   document.getElementById("login-page").classList.remove("d-none");
