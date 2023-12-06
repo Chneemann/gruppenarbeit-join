@@ -26,14 +26,23 @@
   </head>
   <body onload="init()">
     <div id="mobile-header" class="d-none">
-      <div class="mobile-header" onclick="logout()">
+      <div class="mobile-header">
         <img class="mobile-header-logo" src="./assets/img/logo.svg" alt="" />
-        <div class="mobile-header-userimg" id="mobile-header-userimg"></div>
+        <div
+          class="mobile-header-userimg"
+          id="mobile-header-userimg"
+          onclick="openNavbarMenu()"
+        ></div>
       </div>
     </div>
     <div id="navbar">
       <div class="upper-frame">
         <span>Kanban Project Management Tool</span>
+        <div
+          class="mobile-header-userimg"
+          id="header-userimg"
+          onclick="openNavbarMenu()"
+        ></div>
       </div>
       <div class="left-frame">
         <img
@@ -63,7 +72,7 @@
         <div class="reference">
           <a href=""><div>Privacy Policy</div></a>
           <a href=""><div>Legal Notice</div></a>
-          <a onclick="signout()"><div>Sign out</div></a>
+          <a onclick="logout()"><div>Log out</div></a>
         </div>
       </div>
     </div>
@@ -101,6 +110,13 @@
       </div>
     </div>
     <div id="mainpage-content" class="content">
+      <div id="navbar-menu" class="navbar-menu d-none">
+        <div class="navbar-menu-button"><span>Legal Notice</span></div>
+        <div class="navbar-menu-button"><span>Privacy Policy</span></div>
+        <div class="navbar-menu-button" onclick="logout()">
+          <span>Log out</span>
+        </div>
+      </div>
       <div w3-include-html="./summary.html"></div>
     </div>
   </body>

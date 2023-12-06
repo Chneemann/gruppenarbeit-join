@@ -25,7 +25,6 @@
   left: 232px;
   height: 92px;
   /* height:  9.3vh; */
-  width: 100%;
   background-color: var(--white);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
 }
@@ -71,4 +70,40 @@ a {
   font-size: 16px;
   text-decoration: none;
   color: #b2b3b6;
+}
+
+/* ------ NAVBAR MENU ------ */
+
+.navbar-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  right: 0px;
+  width: 150px;
+  height: 158px;
+  background-color: var(--dark-blue);
+  border-radius: 20px 0 20px 20px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.navbar-menu-button {
+  display: flex;
+  align-items: center;
+  height: 46px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--very-light-gray4);
+  cursor: pointer;
+}
+
+.navbar-menu-button span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.navbar-menu-button:hover {
+  color: var(--light-blue);
+  background-color: var(--very-dark-blue);
 }

@@ -46,16 +46,6 @@ async function loadAllTasks() {
 }
 
 /**
- * This function deletes the user from the LocalStorage and loads the login page, he is now logged out
- */
-function signout() {
-  localStorage.removeItem("currentUser");
-  window.location.href = "./index.html";
-  document.getElementById("loginpage").classList.remove("d-none");
-  document.getElementById("mainpage").classList.add("d-none");
-}
-
-/**
  * Gives all img-files the draggable value false, so that only the intended ones can be moved
  */
 document.addEventListener("DOMContentLoaded", function () {
