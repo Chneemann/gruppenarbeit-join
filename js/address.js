@@ -29,11 +29,11 @@ function renderContacts() {
 }
 
 
-function openAddContact() {
-    document.getElementById('overlay').classList.remove('none');
+async function openAddContact() {
+    document.getElementById("add-contact-overlay").classList.remove('d-none');
+    
     renderContactOverlay();
-    document.getElementById("add-contact").style.transform="translateX(0)"
-    document.getElementById("add-contact").style.transition="transform 2s"
+    await openDialog("add-contact");
     document.getElementById("overlay-header").innerHTML = 'Add Contact';
     document.getElementById("submit-buttons").innerHTML = `<button class="add-contact-btn-clear" id="delete-close-contact" onclick="closeAddContact()"><span>cancel</span><img
     src="./assets/img/close.svg"/>
@@ -46,10 +46,10 @@ function openAddContact() {
 }
 
 function renderContactOverlay(){
-console.log('render Overly');
-    document.getElementById('overlay').innerHTML = /*html*/ `
-     <div id="add-contact-overlay">
-    <div id="add-contact">
+console.log('render Overlay');
+    document.getElementById("add-contact-overlay").innerHTML = /*html*/ `
+   
+    <div id="add-contact" class="dialog-hide">
             <div class="add-contact-left"><img src="./assets/img/Join logo light.png" alt="">
                 <h1 id="overlay-header">Add contact</h1>
                 <span id="subtitle">Tasks are better with a Team </span>
@@ -74,13 +74,13 @@ console.log('render Overly');
                 </div>
             </div>
         </div>
-        </div>
+    
     `
 }
 
 function openEditContact(id) {
     resetPage();
-    document.getElementById('overlay').classList.remove('none');
+    openDialog();
     renderContactOverlay();
     document.getElementById("overlay-header").innerHTML = "Edit Contact";
     document.getElementById("subtitle").classList.add('none');
@@ -112,7 +112,7 @@ function fillInput(id){
 
 
 function closeAddContact() {
-    document.getElementById("add-contact-overlay").style.display = "none";
+    closeDialog('add-contact');
     resetForm();
     renderContacts();
 }
@@ -180,8 +180,12 @@ function resetForm() {
 
 
 function resetPage() {
+    document.getElementById("card-closeup").innerHTML.classList.remove("dialog-show");
+    document.getElementById("card-closeup").innerHTML.classList.add("closeup-hide");
+  
     document.getElementById("contact-list").innerHTML = '';
-    document.getElementById("view-contact").style.display = "none";
+    sleep(10);
+    console.log('page reset');
 }
 
 
@@ -223,13 +227,29 @@ function getInitials(name) {
 
 
 
-function viewCard(i) {
-    document.getElementById("view-contact").style.display = "block";
-    renderCardCloseup(i);
-    document.getElementById("card-closeup").style.transform="translateX(0)"
-    document.getElementById("card-closeup").style.transition="transform 2s"
+async function viewCard(i) {
     
+    renderCardCloseup(i);
+    let hidden = document.getElementById('card-closeup').classList.contains('closeup-hide');
+if (hidden){
+    document.getElementById("card-closeup").classList.add('transition');
+    document.getElementById("card-closeup").classList.remove('closeup-hide');
+    document.getElementById("card-closeup").classList.add('dialog-show');
+    
+    }
+    else{
+        // document.getElementById('card-closeup').classList.add('d-none');
+        document.getElementById("card-closeup").classList.remove('transition');
+        document.getElementById("card-closeup").classList.remove('dialog-show');
+        document.getElementById("card-closeup").classList.add('closeup-hide');
+        await sleep(10);
+        document.getElementById("card-closeup").classList.add('transition');
+        document.getElementById("card-closeup").classList.remove('closeup-hide');
+    document.getElementById("card-closeup").classList.add('dialog-show');
+    
+    }
 }
+
 
 function  renderCardCloseup(i){
 document.getElementById("card-closeup").innerHTML =
@@ -287,3 +307,22 @@ function isGrayscale(color) {
     return r === g && g === b;
 }
 
+
+async function openDialog(id) {
+    let overlay = document.getElementById(id);
+    await sleep(10);
+    overlay.classList.add("dialog-show");
+    overlay.classList.remove("dialog-hide");
+  }
+
+
+  async function closeDialog(id) {
+    let overlay = document.getElementById(id);
+    
+    
+    overlay.classList.add("dialog-hide");
+    overlay.classList.remove("dialog-show");
+    await sleep(10);
+    document.getElementById('add-contact-overlay').classList.add("d-none");
+
+  }
