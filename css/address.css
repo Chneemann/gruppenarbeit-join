@@ -16,7 +16,7 @@ h2 {
 }
 
 .slide-left{
-    transition: transform 2s;
+    transition:2s;
     transform: translateX(0);
 }
 
@@ -93,7 +93,7 @@ h2 {
     height: 78%;
     width: 400px;
     font-size: 20px;
-    margin-left: 24px;
+    margin-left: 0px;
     overflow: auto;
 }
 
@@ -121,7 +121,7 @@ h2 {
 
 
 #card-closeup {
-    transition: transform 1s;
+    transition: 1s;
     transform: translateX(500px);
     position: fixed;
     top: 311px;
@@ -178,14 +178,13 @@ card-closeup-header-right {
     top: 0;
     bottom: 0;
     left: 0;
-    display: none;
     background-color: rgba(0, 0, 0, 0.20);
     width: 100%;
     height: 100%;
     z-index: 8;
     align-items: center;
     justify-content: center;
-    
+    transition:2s;
 }
 
 
@@ -202,8 +201,8 @@ card-closeup-header-right {
     border-radius: 30px;
     width: 1212px;
     height: 592px;
-    /* transform: translateX(120px);
-    transition: transform 2s; */
+    transform: translateX(120px);
+    transition: 2s;
 }
 
 
@@ -579,7 +578,7 @@ create-contact-alert{
         font-weight: 700;
         margin-left: 16px;
         transform: translateY(200px);
-        transition: transform 1s;
+        transition: 1s;
     }
 
 

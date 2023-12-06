@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * This function loads the new file into the content of the main page
  *
  * @param {string} path = Path of the file to be loaded
- * @param {*} func = TODO: ! LAURA - BITTE EINFÜGEN !
+ * @param {*} func = function to load and render contact list !
  */
 function renderMainpageContent(path, func) {
   fetch(path)
@@ -79,7 +79,6 @@ function renderMainpageContent(path, func) {
     })
     .then(() => {
       if (func) {
-        console.log("test then func");
         func();
       }
     });

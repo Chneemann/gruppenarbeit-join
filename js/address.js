@@ -30,9 +30,10 @@ function renderContacts() {
 
 
 function openAddContact() {
-    document.getElementById("add-contact-overlay").style.display = "flex";
-    document.getElementById("add-contact").classList.add("slide-left");
-
+    document.getElementById('overlay').classList.remove('none');
+    renderContactOverlay();
+    document.getElementById("add-contact").style.transform="translateX(0)"
+    document.getElementById("add-contact").style.transition="transform 2s"
     document.getElementById("overlay-header").innerHTML = 'Add Contact';
     document.getElementById("submit-buttons").innerHTML = `<button class="add-contact-btn-clear" id="delete-close-contact" onclick="closeAddContact()"><span>cancel</span><img
     src="./assets/img/close.svg"/>
@@ -44,10 +45,43 @@ function openAddContact() {
     `
 }
 
+function renderContactOverlay(){
+console.log('render Overly');
+    document.getElementById('overlay').innerHTML = /*html*/ `
+     <div id="add-contact-overlay">
+    <div id="add-contact">
+            <div class="add-contact-left"><img src="./assets/img/Join logo light.png" alt="">
+                <h1 id="overlay-header">Add contact</h1>
+                <span id="subtitle">Tasks are better with a Team </span>
+                <img src="./assets/img/Vector 5.png" alt="">
+            </div>
+
+            <div id="overlay-badge">
+                <img class="big-badge"  src="./assets/img/Group 13.png" alt="">
+            </div>
+
+            <div class="add-contact-form">
+                <img src="./assets/img/close.svg" class="overlay-close-x" onclick="closeAddContact()">
+
+                <form class="contact-inputs" action="">
+                    <input required type="text" placeholder='Name' id="name"><input type="email" placeholder='Email'
+                        id="email"><input type="tel" placeholder='Phone' id="phone">
+                </form>
+
+
+                <div id="submit-buttons">
+                   
+                </div>
+            </div>
+        </div>
+        </div>
+    `
+}
 
 function openEditContact(id) {
     resetPage();
-    document.getElementById("add-contact-overlay").style.display = "flex";
+    document.getElementById('overlay').classList.remove('none');
+    renderContactOverlay();
     document.getElementById("overlay-header").innerHTML = "Edit Contact";
     document.getElementById("subtitle").classList.add('none');
     document.getElementById("submit-buttons").innerHTML = ` <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
@@ -102,11 +136,11 @@ async function addContact() {
     let initials = getInitials(name);
     let color = getRandomColor()
 
-    let id = JSON.stringify(contacts.length);
+    let id = contacts.length;
     localStorage.setItem
     contacts.push({ id, name, initials, email, phone, color });
 
-    await setItem("contacts", JSON.stringify(contacts));
+    await setItem("contacts", contacts);
     resetPage();
     renderContacts();
 }
