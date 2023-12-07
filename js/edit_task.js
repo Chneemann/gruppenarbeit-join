@@ -228,7 +228,10 @@ function saveEditSubtask(divId, taskId, i) {
 }
 
 function confirmSubtask(divId, taskId) {
-  taskId = taskId || tempTaskId;
+  taskId =
+    taskId === undefined || taskId === null || taskId === ""
+      ? tempTaskId
+      : taskId;
   let newSubtask = document.getElementById(`${divId}-task-subtask`).value;
   if (!newSubtask == "") {
     tasks[taskId].subtasks.push(newSubtask);
@@ -244,7 +247,10 @@ function confirmSubtask(divId, taskId) {
 }
 
 function deleteSubtask(divId, taskId, i) {
-  taskId = taskId || tempTaskId;
+  taskId =
+    taskId === undefined || taskId === null || taskId === ""
+      ? tempTaskId
+      : taskId;
   tasks[taskId].subtasks.splice(i, 1);
   tasks[taskId].subtasksstate.splice(i, 1);
   renderAllSubtasks(divId, taskId);

@@ -1,5 +1,6 @@
 users = [];
 let localContactIds = [];
+let currentSite;
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 /**
