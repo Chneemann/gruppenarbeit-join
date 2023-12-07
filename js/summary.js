@@ -13,7 +13,7 @@ const months = [
   "December",
 ];
 
-/*Funktion, die asynchron ist, weil erst alle Aufgaben geladen sein müssen */
+/**Funktion, die asynchron ist, weil erst alle Aufgaben geladen sein müssen */
 
 async function initSummary() {
   showAllTasks();
@@ -21,12 +21,12 @@ async function initSummary() {
   showAwaitFeedback();
   showToDo();
   showDone();
-  await displayUsername();
+  displayUsername();
   displayGreeting();
   getRightDate()
 }
 
-/*Funktion, die alle tasks anzeigt*/
+/**Funktion, die alle tasks anzeigt*/
 
 function showAllTasks() {
   let tasksInBoard = tasks.length;
@@ -36,7 +36,7 @@ function showAllTasks() {
     <span class="txt_todo">Tasks in board</span>`;
 }
 
-/*Funktionen, die alle tasks in progress anzeigen*/
+/**Funktionen, die alle tasks in progress anzeigen*/
 
 function showInProgress() {
   let counterProgress = 0;
@@ -54,7 +54,7 @@ function renderInProgress(counterProgress) {
     <span class="txt_todo">Tasks in Progress</span>`;
 }
 
-/*Funktionen, die alle tasks in Awaiting feedback anzeigen*/
+/**Funktionen, die alle tasks in Awaiting feedback anzeigen*/
 
 function showAwaitFeedback() {
   let counterAwait = 0;
@@ -72,7 +72,7 @@ function renderAwaitFeedback(counterAwait) {
     <span class="txt_todo">Awaiting feedback</span>`;
 }
 
-/*Funktionen, die alle tasks in Urgent anzeigen*/
+/**Funktionen, die alle tasks in Urgent anzeigen*/
 
 function showUrgent() {
   let counterUrgent = 0;
@@ -89,7 +89,7 @@ function renderUrgent(counterUrgent) {
     <div class="txt_todo">Urgent</div>`;
 }
 
-/*Funktionen, die alle tasks in To-Do anzeigen*/
+/**Funktionen, die alle tasks in To-Do anzeigen*/
 
 function showToDo() {
   let counterToDo = 0;
@@ -106,7 +106,7 @@ function renderToDo(counterToDo) {
     <div class="txt_todo">To-do</div>`;
 }
 
-/*Funktionen, die alle tasks in Done anzeigen*/
+/**Funktionen, die alle tasks in Done anzeigen*/
 
 function showDone() {
   let counterDone = 0;
@@ -123,17 +123,16 @@ function renderDone(counterDone) {
     <div class="txt_todo">Done</div>`;
 }
 
-/*Funktionen um den aktuellen Benutzeranzuzeigen*/
+/**Funktionen um den aktuellen Benutzeranzuzeigen*/
 
-async function displayUsername() {
+function displayUsername() {
   let greetCurrentUserElement = document.getElementById("greetCurrentUser");
-  let currentUser = currentUser[0].username;
-
+ 
   greetCurrentUserElement.innerHTML = `
-    <span class="welcome_txt">${currentUser}</span>`;
+    <span class="welcome_txt">${currentUser[0].username}</span>`;
 }
 
-/* Funktion, um die Tageszeitabhängige Begrüßung anzuzeigen*/
+/**Funktion, um die Tageszeitabhängige Begrüßung anzuzeigen*/
 
 function displayGreeting() {
   let welcome = document.getElementById("welcome");
@@ -155,7 +154,7 @@ function displayGreeting() {
   welcome.innerHTML = `
     <h1 class="welcome">${greeting}</h1>`;
 }
-/* Funktion, um das richtige Datum anzuzeigen*/
+/**Funktion, um das richtige Datum anzuzeigen*/
 
 function getRightDate() {
   const d = new Date();
