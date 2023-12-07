@@ -85,10 +85,13 @@ function renderMainpageContent(path, func) {
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("mainpage-content").innerHTML = html;
-      if (path == "./html/board.html") {
-        initBoard();
+      if (path == "./summary.html") {
+        initSummary();
+        console.log("ja");
       } else if (path == "./html/add_task.html") {
         initAddTask();
+      } else if (path == "./html/board.html") {
+        initBoard();
       } else if (path == "./html/adress-innerframe.html") {
       }
     })
@@ -146,7 +149,6 @@ async function includeHTML() {
 }
 
 function sleep(ms) {
-
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
