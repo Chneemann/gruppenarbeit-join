@@ -24,7 +24,7 @@ function showAllTasks() {
 function showInProgress() {
   let counterProgress = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].status === "inprogress") counterProgress++;
+    if (tasks[i].status === "inprogress" && tasks[i].delete === "no") counterProgress++;
     renderInProgress(counterProgress);
   }
 }
@@ -41,7 +41,7 @@ function renderInProgress(counterProgress) {
 function showAwaitFeedback() {
   let counterAwait = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].status === "awaitfeedback") counterAwait++;
+    if (tasks[i].status === "awaitfeedback" && tasks[i].delete === "no") counterAwait++;
     renderAwaitFeedback(counterAwait);
   }
 }
@@ -53,12 +53,29 @@ function renderAwaitFeedback(counterAwait) {
     <span class="txt_todo">Awaiting feedback</span>`;
 }
 
+/*Funktionen, die alle tasks in Urgent anzeigen*/
+
+function showUrgent() {
+  let counterUrgent = 0;
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].prio === "urgent" && tasks[i].delete === "no") counterUrgent++;
+    renderUrgent(counterUrgent);
+  }
+}
+
+function renderUrgent(counterUrgent) {
+  let urGent = document.getElementById("urGent");
+  urGent.innerHTML = `
+    <div class="txt_number">${counterUrgent}</div>
+    <div class="txt_todo">Urgent</div>`;
+}
+
 /*Funktionen, die alle tasks in To-Do anzeigen*/
 
 function showToDo() {
   let counterToDo = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].status === "todo") counterToDo++;
+    if (tasks[i].status === "todo" && tasks[i].delete === "no") counterToDo++;
     renderToDo(counterToDo);
   }
 }
@@ -75,7 +92,7 @@ function renderToDo(counterToDo) {
 function showDone() {
   let counterDone = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].status === "done") counterDone++;
+    if (tasks[i].status === "done" && tasks[i].delete === "no") counterDone++;
     renderDone(counterDone);
   }
 }
@@ -87,13 +104,15 @@ function renderDone(counterDone) {
     <div class="txt_todo">Done</div>`;
 }
 
-/*Funktionen um den aktuellen Benutzer zu begrüßen*/
+/*Funktion um den aktuellen Benutzer zu begrüßen*/
 
 function greetCurrentUser() {
   let greetCurrentUser = document.getElementById("greetCurrentUser");
   let currentUser = currentUser[0].username;
-  let currentTime = new Date();
-  let currentHour = currentTime.getHours();
+  let utcOffset = 60; 
+  let localTime = new Date(currentTime.getTime() + utcOffset * 60000);
+  let currentHour = localTime.getHours();
+  
   let greeting;
     if (currentHour >= 5 && currentHour < 12) {
         greeting = "Good Morning, ";
