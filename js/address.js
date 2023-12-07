@@ -31,7 +31,7 @@ function renderContacts() {
 
 async function openAddContact() {
     document.getElementById("add-contact-overlay").classList.remove('d-none');
-    
+
     renderContactOverlay();
     await openDialog("add-contact");
     document.getElementById("overlay-header").innerHTML = 'Add Contact';
@@ -45,8 +45,9 @@ async function openAddContact() {
     `
 }
 
-function renderContactOverlay(){
-console.log('render Overlay');
+
+function renderContactOverlay() {
+
     document.getElementById("add-contact-overlay").innerHTML = /*html*/ `
    
     <div id="add-contact" class="dialog-hide">
@@ -64,8 +65,9 @@ console.log('render Overlay');
                 <img src="./assets/img/close.svg" class="overlay-close-x" onclick="closeAddContact()">
 
                 <form class="contact-inputs" action="">
-                    <input required type="text" placeholder='Name' id="name"><input type="email" placeholder='Email'
-                        id="email"><input type="tel" placeholder='Phone' id="phone">
+                    <input required type="text" placeholder='Name' id="name">
+                    <input required type="email" placeholder='Email' id="email">
+                    <input type="tel" placeholder='Phone' id="phone">
                 </form>
 
 
@@ -93,14 +95,14 @@ function openEditContact(id) {
     `
 
     fillInput(id);
-   
+
     document.getElementById("delete-close-contact").innerHTML = `
     <span onclick="deleteContact(${id})" >delete</span>
     `;
 }
 
-function fillInput(id){
-     document.getElementById("name").value = contacts[id]['name'];
+function fillInput(id) {
+    document.getElementById("name").value = contacts[id]['name'];
     document.getElementById("email").value = contacts[id]['email'];
     document.getElementById("phone").value = contacts[id]['phone'];
     document.getElementById("overlay-badge").classList.add('big-badge');
@@ -118,9 +120,9 @@ function closeAddContact() {
 }
 
 
-function openContactOptions(i){
-    document.getElementById('contact-options').innerHTML += 
-`
+function openContactOptions(i) {
+    document.getElementById('contact-options').innerHTML +=
+        `
 <div class='contact-options'>
 <div class='edit-contact' onclick='openEditContact(${i})'><img src="./assets/img/edit.svg">Edit</div>
                     <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div></div>
@@ -145,8 +147,8 @@ async function addContact() {
     renderContacts();
 }
 
-function createContactAlert(){
-    document.getElementById("submit-buttons").innerHTML+= `
+function createContactAlert() {
+    document.getElementById("submit-buttons").innerHTML += `
     <div class="create-contact-alert">contact successfully created</div>
     `
 }
@@ -182,7 +184,7 @@ function resetForm() {
 function resetPage() {
     document.getElementById("card-closeup").innerHTML.classList.remove("dialog-show");
     document.getElementById("card-closeup").innerHTML.classList.add("closeup-hide");
-  
+
     document.getElementById("contact-list").innerHTML = '';
     sleep(10);
     console.log('page reset');
@@ -199,13 +201,13 @@ function firstLetter(i) {
     ${firstLetter}</div>
     `;
     }
-    else if(i==0){
+    else if (i == 0) {
         document.getElementById("contact-list").innerHTML += /*html*/ `
         <div class='first-letter' id='first-letter-${firstLetter}'>
         ${firstLetter}</div>
         `;
     }
-    
+
 
 
     return firstLetter;
@@ -228,16 +230,16 @@ function getInitials(name) {
 
 
 async function viewCard(i) {
-    
+
     renderCardCloseup(i);
     let hidden = document.getElementById('card-closeup').classList.contains('closeup-hide');
-if (hidden){
-    document.getElementById("card-closeup").classList.add('transition');
-    document.getElementById("card-closeup").classList.remove('closeup-hide');
-    document.getElementById("card-closeup").classList.add('dialog-show');
-    
+    if (hidden) {
+        document.getElementById("card-closeup").classList.add('transition');
+        document.getElementById("card-closeup").classList.remove('closeup-hide');
+        document.getElementById("card-closeup").classList.add('dialog-show');
+
     }
-    else{
+    else {
         // document.getElementById('card-closeup').classList.add('d-none');
         document.getElementById("card-closeup").classList.remove('transition');
         document.getElementById("card-closeup").classList.remove('dialog-show');
@@ -245,14 +247,14 @@ if (hidden){
         await sleep(10);
         document.getElementById("card-closeup").classList.add('transition');
         document.getElementById("card-closeup").classList.remove('closeup-hide');
-    document.getElementById("card-closeup").classList.add('dialog-show');
-    
+        document.getElementById("card-closeup").classList.add('dialog-show');
+
     }
 }
 
 
-function  renderCardCloseup(i){
-document.getElementById("card-closeup").innerHTML =
+function renderCardCloseup(i) {
+    document.getElementById("card-closeup").innerHTML =
         /*html*/
         `
         <div class='card-closeup-header'>
@@ -278,7 +280,7 @@ document.getElementById("card-closeup").innerHTML =
     <button onclick="openContactOptions(${i})" class="button-open-add-contact-mobile" id="contact-options">
                 <img src="./assets/img/Menu Contact Options.png">
             </button>
-    `; 
+    `;
 };
 
 
@@ -313,16 +315,16 @@ async function openDialog(id) {
     await sleep(10);
     overlay.classList.add("dialog-show");
     overlay.classList.remove("dialog-hide");
-  }
+}
 
 
-  async function closeDialog(id) {
+async function closeDialog(id) {
     let overlay = document.getElementById(id);
-    
-    
+
+
     overlay.classList.add("dialog-hide");
     overlay.classList.remove("dialog-show");
     await sleep(10);
     document.getElementById('add-contact-overlay').classList.add("d-none");
 
-  }
+}
