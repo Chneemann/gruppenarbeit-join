@@ -473,6 +473,7 @@
 
 .add-task-assignet {
   position: relative;
+  z-index: 0;
 }
 
 .add-task-assignet-overlay {

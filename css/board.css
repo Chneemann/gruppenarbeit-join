@@ -66,7 +66,7 @@
   border-radius: 10px;
   border: 1px solid var(--gray);
   background-color: var(--white);
-  background-image: url("../assets/img/search.svg");
+  background-image: url("../assets/img/board/search.svg");
   background-position-x: calc(100% - 10px);
   background-position-y: center;
   background-repeat: no-repeat;
@@ -283,15 +283,15 @@
 }
 
 .prio-urgent {
-  background-image: url(../assets/img/urgent.svg);
+  background-image: url(../assets/img/board/urgent.svg);
 }
 
 .prio-medium {
-  background-image: url(../assets/img/medium.svg);
+  background-image: url(../assets/img/board/medium.svg);
 }
 
 .prio-low {
-  background-image: url(../assets/img/low.svg);
+  background-image: url(../assets/img/board/low.svg);
 }
 
 /*------------- TASK OVERLAY -------------*/

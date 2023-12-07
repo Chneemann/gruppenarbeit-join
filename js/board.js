@@ -298,9 +298,6 @@ function searchTask() {
       tasks[i].category.toLowerCase().includes(search)
     ) {
       if (tasks[i].delete === "no") {
-        document.getElementById(
-          `board-content-task-${tasks[i].status}`
-        ).innerHTML = "";
         renderTaskHTML(i, `board-content-task-${tasks[i].status}`);
       }
     }

@@ -57,7 +57,7 @@ function renderTaskOverlayHTML(id) {
           id
         )})">${tasks[id].category}</div>
         <div class="task-overlay-img-close" onclick="closeCart()">
-          <img src="./assets/img/close.svg" alt="" />
+          <img src="./assets/img/board/close.svg" alt="" />
         </div>
       </div>
       <div class="task-overlay-headline">
@@ -96,15 +96,15 @@ function renderTaskOverlayHTML(id) {
         <a href="#" onclick="deleteTask(${id})"
           ><img
             class="task-overlay-footer-img"
-            src="./assets/img/delete.svg"
+            src="./assets/img/board/delete.svg"
             alt="delete"
           /><span>Delete</span></a
         >
-        <img src="./assets/img/line.svg" alt="line" />
+        <img src="./assets/img/board/line.svg" alt="line" />
         <a href="#" onclick="editTask(${id})"
           ><img
             class="task-overlay-footer-img"
-            src="./assets/img/edit.svg"
+            src="./assets/img/board/edit.svg"
             alt="edit"
           /><span>Edit</span></a
         >
@@ -129,7 +129,7 @@ function renderTaskOverlayEditHTML(id) {
           class="edit-task-img-close"
           onclick="closeCart()"
         >
-          <img src="./assets/img/close.svg" alt="" />
+          <img src="./assets/img/board/close.svg" alt="" />
         </div>
       </div>
       <div class="edit-task-formular">
@@ -178,7 +178,7 @@ function renderTaskOverlayEditHTML(id) {
               >
                 <div id="icon-urgent-inline" class="edit-task-prio-button">
                   <span>Urgent</span>
-                  <img src="./assets/img/urgent.svg" alt="" />
+                  <img src="./assets/img/board/urgent.svg" alt="" />
                 </div>
               </button>
               <button
@@ -188,7 +188,7 @@ function renderTaskOverlayEditHTML(id) {
               >
                 <div id="icon-medium-inline" class="edit-task-prio-button">
                   <span>Medium</span>
-                  <img src="./assets/img/medium.svg" alt="" />
+                  <img src="./assets/img/board/medium.svg" alt="" />
                 </div>
               </button>
               <button
@@ -198,7 +198,7 @@ function renderTaskOverlayEditHTML(id) {
               >
                 <div id="icon-low-inline" class="edit-task-prio-button">
                   <span>Low</span>
-                  <img src="./assets/img/low.svg" alt="" />
+                  <img src="./assets/img/board/low.svg" alt="" />
                 </div>
               </button>
             </div>
@@ -217,7 +217,7 @@ function renderTaskOverlayEditHTML(id) {
             />
             <div id="edit-task-icon-closecontact" class="d-none">
                 <img
-                  src="./assets/img/check-black.png"
+                  src="./assets/img/board/check-black.svg"
                   alt="add"
                   onclick="closeOverlayContacts(event, ${tasks[id].id})"
                   class="edit-task-icon"
@@ -225,7 +225,7 @@ function renderTaskOverlayEditHTML(id) {
               </div>
               <div id="edit-task-icon-opencontact">
                 <img
-                  src="./assets/img/add.svg"
+                  src="./assets/img/board/add.svg"
                   alt="open"
                   onclick="openOverlayContacts(${tasks[id].id})"
                   class="edit-task-icon"
@@ -249,20 +249,20 @@ function renderTaskOverlayEditHTML(id) {
             <div id="edit-task-icons">
               <div id="edit-task-icon-add">
                 <img
-                  src="./assets/img/add.svg"
+                  src="./assets/img/board/add.svg"
                   alt="add"
                 />
               </div>
               <div id="edit-task-icon-close-check" class="d-none flex">
                 <img
-                  src="./assets/img/close.svg"
+                  src="./assets/img/board/close.svg"
                   alt="close"
                   onclick="closeSubtask('edit')"
                   class="edit-task-icon"
                 />
                 <span class="edit-task-line small"></span>
                 <img
-                  src="./assets/img/check-black.png"
+                  src="./assets/img/board/check-black.svg"
                   alt="check"
                   onclick="confirmSubtask('edit', ${tasks[id].id})"
                   class="edit-task-icon"
@@ -282,7 +282,7 @@ function renderTaskOverlayEditHTML(id) {
             })">
               <div class="edit-task-btn-inside">
                 <span>Ok</span>
-                <img src="./assets/img/check.svg" alt="ckeck" />
+                <img src="./assets/img/board/check.svg" alt="ckeck" />
               </div>
             </button>
           </div>
@@ -353,21 +353,21 @@ function renderSubtaskHTML(divId, taskId, i) {
     <div class="edit-task-icons-addet">
     <img
         id="${divId}-edit-task-icon-subtask-close${i}"
-        src="../assets/img/check.svg"
+        src="../assets/img/board/check.svg"
         alt="add"
         class="edit-task-icon-addet d-none"
         onclick="saveEditSubtask('${divId}',${taskId},${i})"
       />
       <img
       id="${divId}-edit-task-icon-subtask-edit${i}"
-        src="../assets/img/edit.svg"
+        src="../assets/img/board/edit.svg"
         alt="edit"
         class="edit-task-icon-addet"
         onclick="editSubtask('${divId}',${i})"
       />
       <div class="edit-task-subtask-line"></div>
       <img
-        src="../assets/img/delete.svg"
+        src="../assets/img/board/delete.svg"
         alt="delete"
         class="edit-task-icon-addet"
         onclick="deleteSubtask('${divId}',${taskId},${i})"

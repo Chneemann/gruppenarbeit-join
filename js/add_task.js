@@ -211,7 +211,7 @@ function renderAddTaskAssignetContent() {
   />
   <div id="edit-task-icon-closecontact" class="d-none">
     <img
-      src="./assets/img/check-black.png"
+      src="./assets/img/addtask/check-black.svg"
       alt="add"
       onclick="closeOverlayContacts(event, tempTaskId)"
       class="edit-task-icon"
@@ -219,7 +219,7 @@ function renderAddTaskAssignetContent() {
   </div>
   <div id="edit-task-icon-opencontact">
     <img
-      src="./assets/img/add.svg"
+      src="./assets/img/addtask/add.svg"
       alt="open"
       onclick="openOverlayContacts(tempTaskId)"
       class="edit-task-icon"
