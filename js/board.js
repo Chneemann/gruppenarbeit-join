@@ -288,8 +288,9 @@ async function drop(category) {
 function searchTask() {
   let search = document.getElementById("board-searchfield").value.toLowerCase();
   let states = ["todo", "inprogress", "awaitfeedback", "done"];
+  let checkstates = [];
   for (let status of states) {
-    generateEmptyTaskHTML(`board-content-task-${status}`);
+    document.getElementById(`board-content-task-${status}`).innerHTML = "";
   }
   for (let i = 0; i < tasks.length; i++) {
     if (
@@ -297,13 +298,15 @@ function searchTask() {
       tasks[i].description.toLowerCase().includes(search) ||
       tasks[i].category.toLowerCase().includes(search)
     ) {
+      checkstates.push(tasks[i].status);
       if (tasks[i].delete === "no") {
-        document.getElementById(
-          `board-content-task-${tasks[i].status}`
-        ).innerHTML = "";
         renderTaskHTML(i, `board-content-task-${tasks[i].status}`);
-      } else {
       }
+    }
+  }
+  for (let status of states) {
+    if (!checkstates.includes(status)) {
+      generateEmptyTaskHTML(`board-content-task-${status}`);
     }
   }
 }
