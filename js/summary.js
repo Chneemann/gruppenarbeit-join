@@ -1,3 +1,18 @@
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 /*Funktion, die asynchron ist, weil erst alle Aufgaben geladen sein müssen */
 
 async function initSummary() {
@@ -6,7 +21,9 @@ async function initSummary() {
   showAwaitFeedback();
   showToDo();
   showDone();
-  greetCurrentUser();
+  await displayUsername();
+  displayGreeting();
+  getRightDate()
 }
 
 /*Funktion, die alle tasks anzeigt*/
@@ -24,7 +41,8 @@ function showAllTasks() {
 function showInProgress() {
   let counterProgress = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].status === "inprogress" && tasks[i].delete === "no") counterProgress++;
+    if (tasks[i].status === "inprogress" && tasks[i].delete === "no")
+      counterProgress++;
     renderInProgress(counterProgress);
   }
 }
@@ -41,7 +59,8 @@ function renderInProgress(counterProgress) {
 function showAwaitFeedback() {
   let counterAwait = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].status === "awaitfeedback" && tasks[i].delete === "no") counterAwait++;
+    if (tasks[i].status === "awaitfeedback" && tasks[i].delete === "no")
+      counterAwait++;
     renderAwaitFeedback(counterAwait);
   }
 }
@@ -104,24 +123,46 @@ function renderDone(counterDone) {
     <div class="txt_todo">Done</div>`;
 }
 
-/*Funktion um den aktuellen Benutzer zu begrüßen*/
+/*Funktionen um den aktuellen Benutzeranzuzeigen*/
 
-function greetCurrentUser() {
-  let greetCurrentUser = document.getElementById("greetCurrentUser");
+async function displayUsername() {
+  let greetCurrentUserElement = document.getElementById("greetCurrentUser");
   let currentUser = currentUser[0].username;
-  let utcOffset = 60; 
-  let localTime = new Date(currentTime.getTime() + utcOffset * 60000);
-  let currentHour = localTime.getHours();
-  
-  let greeting;
-    if (currentHour >= 5 && currentHour < 12) {
-        greeting = "Good Morning, ";
-    } else if (currentHour >= 12 && currentHour < 18) {
-        greeting = "Good Afternoon, ";
-    } else {
-        greeting = "Good Evening, ";
-    }
-  greetCurrentUser.innerHTML = `
-    <h1 class="welcome">${greeting}</h1>
+
+  greetCurrentUserElement.innerHTML = `
     <span class="welcome_txt">${currentUser}</span>`;
+}
+
+/* Funktion, um die Tageszeitabhängige Begrüßung anzuzeigen*/
+
+function displayGreeting() {
+  let welcome = document.getElementById("welcome");
+  let currentTime = new Date();
+  let utcOffset = 60;
+  let localTime = new Date(currentTime.getTime() + utcOffset * 60000);
+
+  let currentHour = localTime.getHours();
+  let greeting;
+
+  if (currentHour >= 5 && currentHour < 12) {
+    greeting = "Good Morning";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    greeting = "Good Afternoon";
+  } else {
+    greeting = "Good Evening";
+  }
+
+  welcome.innerHTML = `
+    <h1 class="welcome">${greeting}</h1>`;
+}
+/* Funktion, um das richtige Datum anzuzeigen*/
+
+function getRightDate() {
+  const d = new Date();
+  let month = months[d.getMonth()];
+  let year = d.getFullYear();
+  let day = d.getDate();
+  let rightDate = document.getElementById('rightDate');
+  rightDate.innerHTML=`
+  <span class="date">${month} ${day}, ${year}</span>`;
 }
