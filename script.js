@@ -87,7 +87,6 @@ function renderMainpageContent(path, func) {
       document.getElementById("mainpage-content").innerHTML = html;
       if (path == "./summary.html") {
         initSummary();
-        console.log("ja");
       } else if (path == "./html/add_task.html") {
         initAddTask();
       } else if (path == "./html/board.html") {
