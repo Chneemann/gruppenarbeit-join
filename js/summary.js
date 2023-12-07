@@ -23,7 +23,7 @@ async function initSummary() {
   showDone();
   displayUsername();
   displayGreeting();
-  getRightDate()
+  getRightDate();
 }
 
 /**Funktion, die alle tasks anzeigt*/
@@ -127,7 +127,7 @@ function renderDone(counterDone) {
 
 function displayUsername() {
   let greetCurrentUserElement = document.getElementById("greetCurrentUser");
- 
+
   greetCurrentUserElement.innerHTML = `
     <span class="welcome_txt">${currentUser[0].username}</span>`;
 }
@@ -161,7 +161,14 @@ function getRightDate() {
   let month = months[d.getMonth()];
   let year = d.getFullYear();
   let day = d.getDate();
-  let rightDate = document.getElementById('rightDate');
-  rightDate.innerHTML=`
+  let rightDate = document.getElementById("rightDate");
+  rightDate.innerHTML = `
   <span class="date">${month} ${day}, ${year}</span>`;
+}
+
+/**Funktion, die zur board Seite weiterleitet */
+
+function redirectToBoard(){
+  let target = '../html/board.html';
+  window.location.href=target;
 }

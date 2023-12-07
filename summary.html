@@ -10,7 +10,7 @@
       <div class="header">
         <div class="title">Join 360</div>
         <img
-          class=" blue_bar bar_mobile_lost"
+          class="blue_bar bar_mobile_lost"
           src="assets/img/summary/Vector 5.svg"
           alt="blue bar"
         />
@@ -24,9 +24,8 @@
       <div class="btn_frames">
         <div class="first_frame">
           <div class="frame_up">
-            <div class="frame_pencil">
-              <a href="board.html"></a>
-              <div class="btn_pencil">
+            <div class="frame_pencil" onclick="redirectToBoard()">
+               <div class="btn_pencil">
                 <img
                   class="not_displayed circle change_color"
                   src="assets/img/summary/circle_white.svg"
@@ -53,8 +52,7 @@
                 <div class="txt_todo">To-do</div>
               </div>
             </div>
-            <div class="frame_rectangle">
-              <a href="board.html"></a>
+            <div class="frame_rectangle" onclick="redirectToBoard()">
               <div class="btn_pencil">
                 <img
                   class="not_displayed circle change_color"
@@ -84,8 +82,7 @@
             </div>
           </div>
           <div class="urgent">
-            <div class="frame_urgent">
-              <a href="board.html"></a>
+            <div class="frame_urgent" onclick="redirectToBoard()">
               <div class="btn_pencil">
                 <img
                   class="ellipse"
@@ -115,24 +112,21 @@
             </div>
           </div>
           <div class="frame_down">
-            <div id="inBoard" class="new_tasks">
-              <a href="board.html"></a>
+            <div id="inBoard" class="new_tasks" onclick="redirectToBoard()">
               <span class="txt_number">5</span>
               <span class="txt_todo">Tasks in board</span>
             </div>
-            <div id="inProgress" class="new_tasks">
-              <a href="board.html"></a>
+            <div id="inProgress" class="new_tasks" onclick="redirectToBoard()">
               <span class="txt_number">2</span>
               <span class="txt_todo">Tasks in progress</span>
             </div>
-            <div id="awaitFeedback" class="new_tasks">
-              <a href="board.html"></a>
+            <div id="awaitFeedback" class="new_tasks" onclick="redirectToBoard()">
               <span class="txt_number">2</span>
               <span class="txt_todo">Awaiting feedback</span>
             </div>
           </div>
         </div>
-        <div  class="welcome_box mobile_lost">
+        <div class="welcome_box mobile_lost">
           <h1 id="welcome" class="welcome">Good Morning,</h1>
           <span id="greetCurrentUser" class="welcome_txt">Sofia Müller</span>
         </div>
