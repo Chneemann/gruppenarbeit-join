@@ -327,8 +327,8 @@ async function openAddTask() {
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");
   changeBackground(overlay);
-  */
   renderMainpageContent("./html/add_task.html");
+    */
 }
 
 async function closeAddTask() {
