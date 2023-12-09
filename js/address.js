@@ -1,5 +1,5 @@
 function renderContacts() {
-
+    
     contacts.sort(function (a, b) {
         if (a.name < b.name) {
             return -1;
@@ -182,12 +182,11 @@ function resetForm() {
 
 
 function resetPage() {
-    document.getElementById("card-closeup").innerHTML.classList.remove("dialog-show");
-    document.getElementById("card-closeup").innerHTML.classList.add("closeup-hide");
+    
+    document.getElementById("card-closeup").style.transform='translateX(100vw)';
 
     document.getElementById("contact-list").innerHTML = '';
     sleep(10);
-    console.log('page reset');
 }
 
 
@@ -232,23 +231,21 @@ function getInitials(name) {
 async function viewCard(i) {
 
     renderCardCloseup(i);
-    let hidden = document.getElementById('card-closeup').classList.contains('closeup-hide');
+    document.getElementById('view-contact').style.display='flex';
+    let hidden = document.getElementById('card-closeup').style.transform='translateX(100vw)';
     if (hidden) {
+        console.log('closeup hidden');
         document.getElementById("card-closeup").classList.add('transition');
-        document.getElementById("card-closeup").classList.remove('closeup-hide');
-        document.getElementById("card-closeup").classList.add('dialog-show');
-
+        document.getElementById("card-closeup").style.transform='translateX(0)';
+        await sleep(10);
     }
     else {
-        // document.getElementById('card-closeup').classList.add('d-none');
         document.getElementById("card-closeup").classList.remove('transition');
-        document.getElementById("card-closeup").classList.remove('dialog-show');
-        document.getElementById("card-closeup").classList.add('closeup-hide');
+        document.getElementById("card-closeup").style.transform='translateX(100px)';
         await sleep(10);
-        document.getElementById("card-closeup").classList.add('transition');
-        document.getElementById("card-closeup").classList.remove('closeup-hide');
-        document.getElementById("card-closeup").classList.add('dialog-show');
-
+        // document.getElementById("card-closeup").classList.add('transition');
+        // document.getElementById("card-closeup").classList.style.transform='translateX(0))';
+        // await sleep(10);
     }
 }
 
@@ -257,6 +254,7 @@ function renderCardCloseup(i) {
     document.getElementById("card-closeup").innerHTML =
         /*html*/
         `
+       
         <div class='card-closeup-header'>
             <div class='big-badge' style='background-color:${contacts[i]["color"]}'>
             <span>${contacts[i]["initials"]}</span>
@@ -309,7 +307,10 @@ function isGrayscale(color) {
     return r === g && g === b;
 }
 
-
+function hideViewCard(){
+    document.getElementById('view-contact').style.display='none';
+    renderContacts();
+}
 async function openDialog(id) {
     let overlay = document.getElementById(id);
     await sleep(10);

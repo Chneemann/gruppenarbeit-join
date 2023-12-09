@@ -124,12 +124,18 @@ h2 {
     left: 750px;
     bottom:60px;
     min-width: 461px;
+    transform: translateX(100vw);
 }
 
 
 card-closeup-header-right {
     min-height: 88px;
     gap: 8px;
+}
+
+
+#mobile-back-arrow{
+    display: none;
 }
 
 
@@ -379,6 +385,9 @@ create-contact-alert{
 
 
 @media (max-width: 860px) {
+   h1{
+    margin-top: 28px;
+   }
     #scrollcontainer {
         z-index: 0;
         width: 90vw;
@@ -616,6 +625,7 @@ create-contact-alert{
         top: 280px;
         left: 16px;
         min-width: 461px;
+        transform: translateX(0);
     }
 
     .card-closeup-header {
@@ -623,7 +633,14 @@ create-contact-alert{
         align-items: center;
         gap: 54px;
     }
-
+    
+    
+    #mobile-back-arrow{
+        display: flex;
+        position: fixed;
+        top: 100px;
+        right:5vw;
+    }
 
 }
 
