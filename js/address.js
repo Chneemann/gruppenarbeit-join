@@ -80,10 +80,13 @@ function renderContactOverlay() {
     `
 }
 
-function openEditContact(id) {
+async function openEditContact(id) {
+    document.getElementById("add-contact-overlay").classList.remove('d-none');
+    console.log('open edit contact')
     resetPage();
-    openDialog();
     renderContactOverlay();
+    await openDialog("add-contact");
+    
     document.getElementById("overlay-header").innerHTML = "Edit Contact";
     document.getElementById("subtitle").classList.add('none');
     document.getElementById("submit-buttons").innerHTML = ` <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
@@ -123,10 +126,10 @@ function closeAddContact() {
 function openContactOptions(i) {
     document.getElementById('contact-options').innerHTML +=
         `
-<div class='contact-options'>
-<div class='edit-contact' onclick='openEditContact(${i})'><img src="./assets/img/edit.svg">Edit</div>
-                    <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div></div>
-`
+    <div class='contact-options'>
+    <div class='edit-contact' onclick='openEditContact(${i})'><img src="./assets/img/edit.svg">Edit</div>
+    <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div></div>
+        `
 }
 
 
@@ -232,25 +235,28 @@ async function viewCard(i) {
 
     renderCardCloseup(i);
     document.getElementById('view-contact').style.display='flex';
-    let hidden = document.getElementById('card-closeup').style.transform='translateX(100vw)';
+    let hidden = (document.getElementById('card-closeup').style.transform =='translateX(100vw)');
     if (hidden) {
         console.log('closeup hidden');
         document.getElementById("card-closeup").classList.add('transition');
+        await sleep(10);
         document.getElementById("card-closeup").style.transform='translateX(0)';
         await sleep(10);
     }
     else {
-        document.getElementById("card-closeup").classList.remove('transition');
-        document.getElementById("card-closeup").style.transform='translateX(100px)';
+        
+        document.getElementById("card-closeup").classList.remove('transition'); 
+        document.getElementById("card-closeup").style.transform='translateX(100vw)';
         await sleep(10);
-        // document.getElementById("card-closeup").classList.add('transition');
-        // document.getElementById("card-closeup").classList.style.transform='translateX(0))';
-        // await sleep(10);
+        document.getElementById("card-closeup").classList.add('transition');
+        await sleep(10);
+        document.getElementById("card-closeup").style.transform='translateX(0)';
     }
 }
 
 
 function renderCardCloseup(i) {
+    
     document.getElementById("card-closeup").innerHTML =
         /*html*/
         `
@@ -312,6 +318,7 @@ function hideViewCard(){
     renderContacts();
 }
 async function openDialog(id) {
+    console.log('dialog', id)
     let overlay = document.getElementById(id);
     await sleep(10);
     overlay.classList.add("dialog-show");
