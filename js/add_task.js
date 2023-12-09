@@ -7,10 +7,15 @@ let tempTaskId = "";
  */
 async function initAddTask() {
   await loadAllTasks();
-  renderAddTaskAssignetContent();
+  renderAddTaskAssignetContentHTML();
   checkTemporaryTask();
 }
 
+/**
+ * Checks whether there is a temporary task for the current user.
+ * If a temporary task is found, the input fields are filled with the values of the task.
+ * Otherwise, a new temporary task is created.
+ */
 function checkTemporaryTask() {
   for (let i = 0; i < tasks.length; i++) {
     if (tasks[i].creator == currentUser[0].id && tasks[i].delete == "") {
@@ -24,6 +29,9 @@ function checkTemporaryTask() {
   }
 }
 
+/**
+ * Fills all input fields on the user interface with the corresponding values of the temporary task.
+ */
 function fillAllInputs() {
   addTaskTitel.value = tasks[tempTaskId].title;
   addTaskTitel.style.color = "var(--black)";
@@ -55,6 +63,10 @@ async function createTask() {
   }
 }
 
+/**
+ * Creates a temporary task and adds it to the task list.
+ * The temporary task is initialised with default values.
+ */
 async function createTemporaryTask() {
   tasks.push({
     id: tasks.length,
@@ -73,6 +85,9 @@ async function createTemporaryTask() {
   await setItem("tasks", JSON.stringify(tasks));
 }
 
+/**
+ * Updates temporary tasks with the entered values and saves the update.
+ */
 async function updateTemporaryTask() {
   clearTaskBtn.disabled = true;
   addTaskBtn.disabled = true;
@@ -112,6 +127,10 @@ function clearTemporaryTask() {
   openInformationWindow("Your task has been created.", 3000);
 }
 
+/**
+ * Clears the fields of a temporary task, saves the changes,
+ * deactivates certain buttons and re-renders the content of the main page.
+ */
 async function clearTask() {
   tasks[tempTaskId].title = "";
   tasks[tempTaskId].description = "";
@@ -125,6 +144,7 @@ async function clearTask() {
   addTaskBtn.disabled = true;
   renderMainpageContent("./html/add_task.html");
 }
+
 /**
  * Checks the entered date and returns a value indicating whether the date is correct.
  * @returns {boolean} - Returns true if the date is correct, false otherwise.
@@ -198,7 +218,11 @@ function checkAllRequiredInputFields() {
   return checkInputFields.every((field) => Object.values(field)[0]);
 }
 
-function renderAddTaskAssignetContent() {
+/**
+ * Renders the HTML content for the assignment of a new task.
+ * Fills the element with the ID "add-task-assignet" with the corresponding HTML content.
+ */
+function renderAddTaskAssignetContentHTML() {
   document.getElementById("add-task-assignet").innerHTML = /*html*/ `
   <p>Assignet to</p>
   <input

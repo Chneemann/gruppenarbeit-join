@@ -1,10 +1,10 @@
 // BOARD
 
 /**
- * This function render the current task
+ * Renders the HTML code for a task card and adds it to the corresponding container.
  *
- * @param {string} id Current task id
- * @param {string} name The <div> id in html code
+ * @param {number} id - The unique identification number of the task.
+ * @param {string} name - The name of the container to which the task card is added.
  */
 function renderTaskHTML(id, name) {
   document.getElementById(name).innerHTML += /*html*/ `
@@ -30,10 +30,12 @@ function renderTaskHTML(id, name) {
 }
 
 /**
- * This function render the user badget
+ * Generates HTML code for the display element of an assigned contact on the board.
  *
- * @param {string} userInitials Initials in capital letters
- * @returns HTML user badget
+ * @param {number} i - The index of the element or task.
+ * @param {string} userInitials - The initials of the assigned user.
+ * @param {string} color - The background colour of the display element.
+ * @returns {string} - The generated HTML code for the assigned contact board element.
  */
 function renderAssignetContactBoardHTML(i, userInitials, color) {
   return /*html*/ `
@@ -41,12 +43,10 @@ function renderAssignetContactBoardHTML(i, userInitials, color) {
   `;
 }
 
-// BOARD DISPLAY CURRENT TASK
-
 /**
- * This function displays the current task in large size
+ * Render HTML for the task overlay based on the task ID.
  *
- * @param {string} id Current task id
+ * @param {number} id - The ID of the task for which the overlay is to be rendered.
  */
 function renderTaskOverlayHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
@@ -115,9 +115,9 @@ function renderTaskOverlayHTML(id) {
 }
 
 /**
- * Displays the task that the user wants to edit
+ * Render HTML for the task overlay in edit mode.
  *
- * @param {string} id Current task id
+ * @param {number} id - The ID of the task for which the overlay is being rendered.
  */
 function renderTaskOverlayEditHTML(id) {
   document.getElementById("task-overlay-cart").innerHTML = /*html*/ `
@@ -294,10 +294,10 @@ function renderTaskOverlayEditHTML(id) {
 }
 
 /**
- * Renders a single contact in the contact list of the overlay.
+ * Render HTML for a contact and add it to the overlay for assigned contacts.
  *
  * @param {Object} contact - The contact to be rendered.
- * @param {number} taskId - The ID of the task.
+ * @param {string} taskId - The ID of the associated task.
  */
 function renderContactHTML(contact, taskId) {
   document.getElementById("edit-task-assignet-overlay").innerHTML += /*html*/ `
@@ -315,8 +315,9 @@ function renderContactHTML(contact, taskId) {
 }
 
 /**
- * This function generate the empty task
- * @param {string} id The <div> id in html code
+ * Generates HTML for an empty task area and adds it to the corresponding element.
+ *
+ * @param {string} id - The ID of the HTML element to which the empty task HTML is added.
  */
 function generateEmptyTaskHTML(id) {
   document.getElementById(id).innerHTML = /*html*/ `
@@ -325,10 +326,13 @@ function generateEmptyTaskHTML(id) {
 }
 
 /**
- * This function generate the user badget
+ * Generates HTML code for the display of assigned contacts in a task.
  *
- * @param {string} userInitials Initials in capital letters
- * @returns HTML user badget
+ * @param {number} i - The index of the assigned contact.
+ * @param {string} userInitials - The initials of the assigned contact.
+ * @param {string} username - The user name of the assigned contact.
+ * @param {string} color - The background colour for the initials badge.
+ * @returns {string} - The generated HTML code for the assigned contacts.
  */
 function generateAssignetContactHTML(i, userInitials, username, color) {
   return /*html*/ `
@@ -340,11 +344,11 @@ function generateAssignetContactHTML(i, userInitials, username, color) {
 }
 
 /**
- * Renders the HTML for a subtask in the edit task view.
+ * Render HTML for a subtask in a specific task div.
  *
- * @param {String} divId - The <div> id in html code
- * @param {String} taskId - The ID of the task.
- * @param {string} i - The length of the subtasks array (tasks[taskId].subtasks)
+ * @param {string} divId - The ID of the HTML element in which the subtask is to be rendered.
+ * @param {number} taskId - The ID of the task to which the subtask belongs.
+ * @param {number} i - The index of the subtask in the array of subtasks of the task.
  */
 function renderSubtaskHTML(divId, taskId, i) {
   document.getElementById(`${divId}-task-subtask-addet`).innerHTML += /*html*/ `
