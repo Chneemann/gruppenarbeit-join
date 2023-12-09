@@ -50,7 +50,8 @@ function fillAllInputs() {
 }
 
 /**
- * Checks whether all entries are correct
+ * If all checks are successful, the task is saved on the server.
+ * Otherwise, an error message is generated for the task.
  */
 async function createTask() {
   clearTaskBtn.disabled = false;
@@ -112,7 +113,7 @@ async function updateTemporaryTask() {
 async function saveTaskOnServer() {
   tasks[tempTaskId].delete = "no";
   await setItem("tasks", JSON.stringify(tasks));
-  await sleep(1000);
+  await sleep(500);
   clearTemporaryTask();
 }
 
