@@ -3,7 +3,6 @@
  * or not and assigns their initials to the badged in the header.
  */
 function currentUserBadged() {
-  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser[0].username == "Guest") {
     document.getElementById("header-userimg").innerHTML = "G";
     document.getElementById("mobile-header-userimg").innerHTML = "G";

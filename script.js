@@ -10,6 +10,7 @@ function init() {
   includeHTML();
   loadAllUsers();
   loadAllContacts();
+  ifCurrentUserLogin();
   currentUserBadged();
 }
 
@@ -57,6 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
     img.draggable = false;
   });
 });
+
+function ifCurrentUserLogin() {
+  if (!currentUser) {
+    window.location = "./index.html";
+  }
+}
 
 async function openInformationWindow(infoTxt, sleeptime) {
   var overlay = document.getElementById("information-window");
