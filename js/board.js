@@ -1,8 +1,6 @@
 let tasks = [];
 let currentDraggedElement;
 
-// BOARD
-
 /**
  * Initialises the board by loading all tasks
  */
@@ -311,38 +309,18 @@ function searchTask() {
   }
 }
 
-// OPEN/CLOSE/EDIT/DELETE TASK
-
-async function openAddTask() {
-  /*
-  loadW3Include("./html/add_task.html", "add-task-dialog");
-  await sleep(10);
-  var overlay = document.getElementById("add-task-dialog");
-  document.body.style.overflow = "hidden";
-  document.getElementById("add-task-img-close").classList.remove("d-none");
-  document.getElementById("add-task-page").style.backgroundColor =
-    "var(--white)";
-  overlay.classList.remove("d-none");
-  await sleep(10);
-  overlay.classList.add("dialog-show");
-  overlay.classList.remove("dialog-hide");
-  changeBackground(overlay);
+/**
+ * Opens the page to add a new task.
+ */
+function openAddTaskPage() {
   renderMainpageContent("./html/add_task.html");
-    */
 }
 
-async function closeAddTask() {
-  /*
-  var overlay = document.getElementById("add-task-dialog");
-  document.body.style.overflow = "auto";
-  overlay.classList.add("dialog-hide");
-  overlay.classList.remove("dialog-show");
-  overlay.style.backgroundColor = "";
-  await sleep(100);
-  overlay.classList.add("d-none");
-    */
-}
-
+/**
+ * Opens the editing view for a specific task.
+ *
+ * @param {number} id - The unique ID of the task to be edited.
+ */
 function editTask(id) {
   renderTaskOverlayEditHTML(id);
   renderAllSubtasks("edit", id);
@@ -352,6 +330,11 @@ function editTask(id) {
   addPrioStatus(`icon-${taskPrio}`);
 }
 
+/**
+ * Deletes a task based on the given ID.
+ *
+ * @param {number} id - The ID of the task to be deleted.
+ */
 async function deleteTask(id) {
   closeCart();
   tasks[id].delete = "yes";
@@ -361,8 +344,11 @@ async function deleteTask(id) {
   openInformationWindow("The task has been deleted.", 3000);
 }
 
-// OPEN/CLOSE CART
-
+/**
+ * Opens the task dialogue to view the task in detail.
+ *
+ * @param {string} id - The unique identification number of the task.
+ */
 async function openCart(id) {
   renderTaskOverlayHTML(id);
   checkSubtasks(id);
@@ -374,26 +360,15 @@ async function openCart(id) {
   changeBackground(overlay);
 }
 
+/**
+ * Closes the task dialogue by hiding the overlay.
+ */
 async function closeCart() {
   var overlay = document.getElementById("task-overlay-cart");
-  document.body.style.overflow = "auto";
   overlay.classList.add("dialog-hide");
   overlay.classList.remove("dialog-show");
   overlay.style.backgroundColor = "";
   await sleep(100);
   overlay.classList.add("d-none");
   initBoard();
-}
-
-// W3C
-
-function loadW3Include(path, id) {
-  fetch(path)
-    .then((response) => response.text())
-    .then((html) => {
-      document.getElementById(id).innerHTML = html;
-    })
-    .catch((error) => {
-      console.error("Error loading:", error);
-    });
 }

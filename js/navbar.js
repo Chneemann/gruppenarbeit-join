@@ -17,10 +17,16 @@ function currentUserBadged() {
   }
 }
 
+/**
+ * Opens the Navbar menu in the top right-hand corner
+ */
 function openNavbarMenu() {
   document.getElementById("navbar-menu").classList.toggle("d-none");
 }
 
+/**
+ * Closes the navbar menu in the top right-hand corner
+ */
 function closeNavbarMenu(event) {
   if (!["header-userimg", "mobile-header-userimg"].includes(event.target.id)) {
     document.getElementById("navbar-menu").classList.add("d-none");

@@ -59,12 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/**
+ * Checks whether a user is logged in at all (currentUser available in LocalStorage?)
+ * if not, you will be redirected to the login page.
+ */
 function ifCurrentUserLogin() {
   if (!currentUser) {
     window.location = "./index.html";
   }
 }
 
+/**
+ * This function allows a dialogue to be displayed from the right in the middle of the screen
+ * where a user-defined text is displayed, the display duration is just as variable.
+ *
+ * @param {Sring} infoTxt - der anzuzeigende Text.
+ * @param {Number} sleeptime - die Anzeigedauer, bis die Einblendung verschwindet.
+ */
 async function openInformationWindow(infoTxt, sleeptime) {
   var overlay = document.getElementById("information-window");
   overlay.classList.remove("d-none");
@@ -133,8 +144,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-// HTML Include
-
+/**
+ * This function loads HTML content asynchronously into elements that contain the "w3-include-html" attribute.
+ */
 async function includeHTML() {
   const elementsToInclude = document.querySelectorAll("[w3-include-html]");
   for (const elmnt of elementsToInclude) {
@@ -155,10 +167,21 @@ async function includeHTML() {
   }
 }
 
+/**
+ * Delays the execution of the programme for the specified time.
+ *
+ * @param {number} ms - The time in milliseconds to delay the execution.
+ * @returns {Promise<void>} A promise that will be fulfilled when the delay is complete.
+ */
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/**
+ * Changes the background of the transferred overlay element after a CSS transition has been completed.
+ *
+ * @param {HTMLElement} overlay - The overlay element whose background is to be changed.
+ */
 function changeBackground(overlay) {
   overlay.addEventListener(
     "transitionend",
@@ -169,6 +192,11 @@ function changeBackground(overlay) {
   );
 }
 
+/**
+ * Changes the text colour of an HTML input field based on the text entered.
+ *
+ * @param {string} input - The ID of the HTML input field.
+ */
 function changeInputTextColor(input) {
   var inputElement = document.getElementById(input);
 
