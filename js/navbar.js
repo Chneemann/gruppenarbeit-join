@@ -25,7 +25,9 @@ function openNavbarMenu() {
 }
 
 /**
- * Closes the navbar menu in the top right-hand corner
+ * Closes the navigation menu if a click event occurs outside certain elements.
+ *
+ * @param {Event} event - The click event that was triggered.
  */
 function closeNavbarMenu(event) {
   if (!["header-userimg", "mobile-header-userimg"].includes(event.target.id)) {

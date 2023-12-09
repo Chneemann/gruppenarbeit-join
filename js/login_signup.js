@@ -1,26 +1,34 @@
 let users = [];
 
 /**
- * This function loads all users from the backend.
+ * Loads all required functions of the page
  */
 async function initLogin() {
   loadUsers();
   includeHTML();
   moveLogoToTopLeft();
   checkRememberMe();
-  if (JSON.parse(localStorage.getItem("currentUser"))) {
-    loadJoin();
-  }
+  ifAUserLogedin();
 }
 
 /**
- * This function loads all users from the backend.
+ * Loads all users from the backend.
  */
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
   } catch (e) {
     console.error("Loading error:", e);
+  }
+}
+
+/**
+ * Checks whether a user is logged in by searching the local storage for the current user.
+ * If a current user exists, the user is redirected to the main page.
+ */
+function ifAUserLogedin() {
+  if (JSON.parse(localStorage.getItem("currentUser"))) {
+    loadJoin();
   }
 }
 
@@ -130,7 +138,7 @@ async function register() {
       password: signupPassword.value,
       contacts: newContactsArray,
     });
-    // await setItem("users", JSON.stringify(users));
+    await setItem("users", JSON.stringify(users));
     resetFormSignup();
     openInformationWindow(
       "The user has been created. You can now log in.",

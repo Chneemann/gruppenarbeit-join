@@ -171,12 +171,22 @@ function searchContact(taskId) {
   }
 }
 
+/**
+ * Processes user input for adding subtasks to a task.
+ *
+ * @param {string} divId - The ID of the parent DIV element to which the subtasks are to be added.
+ */
 function userInputSubtask(divId) {
   if (document.getElementById(`${divId}-task-subtask`).value > "0") {
     addSubtask(divId);
   }
 }
 
+/**
+ * Adds a subtask to a task div and updates the display.
+ *
+ * @param {string} divId - The unique ID of the task div to which the subtask is added.
+ */
 function addSubtask(divId) {
   document.getElementById(`${divId}-task-subtask`).style.color = "var(--black)";
   document.getElementById(`${divId}-task-icon-add`).classList.add("d-none");
@@ -185,6 +195,12 @@ function addSubtask(divId) {
     .classList.remove("d-none");
 }
 
+/**
+ * Closes a subtask by changing the colour scheme and clearing the text content,
+ * the "Add" symbol is made visible again and the "Close" symbol is hidden.
+ *
+ * @param {string} divId - The ID of the parent element that contains the subtask.
+ */
 function closeSubtask(divId) {
   document.getElementById(`${divId}-task-subtask`).style.color =
     "var(--light-gray)";
@@ -195,6 +211,12 @@ function closeSubtask(divId) {
     .classList.add("d-none");
 }
 
+/**
+ * This function hides the title text and the edit symbol and displays the edit field and the close symbol.
+ *
+ * @param {string} divId - The ID of the parent DIV element.
+ * @param {string} taskId - The ID of the subtask to be edited.
+ */
 function editSubtask(divId, taskId) {
   document
     .getElementById(`${divId}TaskTitletext${taskId}`)
@@ -210,6 +232,13 @@ function editSubtask(divId, taskId) {
     .classList.remove("d-none");
 }
 
+/**
+ * Saves the processing of a subtask field.
+ *
+ * @param {string} divId - The ID of the parent DIV element.
+ * @param {number} taskId - The ID of the parent main task field.
+ * @param {number} i - The index of the subtask within the main task field.
+ */
 function saveEditSubtask(divId, taskId, i) {
   tasks[taskId].subtasks[i] = document.getElementById(
     `${divId}TaskEditfield${i}`
@@ -227,6 +256,12 @@ function saveEditSubtask(divId, taskId, i) {
   renderAllSubtasks(divId, taskId);
 }
 
+/**
+ * Confirms a subtask and adds it to the associated main task object.
+ *
+ * @param {string} divId - The ID of the HTML element that contains the subtask.
+ * @param {number} [taskId] - The ID of the main task. If not specified, tempTaskId is used.
+ */
 function confirmSubtask(divId, taskId) {
   taskId =
     taskId === undefined || taskId === null || taskId === ""
@@ -246,6 +281,14 @@ function confirmSubtask(divId, taskId) {
   }
 }
 
+/**
+ * Deletes a subtask from the subtask array of a specific task and updates the display.
+ *
+ * @param {string} divId - The ID of the HTML element that represents the subtasks.
+ * @param {string|null|undefined} taskId - The ID of the parent task from which the subtask is deleted,
+ * if `undefined`, `null` or empty, `tempTaskId` is used.
+ * @param {number} i - The index of the subtask to be deleted in the subtask array of the parent task.
+ */
 function deleteSubtask(divId, taskId, i) {
   taskId =
     taskId === undefined || taskId === null || taskId === ""
