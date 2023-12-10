@@ -26,7 +26,7 @@ function renderContacts() {
 /**
  * Sorts contacts by alphabetically
  */
-function sortContacts(){
+function sortContacts() {
     contacts.sort(function (a, b) {
         if (a.name < b.name) {
             return -1;
@@ -68,6 +68,7 @@ function closeAddContact() {
     renderContacts();
 }
 
+
 /**
  * Adds a new contact to the existing list with the contact information of the input
  * if the name field is empty, the form is not validated and no contact will be created
@@ -76,10 +77,10 @@ async function addContact() {
 
 
     let name = document.getElementById('name').value;
-    name= capitalizeFirstLetter(name);
+    name = capitalizeFirstLetter(name);
     console.log(name);
     if (name) {
-        
+
         let email = document.getElementById("email").value;
         let phone = document.getElementById("phone").value;
         let initials = getInitials(name);
@@ -102,16 +103,29 @@ async function addContact() {
 
 /**
  * Makes a slider message appear, which notifies that a new contact has been created
+ * detects if screen width to set the direction of the slider
  */
-async function createContactAlert() {
+async function createContactAlert() { 
+    
     document.getElementById("contact-alert").classList.remove('d-none');
+ await sleep(1000);
+    let mobileMode = (window.innerWidth<860);
 
     document.getElementById("contact-alert").classList.add('transition');
-    await sleep(1000);
-    document.getElementById("contact-alert").style.transform = 'translateX(0)';
-    await sleep(2000);
-    document.getElementById("contact-alert").style.transform = 'translateX(100vw)';
-    await sleep(1000);
+   
+    if (mobileMode){
+        console.log('mobile Mode Contact Alert');
+        document.getElementById("contact-alert").style.transform = 'translateY(0)';
+        await sleep(2000);
+        document.getElementById("contact-alert").style.transform = 'translateY(100vh)';
+        await sleep(1000);
+    }
+    else {
+        document.getElementById("contact-alert").style.transform = 'translateX(0)';
+        await sleep(2000);
+        document.getElementById("contact-alert").style.transform = 'translateX(100vw)';
+        await sleep(1000);
+    }
     document.getElementById("contact-alert").classList.add('d-none');
 }
 
@@ -289,14 +303,14 @@ function capitalizeFirstLetter(string) {
     const allNames = string.split(" ");
     console.log(allNames)
     return allNames[0].charAt(0).toUpperCase() + string.slice(1);
-  }
+}
 
 
 /**
  * turns the first letters into a register, checks for duplicates
  */
 function firstLetter(i) {
-   
+
 
     let firstLetter = contacts[i].name[0].toUpperCase();
     if ((i > 0) && (firstLetter != contacts[i - 1].name[0])) {

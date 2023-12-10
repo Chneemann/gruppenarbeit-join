@@ -341,6 +341,7 @@ card-closeup-header-right {
     font-size: 20px;
     font-weight: 400;
     transition: 1s;
+    z-index: 12;
 }
 
 
@@ -612,6 +613,10 @@ card-closeup-header-right {
     }
 
     #contact-alert{
+        position: fixed;
+        bottom:40px;
+        right: 400px;
+        transform: translateY(100vh);
         display: flex;
         align-items: center;
         height: 56px;
