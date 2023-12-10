@@ -86,34 +86,23 @@ function renderAwaitFeedback(counterAwait) {
 
 function showUrgent() {
   let counterUrgent = 0;
-
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].prio === "urgent" && tasks[i].delete === "no") {
-      counterUrgent++;
-    }
+    if (tasks[i].prio === "urgent" && tasks[i].delete === "no") counterUrgent++;
   }
   renderUrgent(counterUrgent);
 }
 
 function renderUrgent(counterUrgent) {
   let urGent = document.getElementById("urGent");
-
   if (counterUrgent === 0) {
     urGent.innerHTML = `
       <div class="txt_number">0</div>
       <div class="txt_todo">Urgent</div>
-      <img
-        class="gray_bar"
-        src="assets/img/summary/gray_bar.svg"/>
-      <div class="urgent_txt">
-      <span class="date"></span>
-      <span class="deadline">Life has no deadline</span>
-      </div>`;
+      `;
   } else {
     urGent.innerHTML = `
       <div class="txt_number">${counterUrgent}</div>
       <div class="txt_todo">Urgent</div>
-      
       `;
     getRightDate();
   }
@@ -147,8 +136,8 @@ function showDone() {
 }
 
 function renderDone(counterDone) {
-  let Done = document.getElementById("Done");
-  Done.innerHTML = `
+  let done = document.getElementById("Done");
+  done.innerHTML = `
     <div class="txt_number">${counterDone}</div>
     <div class="txt_todo">Done</div>`;
 }
@@ -162,17 +151,15 @@ function displayUsername() {
     <span class="welcome_txt">${currentUser[0].username}</span>`;
 }
 
-/**Funktion, um die Tageszeitabhängige Begrüßung anzuzeigen*/
+/**Funktion, um die tageszeitabhängige Begrüßung anzuzeigen*/
 
 function displayGreeting() {
   let welcome = document.getElementById("welcome");
   let currentTime = new Date();
   let utcOffset = 60;
   let localTime = new Date(currentTime.getTime() + utcOffset * 60000);
-
   let currentHour = localTime.getHours();
   let greeting;
-
   if (currentHour >= 5 && currentHour < 12) {
     greeting = "Good Morning";
   } else if (currentHour >= 12 && currentHour < 18) {
@@ -180,32 +167,46 @@ function displayGreeting() {
   } else {
     greeting = "Good Evening";
   }
-
   welcome.innerHTML = `
     <h1 class="welcome">${greeting}</h1>`;
 }
+
 /**Funktion, um das richtige Datum anzuzeigen*/
 
-function getRightDate() {
-  let closestDate = null;
+function findClosestDate() {
+  let closestDate = 0;
   for (let i = 0; i < tasks.length; i++) {
     const d = new Date(tasks[i].date);
-
     if (tasks[i].prio === "urgent" && tasks[i].delete === "no") {
       if (!closestDate || d < closestDate) {
         closestDate = d;
       }
-      if (closestDate) {
-        const fullYear = closestDate.getFullYear();
-        const month = months[closestDate.getMonth()];
-        const day = closestDate.getDate();
-        let rightDate = document.getElementById("rightDate");
-        rightDate.innerHTML = `
-  <div class="urgent_txt">
-        <span id="rightDate" class="date">${month} ${day}, ${fullYear}</span>
-        <span class="deadline">Upcoming deadline</span>
-      </div>`;
-      }
     }
   }
+  return closestDate;
+}
+
+function updateHTML(closestDate) {
+  let rightDate = document.getElementById("rightDate");
+  if (closestDate) {
+    const fullYear = closestDate.getFullYear();
+    const month = months[closestDate.getMonth()];
+    const day = closestDate.getDate();
+    rightDate.innerHTML = `
+      <div class="urgent_txt">
+        <span class="date">${month} ${day}, ${fullYear}</span>
+        <span class="deadline">Upcoming deadline</span>
+      </div>`;
+  } else {
+    rightDate.innerHTML = `
+      <div class="urgent_txt">
+        <span class="date"></span>
+        <span class="no_deadline">No deadline</span>
+      </div>`;
+  }
+}
+
+function getRightDate() {
+  const closestDate = findClosestDate();
+  updateHTML(closestDate);
 }

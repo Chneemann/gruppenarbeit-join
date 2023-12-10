@@ -4,7 +4,6 @@
 }
 
 body {
-  margin: 0;
   background-color: var(--very-light-gray);
   font-family: "Inter", sans-serif !important;
 }
@@ -287,6 +286,15 @@ body {
   text-align: left;
 }
 
+.no_deadline{
+  font-family: Inter;
+  font-size: larger;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
 .urgent_txt {
   display: flex;
   flex-direction: column;
@@ -449,6 +457,9 @@ body {
   .mobile_visible {
     display: flex;
     padding-top: 18px;
+  }
+  .urgent_txt{
+    width: 202px;
   }
 }
 
@@ -711,5 +722,4 @@ body {
     display: flex;
     padding-top: 18px;
   }
-
 }
