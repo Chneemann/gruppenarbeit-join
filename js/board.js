@@ -1,11 +1,9 @@
-let tasks = [];
 let currentDraggedElement;
 
 /**
  * Initialises the board by loading all tasks
  */
-async function initBoard() {
-  await loadAllTasks();
+function initBoard() {
   renderTasks();
 }
 

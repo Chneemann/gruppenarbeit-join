@@ -1,4 +1,5 @@
 users = [];
+let tasks = [];
 let localContactIds = [];
 let currentSite;
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -6,12 +7,13 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 /**
  * Loads all required functions of the page
  */
-function init() {
-  includeHTML();
-  loadAllUsers();
-  loadAllContacts();
+async function init() {
+  await loadAllUsers();
+  await loadAllContacts();
+  await loadAllTasks();
   ifCurrentUserLogin();
   currentUserBadged();
+  renderMainpageContent("./summary.html");
 }
 
 /**
