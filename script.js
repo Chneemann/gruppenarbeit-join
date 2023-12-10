@@ -96,6 +96,9 @@ async function openInformationWindow(infoTxt, sleeptime) {
   overlay.classList.add("d-none");
 }
 
+/**
+ * Displays a welcome message and hides it after a delay.
+ */
 async function welcomeMsg() {
   var overlay = document.getElementById("welcome-msg");
   overlay.classList.remove("d-none");
