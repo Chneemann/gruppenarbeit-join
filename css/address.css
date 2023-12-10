@@ -42,6 +42,10 @@ h2 {
     margin-left: 20px;
 }
 
+.button-open-add-contact-desktop:hover {
+    background-color: var(--light-blue);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
 
 .button-open-add-contact-mobile {
     display: none;
@@ -318,8 +322,22 @@ card-closeup-header-right {
 
 }
 
-create-contact-alert{
-    display: none;
+.create-contact-alert{
+    display: flex;
+    align-items: center;
+    height: 56px;
+    width: 214px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: 0;
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 16px;
+    transform: translateY(200px);
+    transition: 1s;
 }
 
 
@@ -337,6 +355,16 @@ create-contact-alert{
     font-weight: 400;
     border: 1px solid var(--dark-blue);
     background: var(--white);
+}
+
+.add-contact-btn-clear:hover {
+    color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.add-contact-btn-clear:hover img{
+    filter: invert(60%) sepia(89%) saturate(1719%) hue-rotate(165deg) brightness(93%) contrast(89%);
 }
 
 .add-contact-btn-cancel:hover {
@@ -385,10 +413,13 @@ create-contact-alert{
 
 
 @media (max-width: 860px) {
+
    h1{
     margin-top: 28px;
     font-size: 54px;
    }
+
+
     #scrollcontainer {
         z-index: 0;
         width: 90vw;
