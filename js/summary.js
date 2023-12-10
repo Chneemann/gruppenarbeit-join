@@ -189,11 +189,15 @@ function displayGreeting() {
 function getRightDate() {
   
   for (let i = 0; i < tasks.length; i++) {
+    const d = new Date(tasks[i].date);
+    let fullYear = d.getFullYear();
+    let month = months[d.getMonth()];
+    let day = d.getDate();
     if (tasks[i].prio === "urgent" && tasks[i].delete === "no") {
       let rightDate = document.getElementById("rightDate");
       rightDate.innerHTML = `
   <div class="urgent_txt">
-        <span id="rightDate" class="date">${tasks[i].date}</span>
+        <span id="rightDate" class="date">${month} ${day}, ${fullYear}</span>
         <span class="deadline">Upcoming deadline</span>
       </div>`;
     }
