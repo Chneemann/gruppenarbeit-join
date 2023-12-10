@@ -78,6 +78,7 @@ function renderContactOverlay() {
     `
 }
 
+
 async function openEditContact(id) {
     document.getElementById("add-contact-overlay").classList.remove('d-none');
     console.log('open edit contact')
@@ -102,6 +103,7 @@ async function openEditContact(id) {
     `;
 }
 
+
 function fillInput(id) {
     document.getElementById("name").value = contacts[id]['name'];
     document.getElementById("email").value = contacts[id]['email'];
@@ -115,6 +117,7 @@ function fillInput(id) {
 
 
 function closeAddContact() {
+    console.log('closeAddContact');
     closeDialog('add-contact');
     resetForm();
     renderContacts();
@@ -133,45 +136,48 @@ function openContactOptions(i) {
 
 async function addContact() {
     
+    
     let name = document.getElementById('name').value;
     
-    if (name){
+    if (name){console.log('addContact')
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
     let initials = getInitials(name);
     let color = getRandomColor()
     let id = contacts.length;
-    localStorage.setItem
+    
     contacts.push({ id, name, initials, email, phone, color });
 
-    await setItem("contacts", contacts);
+    setItem("contacts", contacts);
     closeAddContact();
-          createContactAlert();
+    await createContactAlert();
+     
+          
     resetPage();
     renderContacts();
-}
+    }
 
 }
 
 
 async function createContactAlert() {
-
-    document.getElementById("inner-frame").innerHTML = `
-    <div class="create-contact-alert" id="contact-alert">contact successfully created</div>
-    `
-
-    document.getElementById("contact-alert").style.transform = 'translateX(100vw)';
-    await sleep(10);
+console.log('contact alert');
+document.getElementById("contact-alert").classList.remove('d-none');
+    
     document.getElementById("contact-alert").classList.add('transition');
-    await sleep(10);
-    // document.getElementById("contact-alert").style.transform='translateX(0)'
-    // document.getElementById("contact-alert").style.transform='translateX(100vw)';
+    await sleep(1000);
+    document.getElementById("contact-alert").style.transform='translateX(0)';
+     await sleep(2000);
+     document.getElementById("contact-alert").style.transform='translateX(100vw)';
+     await sleep(1000);
+     document.getElementById("contact-alert").classList.add('d-none');
 }
 
 
 async function deleteContact(i) {
-
+    console.log ('delete', contacts[i]);
     contacts.splice(i, 1);
+    await setItem("contacts", contacts);
     resetPage();
     renderContacts();
 }

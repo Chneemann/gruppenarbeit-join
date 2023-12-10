@@ -323,6 +323,7 @@ card-closeup-header-right {
 }
 
 #contact-alert{
+    transform: translateX(100vw);
     display: flex;
     align-items: end;
     justify-content: end;
