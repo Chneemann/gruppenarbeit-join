@@ -346,3 +346,31 @@ input {
 .dialog-hide {
   transform: translateX(100%);
 }
+
+.welcome-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  z-index: 999;
+}
+
+.welcome-msg span {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--dark-blue);
+  margin: 0;
+}
+
+.welcome-msg p {
+  font-size: 47px;
+  font-weight: 700;
+  color: var(--light-blue);
+  margin: 0;
+}

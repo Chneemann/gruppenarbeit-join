@@ -8,6 +8,7 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser"));
  * Loads all required functions of the page
  */
 async function init() {
+  welcomeMsg();
   await loadAllUsers();
   await loadAllContacts();
   await loadAllTasks();
@@ -92,6 +93,15 @@ async function openInformationWindow(infoTxt, sleeptime) {
   overlay.classList.remove("dialog-show");
   overlay.style.backgroundColor = "";
   await sleep(100);
+  overlay.classList.add("d-none");
+}
+
+async function welcomeMsg() {
+  var overlay = document.getElementById("welcome-msg");
+  overlay.classList.remove("d-none");
+  document.getElementById("welcome-msg").innerHTML = /*HTML*/ `
+  <span>Welcome</span><p>${currentUser[0].username}</p>`;
+  await sleep(3000);
   overlay.classList.add("d-none");
 }
 
