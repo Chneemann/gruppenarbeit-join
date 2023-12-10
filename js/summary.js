@@ -165,10 +165,3 @@ function getRightDate() {
   rightDate.innerHTML = `
   <span class="date">${month} ${day}, ${year}</span>`;
 }
-
-/**Funktion, die zur board Seite weiterleitet */
-
-function redirectToBoard(){
-  let target = '../html/board.html';
-  window.location.href=target;
-}
