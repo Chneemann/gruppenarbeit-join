@@ -325,18 +325,21 @@ card-closeup-header-right {
 
 #contact-alert{
     transform: translateX(100vw);
+    position: fixed;
+    bottom:30px;
+    right: 400px;
     display: flex;
-    align-items: end;
-    justify-content: end;
-    height: 56px;
-    width: 214px;
+    align-items: center;
+    justify-content: center;
+    height: 74px;
+    width: 326px;
     padding: 0 16px;
     border-radius: 10px;
     border: 0;
     background: var(--dark-blue);
     color: var(--white);
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 400;
     transition: 1s;
 }
 
@@ -419,6 +422,13 @@ card-closeup-header-right {
     font-size: 54px;
    }
 
+   h2{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 36px;
+    max-width: 50vw;
+   }
+
 
     #scrollcontainer {
         z-index: 0;
@@ -445,7 +455,7 @@ card-closeup-header-right {
     .button-open-add-contact-mobile {
         position: relative;
         bottom: 10%;
-        right: 10%;
+        left: 60%;
         display: flex;
         position: fixed;
         border: none;
@@ -477,7 +487,7 @@ card-closeup-header-right {
         height: 100px;
         position: fixed;
         bottom: 40px;
-        right: 5vw;
+       left:60vw;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -496,7 +506,7 @@ card-closeup-header-right {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
         padding-right: 0;
         
         border-radius: 30px;
@@ -517,6 +527,7 @@ card-closeup-header-right {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin-top: 0;
     }
 
     .add-contact-left span{
@@ -623,6 +634,8 @@ card-closeup-header-right {
         left: 5px;
         bottom: 80px;
         background-color: var(--very-light-gray);
+        max-width: 100vw;
+        min-width: 330px;
     }
 
     .contact-header {
@@ -710,9 +723,8 @@ card-closeup-header-right {
 
     
     .add-contact-left {
-        width: calc(96vw - 32px);
+        width: calc(96vw - 48px);
         height: 219px;
-        padding:16px;
         padding-bottom: 56px;
     }
 
@@ -800,6 +812,9 @@ card-closeup-header-right {
     }
 
     #contact-alert{
+        position: fixed;
+        right: 40vw;
+        bottom: 20vh;
         display: flex;
         align-items: center;
         height: 56px;
@@ -810,10 +825,12 @@ card-closeup-header-right {
         background: var(--dark-blue);
         color: var(--white);
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 400;
     }
 
-
+    .card-closeup-header {
+        gap: 28px;
+    }
 
 }
 
