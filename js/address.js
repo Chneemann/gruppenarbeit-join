@@ -1,14 +1,8 @@
+/**
+ * Renders a list of contacts in a scrollcontainer
+ */
 function renderContacts() {
-
-    contacts.sort(function (a, b) {
-        if (a.name < b.name) {
-            return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return 0;
-    });
+    sortContacts();
 
 
     for (let i = 0; i < contacts.length; i++) {
@@ -29,6 +23,25 @@ function renderContacts() {
 }
 
 
+/**
+ * Sorts contacts by alphabetically
+ */
+function sortContacts(){
+    contacts.sort(function (a, b) {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
+}
+
+
+/**
+ * Opens a dialog with a form to add contacts
+ */
 async function openAddContact() {
     document.getElementById("add-contact-overlay").classList.remove('d-none');
 
@@ -46,7 +59,66 @@ async function openAddContact() {
 }
 
 
+/**
+ * Closes the dialog with a form to add contacts
+ */
+function closeAddContact() {
+    closeDialog('add-contact');
+    resetForm();
+    renderContacts();
+}
 
+/**
+ * Adds a new contact to the existing list with the contact information of the input
+ * if the name field is empty, the form is not validated and no contact will be created
+ */
+async function addContact() {
+
+
+    let name = document.getElementById('name').value;
+    name= capitalizeFirstLetter(name);
+    console.log(name);
+    if (name) {
+        
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let initials = getInitials(name);
+        let color = getRandomColor()
+        let id = contacts.length;
+
+        contacts.push({ id, name, initials, email, phone, color });
+
+        setItem("contacts", contacts);
+        closeAddContact();
+        await createContactAlert();
+
+
+        resetPage();
+        renderContacts();
+    }
+
+}
+
+
+/**
+ * Makes a slider message appear, which notifies that a new contact has been created
+ */
+async function createContactAlert() {
+    document.getElementById("contact-alert").classList.remove('d-none');
+
+    document.getElementById("contact-alert").classList.add('transition');
+    await sleep(1000);
+    document.getElementById("contact-alert").style.transform = 'translateX(0)';
+    await sleep(2000);
+    document.getElementById("contact-alert").style.transform = 'translateX(100vw)';
+    await sleep(1000);
+    document.getElementById("contact-alert").classList.add('d-none');
+}
+
+
+/**
+ * Creates an overlay-container which opens as a dialog
+ */
 function renderContactOverlay() {
 
     document.getElementById("add-contact-overlay").innerHTML = /*html*/ `
@@ -79,9 +151,11 @@ function renderContactOverlay() {
 }
 
 
+/**
+ * Opens a dialog with a form to edit the selected contact
+ */
 async function openEditContact(id) {
     document.getElementById("add-contact-overlay").classList.remove('d-none');
-    console.log('open edit contact')
     resetPage();
     renderContactOverlay();
     await openDialog("add-contact");
@@ -104,6 +178,9 @@ async function openEditContact(id) {
 }
 
 
+/**
+ * Fills the form with the existing contact information to edit the selected contact
+ */
 function fillInput(id) {
     document.getElementById("name").value = contacts[id]['name'];
     document.getElementById("email").value = contacts[id]['email'];
@@ -116,73 +193,9 @@ function fillInput(id) {
 }
 
 
-function closeAddContact() {
-    console.log('closeAddContact');
-    closeDialog('add-contact');
-    resetForm();
-    renderContacts();
-}
-
-
-function openContactOptions(i) {
-    document.getElementById('contact-options').innerHTML +=
-        `
-    <div class='contact-options'>
-    <div class='edit-contact' onclick='openEditContact(${i})'><img src="./assets/img/edit.svg">Edit</div>
-    <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div></div>
-        `
-}
-
-
-async function addContact() {
-    
-    
-    let name = document.getElementById('name').value;
-    
-    if (name){console.log('addContact')
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let initials = getInitials(name);
-    let color = getRandomColor()
-    let id = contacts.length;
-    
-    contacts.push({ id, name, initials, email, phone, color });
-
-    setItem("contacts", contacts);
-    closeAddContact();
-    await createContactAlert();
-     
-          
-    resetPage();
-    renderContacts();
-    }
-
-}
-
-
-async function createContactAlert() {
-console.log('contact alert');
-document.getElementById("contact-alert").classList.remove('d-none');
-    
-    document.getElementById("contact-alert").classList.add('transition');
-    await sleep(1000);
-    document.getElementById("contact-alert").style.transform='translateX(0)';
-     await sleep(2000);
-     document.getElementById("contact-alert").style.transform='translateX(100vw)';
-     await sleep(1000);
-     document.getElementById("contact-alert").classList.add('d-none');
-}
-
-
-async function deleteContact(i) {
-    console.log ('delete', contacts[i]);
-    contacts.splice(i, 1);
-    await setItem("contacts", contacts);
-    resetPage();
-    renderContacts();
-}
-
-
+/**
+ * Overwrites the existing contact with the new input
+ */
 async function editContact(id) {
     let name = document.getElementById('name').value;
     let email = document.getElementById("email").value;
@@ -197,68 +210,25 @@ async function editContact(id) {
 }
 
 
-function resetForm() {
-    document.getElementById("name").value = '';
-    document.getElementById("email").value = '';
-    document.getElementById("phone").value = '';
+/**
+ * Deletes a contact from the storage and reloads the contact list
+ */
+async function deleteContact(i) {
+    contacts.splice(i, 1);
+    await setItem("contacts", contacts);
+    resetPage();
+    renderContacts();
 }
 
-
-function resetPage() {
-    document.getElementById("view-contact").style.display = 'none';
-
-    document.getElementById("card-closeup").style.transform = 'translateX(100vw)';
-
-    document.getElementById("contact-list").innerHTML = '';
-    sleep(10);
-}
-
-
-function firstLetter(i) {
-    //FUNKTION FÜR REGISTER
-
-    let firstLetter = contacts[i].name[0].toUpperCase();
-    if ((i > 0) && (firstLetter != contacts[i - 1].name[0])) {
-        document.getElementById("contact-list").innerHTML += /*html*/ `
-    <div class='first-letter' id='first-letter-${firstLetter}'>
-    ${firstLetter}</div>
-    `;
-    }
-    else if (i == 0) {
-        document.getElementById("contact-list").innerHTML += /*html*/ `
-        <div class='first-letter' id='first-letter-${firstLetter}'>
-        ${firstLetter}</div>
-        `;
-    }
-
-
-
-    return firstLetter;
-
-}
-
-
-function getInitials(name) {
-
-    const allNames = name.split(" ");
-
-    let initials = [];
-    for (let index = 0; index < allNames.length; index++) {
-
-        initials.push(allNames[index][0].toUpperCase());
-    }
-    return initials.join(""); //Methode entfernt das Komma
-}
-
-
-
+/**
+ * Slides in a card with the contact information
+ */
 async function viewCard(i) {
 
     renderCardCloseup(i);
     document.getElementById('view-contact').style.display = 'flex';
     let hidden = (document.getElementById('card-closeup').style.transform == 'translateX(100vw)');
     if (hidden) {
-        console.log('closeup hidden');
         document.getElementById("card-closeup").classList.add('transition');
         await sleep(10);
         document.getElementById("card-closeup").style.transform = 'translateX(0)';
@@ -276,6 +246,81 @@ async function viewCard(i) {
 }
 
 
+/**
+ * Provides the two options delete and edit in cell phone mode, when clicked on the context-menu-button
+ */
+function openContactOptions(i) {
+    document.getElementById('contact-options').innerHTML +=
+        `
+    <div class='contact-options'>
+    <div class='edit-contact' onclick='openEditContact(${i})'><img src="./assets/img/edit.svg">Edit</div>
+    <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div></div>
+        `
+}
+
+
+/**
+ * resets the contact input-form 
+ */
+function resetForm() {
+    document.getElementById("name").value = '';
+    document.getElementById("email").value = '';
+    document.getElementById("phone").value = '';
+}
+
+
+/**
+ * resets the page after changes 
+ */
+function resetPage() {
+    document.getElementById("view-contact").style.display = 'none';
+
+    document.getElementById("card-closeup").style.transform = 'translateX(100vw)';
+
+    document.getElementById("contact-list").innerHTML = '';
+    sleep(10);
+}
+
+
+/**
+ * capitalizes the input name
+ */
+function capitalizeFirstLetter(string) {
+    const allNames = string.split(" ");
+    console.log(allNames)
+    return allNames[0].charAt(0).toUpperCase() + string.slice(1);
+  }
+
+
+/**
+ * turns the first letters into a register, checks for duplicates
+ */
+function firstLetter(i) {
+   
+
+    let firstLetter = contacts[i].name[0].toUpperCase();
+    if ((i > 0) && (firstLetter != contacts[i - 1].name[0])) {
+        document.getElementById("contact-list").innerHTML += /*html*/ `
+    <div class='first-letter' id='first-letter-${firstLetter}'>
+    ${firstLetter}</div>
+    `;
+    }
+    else if (i == 0) {
+        document.getElementById("contact-list").innerHTML += /*html*/ `
+        <div class='first-letter' id='first-letter-${firstLetter}'>
+        ${firstLetter}</div>
+        `;
+    }
+
+
+    return firstLetter;
+
+}
+
+
+/**
+ * Shows the selected contact with all information next to the contact list(desktop mode)
+ */
 function renderCardCloseup(i) {
 
     document.getElementById("card-closeup").innerHTML =
@@ -306,9 +351,62 @@ function renderCardCloseup(i) {
                 <img src="./assets/img/Menu Contact Options.png">
             </button>
     `;
-};
+}
 
 
+/**
+ * Hides the contact card in mobile mode when back-button is pressed
+ */
+function hideViewCard() {
+    document.getElementById('view-contact').style.display = 'none';
+    renderContacts();
+}
+
+
+/**
+ * Opens a dialog-overlay
+ */
+async function openDialog(id) {
+    let overlay = document.getElementById(id);
+    await sleep(10);
+    overlay.classList.add("dialog-show");
+    overlay.classList.remove("dialog-hide");
+}
+
+
+/**
+ * Closes the dialog-overlay
+ */
+async function closeDialog(id) {
+    let overlay = document.getElementById(id);
+
+
+    overlay.classList.add("dialog-hide");
+    overlay.classList.remove("dialog-show");
+    await sleep(10);
+    document.getElementById('add-contact-overlay').classList.add("d-none");
+
+}
+
+/**
+ * Splits Initials of the input name to create a badge
+ */
+function getInitials(name) {
+
+    const allNames = name.split(" ");
+
+    let initials = [];
+    for (let index = 0; index < allNames.length; index++) {
+
+        initials.push(allNames[index][0].toUpperCase());
+    }
+    return initials.join(""); //Methode entfernt das Komma
+}
+
+
+/**
+ * Generates a random color used for the background of the userbadge
+ */
 function getRandomColor() {
     function getRandomComponent() {
         const component = Math.floor(Math.random() * 256).toString(16);
@@ -326,34 +424,13 @@ function getRandomColor() {
 }
 
 
+/**
+ * Filters gray tones from the random color
+ */
 function isGrayscale(color) {
     const hex = color.slice(1);
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
     return r === g && g === b;
-}
-
-function hideViewCard() {
-    document.getElementById('view-contact').style.display = 'none';
-    renderContacts();
-}
-async function openDialog(id) {
-    console.log('dialog', id)
-    let overlay = document.getElementById(id);
-    await sleep(10);
-    overlay.classList.add("dialog-show");
-    overlay.classList.remove("dialog-hide");
-}
-
-
-async function closeDialog(id) {
-    let overlay = document.getElementById(id);
-
-
-    overlay.classList.add("dialog-hide");
-    overlay.classList.remove("dialog-show");
-    await sleep(10);
-    document.getElementById('add-contact-overlay').classList.add("d-none");
-
 }
