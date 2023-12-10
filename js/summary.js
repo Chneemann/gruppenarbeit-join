@@ -21,6 +21,7 @@ async function initSummary() {
   showAwaitFeedback();
   showToDo();
   showDone();
+  showUrgent();
   displayUsername();
   displayGreeting();
   getRightDate();
@@ -85,23 +86,32 @@ function renderAwaitFeedback(counterAwait) {
 
 function showUrgent() {
   let counterUrgent = 0;
+
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].prio === "urgent" && tasks[i].delete === "no") counterUrgent++;
-    renderUrgent(counterUrgent);
+    if (tasks[i].prio === "urgent" && tasks[i].delete === "no") {
+      counterUrgent++;
+    }
   }
+
+  renderUrgent(counterUrgent);
 }
 
 function renderUrgent(counterUrgent) {
   let urGent = document.getElementById("urGent");
-  urGent.innerHTML = `
-    <div class="txt_number">${counterUrgent}</div>
-    <div class="txt_todo">Urgent</div>`;
-   if (counterUrgent === 0) {
+  
+  // Überprüfen, ob counterUrgent gleich 0 ist, und gegebenenfalls "0" anzeigen
+  if (counterUrgent === 0) {
     urGent.innerHTML = `
       <div class="txt_number">0</div>
       <div class="txt_todo">Urgent</div>`;
+  } else {
+    urGent.innerHTML = `
+      <div class="txt_number">${counterUrgent}</div>
+      <div class="txt_todo">Urgent</div>`;
   }
 }
+
+
 
 /**Funktionen, die alle tasks in To-Do anzeigen*/
 
