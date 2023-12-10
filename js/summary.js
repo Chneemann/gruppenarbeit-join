@@ -34,12 +34,12 @@ function showAllTasks() {
   for (let i = 0; i < tasks.length; i++) {
     if (tasks[i].delete === "no") {
       tasksInBoard++;
-      renderAllTasks(tasksInBoard)
+      renderAllTasks(tasksInBoard);
     }
   }
 }
 
-function renderAllTasks(tasksInBoard){
+function renderAllTasks(tasksInBoard) {
   let inBoard = document.getElementById("inBoard");
   inBoard.innerHTML = `
     <span class="txt_number">${tasksInBoard}</span>
@@ -92,26 +92,32 @@ function showUrgent() {
       counterUrgent++;
     }
   }
-
   renderUrgent(counterUrgent);
 }
 
 function renderUrgent(counterUrgent) {
   let urGent = document.getElementById("urGent");
-  
-  // Überprüfen, ob counterUrgent gleich 0 ist, und gegebenenfalls "0" anzeigen
+
   if (counterUrgent === 0) {
     urGent.innerHTML = `
       <div class="txt_number">0</div>
-      <div class="txt_todo">Urgent</div>`;
+      <div class="txt_todo">Urgent</div>
+      <img
+        class="gray_bar"
+        src="assets/img/summary/gray_bar.svg"/>
+      <div class="urgent_txt">
+      <span class="date"></span>
+      <span class="deadline">Life has no deadline</span>
+      </div>`;
   } else {
     urGent.innerHTML = `
       <div class="txt_number">${counterUrgent}</div>
-      <div class="txt_todo">Urgent</div>`;
+      <div class="txt_todo">Urgent</div>
+      
+      `;
+    getRightDate();
   }
 }
-
-
 
 /**Funktionen, die alle tasks in To-Do anzeigen*/
 
@@ -181,11 +187,15 @@ function displayGreeting() {
 /**Funktion, um das richtige Datum anzuzeigen*/
 
 function getRightDate() {
-  const d = new Date();
-  let month = months[d.getMonth()];
-  let year = d.getFullYear();
-  let day = d.getDate();
-  let rightDate = document.getElementById("rightDate");
-  rightDate.innerHTML = `
-  <span class="date">${month} ${day}, ${year}</span>`;
+  
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].prio === "urgent" && tasks[i].delete === "no") {
+      let rightDate = document.getElementById("rightDate");
+      rightDate.innerHTML = `
+  <div class="urgent_txt">
+        <span id="rightDate" class="date">${tasks[i].date}</span>
+        <span class="deadline">Upcoming deadline</span>
+      </div>`;
+    }
+  }
 }
