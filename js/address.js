@@ -39,7 +39,7 @@ async function openAddContact() {
     src="./assets/img/close.svg"/>
     </button>
 
-    <button class="add-contact-btn-create" id="submit-contact" onclick="addContact(), closeAddContact(), alert('Neuen Kontakt angelegt'), createContactAlert()"><span>Create
+    <button class="add-contact-btn-create" id="submit-contact" onclick="addContact(), closeAddContact(), createContactAlert()"><span>Create
         contact</span><img src="./assets/img/check.svg" />
     </button>
     `
@@ -92,8 +92,8 @@ async function openEditContact(id) {
     document.getElementById("submit-buttons").innerHTML = ` <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
 </button>
 
-<button class="add-contact-btn-create" id="submit-contact"><span>Edit
-    contact</span><img src="./assets/img/check.svg" onclick="editContact(${id})"/>
+<button class="add-contact-btn-create" id="submit-contact" onclick="editContact(${id})"><span>Edit
+    contact</span><img src="./assets/img/check.svg" />
 </button>
     `
 
@@ -151,7 +151,7 @@ async function addContact() {
 }
 
 function createContactAlert() {
-    document.getElementById("submit-buttons").innerHTML += `
+    document.getElementById("inner-frame").innerHTML += `
     <div class="create-contact-alert">contact successfully created</div>
     `
 }
