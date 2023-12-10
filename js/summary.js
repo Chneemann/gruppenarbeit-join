@@ -29,7 +29,16 @@ async function initSummary() {
 /**Funktion, die alle tasks anzeigt*/
 
 function showAllTasks() {
-  let tasksInBoard = tasks.length;
+  let tasksInBoard = 0;
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].delete === "no") {
+      tasksInBoard++;
+      renderAllTasks(tasksInBoard)
+    }
+  }
+}
+
+function renderAllTasks(tasksInBoard){
   let inBoard = document.getElementById("inBoard");
   inBoard.innerHTML = `
     <span class="txt_number">${tasksInBoard}</span>
@@ -87,6 +96,11 @@ function renderUrgent(counterUrgent) {
   urGent.innerHTML = `
     <div class="txt_number">${counterUrgent}</div>
     <div class="txt_todo">Urgent</div>`;
+   if (counterUrgent === 0) {
+    urGent.innerHTML = `
+      <div class="txt_number">0</div>
+      <div class="txt_todo">Urgent</div>`;
+  }
 }
 
 /**Funktionen, die alle tasks in To-Do anzeigen*/
