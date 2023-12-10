@@ -322,9 +322,10 @@ card-closeup-header-right {
 
 }
 
-.create-contact-alert{
+#contact-alert{
     display: flex;
-    align-items: center;
+    align-items: end;
+    justify-content: end;
     height: 56px;
     width: 214px;
     padding: 0 16px;
@@ -332,11 +333,8 @@ card-closeup-header-right {
     border: 0;
     background: var(--dark-blue);
     color: var(--white);
-    cursor: pointer;
     font-size: 20px;
     font-weight: 700;
-    margin-left: 16px;
-    transform: translateY(200px);
     transition: 1s;
 }
 
@@ -599,7 +597,7 @@ card-closeup-header-right {
 
     }
 
-    .create-contact-alert{
+    #contact-alert{
         display: flex;
         align-items: center;
         height: 56px;
@@ -609,12 +607,8 @@ card-closeup-header-right {
         border: 0;
         background: var(--dark-blue);
         color: var(--white);
-        cursor: pointer;
         font-size: 20px;
         font-weight: 700;
-        margin-left: 16px;
-        transform: translateY(200px);
-        transition: 1s;
     }
 
 

@@ -1,5 +1,5 @@
 function renderContacts() {
-    
+
     contacts.sort(function (a, b) {
         if (a.name < b.name) {
             return -1;
@@ -39,11 +39,12 @@ async function openAddContact() {
     src="./assets/img/close.svg"/>
     </button>
 
-    <button class="add-contact-btn-create" id="submit-contact" onclick="addContact(), closeAddContact(), createContactAlert()"><span>Create
+    <button type="submit" class="add-contact-btn-create" id="submit-contact" onclick="addContact()"><span>Create
         contact</span><img src="./assets/img/check.svg" />
     </button>
     `
 }
+
 
 
 function renderContactOverlay() {
@@ -68,12 +69,9 @@ function renderContactOverlay() {
                     <input required type="text" placeholder='Name' id="name">
                     <input required type="email" placeholder='Email' id="email">
                     <input type="tel" placeholder='Phone' id="phone">
-                </form>
-
-
-                <div id="submit-buttons">
-                   
-                </div>
+                    <div id="submit-buttons"></div>
+</form>
+                
             </div>
         </div>
     
@@ -86,13 +84,13 @@ async function openEditContact(id) {
     resetPage();
     renderContactOverlay();
     await openDialog("add-contact");
-    
+
     document.getElementById("overlay-header").innerHTML = "Edit Contact";
     document.getElementById("subtitle").classList.add('none');
     document.getElementById("submit-buttons").innerHTML = ` <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
 </button>
 
-<button class="add-contact-btn-create" id="submit-contact" onclick="editContact(${id})"><span>Edit
+<button type="submit" class="add-contact-btn-create" id="submit-contact" onclick="editContact(${id})"><span>Edit
     contact</span><img src="./assets/img/check.svg" />
 </button>
     `
@@ -134,27 +132,42 @@ function openContactOptions(i) {
 
 
 async function addContact() {
-
+    
     let name = document.getElementById('name').value;
+    
+    if (name){
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
     let initials = getInitials(name);
     let color = getRandomColor()
-
     let id = contacts.length;
     localStorage.setItem
     contacts.push({ id, name, initials, email, phone, color });
 
     await setItem("contacts", contacts);
+    closeAddContact();
+          createContactAlert();
     resetPage();
     renderContacts();
 }
 
-function createContactAlert() {
-    document.getElementById("inner-frame").innerHTML += `
-    <div class="create-contact-alert">contact successfully created</div>
-    `
 }
+
+
+async function createContactAlert() {
+
+    document.getElementById("inner-frame").innerHTML = `
+    <div class="create-contact-alert" id="contact-alert">contact successfully created</div>
+    `
+
+    document.getElementById("contact-alert").style.transform = 'translateX(100vw)';
+    await sleep(10);
+    document.getElementById("contact-alert").classList.add('transition');
+    await sleep(10);
+    // document.getElementById("contact-alert").style.transform='translateX(0)'
+    // document.getElementById("contact-alert").style.transform='translateX(100vw)';
+}
+
 
 async function deleteContact(i) {
 
@@ -177,6 +190,7 @@ async function editContact(id) {
     renderContacts();
 }
 
+
 function resetForm() {
     document.getElementById("name").value = '';
     document.getElementById("email").value = '';
@@ -185,8 +199,9 @@ function resetForm() {
 
 
 function resetPage() {
-    
-    document.getElementById("card-closeup").style.transform='translateX(100vw)';
+    document.getElementById("view-contact").style.display = 'none';
+
+    document.getElementById("card-closeup").style.transform = 'translateX(100vw)';
 
     document.getElementById("contact-list").innerHTML = '';
     sleep(10);
@@ -234,29 +249,29 @@ function getInitials(name) {
 async function viewCard(i) {
 
     renderCardCloseup(i);
-    document.getElementById('view-contact').style.display='flex';
-    let hidden = (document.getElementById('card-closeup').style.transform =='translateX(100vw)');
+    document.getElementById('view-contact').style.display = 'flex';
+    let hidden = (document.getElementById('card-closeup').style.transform == 'translateX(100vw)');
     if (hidden) {
         console.log('closeup hidden');
         document.getElementById("card-closeup").classList.add('transition');
         await sleep(10);
-        document.getElementById("card-closeup").style.transform='translateX(0)';
+        document.getElementById("card-closeup").style.transform = 'translateX(0)';
         await sleep(10);
     }
     else {
-        
-        document.getElementById("card-closeup").classList.remove('transition'); 
-        document.getElementById("card-closeup").style.transform='translateX(100vw)';
+
+        document.getElementById("card-closeup").classList.remove('transition');
+        document.getElementById("card-closeup").style.transform = 'translateX(100vw)';
         await sleep(10);
         document.getElementById("card-closeup").classList.add('transition');
         await sleep(10);
-        document.getElementById("card-closeup").style.transform='translateX(0)';
+        document.getElementById("card-closeup").style.transform = 'translateX(0)';
     }
 }
 
 
 function renderCardCloseup(i) {
-    
+
     document.getElementById("card-closeup").innerHTML =
         /*html*/
         `
@@ -313,8 +328,8 @@ function isGrayscale(color) {
     return r === g && g === b;
 }
 
-function hideViewCard(){
-    document.getElementById('view-contact').style.display='none';
+function hideViewCard() {
+    document.getElementById('view-contact').style.display = 'none';
     renderContacts();
 }
 async function openDialog(id) {
