@@ -187,19 +187,25 @@ function displayGreeting() {
 /**Funktion, um das richtige Datum anzuzeigen*/
 
 function getRightDate() {
-  
+  let closestDate = null;
   for (let i = 0; i < tasks.length; i++) {
     const d = new Date(tasks[i].date);
-    let fullYear = d.getFullYear();
-    let month = months[d.getMonth()];
-    let day = d.getDate();
+
     if (tasks[i].prio === "urgent" && tasks[i].delete === "no") {
-      let rightDate = document.getElementById("rightDate");
-      rightDate.innerHTML = `
+      if (!closestDate || d < closestDate) {
+        closestDate = d;
+      }
+      if (closestDate) {
+        const fullYear = closestDate.getFullYear();
+        const month = months[closestDate.getMonth()];
+        const day = closestDate.getDate();
+        let rightDate = document.getElementById("rightDate");
+        rightDate.innerHTML = `
   <div class="urgent_txt">
         <span id="rightDate" class="date">${month} ${day}, ${fullYear}</span>
         <span class="deadline">Upcoming deadline</span>
       </div>`;
+      }
     }
   }
 }
