@@ -1,0 +1,389 @@
+@media (max-width: 1230px) {
+  .btn_frames {
+    padding: 40px;
+  }
+  .welcome_box {
+    padding-left: 70px;
+  }
+}
+@media (max-width: 1110px) {
+  .mobile_lost {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .header {
+    padding-left: 40px;
+  }
+  .btn_frames {
+    justify-content: center;
+    padding: 0px;
+    padding-top: 20px;
+  }
+  .frame_pencil {
+    padding: 38px 32px;
+  }
+  .frame_rectangle {
+    padding: 38px 32px;
+  }
+  .frame_urgent {
+    gap: 30px;
+    padding: 38px 32px;
+  }
+  .frame_down {
+    gap: 20px;
+  }
+}
+@media (max-width: 950px) {
+  .mobile_lost {
+    display: none;
+  }
+}
+@media (max-width: 983px) {
+  .title {
+    font-size: 50px;
+  }
+  .metrics_title {
+    font-size: 24px;
+  }
+  .frame_down {
+    gap: 16px;
+  }
+  .new_tasks {
+    padding: 0px;
+  }
+}
+@media (max-width: 680px) {
+  .header {
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0px;
+  }
+
+  .btn_frames {
+    padding: 0px;
+    padding-top: 24px;
+    flex-direction: column;
+  }
+
+  .mobile_lost {
+    display: none;
+  }
+
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
+  }
+  .frame_pencil {
+    padding: 29px 36px;
+  }
+  .frame_rectangle {
+    padding: 29px 36px;
+  }
+  .blue_bar {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .ellipse {
+    width: 60px;
+    height: 60px;
+  }
+  .circle {
+    width: 60px;
+    height: 60px;
+  }
+  .frame_pencil {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .frame_rectangle {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .frame_urgent {
+    padding: 12px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    gap: 20px;
+  }
+
+  .frame_up {
+    gap: 60px;
+  }
+  .new_tasks {
+    width: 150px;
+  }
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
+  }
+  .urgent_txt {
+    width: 202px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bg_container {
+    padding-top: 32px;
+  }
+
+  .header {
+    width: 90%;
+    flex-direction: column;
+    padding-left: 12px;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 47px;
+    width: max-content;
+  }
+
+  .metrics_title {
+    font-size: 20px;
+    width: max-content;
+    padding-left: 0px;
+  }
+
+  .first_frame {
+    gap: 42px;
+  }
+
+  .btn_frames {
+    padding: 0px;
+    padding-top: 24px;
+    flex-direction: column;
+  }
+
+  .frame_pencil {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .frame_rectangle {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .ellipse {
+    height: 40px;
+    width: 40px;
+  }
+
+  .pencil {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .rectangle {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .txt_number {
+    font-size: 47px;
+  }
+
+  .tasks {
+    padding-right: 0px;
+  }
+
+  .frame_urgent {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .peak_up {
+    width: 26.19px;
+    height: 12.17px;
+    top: 16px;
+    left: 7px;
+  }
+
+  .peak_down {
+    width: 26.19px;
+    height: 12.17px;
+    top: 10px;
+    left: 7px;
+  }
+
+  .date {
+    font-size: 15px;
+    width: 100px;
+  }
+
+  .urgent_txt {
+    width: 80px;
+  }
+
+  .new_tasks {
+    width: 120px;
+    height: 135px;
+    gap: 4px;
+  }
+
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
+  }
+}
+@media (max-width: 400px) {
+  .frame_pencil {
+    padding: 4px;
+    gap: 8px;
+  }
+
+  .frame_rectangle {
+    padding: 4px;
+    gap: 8px;
+  }
+  .frame_urgent {
+    padding: 10px;
+    gap: 20px;
+  }
+  .new_tasks {
+    width: 111px;
+    height: 140px;
+  }
+}
+@media (max-width: 360px) {
+  .bg_container {
+    padding-top: 32px;
+  }
+
+  .header {
+    width: 90%;
+    flex-direction: column;
+    padding-left: 12px;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 47px;
+    width: max-content;
+  }
+
+  .metrics_title {
+    font-size: 20px;
+    width: max-content;
+    padding-left: 0px;
+  }
+
+  .first_frame {
+    gap: 80px;
+  }
+
+  .btn_frames {
+    padding: 0px;
+    padding-top: 24px;
+    flex-direction: column;
+  }
+
+  .frame_up {
+    gap: 38px;
+  }
+  .frame_pencil {
+    padding: 10px;
+    gap: 4px;
+  }
+
+  .frame_rectangle {
+    padding: 10px;
+    gap: 4px;
+  }
+
+  .ellipse {
+    height: 40px;
+    width: 40px;
+  }
+
+  .circle {
+    height: 40px;
+    width: 40px;
+  }
+
+  .pencil {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .pencil_blue {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .rectangle {
+    width: 17.77px;
+    height: 16.98px;
+    top: 12.17px;
+    left: 11.5px;
+  }
+
+  .txt_number {
+    font-size: 47px;
+    line-height: 55px;
+  }
+
+  .tasks {
+    padding-right: 0px;
+  }
+
+  .frame_urgent {
+    padding: 10px;
+    gap: 4px;
+  }
+
+  .peak_up {
+    width: 26.19px;
+    height: 12.17px;
+    top: 16px;
+    left: 7px;
+  }
+
+  .peak_down {
+    width: 26.19px;
+    height: 12.17px;
+    top: 10px;
+    left: 7px;
+  }
+
+  .date {
+    font-size: 15px;
+    width: 80px;
+  }
+
+  .deadline {
+    font-size: 12px;
+  }
+
+  .urgent_txt {
+    width: 80px;
+  }
+
+  .new_tasks {
+    width: 90px;
+    gap: 2px;
+  }
+
+  .txt_todo {
+    font-size: 15px;
+  }
+
+  .mobile_visible {
+    display: flex;
+    padding-top: 18px;
+  }
+}
