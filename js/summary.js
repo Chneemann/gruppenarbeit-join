@@ -13,7 +13,10 @@ const months = [
   "December",
 ];
 
-/**Funktion, die asynchron ist, weil erst alle Aufgaben geladen sein müssen */
+/**
+ * 
+ *Function that is asynch because all tasks must be loaded first
+ */
 
 async function initSummary() {
   showAllTasks();
@@ -27,7 +30,9 @@ async function initSummary() {
   getRightDate();
 }
 
-/**Funktion, die alle tasks anzeigt*/
+/**
+ * Function that shows all tasks
+*/
 
 function showAllTasks() {
   let tasksInBoard = 0;
@@ -38,16 +43,20 @@ function showAllTasks() {
     }
   }
 }
-
+/**
+ * Function that displays all tasks as a sum
+ * 
+ * @param {number} tasksInBoard 
+ */
 function renderAllTasks(tasksInBoard) {
   let inBoard = document.getElementById("inBoard");
   inBoard.innerHTML = `
     <span class="txt_number">${tasksInBoard}</span>
     <span class="txt_todo">Tasks in board</span>`;
 }
-
-/**Funktionen, die alle tasks in progress anzeigen*/
-
+/**
+ * Function that counts the tasks that need to be completed
+ */
 function showInProgress() {
   let counterProgress = 0;
   for (let i = 0; i < tasks.length; i++) {
@@ -56,16 +65,20 @@ function showInProgress() {
     renderInProgress(counterProgress);
   }
 }
-
+/**
+ * Function that displays all tasks in progress
+ * 
+ * @param {number} counterProgress 
+ */
 function renderInProgress(counterProgress) {
   let inProgress = document.getElementById("inProgress");
   inProgress.innerHTML = `
     <span class="txt_number">${counterProgress}</span>
     <span class="txt_todo">Tasks in Progress</span>`;
 }
-
-/**Funktionen, die alle tasks in Awaiting feedback anzeigen*/
-
+/**
+ * Function that counts the tasks in feedback
+ */
 function showAwaitFeedback() {
   let counterAwait = 0;
   for (let i = 0; i < tasks.length; i++) {
@@ -74,16 +87,20 @@ function showAwaitFeedback() {
     renderAwaitFeedback(counterAwait);
   }
 }
-
+/**
+ * Function that displays all tasks in feedback-awaiting
+ * 
+ * @param {number} counterAwait 
+ */
 function renderAwaitFeedback(counterAwait) {
   let awaitFeedback = document.getElementById("awaitFeedback");
   awaitFeedback.innerHTML = `
     <span class="txt_number">${counterAwait}</span>
     <span class="txt_todo">Awaiting feedback</span>`;
 }
-
-/**Funktionen, die alle tasks in Urgent anzeigen*/
-
+/**
+ * Function that counts the urgent tasks
+ */
 function showUrgent() {
   let counterUrgent = 0;
   for (let i = 0; i < tasks.length; i++) {
@@ -91,7 +108,11 @@ function showUrgent() {
   }
   renderUrgent(counterUrgent);
 }
-
+/**
+ * Function that displays the urgent tasks
+ * 
+ * @param {number} counterUrgent 
+ */
 function renderUrgent(counterUrgent) {
   let urGent = document.getElementById("urGent");
   if (counterUrgent === 0) {
@@ -107,9 +128,9 @@ function renderUrgent(counterUrgent) {
     getRightDate();
   }
 }
-
-/**Funktionen, die alle tasks in To-Do anzeigen*/
-
+/**
+ * Function that counts the todos
+ */
 function showToDo() {
   let counterToDo = 0;
   for (let i = 0; i < tasks.length; i++) {
@@ -117,16 +138,20 @@ function showToDo() {
     renderToDo(counterToDo);
   }
 }
-
+/**
+ * Function that displays the todos
+ * 
+ * @param {number} counterToDo 
+ */
 function renderToDo(counterToDo) {
   let toDo = document.getElementById("toDo");
   toDo.innerHTML = `
     <div class="txt_number">${counterToDo}</div>
     <div class="txt_todo">To-do</div>`;
 }
-
-/**Funktionen, die alle tasks in Done anzeigen*/
-
+/**
+ * Function that counts the dones
+ */
 function showDone() {
   let counterDone = 0;
   for (let i = 0; i < tasks.length; i++) {
@@ -134,25 +159,29 @@ function showDone() {
     renderDone(counterDone);
   }
 }
-
+/**
+ * Function that displays the dones
+ * 
+ * @param {number} counterDone 
+ */
 function renderDone(counterDone) {
   let done = document.getElementById("Done");
   done.innerHTML = `
     <div class="txt_number">${counterDone}</div>
     <div class="txt_todo">Done</div>`;
 }
-
-/**Funktionen um den aktuellen Benutzeranzuzeigen*/
-
+/**
+ * Function to display the current user
+ */
 function displayUsername() {
   let greetCurrentUserElement = document.getElementById("greetCurrentUser");
 
   greetCurrentUserElement.innerHTML = `
     <span class="welcome_txt">${currentUser[0].username}</span>`;
 }
-
-/**Funktion, um die tageszeitabhängige Begrüßung anzuzeigen*/
-
+/**
+ * Function to greet the current user
+ */
 function displayGreeting() {
   let welcome = document.getElementById("welcome");
   let currentTime = new Date();
@@ -170,9 +199,11 @@ function displayGreeting() {
   welcome.innerHTML = `
     <h1 class="welcome">${greeting}</h1>`;
 }
-
-/**Funktion, um das richtige Datum anzuzeigen*/
-
+/**
+ * Function to find the date of the next urgent task
+ * 
+ * @returns {date} 
+ */
 function findClosestDate() {
   let closestDate = 0;
   for (let i = 0; i < tasks.length; i++) {
@@ -185,7 +216,11 @@ function findClosestDate() {
   }
   return closestDate;
 }
-
+/**
+ * Function to display the date of the next urgent task
+ * 
+ * @param {date} closestDate 
+ */
 function updateHTML(closestDate) {
   let rightDate = document.getElementById("rightDate");
   if (closestDate) {
@@ -205,7 +240,9 @@ function updateHTML(closestDate) {
       </div>`;
   }
 }
-
+/**
+ * Function to perform other functions
+ */
 function getRightDate() {
   const closestDate = findClosestDate();
   updateHTML(closestDate);
