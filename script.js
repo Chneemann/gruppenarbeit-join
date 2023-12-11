@@ -138,6 +138,9 @@ function renderMainpageContent(path, func) {
     });
 }
 
+/**
+ * Retrieves the content of the privacy policy from the specified URL and renders it on the page.
+ */
 function renderPrivacyPolicyLegaMotice(path) {
   fetch(path)
     .then((response) => response.text())
@@ -149,6 +152,9 @@ function renderPrivacyPolicyLegaMotice(path) {
     });
 }
 
+/**
+ * Navigates back to the previous page or to the main page, depending on the current page.
+ */
 function goBack() {
   let pathArray = window.location.pathname.split("/");
   let currentPage = pathArray[pathArray.length - 1];
