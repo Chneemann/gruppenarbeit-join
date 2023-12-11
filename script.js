@@ -149,6 +149,16 @@ function renderPrivacyPolicyLegaMotice(path) {
     });
 }
 
+function goBack() {
+  let pathArray = window.location.pathname.split("/");
+  let currentPage = pathArray[pathArray.length - 1];
+  if (currentPage == "join.html") {
+    renderMainpageContent("./summary.html");
+  } else {
+    window.location.href = "./index.html";
+  }
+}
+
 /**
  * Changes the navbar depending on the display size of the browser
  */
