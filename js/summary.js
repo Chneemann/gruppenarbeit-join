@@ -14,7 +14,7 @@ const months = [
 ];
 
 /**
- * 
+ *
  *Function that is asynch because all tasks must be loaded first
  */
 
@@ -32,7 +32,7 @@ async function initSummary() {
 
 /**
  * Function that shows all tasks
-*/
+ */
 
 function showAllTasks() {
   let tasksInBoard = 0;
@@ -45,8 +45,8 @@ function showAllTasks() {
 }
 /**
  * Function that displays all tasks as a sum
- * 
- * @param {number} tasksInBoard 
+ *
+ * @param {number} tasksInBoard
  */
 function renderAllTasks(tasksInBoard) {
   let inBoard = document.getElementById("inBoard");
@@ -67,8 +67,8 @@ function showInProgress() {
 }
 /**
  * Function that displays all tasks in progress
- * 
- * @param {number} counterProgress 
+ *
+ * @param {number} counterProgress
  */
 function renderInProgress(counterProgress) {
   let inProgress = document.getElementById("inProgress");
@@ -89,8 +89,8 @@ function showAwaitFeedback() {
 }
 /**
  * Function that displays all tasks in feedback-awaiting
- * 
- * @param {number} counterAwait 
+ *
+ * @param {number} counterAwait
  */
 function renderAwaitFeedback(counterAwait) {
   let awaitFeedback = document.getElementById("awaitFeedback");
@@ -110,8 +110,8 @@ function showUrgent() {
 }
 /**
  * Function that displays the urgent tasks
- * 
- * @param {number} counterUrgent 
+ *
+ * @param {number} counterUrgent
  */
 function renderUrgent(counterUrgent) {
   let urGent = document.getElementById("urGent");
@@ -140,8 +140,8 @@ function showToDo() {
 }
 /**
  * Function that displays the todos
- * 
- * @param {number} counterToDo 
+ *
+ * @param {number} counterToDo
  */
 function renderToDo(counterToDo) {
   let toDo = document.getElementById("toDo");
@@ -161,8 +161,8 @@ function showDone() {
 }
 /**
  * Function that displays the dones
- * 
- * @param {number} counterDone 
+ *
+ * @param {number} counterDone
  */
 function renderDone(counterDone) {
   let done = document.getElementById("Done");
@@ -201,8 +201,8 @@ function displayGreeting() {
 }
 /**
  * Function to find the date of the next urgent task
- * 
- * @returns {date} 
+ *
+ * @returns {date}
  */
 function findClosestDate() {
   let closestDate = 0;
@@ -218,8 +218,8 @@ function findClosestDate() {
 }
 /**
  * Function to display the date of the next urgent task
- * 
- * @param {date} closestDate 
+ *
+ * @param {date} closestDate
  */
 function updateHTML(closestDate) {
   let rightDate = document.getElementById("rightDate");
