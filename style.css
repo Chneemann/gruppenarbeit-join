@@ -34,14 +34,9 @@
   src: url("./fonts/Figtree/Figtree-VariableFont_wght.ttf");
 }
 
-html {
-  overflow: hidden;
-}
-
 body {
   font-family: "Figtree", sans-serif;
   margin: auto 0;
-  height: 100vh;
 }
 
 h1 {
@@ -50,6 +45,7 @@ h1 {
   font-weight: 700;
   margin-bottom: 48px;
 }
+
 button {
   font-family: "Figtree", sans-serif;
 }
@@ -68,10 +64,6 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-input {
-  font-family: "Figtree", sans-serif;
 }
 
 .d-none {

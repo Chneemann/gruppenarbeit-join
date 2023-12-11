@@ -138,6 +138,17 @@ function renderMainpageContent(path, func) {
     });
 }
 
+function renderPrivacyPolicyLegaMotice(path) {
+  fetch(path)
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("loginpage").innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error loading:", error);
+    });
+}
+
 /**
  * Changes the navbar depending on the display size of the browser
  */

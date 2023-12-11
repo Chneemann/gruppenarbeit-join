@@ -134,12 +134,17 @@
           </div>
         </form>
         <footer id="footer" class="footer d-none">
-          <a href="./html/privacypolicy.html" target="_blank">Privacy Policy</a>
-          <a href="./html/legalnotice.html" target="_blank">Legal notice</a>
+          <a
+            onclick="renderPrivacyPolicyLegaMotice('./html/privacypolicy.html')"
+            >Privacy Policy</a
+          >
+          <a onclick="renderPrivacyPolicyLegaMotice('./html/legalnotice.html')"
+            >Legal notice</a
+          >
         </footer>
       </div>
     </div>
-    <div id="information-window" class="dialog-bg d-none">
+    <div id="information-window" class="dialog-bg">
       <div id="information-msg"></div>
     </div>
   </body>
