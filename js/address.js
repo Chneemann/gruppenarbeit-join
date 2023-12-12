@@ -1,6 +1,10 @@
 let contactEmail;
 let contactPhone;
 
+function initAdress() {
+  renderContacts();
+}
+
 /**
  * Renders a list of contacts in a scrollcontainer
  */
@@ -288,9 +292,7 @@ function resetForm() {
  */
 function resetPage() {
   document.getElementById("view-contact").style.display = "none";
-
   document.getElementById("card-closeup").style.transform = "translateX(100vw)";
-
   document.getElementById("contact-list").innerHTML = "";
   sleep(10);
 }
@@ -319,7 +321,6 @@ function firstLetter(i) {
         ${firstLetter}</div>
         `;
   }
-
   return firstLetter;
 }
 
@@ -413,7 +414,6 @@ function getRandomColor() {
     const blue = getRandomComponent();
     color = `#${red}${green}${blue}`;
   } while (isGrayscale(color));
-
   return color;
 }
 

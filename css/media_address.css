@@ -1,0 +1,383 @@
+@media (max-width: 1320px) {
+  #scrollcontainer {
+    width: 100%;
+  }
+
+  #view-contact {
+    display: none;
+    position: fixed;
+    left: 235px;
+    bottom: 80px;
+    background-color: var(--very-light-gray);
+    height: 100%;
+  }
+
+  .contact-header {
+    top: 140px;
+    left: 256px;
+    height: 73px;
+  }
+
+  .contact-header span {
+    font-size: 27px;
+  }
+
+  #card-closeup {
+    position: fixed;
+    top: 280px;
+    left: 256px;
+    transform: translateX(0);
+    transition: none;
+  }
+
+  .card-closeup-header {
+    display: flex;
+    align-items: center;
+    gap: 54px;
+  }
+
+  #mobile-back-arrow {
+    display: flex;
+    position: fixed;
+    top: 162px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  #mobile-back-arrow:hover {
+    width: 36px;
+    height: 36px;
+    background-color: var(--light-gray);
+    border-radius: 18px;
+  }
+
+  .btn-header {
+    display: none;
+  }
+
+  .button-open-add-contact-desktop {
+    display: none;
+  }
+
+  .button-open-add-contact-mobile1 {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    position: fixed;
+    border: none;
+    margin: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+
+  .contact-list {
+    width: 100%;
+    height: 100%;
+  }
+
+  .overlay-close-x {
+    filter: invert();
+  }
+}
+
+@media (max-width: 1120px) {
+  h1 {
+    font-size: 54px;
+  }
+
+  h2 {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 36px;
+  }
+
+  .big-badge {
+    margin: 0;
+  }
+
+  #add-contact {
+    z-index: 9;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-right: 0;
+
+    border-radius: 30px;
+    width: 396px;
+    height: 760px;
+  }
+
+  .add-contact-left {
+    filter: brightness(1.2);
+    width: 348px;
+    height: 219px;
+    padding: 66px 24px 66px 24px;
+    gap: 12px;
+    border-radius: 30px 30px 0 0;
+    background-color: var(--dark-blue);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .add-contact-left span {
+    font-size: 20px;
+  }
+
+  #overlay-badge {
+    margin-top: -60px;
+    z-index: 10;
+  }
+
+  .add-contact-form {
+    padding-top: 20px;
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .contact-inputs {
+    display: flex;
+    flex-direction: column;
+    min-width: 348px;
+    margin-top: -20px;
+  }
+
+  .contact-inputs input {
+    min-width: 322px;
+    min-height: 24px;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 13px 21px 13px 21px;
+    font-size: 20px;
+  }
+
+  #email,
+  #name,
+  #phone {
+    width: 322px;
+  }
+
+  #submit-buttons {
+    position: relative;
+    top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-width: 364px;
+    min-height: 57px;
+    padding: 0;
+  }
+
+  #contact-alert {
+    position: fixed;
+    bottom: 40px;
+    right: 400px;
+    transform: translateY(100vh);
+    display: flex;
+    align-items: center;
+    height: 56px;
+    width: 214px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: 0;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 859px) {
+  #view-contact {
+    top: 82px;
+    height: 81%;
+  }
+
+  #view-contact,
+  #card-closeup,
+  .contact-header {
+    left: 0;
+    padding-left: 20px;
+  }
+
+  .button-open-add-contact-mobile1 {
+    bottom: 100px;
+  }
+
+  #card-closeup {
+    bottom: 80px;
+  }
+
+  .button-open-add-contact-mobile {
+    bottom: 100px;
+  }
+
+  .edit-delete-contact {
+    display: none;
+  }
+
+  .contact-options {
+    width: 116px;
+    height: 100px;
+    position: fixed;
+    bottom: 30px;
+    right: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--very-light-gray);
+    padding: 10px;
+    border: 1px white;
+    border-radius: 20px 20px 0px 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 630px) {
+  .contact-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .separator {
+    position: absolute;
+    top: 110px;
+    left: 25px;
+    height: 3px;
+    width: 150px;
+  }
+  .big-badge,
+  .big-badge span {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+  }
+  .card-closeup-header {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 475px) {
+  h1 {
+    margin-top: 28px;
+    font-size: 32px;
+  }
+
+  .contact-header h1 {
+    font-size: 47px;
+    margin: 0;
+  }
+
+  .card-closeup-header-right h2 {
+    font-size: 32px;
+  }
+
+  .card-closeup-header {
+    max-width: 150px;
+  }
+
+  .contact-header span {
+    position: absolute;
+    top: 60px;
+    left: 25px;
+    font-size: 20px;
+  }
+
+  .separator {
+    top: 90px;
+    height: 3px;
+    width: 100px;
+  }
+
+  #subtitle {
+    font-size: 18px;
+  }
+
+  .card span {
+    font-size: 16px;
+  }
+  .card p {
+    font-size: 14px;
+  }
+
+  .single-contact {
+    gap: 20px;
+  }
+
+  #add-contact {
+    width: 310px;
+  }
+
+  .add-contact-left {
+    width: 260px;
+  }
+
+  .add-contact-btn-clear {
+    display: none;
+  }
+
+  .add-contact-left span {
+    font-size: 20px;
+  }
+
+  .contact-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    min-width: 220px;
+    margin-top: -20px;
+    margin-left: 5vw;
+    margin-bottom: 18px;
+  }
+
+  .contact-inputs input {
+    min-width: 220px;
+    min-height: 24px;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 13px 21px 13px 21px;
+    font-size: 20px;
+  }
+
+  #email,
+  #name,
+  #phone {
+    width: 200px;
+  }
+
+  #submit-buttons {
+    right: 35px;
+  }
+
+  .add-contact-btn-create {
+    margin: 0 16px 0 0;
+  }
+
+  #contact-alert {
+    position: fixed;
+    right: 40vw;
+    bottom: 20vh;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    width: 214px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: 0;
+    background: var(--dark-blue);
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 400;
+  }
+}

@@ -114,7 +114,7 @@ async function welcomeMsg() {
  * @param {string} path = Path of the file to be loaded
  * @param {*} func = function to load and render contact list !
  */
-function renderMainpageContent(path, func) {
+function renderMainpageContent(path) {
   fetch(path)
     .then((response) => response.text())
     .then((html) => {
@@ -126,22 +126,18 @@ function renderMainpageContent(path, func) {
       } else if (path == "./html/board.html") {
         initBoard();
       } else if (path == "./html/adress-innerframe.html") {
+        initAdress();
       }
     })
     .catch((error) => {
       console.error("Error loading:", error);
-    })
-    .then(() => {
-      if (func) {
-        func();
-      }
     });
 }
 
 /**
  * Retrieves the content of the privacy policy from the specified URL and renders it on the page.
  */
-function renderPrivacyPolicyLegaMotice(path) {
+function renderPrivacyPolicyLegalNotice(path) {
   fetch(path)
     .then((response) => response.text())
     .then((html) => {
