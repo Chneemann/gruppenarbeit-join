@@ -289,10 +289,11 @@ body {
 .no_deadline {
   font-family: Inter;
   font-size: larger;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 19px;
   letter-spacing: 0em;
   text-align: left;
+  text-align: center;
 }
 
 .urgent_txt {

@@ -112,7 +112,8 @@
     height: 140px;
   }
 
-  .date {
+  .date,
+  .no_deadline {
     font-size: 18px;
   }
 
@@ -215,7 +216,8 @@
   .txt_todo {
     font-size: 15px;
   }
-  .date {
+  .date,
+  .no_deadline {
     font-size: 15px;
     width: 80px;
   }
