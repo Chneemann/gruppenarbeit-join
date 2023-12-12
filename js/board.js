@@ -289,13 +289,13 @@ function searchTask() {
     document.getElementById(`board-content-task-${status}`).innerHTML = "";
   }
   for (let i = 0; i < tasks.length; i++) {
-    if (
-      tasks[i].title.toLowerCase().includes(search) ||
-      tasks[i].description.toLowerCase().includes(search) ||
-      tasks[i].category.toLowerCase().includes(search)
-    ) {
-      checkstates.push(tasks[i].status);
-      if (tasks[i].delete === "no") {
+    if (tasks[i].delete === "no") {
+      if (
+        tasks[i].title.toLowerCase().includes(search) ||
+        tasks[i].description.toLowerCase().includes(search) ||
+        tasks[i].category.toLowerCase().includes(search)
+      ) {
+        checkstates.push(tasks[i].status);
         renderTaskHTML(i, `board-content-task-${tasks[i].status}`);
       }
     }
