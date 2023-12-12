@@ -18,7 +18,9 @@ h2 {
 }
 
 .overlay-close-x {
-  margin-bottom: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
   cursor: pointer;
 }
 
@@ -253,10 +255,7 @@ h2 {
 
 .add-contact-form {
   display: flex;
-  height: 440px;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: end;
 }
 
 .add-contact-form img {
@@ -308,7 +307,6 @@ h2 {
   width: 100%;
   min-width: 364px;
   min-height: 57px;
-  padding-bottom: 120px;
 }
 
 #contact-alert {
@@ -514,9 +512,6 @@ h2 {
   }
 
   .overlay-close-x {
-    margin-left: 320px;
-    position: relative;
-    top: -390px;
     filter: invert();
   }
 }
@@ -581,10 +576,6 @@ h2 {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-  }
-
-  .overlay-close-x {
-    margin: 25px 0 0 310px;
   }
 
   .contact-inputs {
@@ -710,19 +701,12 @@ h2 {
   .card-closeup-header {
     gap: 28px;
   }
-  .overlay-close-x {
-    margin: 50px 0 0 310px;
-  }
 }
 
 @media (max-width: 475px) {
   h1 {
     margin-top: 28px;
     font-size: 32px;
-  }
-
-  .overlay-close-x {
-    margin: 50px 0 0 240px;
   }
 
   .contact-header h1 {

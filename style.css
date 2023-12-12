@@ -310,7 +310,7 @@ button {
 /*------------- DIALOG -------------*/
 
 .dialog-bg {
-  z-index: 8;
+  z-index: 15;
   position: fixed;
   left: 0;
   right: 0;
