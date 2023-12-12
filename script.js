@@ -154,7 +154,7 @@ function goBack() {
   let pathArray = window.location.pathname.split("/");
   let currentPage = pathArray[pathArray.length - 1];
   if (currentPage == "join.html") {
-    renderMainpageContent("./summary.html");
+    renderMainpageContent("./html/summary.html");
   } else {
     window.location.href = "./index.html";
   }
