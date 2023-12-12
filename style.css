@@ -29,10 +29,6 @@
   --turquoise: #1fd7c1;
   --yellow: #ffee00;
 }
-@font-face {
-  font-family: "Figtree", sans-serif;
-  src: url("./fonts/Figtree/Figtree-VariableFont_wght.ttf");
-}
 
 body {
   font-family: "Figtree", sans-serif;
@@ -44,10 +40,6 @@ h1 {
   font-size: 61px;
   font-weight: 700;
   margin-bottom: 48px;
-}
-
-button {
-  font-family: "Figtree", sans-serif;
 }
 
 .badge {
