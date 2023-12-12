@@ -12,7 +12,7 @@ function renderContacts() {
         document.getElementById("contact-list").innerHTML += /*html*/ `
         <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'>
         <div class='badge' style="background-color:${contact["color"]
-            }"} ><span>${contact["initials"]}</span></div>
+            }" ><span>${contact["initials"]}</span></div>
         <div class='card'>
            <span>${contact["name"]}</span>   <br>
             <a href="mail-to:${contact["email"]}"> ${contact["email"]}</a> <br>
