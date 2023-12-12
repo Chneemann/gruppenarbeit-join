@@ -66,13 +66,13 @@ h2 {
   position: fixed;
   right: 0;
   left: 688px;
-  top: 96px;
+  top: 84px;
 }
 
 .contact-header {
   position: fixed;
-  left: 743px;
-  top: 206px;
+  left: 688px;
+  top: 190px;
   height: 73px;
   width: 569px;
   display: flex;
@@ -129,9 +129,9 @@ h2 {
 
 #card-closeup {
   position: fixed;
-  top: 311px;
-  left: 750px;
-  bottom: 60px;
+  top: 271px;
+  left: 688px;
+  bottom: 0;
   min-width: 461px;
   width: 100%;
   transform: translateX(100vw);
@@ -158,15 +158,16 @@ h2 {
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  margin: 10px 20px 0 0;
+  margin: 10px;
+}
+
+.edit-contact img,
+.delete-contact img {
+  margin-right: 15px;
 }
 
 .edit-contact:hover,
 .delete-contact:hover {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: var(--light-blue);
   filter: invert(60%) sepia(89%) saturate(1719%) hue-rotate(165deg)
     brightness(93%) contrast(89%);
 }
@@ -471,6 +472,45 @@ h2 {
     background-color: var(--light-gray);
     border-radius: 18px;
   }
+
+  .btn-header {
+    display: none;
+  }
+
+  .button-open-add-contact-desktop {
+    display: none;
+  }
+
+  .button-open-add-contact-mobile1 {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    display: flex;
+    position: fixed;
+    border: none;
+    margin: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+  .button-open-add-contact-mobile2 {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    display: flex;
+    position: fixed;
+    border: none;
+    margin: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+  }
+
+  .contact-list {
+    top: 90px;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    overflow: auto;
+  }
 }
 
 @media (max-width: 1120px) {
@@ -601,6 +641,7 @@ h2 {
 @media (max-width: 859px) {
   #view-contact {
     top: 84px;
+    height: 81%;
   }
   #view-contact,
   #card-closeup,
@@ -609,29 +650,18 @@ h2 {
     padding-left: 20px;
   }
 
-  .button-open-add-contact-desktop {
-    display: none;
-  }
-
-  .button-open-add-contact-mobile {
-    position: relative;
-    bottom: 100px;
-    right: 30px;
-    display: flex;
-    position: fixed;
-    border: none;
-    margin: none;
-    z-index: 12;
-    background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
+  #card-closeup {
+    bottom: 80px;
   }
 
   .contact-list {
     left: 0;
-    top: 84px;
-    width: 100%;
-    font-size: 20px;
-    overflow: auto;
+    top: 82px;
+    height: 81%;
+  }
+
+  .button-open-add-contact-mobile {
+    bottom: 100px;
   }
 
   .edit-delete-contact {
@@ -642,8 +672,8 @@ h2 {
     width: 116px;
     height: 100px;
     position: fixed;
-    bottom: 40px;
-    left: 60vw;
+    bottom: 30px;
+    right: 130px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

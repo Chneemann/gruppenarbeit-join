@@ -251,11 +251,26 @@ async function viewCard(i) {
  * Provides the two options delete and edit in cell phone mode, when clicked on the context-menu-button
  */
 function openContactOptions(i) {
+  document.getElementById("contact-options").onclick = function () {
+    closeContactOptions(i);
+  };
   document.getElementById("contact-options").innerHTML += `
     <div class='contact-options'>
     <div class='edit-contact' onclick='openEditContact(${i})'><img src="./assets/img/edit.svg">Edit</div>
     <div class='delete-contact' onclick='deleteContact(${i})'><img src="./assets/img/delete.svg">Delete</div></div>
         `;
+}
+
+/**
+ * Closes the context menu
+ */
+function closeContactOptions(i) {
+  document.getElementById("contact-options").onclick = function () {
+    openContactOptions(i);
+  };
+  document.getElementById("contact-options").innerHTML = `
+  <img src="./assets/img/Menu Contact Options.png">
+  `;
 }
 
 /**
@@ -336,7 +351,7 @@ function renderCardCloseup(i) {
             <p>Phone</p>
             <span>${contacts[i]["phone"]}</span>
     </div>
-    <button onclick="openContactOptions(${i})" class="button-open-add-contact-mobile" id="contact-options">
+    <button onclick="openContactOptions(${i})" class="button-open-add-contact-mobile2" id="contact-options">
                 <img src="./assets/img/Menu Contact Options.png">
             </button>
     `;
