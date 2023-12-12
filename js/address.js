@@ -1,10 +1,12 @@
+let contactEmail;
+let contactPhone;
+
 /**
  * Renders a list of contacts in a scrollcontainer
  */
 function renderContacts() {
   document.getElementById("contact-list").innerHTML = "";
   sortContacts();
-
   for (let i = 0; i < contacts.length; i++) {
     firstLetter(i);
     let contact = contacts[i];
@@ -121,24 +123,21 @@ async function createContactAlert() {
 /**
  * Creates an overlay-container which opens as a dialog
  */
-function renderContactOverlay() {
+function renderContactOverlay(id) {
   document.getElementById("add-contact-overlay").innerHTML = /*html*/ `
-   
-    <div id="add-contact" class="dialog-hide">
+    <div id="add-contact" class="dialog-hide" onclick="event.stopPropagation()">
             <div class="add-contact-left"><img src="./assets/img/Join logo light.png" alt="">
                 <h1 id="overlay-header">Add contact</h1>
                 <span id="subtitle">Tasks are better with a Team </span>
                 <img src="./assets/img/Vector 5.png" alt="">
             </div>
-
             <div id="overlay-badge">
                 <img class="big-badge"  src="./assets/img/Group 13.png" alt="">
             </div>
-
             <div class="add-contact-form">
                 <img src="./assets/img/close.svg" class="overlay-close-x" onclick="closeAddContact()">
 
-                <form class="contact-inputs" action="">
+                <form class="contact-inputs" onsubmit="editContact(${id}); return false">
                     <input required type="text" placeholder='Name' id="name" autocomplete="none">
                     <input required type="email" placeholder='Email' id="email" autocomplete="none">
                     <input type="tel" placeholder='Phone' id="phone" autocomplete="none">
@@ -157,7 +156,7 @@ function renderContactOverlay() {
 async function openEditContact(id) {
   document.getElementById("add-contact-overlay").classList.remove("d-none");
   resetPage();
-  renderContactOverlay();
+  renderContactOverlay(id);
   await openDialog("add-contact");
 
   document.getElementById("overlay-header").innerHTML = "Edit Contact";
@@ -167,7 +166,7 @@ async function openEditContact(id) {
   ).innerHTML = ` <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
 </button>
 
-<button type="submit" class="add-contact-btn-create" id="submit-contact" onclick="editContact(${id})"><span>Save</span><img src="./assets/img/check.svg" />
+<button type="submit" class="add-contact-btn-create" id="submit-contact"><span>Save</span><img src="./assets/img/check.svg" />
 </button>
     `;
 
@@ -207,6 +206,8 @@ async function editContact(id) {
   resetPage();
   closeAddContact();
   renderContacts();
+  await sleep(300);
+  openInformationWindow("The contact information has been saved", 2500);
 }
 
 /**
@@ -217,12 +218,15 @@ async function deleteContact(i) {
   await setItem("contacts", contacts);
   resetPage();
   renderContacts();
+  await sleep(200);
+  openInformationWindow("The contact has been deleted", 1500);
 }
 
 /**
  * Slides in a card with the contact information
  */
 async function viewCard(i) {
+  checkMailAndPhone(i);
   renderCardCloseup(i);
   document.getElementById("view-contact").style.display = "flex";
   let hidden =
@@ -241,6 +245,19 @@ async function viewCard(i) {
     document.getElementById("card-closeup").classList.add("transition");
     await sleep(10);
     document.getElementById("card-closeup").style.transform = "translateX(0)";
+  }
+}
+
+function checkMailAndPhone(i) {
+  if (contacts[i]["email"] == "") {
+    contactEmail = "no email";
+  } else {
+    contactEmail = `<a href="mail-to:${contacts[i]["email"]}"> ${contacts[i]["email"]}</a> `;
+  }
+  if (contacts[i]["phone"] == "") {
+    contactPhone = "no phone";
+  } else {
+    contactPhone = contacts[i]["phone"];
   }
 }
 
@@ -343,9 +360,10 @@ function renderCardCloseup(i) {
            
            <h3> Contact Information</h3>
            <p>Email</p>
-            <a href="mail-to:${contacts[i]["email"]}"> ${contacts[i]["email"]}</a> <br>
+            ${contactEmail}
+            <br>
             <p>Phone</p>
-            <span>${contacts[i]["phone"]}</span>
+            <span>${contactPhone}</span>
     </div>
     <button onclick="openContactOptions(${i})" class="button-open-add-contact-mobile2" id="contact-options">
                 <img src="./assets/img/Menu Contact Options.png">
@@ -376,10 +394,12 @@ async function openDialog(id) {
  */
 async function closeDialog(id) {
   let overlay = document.getElementById(id);
-
+  document.body.style.overflow = "auto";
   overlay.classList.add("dialog-hide");
   overlay.classList.remove("dialog-show");
-  await sleep(10);
+  overlay.style.backgroundColor = "";
+  await sleep(100);
+  overlay.classList.add("d-none");
   document.getElementById("add-contact-overlay").classList.add("d-none");
 }
 

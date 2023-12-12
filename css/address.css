@@ -10,7 +10,7 @@ h2 {
 }
 
 .transition {
-  transition: 1s ease-in-out;
+  transition: 200ms ease-in-out;
 }
 
 .closeup-hide {
@@ -32,6 +32,9 @@ h2 {
   width: 400px;
   background-color: var(--white);
   box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.1);
+}
+.btn-header span {
+  margin-right: 20px;
 }
 
 .button-open-add-contact-desktop {
@@ -92,6 +95,7 @@ h2 {
 }
 
 .contact-list {
+  height: calc(100vh - 208px);
   width: 400px;
   font-size: 20px;
   overflow: auto;
@@ -100,7 +104,6 @@ h2 {
 }
 
 .first-letter {
-  display: flex;
   padding: 17px 36px;
   border-bottom: 1px solid #ccc;
 }
@@ -184,9 +187,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 2s;
   z-index: 8;
-  transition: transform 1s ease-in-out;
 }
 
 #add-contact {
@@ -199,7 +200,7 @@ h2 {
   padding-right: 32px;
   border-radius: 30px;
   height: 492px;
-  transition: transform 1s ease-in-out;
+  transition: transform 100ms ease-in-out;
 }
 
 .add-contact-left {
@@ -327,7 +328,7 @@ h2 {
   color: var(--white);
   font-size: 20px;
   font-weight: 400;
-  transition: 1s;
+  transition: 100ms;
   z-index: 12;
 }
 
@@ -509,6 +510,7 @@ h2 {
 
   .contact-list {
     width: 100%;
+    height: 100%;
   }
 
   .overlay-close-x {
