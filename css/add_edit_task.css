@@ -181,6 +181,11 @@
   cursor: pointer;
 }
 
+#add-task-subtask-addet {
+  height: 100px;
+  overflow: auto;
+}
+
 .add-task-subtask-addet {
   display: flex;
   justify-content: space-between;
@@ -473,7 +478,6 @@
 
 .add-task-assignet {
   position: relative;
-  z-index: 0;
 }
 
 .add-task-assignet-overlay {
@@ -491,7 +495,7 @@
 
 .edit-task-contact-overlay input {
   margin: 10px;
-  width: 20px;
+  width: 20px !important;
   height: 20px;
   cursor: pointer;
 }
@@ -716,6 +720,9 @@
   #add-task-icon-opencontact {
     left: 300px;
   }
+  .edit-task-contact-overlay {
+    max-width: 328px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -765,6 +772,7 @@
     padding-top: 48px;
     background-color: var(--very-light-gray);
     box-shadow: 0px 2px 4px 0px var(--very-light-gray);
+    z-index: 1;
   }
 
   #add-task-page h1 {

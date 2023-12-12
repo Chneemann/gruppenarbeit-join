@@ -76,7 +76,7 @@ async function createTemporaryTask() {
     assignet: [],
     category: "",
     date: "",
-    prio: "",
+    prio: "medium",
     subtasks: [],
     subtasksstate: [],
     creator: currentUser[0].id,
@@ -84,6 +84,7 @@ async function createTemporaryTask() {
     delete: "",
   });
   await setItem("tasks", JSON.stringify(tasks));
+  initAddTask();
 }
 
 /**
@@ -137,7 +138,7 @@ async function clearTask() {
   tasks[tempTaskId].description = "";
   tasks[tempTaskId].category = [];
   tasks[tempTaskId].date = "";
-  tasks[tempTaskId].prio = "";
+  tasks[tempTaskId].prio = "medium";
   tasks[tempTaskId].subtasks = [];
   tasks[tempTaskId].subtasksstate = [];
   await setItem("tasks", JSON.stringify(tasks));
@@ -182,7 +183,6 @@ function errorTaskInput() {
   checkField(0, "title", addTaskTitel, addTaskTitelError);
   checkField(1, "date", addTaskDate, addTaskDateError, checkTaskDate);
   checkField(2, "category", addTaskCategory, addTaskCategoryError);
-  checkField(3, "prio", null, addTaskPrioError);
 }
 
 /**
@@ -215,7 +215,6 @@ function checkAllRequiredInputFields() {
   checkInputFields.push({ title: addTaskTitel.value !== "" });
   checkInputFields.push({ date: addTaskDate.value !== "" });
   checkInputFields.push({ category: addTaskCategory.value !== "" });
-  checkInputFields.push({ prio: taskPrio !== "" });
   return checkInputFields.every((field) => Object.values(field)[0]);
 }
 
