@@ -18,19 +18,19 @@ h2 {
 }
 
 .overlay-close-x {
+  margin-bottom: 50px;
   cursor: pointer;
 }
 
 .overlay-close-x:hover {
-  cursor: pointer;
   filter: invert(60%) sepia(89%) saturate(1719%) hue-rotate(165deg)
     brightness(93%) contrast(89%);
 }
 
 .btn-header {
-  background-color: var(--white);
   height: 110px;
   width: 400px;
+  background-color: var(--white);
   box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -74,7 +74,6 @@ h2 {
   left: 688px;
   top: 190px;
   height: 73px;
-  width: 569px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,9 +92,6 @@ h2 {
 }
 
 .contact-list {
-  position: fixed;
-  top: 200px;
-  height: 81%;
   width: 400px;
   font-size: 20px;
   overflow: auto;
@@ -132,7 +128,6 @@ h2 {
   top: 271px;
   left: 688px;
   bottom: 0;
-  min-width: 461px;
   width: 100%;
   transform: translateX(100vw);
 }
@@ -203,15 +198,14 @@ h2 {
   justify-content: space-between;
   padding-right: 32px;
   border-radius: 30px;
-  height: 592px;
+  height: 492px;
   transition: transform 1s ease-in-out;
 }
 
 .add-contact-left {
   filter: brightness(1.2);
   width: 371px;
-  /*hug?*/
-  height: 462px;
+  height: 362px;
   padding: 66px 48px 66px 48px;
   gap: 12px;
   border-radius: 30px 0 0 30px;
@@ -258,7 +252,7 @@ h2 {
 
 .add-contact-form {
   display: flex;
-  height: 100%;
+  height: 440px;
   flex-direction: column;
   justify-content: space-around;
   align-items: end;
@@ -373,12 +367,16 @@ h2 {
   fill: var(--light-blue);
 }
 
+.button-open-add-contact-mobile1 {
+  display: none;
+}
+
 .add-contact-btn-create {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 56px;
-  width: 214px;
+  width: auto;
   padding: 0 16px;
   border-radius: 10px;
   border: 0;
@@ -389,6 +387,10 @@ h2 {
   font-weight: 700;
   margin-left: 16px;
   cursor: pointer;
+}
+
+.add-contact-btn-create span {
+  padding-right: 10px;
 }
 
 .add-contact-btn-create:hover {
@@ -420,6 +422,18 @@ h2 {
   color: var(--light-blue);
 }
 
+.button-open-add-contact-mobile2 {
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  display: flex;
+  position: fixed;
+  border: none;
+  margin: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
 @media (max-width: 1320px) {
   #scrollcontainer {
     width: 100%;
@@ -448,7 +462,6 @@ h2 {
     position: fixed;
     top: 280px;
     left: 256px;
-    min-width: 461px;
     transform: translateX(0);
     transition: none;
   }
@@ -462,10 +475,11 @@ h2 {
   #mobile-back-arrow {
     display: flex;
     position: fixed;
-    top: 140px;
-    right: 5vw;
+    top: 162px;
+    right: 30px;
     cursor: pointer;
   }
+
   #mobile-back-arrow:hover {
     width: 36px;
     height: 36px;
@@ -483,19 +497,8 @@ h2 {
 
   .button-open-add-contact-mobile1 {
     position: fixed;
-    bottom: 100px;
+    bottom: 30px;
     right: 30px;
-    display: flex;
-    position: fixed;
-    border: none;
-    margin: none;
-    background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-  }
-  .button-open-add-contact-mobile2 {
-    position: fixed;
-    bottom: 20px;
-    right: 50px;
     display: flex;
     position: fixed;
     border: none;
@@ -505,11 +508,14 @@ h2 {
   }
 
   .contact-list {
-    top: 90px;
     width: 100%;
-    height: 100%;
-    font-size: 20px;
-    overflow: auto;
+  }
+
+  .overlay-close-x {
+    margin-left: 320px;
+    position: relative;
+    top: -390px;
+    filter: invert();
   }
 }
 
@@ -522,7 +528,6 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     font-size: 36px;
-    max-width: 50vw;
   }
 
   .big-badge {
@@ -577,10 +582,7 @@ h2 {
   }
 
   .overlay-close-x {
-    margin-left: 320px;
-    position: relative;
-    top: -390px;
-    filter: invert();
+    margin: 25px 0 0 310px;
   }
 
   .contact-inputs {
@@ -640,9 +642,10 @@ h2 {
 
 @media (max-width: 859px) {
   #view-contact {
-    top: 84px;
+    top: 82px;
     height: 81%;
   }
+
   #view-contact,
   #card-closeup,
   .contact-header {
@@ -650,14 +653,12 @@ h2 {
     padding-left: 20px;
   }
 
-  #card-closeup {
-    bottom: 80px;
+  .button-open-add-contact-mobile1 {
+    bottom: 100px;
   }
 
-  .contact-list {
-    left: 0;
-    top: 82px;
-    height: 81%;
+  #card-closeup {
+    bottom: 80px;
   }
 
   .button-open-add-contact-mobile {
@@ -686,18 +687,70 @@ h2 {
   }
 }
 
+@media (max-width: 630px) {
+  .contact-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .separator {
+    position: absolute;
+    top: 110px;
+    left: 25px;
+    height: 3px;
+    width: 150px;
+  }
+  .big-badge,
+  .big-badge span {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+  }
+  .card-closeup-header {
+    gap: 28px;
+  }
+  .overlay-close-x {
+    margin: 50px 0 0 310px;
+  }
+}
+
 @media (max-width: 475px) {
   h1 {
     margin-top: 28px;
     font-size: 32px;
   }
 
-  #subtitle {
-    font-size: 18px;
+  .overlay-close-x {
+    margin: 50px 0 0 240px;
   }
 
-  .contact-list {
-    width: 100vw;
+  .contact-header h1 {
+    font-size: 47px;
+    margin: 0;
+  }
+
+  .card-closeup-header-right h2 {
+    font-size: 32px;
+  }
+
+  .card-closeup-header {
+    max-width: 150px;
+  }
+
+  .contact-header span {
+    position: absolute;
+    top: 60px;
+    left: 25px;
+    font-size: 20px;
+  }
+
+  .separator {
+    top: 90px;
+    height: 3px;
+    width: 100px;
+  }
+
+  #subtitle {
+    font-size: 18px;
   }
 
   .card span {
@@ -755,10 +808,6 @@ h2 {
     font-size: 20px;
   }
 
-  .overlay-close-x {
-    margin: 25px 0 0 220px;
-  }
-
   #email,
   #name,
   #phone {
@@ -788,9 +837,5 @@ h2 {
     color: var(--white);
     font-size: 20px;
     font-weight: 400;
-  }
-
-  .card-closeup-header {
-    gap: 28px;
   }
 }

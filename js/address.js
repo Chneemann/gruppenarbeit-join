@@ -73,7 +73,6 @@ function closeAddContact() {
 async function addContact() {
   let name = document.getElementById("name").value;
   name = capitalizeFirstLetter(name);
-  console.log(name);
   if (name) {
     let email = document.getElementById("email").value;
     let phone = document.getElementById("phone").value;
@@ -104,7 +103,6 @@ async function createContactAlert() {
   document.getElementById("contact-alert").classList.add("transition");
 
   if (mobileMode) {
-    console.log("mobile Mode Contact Alert");
     document.getElementById("contact-alert").style.transform = "translateY(0)";
     await sleep(2000);
     document.getElementById("contact-alert").style.transform =
@@ -169,15 +167,14 @@ async function openEditContact(id) {
   ).innerHTML = ` <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
 </button>
 
-<button type="submit" class="add-contact-btn-create" id="submit-contact" onclick="editContact(${id})"><span>Edit
-    contact</span><img src="./assets/img/check.svg" />
+<button type="submit" class="add-contact-btn-create" id="submit-contact" onclick="editContact(${id})"><span>Save</span><img src="./assets/img/check.svg" />
 </button>
     `;
 
   fillInput(id);
 
   document.getElementById("delete-close-contact").innerHTML = `
-    <span onclick="deleteContact(${id})" >delete</span>
+    <span onclick="deleteContact(${id})" >Delete</span>
     `;
 }
 
@@ -299,7 +296,6 @@ function resetPage() {
  */
 function capitalizeFirstLetter(string) {
   const allNames = string.split(" ");
-  console.log(allNames);
   return allNames[0].charAt(0).toUpperCase() + string.slice(1);
 }
 
