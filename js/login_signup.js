@@ -56,7 +56,7 @@ function login() {
   guestLoginBtn.disabled = true;
   let emailFound = false;
   for (let i = 0; i < users.length; i++) {
-    if (loginEmail.value == users[i]["email"]) {
+    if (loginEmail.value.toLowerCase() == users[i]["email"].toLowerCase()) {
       emailFound = true;
       if (loginPassword.value == users[i]["password"]) {
         if (loginCheckBox.checked) {
@@ -65,7 +65,13 @@ function login() {
             JSON.stringify(users[i])
           );
         }
-        localStorage.setItem("currentUser", JSON.stringify(users[i]));
+        let user = [];
+        user.push({
+          id: users[i].id,
+          username: users[i].username,
+          email: users[i].email,
+        });
+        localStorage.setItem("currentUser", JSON.stringify(user));
         redirectToIndex();
         break;
       } else {
@@ -136,13 +142,12 @@ async function register() {
       username: signupUsername.value,
       email: signupEmail.value,
       password: signupPassword.value,
-      contacts: newContactsArray,
     });
     await setItem("users", JSON.stringify(users));
     resetFormSignup();
     openInformationWindow(
       "The user has been created. You can now log in.",
-      300
+      3000
     );
     await sleep(3700);
     window.location.href = "./index.html";

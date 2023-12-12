@@ -100,11 +100,11 @@
 /* ------ NAVBAR MENU ------ */
 
 .navbar-menu {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  top: 0px;
-  right: 0px;
+  top: 90px;
+  right: 15px;
   width: 150px;
   height: 158px;
   background-color: var(--dark-blue);

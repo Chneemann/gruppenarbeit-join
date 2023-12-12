@@ -56,7 +56,6 @@ async function loadAllTasks() {
  */
 document.addEventListener("DOMContentLoaded", function () {
   const imgElements = document.querySelectorAll("img");
-
   imgElements.forEach(function (img) {
     img.draggable = false;
   });

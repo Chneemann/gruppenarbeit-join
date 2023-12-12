@@ -78,7 +78,7 @@
 }
 
 .welcome {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-size: 47px;
   font-weight: 500;
   line-height: 56px;
@@ -87,7 +87,7 @@
 }
 
 .welcome_txt {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 77px;

@@ -9,12 +9,21 @@ function currentUserBadged() {
   } else {
     for (let i = 0; i < users.length; i++) {
       if (i == currentUser[0].id) {
-        document.getElementById("header-userimg").innerHTML = users[i].initials;
+        document.getElementById("header-userimg").innerHTML = getInitialsNavbar(
+          currentUser[0].username
+        );
         document.getElementById("mobile-header-userimg").innerHTML =
-          users[i].initials;
+          getInitialsNavbar(currentUser[0].username);
       }
     }
   }
+}
+
+function getInitialsNavbar(fullName) {
+  let nameParts = fullName.split(" ");
+  let firstInitial = nameParts[0].charAt(0).toUpperCase();
+  let lastInitial = nameParts[1].charAt(0).toUpperCase();
+  return `${firstInitial}${lastInitial}`;
 }
 
 /**
