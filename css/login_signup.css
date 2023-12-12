@@ -1,4 +1,4 @@
-#login-signup-page {
+body {
   margin: 0;
   background-color: var(--very-light-gray);
 }
@@ -431,7 +431,7 @@ h1 {
   }
 
   .signup-content img:nth-child(3) {
-    top: 102px;
+    top: 87px;
   }
   h1 {
     font-size: 47px;
