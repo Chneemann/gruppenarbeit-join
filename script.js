@@ -14,7 +14,7 @@ async function init() {
   await loadAllTasks();
   ifCurrentUserLogin();
   currentUserBadged();
-  renderMainpageContent("./summary.html");
+  renderMainpageContent("./html/summary.html");
 }
 
 /**
@@ -118,7 +118,7 @@ function renderMainpageContent(path) {
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("mainpage-content").innerHTML = html;
-      if (path == "./summary.html") {
+      if (path == "./html/summary.html") {
         initSummary();
       } else if (path == "./html/add_task.html") {
         initAddTask();
