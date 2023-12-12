@@ -1,33 +1,31 @@
 <div id="add-contact-overlay" class="d-none"></div>
 
-<div class="inner-frame" id="inner-frame">
-  <div class="d-none" id="contact-alert">contact successfully created</div>
-  <div id="scrollcontainer">
+<div class="d-none" id="contact-alert">contact successfully created</div>
+<div>
+  <div class="btn-header">
     <button onclick="openAddContact()" class="button-open-add-contact-desktop">
-      <div>
-        <span>Add new contact</span>
-        <img src="./assets/img/person_add.png" alt="" />
-      </div>
-    </button>
-    <div class="contact-list" id="contact-list">
-      <div id="card"></div>
-    </div>
-    <button onclick="openAddContact()" class="button-open-add-contact-mobile">
-      <img src="./assets/img/Secondary mobile contact.png" alt="" />
+      <span>Add new contact</span>
+      <img src="./assets/img/person_add.png" alt="" />
     </button>
   </div>
+  <div class="contact-list" id="contact-list">
+    <div id="card"></div>
+  </div>
+  <button onclick="openAddContact()" class="button-open-add-contact-mobile">
+    <img src="./assets/img/Secondary mobile contact.png" alt="" />
+  </button>
+</div>
 
-  <div id="view-contact">
-    <img
-      src="./assets/img/arrow-left-line.svg"
-      id="mobile-back-arrow"
-      onclick="hideViewCard()"
-    />
-    <div class="contact-header">
-      <h1>Contacts</h1>
-      <div class="separator"></div>
-      <span>Better with a team</span>
-    </div>
-    <div id="card-closeup"></div>
+<div id="view-contact">
+  <img
+    src="./assets/img/arrow-left-line.svg"
+    id="mobile-back-arrow"
+    onclick="hideViewCard()"
+  />
+  <div class="contact-header">
+    <h1>Contacts</h1>
+    <div class="separator"></div>
+    <span>Better with a team</span>
   </div>
+  <div id="card-closeup"></div>
 </div>

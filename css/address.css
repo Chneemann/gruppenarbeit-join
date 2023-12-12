@@ -17,11 +17,6 @@ h2 {
   transform: translateX(100vw);
 }
 
-#scrollcontainer {
-  padding: 32px 24px;
-  width: 400px;
-}
-
 .overlay-close-x {
   cursor: pointer;
 }
@@ -30,6 +25,13 @@ h2 {
   cursor: pointer;
   filter: invert(60%) sepia(89%) saturate(1719%) hue-rotate(165deg)
     brightness(93%) contrast(89%);
+}
+
+.btn-header {
+  background-color: var(--white);
+  height: 110px;
+  width: 400px;
+  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 .button-open-add-contact-desktop {
@@ -44,7 +46,7 @@ h2 {
   border: 1px;
   border-radius: 10px;
   gap: 16px;
-  margin-left: 20px;
+  margin: 30px 20px;
   cursor: pointer;
 }
 
@@ -93,23 +95,30 @@ h2 {
 .contact-list {
   position: fixed;
   top: 200px;
-  height: 78%;
+  height: 81%;
   width: 400px;
   font-size: 20px;
   overflow: auto;
   background-color: var(--white);
+  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 .first-letter {
   display: flex;
-  height: fit-content;
-  width: 280px;
-  padding: 17px 36px 17px 36px;
+  padding: 17px 36px;
   border-bottom: 1px solid #ccc;
 }
 
 .card {
-  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card p {
+  color: var(--light-blue);
+  margin: 8px 0 0 0;
+  font-size: 16px;
 }
 
 .card-closeup-header {
@@ -140,7 +149,6 @@ h2 {
 .edit-delete-contact {
   display: flex;
   flex-direction: row;
-  gap: 13px;
   font-size: 16px;
 }
 
@@ -149,7 +157,8 @@ h2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  cursor: pointer;
+  margin: 10px 20px 0 0;
 }
 
 .edit-contact:hover,
@@ -157,11 +166,9 @@ h2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
   color: var(--light-blue);
   filter: invert(60%) sepia(89%) saturate(1719%) hue-rotate(165deg)
     brightness(93%) contrast(89%);
-  font-weight: bold;
 }
 
 .contact-information p {
@@ -225,6 +232,10 @@ h2 {
 
 #overlay-header {
   color: white !important;
+}
+
+.badge {
+  margin-top: 15px;
 }
 
 .big-badge {
@@ -387,7 +398,8 @@ h2 {
 .single-contact {
   display: flex;
   flex-direction: row;
-  padding: 15px 24px 15px 24px;
+  padding: 15px 24px;
+  height: 70px;
   gap: 35px;
   cursor: pointer;
 }
@@ -399,6 +411,12 @@ h2 {
 .single-contact a,
 .contact-information a {
   color: var(--cerulian-blue);
+  text-decoration: none;
+}
+
+.single-contact a:hover,
+.contact-information a:hover {
+  color: var(--light-blue);
 }
 
 @media (max-width: 1320px) {
@@ -416,22 +434,9 @@ h2 {
   }
 
   .contact-header {
-    top: 80px;
+    top: 140px;
     left: 256px;
     height: 73px;
-    max-width: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    gap: 20px;
-  }
-
-  .separator {
-    width: 3px;
-    background-color: var(--black);
-    border-radius: 1px;
-    height: 100%;
   }
 
   .contact-header span {
@@ -460,11 +465,16 @@ h2 {
     right: 5vw;
     cursor: pointer;
   }
+  #mobile-back-arrow:hover {
+    width: 36px;
+    height: 36px;
+    background-color: var(--light-gray);
+    border-radius: 18px;
+  }
 }
 
 @media (max-width: 1120px) {
   h1 {
-    margin-top: 28px;
     font-size: 54px;
   }
 
@@ -599,21 +609,6 @@ h2 {
     padding-left: 20px;
   }
 
-  #scrollcontainer {
-    z-index: 0;
-    width: 90vw;
-    height: calc(100vh - 160px);
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    left: 0;
-    bottom: 200px;
-    top: 96px;
-    box-shadow: none;
-    padding: 0;
-  }
-
   .button-open-add-contact-desktop {
     display: none;
   }
@@ -632,7 +627,7 @@ h2 {
   }
 
   .contact-list {
-    position: fixed;
+    left: 0;
     top: 84px;
     width: 100%;
     font-size: 20px;
@@ -671,22 +666,19 @@ h2 {
     font-size: 18px;
   }
 
-  #scrollcontainer {
-    padding: 0px;
-    width: 98vw;
-    position: fixed;
-    left: -10px;
-    bottom: 200px;
-    top: 96px;
-    box-shadow: none;
-  }
-
   .contact-list {
     width: 100vw;
   }
 
-  .card {
-    font-size: smaller;
+  .card span {
+    font-size: 16px;
+  }
+  .card p {
+    font-size: 14px;
+  }
+
+  .single-contact {
+    gap: 20px;
   }
 
   #add-contact {
