@@ -9,7 +9,6 @@
     left: 235px;
     bottom: 80px;
     background-color: var(--very-light-gray);
-    height: 100%;
   }
 
   .contact-header {
@@ -203,7 +202,6 @@
 @media (max-width: 859px) {
   #view-contact {
     top: 82px;
-    height: 81%;
   }
 
   #view-contact,

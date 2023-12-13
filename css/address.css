@@ -67,8 +67,6 @@ h2 {
 }
 
 #view-contact {
-  min-width: 461px;
-  min-height: 364px;
   position: fixed;
   right: 0;
   left: 688px;
