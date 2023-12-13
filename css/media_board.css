@@ -1,0 +1,138 @@
+/*------------- MEDIA -------------*/
+
+@media (max-width: calc(1175px + 232px)) {
+  .board-header {
+    width: 800px;
+  }
+}
+
+@media (max-width: calc(897px + 232px)) {
+  .board-header {
+    flex-direction: column;
+    align-items: start;
+    width: 525px;
+  }
+
+  .board-line {
+    top: 8px;
+    right: 220px;
+  }
+
+  .board-search {
+    margin-top: 15.5px;
+  }
+
+  .board-search input {
+    width: 307px;
+  }
+}
+
+@media (max-width: 635px) {
+  .board-content-tasks {
+    display: flex;
+  }
+
+  .board-cart:nth-child(2) {
+    margin-left: 12px;
+  }
+  .board-header {
+    min-width: 246px;
+    width: 100%;
+  }
+
+  #board-page {
+    padding: 48px 16px 0 16px;
+  }
+
+  .board-search {
+    display: block;
+    width: 100%;
+  }
+
+  .board-search input {
+    width: calc(100% - 34px);
+  }
+
+  .board-content-column,
+  .board-content-tasks {
+    width: 100%;
+  }
+
+  .board-content-column {
+    padding-right: 0;
+  }
+
+  .board-line {
+    right: 35px;
+  }
+
+  .board-btn-add-task {
+    display: none;
+  }
+
+  .board-btn-add-task span {
+    display: none;
+  }
+
+  .board-btn-add-task {
+    position: absolute;
+    top: -62px;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 10px;
+    background: var(--dark-blue);
+  }
+}
+
+@media (max-width: 555px) {
+  .board-content-tasks {
+    display: block;
+  }
+
+  .board-cart:nth-child(2) {
+    margin-left: 0;
+  }
+}
+
+/*------------- MOBILE -------------*/
+
+@media (max-width: 475px) {
+  .dialog {
+    width: 100%;
+  }
+
+  .board-page h1 {
+    font-size: 47px;
+  }
+
+  .mobile-header-include {
+    display: block;
+  }
+
+  .task-overlay {
+    width: 396px;
+    max-height: 90vh;
+    padding: 32px 24px;
+  }
+
+  .task-overlay-headline h2 {
+    font-size: 36px;
+    margin: 0 0 16px 0;
+  }
+
+  .task-overlay-content {
+    font-size: 16px;
+  }
+
+  .task-overlay-date,
+  .task-overlay-prio,
+  .task-overlay-header,
+  .task-overlay-assigned-person,
+  .task-overlay-subtasks,
+  #task-overlay-description {
+    margin-bottom: 16px;
+  }
+}
