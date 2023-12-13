@@ -444,6 +444,12 @@ h1 {
   }
 }
 
+@media (max-height: 730px) {
+  .logo {
+    display: none;
+  }
+}
+
 /*------------- GLOBAL -------------*/
 
 .d-none {
