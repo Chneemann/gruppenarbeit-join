@@ -6,7 +6,7 @@
   #view-contact {
     display: none;
     position: fixed;
-    left: 235px;
+    left: 232px;
     bottom: 80px;
     background-color: var(--very-light-gray);
   }
@@ -202,6 +202,7 @@
 @media (max-width: 859px) {
   #view-contact {
     top: 82px;
+    height: auto;
   }
 
   #view-contact,
