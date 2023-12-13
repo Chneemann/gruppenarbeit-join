@@ -141,7 +141,6 @@ function renderContactOverlay(id) {
  */
 async function openEditContact(id) {
   document.getElementById("add-contact-overlay").classList.remove("d-none");
-  resetPage();
   renderContactOverlay(id);
   await openDialog("add-contact");
   document.getElementById("overlay-header").innerHTML = "Edit Contact";
@@ -212,12 +211,25 @@ async function deleteContact(i) {
   openInformationWindow("The contact has been deleted", 1500);
 }
 
+function contactActive(id) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (i == id) {
+      document.getElementById(`contact-${i}`).classList.add("contact-aktive");
+    } else {
+      document
+        .getElementById(`contact-${i}`)
+        .classList.remove("contact-aktive");
+    }
+  }
+}
+
 /**
  * Slides in a card with the contact information
  */
 async function viewCard(i) {
   checkMailAndPhone(i);
   renderCardCloseup(i);
+  contactActive(i);
   document.getElementById("view-contact").style.display = "flex";
   let hidden =
     document.getElementById("card-closeup").style.transform ==

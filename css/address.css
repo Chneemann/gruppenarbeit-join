@@ -404,10 +404,15 @@ h2 {
   height: 70px;
   gap: 35px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .single-contact:hover {
   background-color: var(--very-light-gray2);
+}
+
+.single-contact:active {
+  background-color: var(--dark-blue);
 }
 
 .single-contact a,
@@ -431,4 +436,9 @@ h2 {
   margin: none;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
+}
+
+.contact-aktive {
+  color: var(--white);
+  background-color: var(--dark-blue);
 }
