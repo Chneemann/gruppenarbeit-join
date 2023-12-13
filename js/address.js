@@ -76,7 +76,6 @@ async function openAddContact() {
 function closeAddContact() {
   closeDialog("add-contact");
   resetForm();
-  renderContacts();
 }
 
 /**
@@ -214,11 +213,11 @@ async function deleteContact(i) {
 function contactActive(id) {
   for (let i = 0; i < contacts.length; i++) {
     if (i == id) {
-      document.getElementById(`contact-${i}`).classList.add("contact-aktive");
+      document.getElementById(`contact-${i}`).classList.add("contact-active");
     } else {
       document
         .getElementById(`contact-${i}`)
-        .classList.remove("contact-aktive");
+        .classList.remove("contact-active");
     }
   }
 }

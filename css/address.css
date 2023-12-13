@@ -30,6 +30,7 @@ h2 {
 }
 
 .btn-header {
+  padding: 0 20px;
   height: 110px;
   width: 400px;
   background-color: var(--white);
@@ -97,6 +98,7 @@ h2 {
 }
 
 .contact-list {
+  padding: 0 20px;
   height: calc(100vh - 208px);
   width: 400px;
   font-size: 20px;
@@ -438,7 +440,7 @@ h2 {
   cursor: pointer;
 }
 
-.contact-aktive {
+.contact-active {
   color: var(--white);
   background-color: var(--dark-blue);
 }
