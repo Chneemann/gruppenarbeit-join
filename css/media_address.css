@@ -137,11 +137,9 @@
 
   .add-contact-form {
     padding-top: 20px;
-    width: 396px;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
   }
 
   .contact-inputs {
@@ -167,15 +165,12 @@
   }
 
   #submit-buttons {
-    position: relative;
     top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 100%;
-    min-width: 364px;
     min-height: 57px;
     padding: 0;
   }
@@ -333,22 +328,13 @@
   }
 
   .contact-inputs {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+    width: 250px;
     min-width: 220px;
-    margin-top: -20px;
-    margin-left: 5vw;
     margin-bottom: 18px;
   }
 
   .contact-inputs input {
-    min-width: 220px;
-    min-height: 24px;
-    border: 1px solid var(--light-gray);
-    border-radius: 10px;
-    padding: 13px 21px 13px 21px;
-    font-size: 20px;
+    min-width: 200px;
   }
 
   #email,
@@ -380,5 +366,14 @@
     color: var(--white);
     font-size: 20px;
     font-weight: 400;
+  }
+}
+
+@media (max-height: 730px) {
+  .add-contact-left img {
+    display: none;
+  }
+  #overlay-header {
+    margin-top: 0;
   }
 }

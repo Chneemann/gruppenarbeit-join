@@ -203,7 +203,14 @@ h2 {
   padding-right: 32px;
   border-radius: 30px;
   height: 492px;
+  max-height: 90%;
   transition: transform 100ms ease-in-out;
+}
+
+#form-input {
+  padding-top: 20px;
+  height: 100%;
+  overflow: auto;
 }
 
 .add-contact-left {
@@ -257,6 +264,7 @@ h2 {
 .add-contact-form {
   display: flex;
   flex-direction: column;
+  height: 320px;
 }
 
 .add-contact-form img {
@@ -269,7 +277,7 @@ h2 {
   flex-direction: column;
   min-width: 422px;
   min-height: 215px;
-  gap: 32px;
+  gap: 24px;
 }
 
 .contact-inputs input {
@@ -306,7 +314,6 @@ h2 {
   align-items: start;
   gap: 24px;
   width: 100%;
-  min-width: 364px;
   min-height: 57px;
 }
 
