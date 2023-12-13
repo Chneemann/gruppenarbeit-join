@@ -54,8 +54,8 @@ function fillAllInputs() {
  * Otherwise, an error message is generated for the task.
  */
 async function createTask() {
-  clearTaskBtn.disabled = false;
-  addTaskBtn.disabled = false;
+  clearTaskBtn.disabled = true;
+  addTaskBtn.disabled = true;
   updateTemporaryTask();
   if (checkAllRequiredInputFields() && checkTaskDate()) {
     saveTaskOnServer();
@@ -91,8 +91,6 @@ async function createTemporaryTask() {
  * Updates temporary tasks with the entered values and saves the update.
  */
 async function updateTemporaryTask() {
-  clearTaskBtn.disabled = true;
-  addTaskBtn.disabled = true;
   let timestamp = new Date(addTaskDate.value).getTime();
   if (addTaskDate.value == "") {
     timestamp = "";
@@ -123,8 +121,8 @@ async function saveTaskOnServer() {
  */
 function clearTemporaryTask() {
   tempTaskId = "";
-  clearTaskBtn.disabled = true;
-  addTaskBtn.disabled = true;
+  clearTaskBtn.disabled = false;
+  addTaskBtn.disabled = false;
   renderMainpageContent("./html/board.html");
   openInformationWindow("Your task has been created.", 3000);
 }
@@ -142,8 +140,6 @@ async function clearTask() {
   tasks[tempTaskId].subtasks = [];
   tasks[tempTaskId].subtasksstate = [];
   await setItem("tasks", JSON.stringify(tasks));
-  clearTaskBtn.disabled = true;
-  addTaskBtn.disabled = true;
   renderMainpageContent("./html/add_task.html");
 }
 
@@ -183,6 +179,8 @@ function errorTaskInput() {
   checkField(0, "title", addTaskTitel, addTaskTitelError);
   checkField(1, "date", addTaskDate, addTaskDateError, checkTaskDate);
   checkField(2, "category", addTaskCategory, addTaskCategoryError);
+  clearTaskBtn.disabled = false;
+  addTaskBtn.disabled = false;
 }
 
 /**

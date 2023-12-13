@@ -49,6 +49,7 @@
   font-size: 20px;
   font-weight: 400;
   overflow: hidden;
+  height: 680px;
 }
 
 .add-task-left,
@@ -306,9 +307,19 @@
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
+@keyframes fontWeightAnimation {
+  0% {
+    font-weight: bold;
+  }
+  100% {
+    font-weight: normal;
+  }
+}
+
 .add-task-errortext {
   font-size: 14px;
   color: var(--red);
+  animation: fontWeightAnimation 0.5s ease-in;
 }
 
 /*------------- EDIT TASK -------------*/
@@ -626,6 +637,7 @@
   .add-task-formular,
   .edit-task-formular {
     display: block;
+    height: auto;
   }
 
   .add-task-middle,
