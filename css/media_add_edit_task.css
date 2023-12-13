@@ -1,0 +1,293 @@
+/*------------- MEDIA -------------*/
+
+@media (max-width: calc(1210px + 232px)) {
+  #add-task-page {
+    max-width: 440px;
+  }
+  .add-task-footer,
+  .edit-task-footer {
+    padding-top: 10px;
+    width: 100%;
+  }
+
+  .add-task-formular,
+  .edit-task-formular {
+    display: block;
+    height: auto;
+  }
+
+  .add-task-middle,
+  .edit-task-middle {
+    display: none;
+  }
+
+  .add-task-left,
+  .add-task-right,
+  .edit-task-left,
+  .edit-task-right {
+    width: 100%;
+  }
+
+  .add-task-left,
+  .add-task-right {
+    padding-bottom: 0;
+  }
+
+  .add-task-required {
+    top: 1180px;
+  }
+}
+
+@media (max-width: 690px) {
+  #add-task-page {
+    max-width: 340px;
+  }
+  .dialog {
+    padding: 64px 74px !important;
+  }
+
+  #add-task-icon-add,
+  #add-task-icon-close-check {
+    top: 47px;
+  }
+
+  .add-task-formular,
+  .edit-task-formular {
+    font-size: 16px;
+  }
+
+  .edit-task-subtask-addet input {
+    width: 200px !important;
+  }
+
+  .add-task-formular input,
+  .edit-task-formular input {
+    font-size: 16px;
+    width: 296px;
+  }
+
+  .add-task-formular textarea,
+  .edit-task-formular textarea {
+    font-size: 16px;
+    width: 306px;
+  }
+
+  .add-task-formular select,
+  .edit-task-formular select,
+  .add-task-prio-fields,
+  .edit-task-prio-fields {
+    font-size: 16px;
+    width: 340px;
+  }
+
+  .add-task-prio-field,
+  .edit-task-prio-field {
+    font-size: 16px;
+    width: 106px;
+  }
+
+  .add-task-required {
+    top: 1070px;
+  }
+
+  .add-task-buttons {
+    padding-left: 42px;
+  }
+
+  .add-task-footer {
+    flex-direction: column;
+    width: 340px;
+  }
+
+  .add-task-required {
+    padding-bottom: 24px;
+  }
+
+  #edit-task-icon-add,
+  #edit-task-icon-opencontact,
+  #add-task-icon-opencontact {
+    left: 300px;
+  }
+  .edit-task-contact-overlay {
+    max-width: 328px;
+  }
+}
+
+@media (max-width: 550px) {
+  .dialog {
+    padding: 64px 34px !important;
+  }
+}
+
+/*------------- MOBILE -------------*/
+
+@media (max-width: 475px) {
+  #add-task-page {
+    padding: 48px 8px;
+    max-width: 100% !important;
+  }
+
+  #add-task-icon-add,
+  #add-task-icon-close-check {
+    top: 63px;
+  }
+
+  .mobile-header-include {
+    display: block;
+  }
+
+  .add-task-btn-clear {
+    display: none;
+  }
+
+  .add-task-left {
+    padding-top: 88px;
+  }
+
+  .add-task-right {
+    padding-bottom: 60px;
+  }
+
+  .add-task-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 95%;
+    top: 80px;
+    left: 0;
+    right: 0;
+    padding-top: 48px;
+    background-color: var(--very-light-gray);
+    box-shadow: 0px 2px 4px 0px var(--very-light-gray);
+    z-index: 1;
+  }
+
+  #add-task-page h1 {
+    font-size: 47px;
+  }
+
+  .add-task-left,
+  .add-task-right,
+  .edit-task-left,
+  .edit-task-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-task-required {
+    position: unset;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .add-task-buttons {
+    padding: 0;
+  }
+
+  .add-task-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 95%;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    height: 88px;
+    background-color: var(--very-light-gray);
+    box-shadow: 0px -2px 4px 0px var(--very-light-gray);
+    padding: 0;
+  }
+
+  .add-task-required {
+    padding-left: 16px;
+  }
+
+  .add-task-buttons {
+    padding-right: 16px;
+  }
+
+  .mobile-navbar-include {
+    display: block;
+  }
+}
+
+@media (max-width: 420px) {
+  .edit-task-prio-field {
+    width: 86px;
+  }
+
+  .edit-task-prio-fields {
+    width: 290px;
+  }
+
+  .edit-task-formular input {
+    width: 246px;
+  }
+
+  .edit-task-formular textarea {
+    width: 258px;
+  }
+
+  .edit-task-formular select {
+    width: 290px;
+  }
+  #edit-task-icon-add,
+  #edit-task-icon-opencontact,
+  #add-task-icon-opencontact {
+    left: 250px;
+  }
+}
+
+@media (max-width: 370px) {
+  #add-task-page {
+    padding: 48px 0px;
+  }
+  .add-task-prio-fields span,
+  .edit-task-prio-fields span {
+    display: none;
+  }
+
+  .add-task-formular input {
+    width: 248px;
+  }
+
+  .edit-task-formular input {
+    width: 198px;
+  }
+
+  .add-task-formular textarea {
+    width: 258px;
+  }
+
+  .edit-task-formular textarea {
+    width: 208px;
+  }
+
+  .add-task-formular select,
+  .add-task-prio-fields {
+    width: 290px;
+  }
+
+  .edit-task-prio-fields {
+    width: 240px;
+  }
+
+  .edit-task-formular select {
+    width: 240px;
+  }
+
+  .add-task-prio-field {
+    width: 86px;
+  }
+
+  .edit-task-prio-field {
+    width: 72px;
+  }
+
+  #edit-task-icon-add {
+    left: 200px;
+  }
+}

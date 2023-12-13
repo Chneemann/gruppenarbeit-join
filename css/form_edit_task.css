@@ -1,0 +1,284 @@
+/*------------- EDIT TASK - FORMULAR CONTENT -------------*/
+
+.edit-task-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-task-img-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.edit-task-img-close img {
+  width: 24px;
+  height: 24px;
+}
+
+.edit-task-img-close:hover {
+  background-color: var(--very-light-gray);
+  border-radius: 16px;
+}
+
+.edit-task-prio-fields {
+  display: flex;
+  justify-content: space-between;
+  width: 440px;
+}
+
+.edit-task-prio-button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.edit-task-prio-field {
+  background-color: var(--white);
+  font-size: 20px;
+  font-weight: 400;
+  width: 136px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.edit-task-prio-field-clicked {
+  cursor: unset;
+  color: var(--white);
+  border: 0;
+}
+
+.edit-task-prio-field:hover {
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.edit-task-subtask {
+  padding-bottom: 12px;
+}
+
+#edit-task-icons {
+  height: 0;
+}
+
+#edit-task-subtask {
+  cursor: pointer;
+}
+
+#edit-task-icon-add,
+#edit-task-icon-opencontact,
+#edit-task-icon-closecontact,
+#add-task-icon-opencontact,
+#add-task-icon-closecontact {
+  position: relative;
+  top: -52px;
+  left: 400px;
+  width: 24px;
+}
+
+#edit-task-icon-close-check {
+  position: relative;
+  top: -52px;
+  left: 355px;
+  width: 72px;
+}
+
+.edit-task-icon:hover {
+  background-color: var(--very-light-gray);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+#edit-task-subtask-addet {
+  height: 100px;
+  max-width: 440px;
+  overflow: auto;
+}
+
+.edit-task-subtask-addet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  font-size: 16px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.edit-task-subtask-addet:hover {
+  background-color: var(--very-light-gray2);
+}
+
+.edit-task-subtask-line {
+  height: 22px;
+  width: 1px;
+  background-color: var(--gray);
+  margin: 0 6px;
+}
+
+.edit-task-icons-addet {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.edit-task-assignet {
+  position: relative;
+  height: 150px;
+}
+
+.edit-task-assignet {
+  position: relative;
+}
+.edit-task-assignet-overlay {
+  position: absolute;
+  top: 95px;
+  width: 438px;
+  height: 150px;
+  border-radius: 10px 10px 20px 20px;
+  border: 1px solid var(--light-gray);
+  border-top: 0px;
+  background-color: var(--white);
+  overflow: auto;
+  z-index: 1;
+}
+
+.add-task-assignet {
+  position: relative;
+}
+
+.add-task-assignet-overlay {
+  position: absolute;
+  top: 95px;
+  width: 438px;
+  height: 150px;
+  border-radius: 10px 10px 20px 20px;
+  border: 1px solid var(--light-gray);
+  border-top: 0px;
+  background-color: var(--white);
+  overflow: auto;
+  z-index: 1;
+}
+
+.edit-task-contact-overlay input {
+  margin: 10px;
+  width: 20px !important;
+  height: 20px;
+  cursor: pointer;
+}
+
+.edit-task-contact-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  cursor: pointer;
+}
+
+.edit-task-contact-overlay span:first-child {
+  padding-left: 10px;
+}
+
+.edit-task-contact-overlay:hover {
+  background-color: var(--very-light-gray);
+}
+
+.edit-task-subtask {
+  font-size: 16px;
+}
+
+/*------------- EDIT TASK - FOOTER -------------*/
+
+.edit-task-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 44px;
+}
+
+.edit-task-buttons {
+  display: flex;
+}
+
+.edit-task-btn-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-task-btn-inside span {
+  margin-right: 4px;
+}
+
+.edit-task-btn {
+  height: 56px;
+  width: 90px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--dark-blue);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 16px;
+}
+
+.edit-task-btn:hover {
+  background-color: var(--light-blue);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.edit-card-footer {
+  position: absolute;
+  top: 110px;
+}
+
+/*------------- GLOBAL -------------*/
+
+.right {
+  justify-content: right;
+}
+
+.right-margin {
+  margin-right: 12px;
+}
+
+.flex {
+  display: flex;
+}
+
+.max-brightness {
+  filter: brightness(100);
+}
+
+.bgcolor-red {
+  background-color: var(--red);
+}
+
+.bgcolor-orange {
+  background-color: var(--orange);
+}
+
+.bgcolor-green {
+  background-color: var(--green);
+}
+
+.text-wrap-overflow {
+  overflow: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.red-border {
+  border-color: var(--red) !important;
+}
+
+.d-none {
+  display: none;
+}
