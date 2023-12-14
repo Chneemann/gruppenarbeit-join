@@ -6,7 +6,6 @@ let tempTaskId = "";
  * Initialises the task form by loading all required functions
  */
 async function initAddTask() {
-  await loadAllTasks();
   renderAddTaskAssignetContentHTML();
   checkTemporaryTask();
 }

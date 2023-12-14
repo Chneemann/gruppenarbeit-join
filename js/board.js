@@ -310,8 +310,35 @@ function searchTask() {
 /**
  * Opens the page to add a new task.
  */
-function openAddTaskPage() {
-  renderMainpageContent("./html/add_task.html");
+async function openAddTaskPage() {
+  //renderMainpageContent("./html/add_task.html");
+  loadW3Include("./html/add_task.html", "add-task-dialog");
+  await sleep(10);
+  var overlay = document.getElementById("add-task-dialog");
+  document.body.style.overflow = "hidden";
+  document.getElementById("add-task-img-close").classList.remove("d-none");
+  document.getElementById("add-task-page").style.backgroundColor =
+    "var(--white)";
+  document.getElementById("add-task-page").style.borderRadius = "30px";
+  document
+    .getElementById("add-task-formular")
+    .classList.add("add-task-dialogbox");
+  overlay.classList.remove("d-none");
+  await sleep(10);
+  overlay.classList.add("dialog-show");
+  overlay.classList.remove("dialog-hide");
+  changeBackground(overlay);
+  initAddTask();
+}
+
+async function closeAddTask() {
+  var overlay = document.getElementById("add-task-dialog");
+  document.body.style.overflow = "auto";
+  overlay.classList.add("dialog-hide");
+  overlay.classList.remove("dialog-show");
+  overlay.style.backgroundColor = "";
+  await sleep(100);
+  overlay.classList.add("d-none");
 }
 
 /**
@@ -369,4 +396,16 @@ async function closeCart() {
   await sleep(100);
   overlay.classList.add("d-none");
   initBoard();
+}
+
+// W3C
+function loadW3Include(path, id) {
+  fetch(path)
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById(id).innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error loading:", error);
+    });
 }

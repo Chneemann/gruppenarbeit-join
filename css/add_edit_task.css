@@ -52,6 +52,16 @@
   height: 680px;
 }
 
+.add-task-dialogbox {
+  height: 60vh !important;
+  width: 1000px;
+  overflow-y: auto;
+}
+
+.edit-task-formular {
+  height: 500px;
+}
+
 .add-task-left,
 .add-task-right,
 .edit-task-left,
