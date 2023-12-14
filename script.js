@@ -9,9 +9,7 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser"));
  */
 async function init() {
   welcomeMsg();
-  await loadAllUsers();
-  await loadAllContacts();
-  await loadAllTasks();
+  await loadAllDatasFromBackend();
   ifCurrentUserLogin();
   currentUserBadged();
   renderMainpageContent("./html/summary.html");
@@ -20,31 +18,10 @@ async function init() {
 /**
  * This function loads all users from the backend.
  */
-async function loadAllUsers() {
+async function loadAllDatasFromBackend() {
   try {
     users = JSON.parse(await getItem("users"));
-  } catch (e) {
-    console.error("Loading error:", e);
-  }
-}
-
-/**
- * This function loads all contacts from the backend.
- */
-async function loadAllContacts() {
-  try {
     contacts = JSON.parse(await getItem("contacts"));
-  } catch (e) {
-    console.error("Loading error:", e);
-  }
-}
-
-/**
- * This function loads all tasks from the backend.
- *
- */
-async function loadAllTasks() {
-  try {
     tasks = JSON.parse(await getItem("tasks"));
   } catch (e) {
     console.error("Loading error:", e);
