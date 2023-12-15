@@ -108,8 +108,16 @@
   #add-task-icon-opencontact {
     left: 300px;
   }
-  .edit-task-contact-overlay {
-    max-width: 328px;
+  .edit-task-contact-overlay,
+  .edit-task-assignet-overlay {
+    max-width: 338px;
+  }
+  .edit-task-assignet-overlay {
+    top: 81px;
+  }
+  .add-task-assignet {
+    top: -20px;
+    height: 130px;
   }
 }
 
@@ -122,6 +130,9 @@
 /*------------- MOBILE -------------*/
 
 @media (max-width: 475px) {
+  .edit-task-assignet-overlay {
+    top: 95px;
+  }
   #add-task-page {
     padding: 48px 8px;
     max-width: 100% !important;
@@ -220,7 +231,7 @@
     top: auto;
     left: auto;
     right: auto;
-    width: 300px;
+    width: 308px;
     z-index: 1;
     background-color: var(--white);
     box-shadow: var(--white);
@@ -326,5 +337,9 @@
 
   #edit-task-icon-add {
     left: 200px;
+  }
+  .edit-task-contact-overlay,
+  .edit-task-assignet-overlay {
+    max-width: 288px;
   }
 }
