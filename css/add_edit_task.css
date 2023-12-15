@@ -3,6 +3,7 @@
 #add-task-page {
   padding: 43.5px 54px 43.5px 64px;
   max-width: 980px;
+  height: 80%;
 }
 
 #add-task-page h1 {
@@ -49,11 +50,11 @@
   font-size: 20px;
   font-weight: 400;
   overflow: hidden;
-  height: 680px;
+  height: 620px;
 }
 
 .add-task-dialogbox {
-  height: 60vh !important;
+  height: 500px !important;
   width: 1000px;
   overflow-y: auto;
 }

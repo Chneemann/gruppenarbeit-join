@@ -212,6 +212,22 @@
   .mobile-navbar-include {
     display: block;
   }
+
+  .add-task-dialogbox-header {
+    justify-content: space-between;
+    align-items: normal;
+    padding: 0 20px;
+    left: auto;
+    right: auto;
+    width: 300px;
+    z-index: 1;
+    background-color: var(--white);
+    box-shadow: var(--white);
+  }
+
+  .add-task-dialogbox {
+    width: 100%;
+  }
 }
 
 @media (max-width: 420px) {
@@ -242,6 +258,9 @@
 }
 
 @media (max-width: 370px) {
+  .add-task-dialogbox-header {
+    width: 255px;
+  }
   #add-task-page {
     padding: 48px 0px;
   }

@@ -323,6 +323,12 @@ async function openAddTaskPage() {
   document
     .getElementById("add-task-formular")
     .classList.add("add-task-dialogbox");
+  document
+    .getElementById("add-task-header")
+    .classList.add("add-task-dialogbox-header");
+  document
+    .getElementById("add-task-footer")
+    .classList.add("add-task-dialogbox-footer");
   overlay.classList.remove("d-none");
   await sleep(10);
   overlay.classList.add("dialog-show");
