@@ -9,37 +9,25 @@ function initAdress() {
  * Renders a list of contacts in a scrollcontainer
  */
 function renderContacts() {
-  document.getElementById("contact-list").innerHTML = "";
-  sortContacts();
-  for (let i = 0; i < contacts.length; i++) {
-    firstLetter(i);
-    let contact = contacts[i];
+  // Erstellen Sie eine Kopie des contacts-Arrays
+  let sortedContacts = [...contacts];
 
+  // Sortieren Sie die kopierte Version alphabetisch nach dem Namen jedes Kontakts
+  sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
+
+  document.getElementById("contact-list").innerHTML = "";
+  for (let i = 0; i < sortedContacts.length; i++) {
+    firstLetter(sortedContacts, i);
     document.getElementById("contact-list").innerHTML += /*html*/ `
       <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'>
-          <div class='badge' style="background-color:${contact["color"]}" ><span>${contact["initials"]}</span></div>
+          <div class='badge' style="background-color:${sortedContacts[i]["color"]}" ><span>${sortedContacts[i]["initials"]}</span></div>
           <div class='card'>
-            <span>${contact["name"]}</span>
-              <p>${contact["email"]}</p>
+            <span>${sortedContacts[i]["name"]}</span>
+            <p>${sortedContacts[i]["email"]}</p>
+          </div>
       </div>
-    </div>
-       `;
+    `;
   }
-}
-
-/**
- * Sorts contacts by alphabetically
- */
-function sortContacts() {
-  contacts.sort(function (a, b) {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  });
 }
 
 /**
@@ -47,7 +35,6 @@ function sortContacts() {
  */
 async function openAddContact() {
   document.getElementById("add-contact-overlay").classList.remove("d-none");
-
   renderContactOverlay();
   await openDialog("add-contact");
   document.getElementById("overlay-header").innerHTML = "Add Contact";
@@ -319,9 +306,9 @@ function capitalizeFirstLetter(string) {
 /**
  * turns the first letters into a register, checks for duplicates
  */
-function firstLetter(i) {
-  let firstLetter = contacts[i].name[0].toUpperCase();
-  if (i > 0 && firstLetter != contacts[i - 1].name[0]) {
+function firstLetter(sortedContacts, i) {
+  let firstLetter = sortedContacts[i].name[0].toUpperCase();
+  if (i > 0 && firstLetter != sortedContacts[i - 1].name[0]) {
     document.getElementById("contact-list").innerHTML += /*html*/ `
     <div class='first-letter' id='first-letter-${firstLetter}'>
     ${firstLetter}</div>
