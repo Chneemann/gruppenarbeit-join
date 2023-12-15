@@ -314,7 +314,7 @@ async function openAddTaskPage() {
   //renderMainpageContent("./html/add_task.html");
   loadW3Include("./html/add_task.html", "add-task-dialog");
   await sleep(10);
-  var overlay = document.getElementById("add-task-dialog");
+  let overlay = document.getElementById("add-task-dialog");
   document.body.style.overflow = "hidden";
   document.getElementById("add-task-img-close").classList.remove("d-none");
   document.getElementById("add-task-page").style.backgroundColor =
@@ -338,13 +338,14 @@ async function openAddTaskPage() {
 }
 
 async function closeAddTask() {
-  var overlay = document.getElementById("add-task-dialog");
+  let overlay = document.getElementById("add-task-dialog");
   document.body.style.overflow = "auto";
   overlay.classList.add("dialog-hide");
   overlay.classList.remove("dialog-show");
   overlay.style.backgroundColor = "";
   await sleep(100);
   overlay.classList.add("d-none");
+  overlay.innerHTML = "";
 }
 
 /**
@@ -402,6 +403,7 @@ async function closeCart() {
   await sleep(100);
   overlay.classList.add("d-none");
   initBoard();
+  overlay.innerHTML = "";
 }
 
 // W3C

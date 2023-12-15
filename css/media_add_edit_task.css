@@ -1,6 +1,9 @@
 /*------------- MEDIA -------------*/
 
 @media (max-width: calc(1210px + 232px)) {
+  .add-task-dialogbox {
+    width: 107%;
+  }
   #add-task-page {
     max-width: 440px;
   }
@@ -105,9 +108,11 @@
 
   #edit-task-icon-add,
   #edit-task-icon-opencontact,
+  #edit-task-icon-closecontact,
   #add-task-icon-opencontact {
     left: 300px;
   }
+
   .edit-task-contact-overlay,
   .edit-task-assignet-overlay {
     max-width: 338px;
@@ -276,13 +281,16 @@
     width: 290px;
   }
   #edit-task-icon-add,
-  #edit-task-icon-opencontact,
   #add-task-icon-opencontact {
     left: 250px;
   }
 }
 
 @media (max-width: 370px) {
+  #edit-task-icon-opencontact,
+  #edit-task-icon-closecontact {
+    left: 250px;
+  }
   .add-task-dialogbox-header {
     width: 260px;
   }
