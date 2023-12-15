@@ -217,6 +217,7 @@
     justify-content: space-between;
     align-items: normal;
     padding: 0 20px;
+    top: auto;
     left: auto;
     right: auto;
     width: 300px;
@@ -237,7 +238,8 @@
   }
 
   .add-task-dialogbox {
-    width: 100%;
+    padding-left: 6px;
+    width: 98%;
     height: 90% !important;
   }
 }
@@ -271,7 +273,7 @@
 
 @media (max-width: 370px) {
   .add-task-dialogbox-header {
-    width: 255px;
+    width: 260px;
   }
   .add-task-dialogbox-footer {
     width: 305px;
