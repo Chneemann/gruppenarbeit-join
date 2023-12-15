@@ -9,12 +9,8 @@ function initAdress() {
  * Renders a list of contacts in a scrollcontainer
  */
 function renderContacts() {
-  // Erstellen Sie eine Kopie des contacts-Arrays
   let sortedContacts = [...contacts];
-
-  // Sortieren Sie die kopierte Version alphabetisch nach dem Namen jedes Kontakts
   sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
-
   document.getElementById("contact-list").innerHTML = "";
   for (let i = 0; i < sortedContacts.length; i++) {
     firstLetter(sortedContacts, i);
