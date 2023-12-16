@@ -308,9 +308,25 @@ function searchTask() {
 }
 
 /**
+ * Changes the status of a current task and saves the updated task list.
+ *
+ * @param {string} progress - The new progress status of the task.
+ */
+async function saveNewStatus(progress) {
+  let tempTaskId = "";
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].creator == currentUser[0].id && tasks[i].delete == "") {
+      tempTaskId = tasks[i].id;
+    }
+  }
+  tasks[tempTaskId].status = progress;
+  await setItem("tasks", JSON.stringify(tasks));
+}
+
+/**
  * Opens the page to add a new task.
  */
-async function openAddTaskPage() {
+async function openAddTaskPage(progress) {
   //renderMainpageContent("./html/add_task.html");
   loadW3Include("./html/add_task.html", "add-task-dialog");
   await sleep(10);
@@ -333,6 +349,7 @@ async function openAddTaskPage() {
   await sleep(10);
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");
+  await saveNewStatus(progress);
   changeBackground(overlay);
   initAddTask();
 }
