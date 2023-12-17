@@ -284,6 +284,13 @@
   #add-task-icon-opencontact {
     left: 250px;
   }
+
+  .edit-task-assignet-overlay-media {
+    max-width: 288px;
+  }
+  .edit-task-icon-closecontact {
+    left: 250px !important;
+  }
 }
 
 @media (max-width: 370px) {
@@ -346,8 +353,13 @@
   #edit-task-icon-add {
     left: 200px;
   }
-  .edit-task-contact-overlay,
   .edit-task-assignet-overlay {
     max-width: 288px;
+  }
+  .edit-task-assignet-overlay-media {
+    max-width: 239.5px;
+  }
+  .edit-task-icon-closecontact {
+    left: 200px !important;
   }
 }

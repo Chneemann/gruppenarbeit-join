@@ -215,7 +215,7 @@ function renderTaskOverlayEditHTML(id) {
                 tasks[id].id
               })"
             />
-            <div id="edit-task-icon-closecontact" class="d-none">
+            <div id="edit-task-icon-closecontact" class="edit-task-icon-closecontact d-none">
                 <img
                   src="./assets/img/board/check-black.svg"
                   alt="add"
@@ -223,7 +223,7 @@ function renderTaskOverlayEditHTML(id) {
                   class="edit-task-icon"
                 />
               </div>
-              <div id="edit-task-icon-opencontact">
+              <div id="edit-task-icon-opencontact" class="edit-task-icon-closecontact">
                 <img
                   src="./assets/img/board/add.svg"
                   alt="open"
@@ -231,7 +231,7 @@ function renderTaskOverlayEditHTML(id) {
                   class="edit-task-icon"
                 />
               </div>
-            <div id="edit-task-assignet-overlay" class="edit-task-assignet-overlay d-none">
+            <div id="edit-task-assignet-overlay" class="edit-task-assignet-overlay edit-task-assignet-overlay-media d-none">
             </div>
             <div class="edit-card-footer">
               <div id="board-card-footer-badge">
