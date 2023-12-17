@@ -253,7 +253,7 @@ function renderTaskOverlayEditHTML(id) {
                   alt="add"
                 />
               </div>
-              <div id="edit-task-icon-close-check" class="d-none flex">
+              <div id="edit-task-icon-close-check" class="edit-task-icon-close-check-edit d-none flex">
                 <img
                   src="./assets/img/board/close.svg"
                   alt="close"

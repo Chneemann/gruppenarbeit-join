@@ -124,6 +124,9 @@
     top: -20px;
     height: 130px;
   }
+  .edit-task-icon-close-check-edit {
+    left: 255px !important;
+  }
 }
 
 @media (max-width: 550px) {
@@ -176,7 +179,7 @@
     padding-top: 48px;
     background-color: var(--very-light-gray);
     box-shadow: 0px 2px 4px 0px var(--very-light-gray);
-    z-index: 1;
+    z-index: 2;
   }
 
   #add-task-page h1 {
@@ -215,6 +218,7 @@
     background-color: var(--very-light-gray);
     box-shadow: 0px -2px 4px 0px var(--very-light-gray);
     padding: 0;
+    z-index: 2;
   }
 
   .add-task-required {
@@ -291,6 +295,9 @@
   .edit-task-icon-closecontact {
     left: 250px !important;
   }
+  .edit-task-icon-close-check-edit {
+    left: 205px !important;
+  }
 }
 
 @media (max-width: 370px) {
@@ -361,5 +368,8 @@
   }
   .edit-task-icon-closecontact {
     left: 200px !important;
+  }
+  .edit-task-icon-close-check-edit {
+    left: 160px !important;
   }
 }
