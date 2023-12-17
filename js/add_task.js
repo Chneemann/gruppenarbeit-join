@@ -190,12 +190,14 @@ function errorTaskInput() {
  * @param {HTMLElement|null} errorElement - The HTML element for error messages (or null if not present).
  * @param {Function|null} callback - An optional callback function that is called if the field is valid (or null if not present).
  */
-function checkField(index, prop, element, errorElement, callback) {
+async function checkField(index, prop, element, errorElement, callback) {
   const isValid = checkInputFields[index][prop];
   if (element) {
     element.classList.toggle("red-border", !isValid);
   }
   if (errorElement) {
+    errorElement.classList.add("d-none", isValid);
+    await sleep("100");
     errorElement.classList.toggle("d-none", isValid);
   }
   if (isValid && callback) {
