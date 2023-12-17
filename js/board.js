@@ -319,8 +319,13 @@ async function saveNewStatus(progress) {
       tempTaskId = tasks[i].id;
     }
   }
-  tasks[tempTaskId].status = progress;
-  await setItem("tasks", JSON.stringify(tasks));
+  if (tempTaskId) {
+    tasks[tempTaskId].status = progress;
+    await setItem("tasks", JSON.stringify(tasks));
+  } else {
+    createTemporaryTask();
+    saveNewStatus(progress);
+  }
 }
 
 /**
