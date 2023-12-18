@@ -130,7 +130,7 @@ function clearTemporaryTask() {
  * Clears the fields of a temporary task, saves the changes,
  * deactivates certain buttons and re-renders the content of the main page.
  */
-async function clearTask() {
+async function clearTask(reload) {
   tasks[tempTaskId].title = "";
   tasks[tempTaskId].description = "";
   tasks[tempTaskId].category = [];
@@ -139,7 +139,11 @@ async function clearTask() {
   tasks[tempTaskId].subtasks = [];
   tasks[tempTaskId].subtasksstate = [];
   await setItem("tasks", JSON.stringify(tasks));
-  renderMainpageContent("./html/add_task.html");
+  if (reload == "board") {
+    openAddTaskPage();
+  } else {
+    renderMainpageContent("./html/add_task.html");
+  }
 }
 
 /**

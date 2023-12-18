@@ -354,6 +354,8 @@ async function openAddTaskPage(progress) {
   await sleep(10);
   overlay.classList.add("dialog-show");
   overlay.classList.remove("dialog-hide");
+  clearTaskBtn.classList.add("d-none");
+  clearTaskBtn2.classList.remove("d-none");
   await saveNewStatus(progress);
   changeBackground(overlay);
   initAddTask();
