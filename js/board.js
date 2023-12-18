@@ -4,6 +4,7 @@ let currentDraggedElement;
  * Initialises the board by loading all tasks
  */
 function initBoard() {
+  navbarLinkActive("board");
   renderTasks();
 }
 
@@ -332,13 +333,28 @@ async function saveNewStatus(progress) {
 }
 
 /**
- * Opens the page to add a new task.
+ * Opens the page for adding a task.
+ *
+ * @param {number} progress - The progress used for the task.
  */
 async function openAddTaskPage(progress) {
-  //renderMainpageContent("./html/add_task.html");
   loadW3Include("./html/add_task.html", "add-task-dialog");
-  await sleep(10);
   let overlay = document.getElementById("add-task-dialog");
+  await sleep(10);
+  await openAddTaskPageStyle(overlay);
+  await saveNewStatus(progress);
+  changeBackground(overlay);
+  initAddTask();
+  navbarLinkRemove();
+  navbarLinkActive("board");
+}
+
+/**
+ * Opens the add task page with specific styling and animations.
+ *
+ * @param {HTMLElement} overlay - The overlay element to display.
+ */
+async function openAddTaskPageStyle(overlay) {
   document.body.style.overflow = "hidden";
   document.getElementById("add-task-img-close").classList.remove("d-none");
   document.getElementById("add-task-page").style.backgroundColor =
@@ -359,9 +375,6 @@ async function openAddTaskPage(progress) {
   overlay.classList.remove("dialog-hide");
   clearTaskBtn.classList.add("d-none");
   clearTaskBtn2.classList.remove("d-none");
-  await saveNewStatus(progress);
-  changeBackground(overlay);
-  initAddTask();
 }
 
 async function closeAddTask() {

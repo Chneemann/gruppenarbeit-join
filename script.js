@@ -48,6 +48,25 @@ function ifCurrentUserLogin() {
   }
 }
 
+function navbarLinkActive(link) {
+  if (link == "summary") {
+    navLinkSummary.classList.add("nav-link-active");
+  } else if (link == "addtask") {
+    navLinkAddtask.classList.add("nav-link-active");
+  } else if (link == "board") {
+    navLinkBoard.classList.add("nav-link-active");
+  } else if (link == "contacts") {
+    navLinkContacts.classList.add("nav-link-active");
+  }
+}
+
+function navbarLinkRemove() {
+  navLinkSummary.classList.remove("nav-link-active");
+  navLinkAddtask.classList.remove("nav-link-active");
+  navLinkBoard.classList.remove("nav-link-active");
+  navLinkContacts.classList.remove("nav-link-active");
+}
+
 /**
  * This function allows a dialogue to be displayed from the right in the middle of the screen
  * where a user-defined text is displayed, the display duration is just as variable.
@@ -91,6 +110,7 @@ async function welcomeMsg() {
  * @param {*} func = function to load and render contact list !
  */
 function renderMainpageContent(path) {
+  navbarLinkRemove();
   fetch(path)
     .then((response) => response.text())
     .then((html) => {

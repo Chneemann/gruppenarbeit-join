@@ -2,6 +2,7 @@ let contactEmail;
 let contactPhone;
 
 function initAdress() {
+  navbarLinkActive("contacts");
   renderContacts();
 }
 

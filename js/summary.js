@@ -19,6 +19,7 @@ const months = [
  */
 
 async function initSummary() {
+  navbarLinkActive("summary");
   showAllTasks();
   showInProgress();
   showAwaitFeedback();
