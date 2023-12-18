@@ -16,7 +16,7 @@ function renderContacts() {
   for (let i = 0; i < sortedContacts.length; i++) {
     firstLetter(sortedContacts, i);
     document.getElementById("contact-list").innerHTML += /*html*/ `
-      <div class="single-contact" id='contact-${i}' onclick='viewCard(${sortedContacts[i].id})'>
+      <div class="single-contact" id='contact-${sortedContacts[i].id}' onclick='viewCard(${sortedContacts[i].id})'>
           <div class='badge' style="background-color:${sortedContacts[i]["color"]}" ><span>${sortedContacts[i]["initials"]}</span></div>
           <div class='card'>
             <span>${sortedContacts[i]["name"]}</span>
@@ -224,9 +224,11 @@ function contactActive(id) {
     if (i == id) {
       document.getElementById(`contact-${i}`).classList.add("contact-active");
     } else {
-      document
-        .getElementById(`contact-${i}`)
-        .classList.remove("contact-active");
+      if (i != 0) {
+        document
+          .getElementById(`contact-${i}`)
+          .classList.remove("contact-active");
+      }
     }
   }
 }
@@ -235,6 +237,7 @@ function contactActive(id) {
  * Slides in a card with the contact information
  */
 async function viewCard(i) {
+  contactActive(i);
   for (let j = 0; j < contacts.length; j++) {
     if (contacts[j].id === i) {
       i = j;
@@ -242,7 +245,6 @@ async function viewCard(i) {
   }
   checkMailAndPhone(i);
   renderCardCloseup(i);
-  contactActive(i);
   document.getElementById("view-contact").style.display = "flex";
   let hidden =
     document.getElementById("card-closeup").style.transform ==
