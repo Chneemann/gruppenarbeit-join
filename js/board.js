@@ -319,6 +319,9 @@ async function saveNewStatus(progress) {
       tempTaskId = tasks[i].id;
     }
   }
+  if (!progress) {
+    progress = "todo";
+  }
   if (tempTaskId) {
     tasks[tempTaskId].status = progress;
     await setItem("tasks", JSON.stringify(tasks));
