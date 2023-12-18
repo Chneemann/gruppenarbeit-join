@@ -48,6 +48,11 @@ function ifCurrentUserLogin() {
   }
 }
 
+/**
+ * Activates the active CSS class for the specified navigation bar (navbar) link.
+ *
+ * @param {string} link - The name of the navigation bar (navbar) link to be activated.
+ */
 function navbarLinkActive(link) {
   if (link == "summary") {
     navLinkSummary.classList.add("nav-link-active");
@@ -60,6 +65,9 @@ function navbarLinkActive(link) {
   }
 }
 
+/**
+ * Removes the active CSS class from all navigation bar (navbar) links.
+ */
 function navbarLinkRemove() {
   navLinkSummary.classList.remove("nav-link-active");
   navLinkAddtask.classList.remove("nav-link-active");

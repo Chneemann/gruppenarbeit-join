@@ -19,6 +19,12 @@ function currentUserBadged() {
   }
 }
 
+/**
+ * Returns the initials for the navigation toolbar (navbar), based on the full name.
+ *
+ * @param {string} fullName - The full name from which initials are to be generated.
+ * @returns {string} The initials generated from the first letter of the first name and the surname.
+ */
 function getInitialsNavbar(fullName) {
   let nameParts = fullName.split(" ");
   let firstInitial = nameParts[0].charAt(0).toUpperCase();

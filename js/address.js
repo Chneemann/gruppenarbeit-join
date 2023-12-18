@@ -85,6 +85,11 @@ async function addContact() {
   }
 }
 
+/**
+ * Checks the validity of a name by checking for the format "First name Last name".
+ *
+ * @param {string} name - The name to be checked.
+ */
 function checkNameValidity(name) {
   const fullNameValue = name.trim();
   const nameRegex = /^(\S+\s+\S+)$/;

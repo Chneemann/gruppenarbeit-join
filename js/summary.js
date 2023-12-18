@@ -17,7 +17,6 @@ const months = [
  *
  *Function that is asynch because all tasks must be loaded first
  */
-
 async function initSummary() {
   navbarLinkActive("summary");
   showAllTasks();
@@ -34,7 +33,6 @@ async function initSummary() {
 /**
  * Function that shows all tasks
  */
-
 function showAllTasks() {
   let tasksInBoard = 0;
   for (let i = 0; i < tasks.length; i++) {
@@ -44,6 +42,7 @@ function showAllTasks() {
     }
   }
 }
+
 /**
  * Function that displays all tasks as a sum
  *
@@ -55,6 +54,7 @@ function renderAllTasks(tasksInBoard) {
     <span class="txt_number">${tasksInBoard}</span>
     <span class="txt_todo">Tasks in board</span>`;
 }
+
 /**
  * Function that counts the tasks that need to be completed
  */
@@ -66,6 +66,7 @@ function showInProgress() {
     renderInProgress(counterProgress);
   }
 }
+
 /**
  * Function that displays all tasks in progress
  *
@@ -77,6 +78,7 @@ function renderInProgress(counterProgress) {
     <span class="txt_number">${counterProgress}</span>
     <span class="txt_todo">Tasks in Progress</span>`;
 }
+
 /**
  * Function that counts the tasks in feedback
  */
@@ -88,6 +90,7 @@ function showAwaitFeedback() {
     renderAwaitFeedback(counterAwait);
   }
 }
+
 /**
  * Function that displays all tasks in feedback-awaiting
  *
@@ -99,6 +102,7 @@ function renderAwaitFeedback(counterAwait) {
     <span class="txt_number">${counterAwait}</span>
     <span class="txt_todo">Awaiting feedback</span>`;
 }
+
 /**
  * Function that counts the urgent tasks
  */
@@ -109,6 +113,7 @@ function showUrgent() {
   }
   renderUrgent(counterUrgent);
 }
+
 /**
  * Function that displays the urgent tasks
  *
@@ -129,6 +134,7 @@ function renderUrgent(counterUrgent) {
     getRightDate();
   }
 }
+
 /**
  * Function that counts the todos
  */
@@ -139,6 +145,7 @@ function showToDo() {
     renderToDo(counterToDo);
   }
 }
+
 /**
  * Function that displays the todos
  *
@@ -150,6 +157,7 @@ function renderToDo(counterToDo) {
     <div class="txt_number">${counterToDo}</div>
     <div class="txt_todo">To-do</div>`;
 }
+
 /**
  * Function that counts the dones
  */
@@ -160,6 +168,7 @@ function showDone() {
     renderDone(counterDone);
   }
 }
+
 /**
  * Function that displays the dones
  *
@@ -171,6 +180,7 @@ function renderDone(counterDone) {
     <div class="txt_number">${counterDone}</div>
     <div class="txt_todo">Done</div>`;
 }
+
 /**
  * Function to display the current user
  */
@@ -180,6 +190,7 @@ function displayUsername() {
   greetCurrentUserElement.innerHTML = `
     <span class="welcome_txt">${currentUser[0].username}</span>`;
 }
+
 /**
  * Function to greet the current user
  */
@@ -200,6 +211,7 @@ function displayGreeting() {
   welcome.innerHTML = `
     <h1 class="welcome">${greeting}</h1>`;
 }
+
 /**
  * Function to find the date of the next urgent task
  *
@@ -217,6 +229,7 @@ function findClosestDate() {
   }
   return closestDate;
 }
+
 /**
  * Function to display the date of the next urgent task
  *
@@ -241,6 +254,7 @@ function updateHTML(closestDate) {
       </div>`;
   }
 }
+
 /**
  * Function to perform other functions
  */
