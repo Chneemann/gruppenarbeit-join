@@ -16,7 +16,7 @@ function renderContacts() {
   for (let i = 0; i < sortedContacts.length; i++) {
     firstLetter(sortedContacts, i);
     document.getElementById("contact-list").innerHTML += /*html*/ `
-      <div class="single-contact" id='contact-${i}' onclick='viewCard(${i})'>
+      <div class="single-contact" id='contact-${i}' onclick='viewCard(${sortedContacts[i].id})'>
           <div class='badge' style="background-color:${sortedContacts[i]["color"]}" ><span>${sortedContacts[i]["initials"]}</span></div>
           <div class='card'>
             <span>${sortedContacts[i]["name"]}</span>
@@ -39,7 +39,7 @@ async function openAddContact() {
   <form class="contact-inputs" onsubmit="addContact(); return false">
   <input required type="text" placeholder='Name' id="name" autocomplete="none">
   <input required type="email" placeholder='Email' id="email" autocomplete="none">
-  <input type="tel" placeholder='Phone' id="phone" autocomplete="none"> 
+  <input type="tel" placeholder='Phone' id="phone" autocomplete="none" oninput="validatePhoneNumber(this)">
     <div id="submit-buttons">
       <button class="add-contact-btn-clear" id="delete-close-contact" onclick="closeAddContact()">
       <span>cancel</span>
@@ -74,7 +74,7 @@ async function addContact() {
     let phone = document.getElementById("phone").value;
     let initials = getInitials(name);
     let color = getRandomColor();
-    let id = contacts.length;
+    let id = findLastId(contacts);
     contacts.push({ id, name, initials, email, phone, color });
     setItem("contacts", contacts);
     closeAddContact();
@@ -83,6 +83,17 @@ async function addContact() {
     await sleep(300);
     openInformationWindow("The contact was successfully created", 2500);
   }
+}
+
+function findLastId(jsonData) {
+  let largestId = 0;
+  for (const contact of jsonData) {
+    if (contact.id > largestId) {
+      largestId = contact.id;
+    }
+  }
+  const newId = largestId + 1;
+  return newId;
 }
 
 /**
@@ -105,7 +116,7 @@ function checkNameValidity(name) {
 /**
  * Creates an overlay-container which opens as a dialog
  */
-function renderContactOverlay(id) {
+function renderContactOverlay() {
   document.getElementById("add-contact-overlay").innerHTML = /*html*/ `
     <div id="add-contact" class="dialog-hide" onclick="event.stopPropagation()">
         <div class="add-contact-left"><img src="./assets/img/Join logo light.png" alt="">
@@ -137,7 +148,7 @@ async function openEditContact(id) {
   <form class="contact-inputs" onsubmit="editContact(${id}); return false">
                 <input required type="text" placeholder='Name' id="name" autocomplete="none">
                 <input required type="email" placeholder='Email' id="email" autocomplete="none">
-                <input type="tel" placeholder='Phone' id="phone" autocomplete="none">
+                <input type="tel" placeholder='Phone' id="phone" autocomplete="none" oninput="validatePhoneNumber(this)">
                 <div id="submit-buttons">
     <button class="add-contact-btn-clear" id="delete-close-contact" onclick="deleteContact(${id}), closeAddContact()"><span>Delete</span>
     </button>
@@ -150,6 +161,15 @@ async function openEditContact(id) {
   document.getElementById("delete-close-contact").innerHTML = `
     <span onclick="deleteContact(${id})" >Delete</span>
     `;
+}
+
+/**
+ * Checks and cleans an input to ensure that it only consists of permitted characters.
+ *
+ * @param {HTMLInputElement} input - The input field whose value is to be checked and cleaned.
+ */
+function validatePhoneNumber(input) {
+  input.value = input.value.replace(/[^\d+\/\s-]/g, "");
 }
 
 /**
@@ -215,6 +235,11 @@ function contactActive(id) {
  * Slides in a card with the contact information
  */
 async function viewCard(i) {
+  for (let j = 0; j < contacts.length; j++) {
+    if (contacts[j].id === i) {
+      i = j;
+    }
+  }
   checkMailAndPhone(i);
   renderCardCloseup(i);
   contactActive(i);
