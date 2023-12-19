@@ -1,3 +1,3 @@
-Summary by Kendrazapfen (Dörte Sonnenstuhl)
-Contacts by DeLaurie (Laura Schwarz)
-Board & Add/Edit Task by Chneemann (Andre Kempf)
+- Summary by Kendrazapfen (Dörte Sonnenstuhl)<br>
+- Contacts by DaLauri (Laura Schwarz)<br>
+- Board & Add/Edit Task by Chneemann (Andre Kempf)
